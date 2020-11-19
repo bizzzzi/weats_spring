@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="PartnerMapper">
+
+
+	<!-- 파트너 등록 -->
+	<insert id="partnerInsert" parameterType="PartnerDTO">
+		insert into partner (partner_id,user_id,c_name,c_postnum,c_address,c_detail_address
+		,c_phone,partner_license_num,partner_license_docs)
+		values('P'||partner_seq.nextval,#{user_id},#{c_name},#{c_postnum},#{c_address},#{c_detail_address},
+		#{c_phone},#{partner_license_num},#{partner_license_docs})
+	</insert>
+	
+	<!-- 파트너 등록 확인 -->
+	<update id="partner_verifyUpdate" parameterType="String">
+		update member set partner_verify = 1 
+		where user_id = #{user_id}
+	</update>
+	
+	<!-- 파트너 탈퇴 키 변경 -->
+	<update id="partner_verifyReset" parameterType="String">
+		update member set partner_verify = 0
+		where user_id = #{user_id}
+	</update>
+	
+	<!-- 파트너 마이페이지 -->
+	<select id="partnerSelect" resultType="PartnerDTO" parameterType="String"> 
+		select partner_id,user_id,c_name,c_postnum,c_address,c_detail_address,
+		c_phone,partner_license_num,partner_license_docs
+		from partner
+		where user_id = #{user_id}
+	</select>
+	
+	<!-- 파트너 마이페이지 수정 -->
+	<update id="partnerUpdate" parameterType="PartnerDTO">
+		update partner 
+		set c_name = #{c_name},
+		c_phone = #{c_phone},
+		c_postnum = #{c_postnum},
+		c_address = #{c_address},
+		c_detail_address = #{c_detail_address},
+		partner_license_num = #{partner_license_num},
+		partner_license_docs = #{partner_license_docs} 
+		where partner_id = #{partner_id}
+	</update>
+	
+	<!-- 파트너 탈퇴 -->
+	<delete id="partnerDelete" parameterType="String">
+		delete from partner where partner_id=#{partner_id}
+	</delete>
+	
+	<!-- 레포츠 상품 등록 -->
+ 	<insert id="leportsInsert" parameterType="LeportsDTO">
+		insert into leports (leports_id,partner_id,leports_title,leports_type,leports_loc,
+		leports_regidate,leports_main_img,leports_sub_img1,leports_sub_img2,
+		leports_sub_img3,leports_sub_img4,leports_content)
+		
+		values('L'||leports_seq.nextval,#{partner_id},#{leports_title},#{leports_type},#{leports_loc},
+		to_date(sysdate, 'yy-mm-dd'),#{leports_main_img},#{leports_sub_img1},#{leports_sub_img2},
+		#{leports_sub_img3},#{leports_sub_img4},#{leports_content})
+	</insert> 
+	
+	<!-- 레포츠 아이템 등록 -->
+ 	<insert id="leportsItemInsert" parameterType="LeportsItemDTO">
+		insert into leports_item (leports_id,leports_item_title,leports_summary,
+		leports_price,leports_max_capacity)
+		values(#{leports_id},#{leports_item_title},#{leports_summary},
+		#{leports_price},#{leports_max_capacity})
+	</insert>
+	
+	<!-- 레포츠 이름으로 레포츠아이디 찾기 -->
+	<select id="leportsIdSelect" parameterType="String" resultType="LeportsDTO">
+		select leports_id,leports_title from leports where leports_title=#{leports_title}
+	</select>
+
+	
+	<!-- 레포츠 상품 삭제 -->
+	<delete id="leportsDelete" parameterType="String">
+		delete from leports where leports_id=#{leports_id}
+	</delete>
+		
+	<!-- 등록상품 리스트 -->
+	<select id="ProductControl" resultType="LeportsDTO" parameterType="String">
+		select leports_id,leports_main_img,leports_title 
+		from leports
+		where partner_id=#{partner_id}
+	</select>
+	
+	<!-- 상품 상세 페이지 레포츠 -->
+ 	<select id="ProductDetailLeports" parameterType="String" resultType="leportsDTO">
+		select leports_id,partner_id,leports_title,leports_type,leports_loc,leports_content
+		from leports
+		where leports_id=#{leports_id}
+	</select> 
+	
+	<!-- 상품 상세 페이지 레포츠 아이템 -->
+	<select id="ProductDetailItem" parameterType="String" resultType="leportsItemDTO">
+		select leports_id,leports_item_title,leports_summary,leports_price,leports_max_capacity
+		from leports_item
+		where leports_id=#{leports_id}
+	</select>
+	
+	<!-- 레포츠 수정 -->
+	<update id="ProductUpdateLeports" parameterType="leportsDTO">
+		update leports set leports_type=#{leports_type},leports_title=#{leports_title},
+		leports_loc=#{leports_loc},leports_content=#{leports_content},leports_main_img=#{leports_main_img},
+		leports_sub_img1=#{leports_sub_img1},leports_sub_img2=#{leports_sub_img2},
+		leports_sub_img3=#{leports_sub_img3},leports_sub_img4=#{leports_sub_img4}
+		where leports_id=#{leports_id}
+	</update>
+	<!-- 레포츠 아이템 수정 -->
+	<update id="ProductUpdateItem" parameterType="leportsItemDTO">
+		update leports_item set leports_item_title=#{leports_item_title},
+		leports_summary=#{leports_summary},leports_price=#{leports_price},
+		leports_max_capacity=#{leports_max_capacity}
+		where leports_id=#{leports_id}
+	</update>
+	
+	<!-- 예약관리 -->
+<!-- 	<select id="Reservationleports" parameterType="leportsDTO" resultType="String">
+		select leports_main_img,leports_title 
+		from leports 
+		where partner_id=#{partner_id}
+	</select> -->
+	
+
+	
+	<resultMap type="LeportsDTO" id="leports">
+		<result column="leports_id" property="leports_id"></result>
+		<result column="leports_title" property="leports_title"></result>
+		<result column="leports_main_img" property="leports_main_img"></result>
+	</resultMap>	
+	
+	<resultMap type="ReservationDTO" id="reservation">
+		<result column="rs_date" property="rs_date"/>
+		<result column="rs_persons" property="rs_persons"/>
+		<result column="rs_name" property="rs_name"/>
+		<result column="rs_phone" property="rs_phone"/>
+		<result column="rs_price" property="rs_price"/>
+	</resultMap>
+	
+	<resultMap type="ReservationControlDTO" id="ReservationControl">
+		<collection property="leports" resultMap="leports"></collection>
+		<collection property="reservation" resultMap="reservation"></collection>
+	</resultMap>
+	
+		<!-- 예약관리 -->
+	<select id="ReservationControl" parameterType="String" resultType="ReservationControlDTO">
+		select l.leports_title, l.leports_main_img,l.leports_id,
+		r.rs_date,r.rs_persons,r.rs_name,r.rs_phone,r.rs_price
+		from leports l 
+		join reservation r
+		on l.leports_id = r.leports_id
+		where user_id=#{user_id}
+	</select>
+</mapper>

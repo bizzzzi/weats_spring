@@ -1,0 +1,731 @@
+@charset "UTF-8";
+
+@import
+	url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap')
+	;
+
+@import
+	url('https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@600&display=swap')
+	;
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Noto Sans KR', sans-serif;
+	-ms-user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	user-select: none;
+}
+
+body {
+	margin: 0;
+}
+
+a {
+	text-decoration: none;
+	color: #fafafa;
+}
+
+li {
+	list-style: none;
+}
+
+#mobile {
+	display: none;
+}
+
+/* Header desktop (필요시 사용)
+
+.header {
+	width: 100%;
+	height: 10px;
+	background-color: black;
+} */
+
+/* header desktop */
+#desktop .header {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 8px 12px;
+	/* background-color: rgba(34,34,34, 0.1); */
+}
+
+#desktop .header .logo {
+	padding-left: 24px;
+	color: #fafafa;
+}
+
+#desktop .header .nav {
+	display: flex;
+	justify-content: space-between;
+}
+
+.nav li {
+	padding: 8px 36px;
+}
+
+/* test */
+.topmenu:hover .submenu {
+	height: 93px;
+}
+
+.submenu {
+	position: absolute;
+	height: 0px;
+	overflow: hidden;
+}
+
+.submenu li {
+	padding: 12px 0;
+}
+
+.submenu a {
+	color: #fafafa;
+}
+/* test */
+#desktop .header .login {
+	padding-right: 24px;
+	text-align: center;
+}
+
+#desktop .header .login .ico>i {
+	font-size: 35px;
+}
+
+#desktop .header .login .nav {
+	display: none;
+	position: absolute;
+	top: 56px; /* 헤더 사용시 66px; */
+	right: 0;
+	width: 250px;
+	height: 240px;
+	background-color: rgba(34, 34, 34, 0.3);
+}
+
+#desktop .header .login .nav li {
+	padding: 24px 0;
+}
+
+#desktop .header .login .nav.active {
+	display: block;
+}
+
+/* 모달 */
+.modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 10;
+}
+
+.modal2 {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 10;
+}
+
+.hidden {
+	display: none;
+}
+
+.modalOverlay {
+	background-color: rgba(0, 0, 0, 0.6);
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
+
+.modalOverlay2 {
+	background-color: rgba(0, 0, 0, 0.6);
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
+
+#loginForm {
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	width: 500px;
+	height: 500px;
+	background-color: #fafafa;
+	border-radius: 10px;
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px
+		rgba(0, 0, 0, 0.23);
+	text-align: center;
+}
+
+/* 로그인 폼 */
+.title {
+	font-size: 18px;
+	font-weight: bold;
+	padding: 20px 0;
+}
+
+#loginForm .closeBtn {
+	position: absolute;
+	font-size: 18px;
+	right: 15px;
+	top: 15px;
+	cursor: pointer;
+}
+
+#loginForm .login_info {
+	margin: 45px 0;
+}
+
+#loginForm .login_info .signRow input {
+	width: 300px;
+	height: 47px;
+	margin: 20px 0;
+	font-size: 16px;
+}
+
+#loginForm .login_info .loginBtn {
+	width: 300px;
+	height: 45px;
+	margin: 30px 0;
+	font-size: 16px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+#find a {
+	color: #6d6d6d;
+}
+
+#find a:hover {
+	color: #1b1b1b;
+}
+
+/* 회원가입 폼 test */
+#signUpForm {
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	width: 500px;
+	height: 500px;
+	background-color: #fafafa;
+	border-radius: 10px;
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px
+		rgba(0, 0, 0, 0.23);
+	text-align: center;
+}
+
+#signUpForm .closeBtn2 {
+	position: absolute;
+	font-size: 18px;
+	right: 15px;
+	top: 15px;
+	cursor: pointer;
+}
+
+#signUpForm .signRow {
+	padding: 10px;
+}
+
+#signUpForm .signRow input {
+	width: 100%;
+	border-radius: 2px;
+	border: 0;
+	box-shadow: inset 0 0 0 1px #ced4da;
+	background-color: #fff;
+	font-weight: 500;
+	color: #343a40;
+	transition: box-shadow .2s ease;
+	padding: 10px;
+}
+
+.TermPopup {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 8px 0;
+}
+
+.arrowBtn {
+	font-size: 12px;
+}
+
+#signUpForm .SignUpBtn {
+	width: 300px;
+	height: 45px;
+	margin-top: 8px;
+	font-size: 16px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+/* 이메일체크폼 */
+#mailCheckForm {
+	width: 50%;
+	height: 50%;
+	text-align: center;
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	background-color: white;
+	border-radius: 15px;
+	box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px
+		rgba(0, 0, 0, 0.08);
+}
+
+#mailCheckFormWrap {
+	width: 100%;
+	height: 100vh;
+	background-color: #f6f9fc;
+}
+
+#mailCheckFormWrap #mailCheckForm .mailCheckTitle {
+	margin: 50px 0;
+	font-size: 40px;
+	font-weight: bold;
+}
+
+#mailCheckFormWrap #mailCheckForm .mailCheckFormEmail {
+	font-weight: bold;
+}
+
+#mailCheckFormWrap #mailCheckForm p {
+	margin: 40px 0;
+}
+
+#mailCheckFormWrap #mailCheckForm button {
+	all: unset;
+	cursor: pointer;
+	background-color: white;
+	padding: 5px 0px;
+	width: 80px;
+	border-radius: 5px;
+	box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px
+		rgba(0, 0, 0, 0.08);
+	border: 2px solid rgba(0, 0, 0, 0.2);
+	color: rgba(0, 0, 0, 0.7);
+	text-transform: uppercase;
+	font-weight: 800;
+	font-size: 12px;
+}
+/* passwdCheck */
+#passwdCheckForm {
+	width: 30%;
+	height: 60%;
+	text-align: center;
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	background-color: white;
+	border-radius: 15px;
+	box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px
+		rgba(0, 0, 0, 0.08);
+	padding: 25px;
+}
+
+#passwdCheckContainer {
+	width: 100%;
+	height: 100vh;
+	background-color: #f6f9fc;
+}
+
+#passwdCheckContainer #passwdCheckForm .logo, #passwdCheckContainer #passwdCheckForm .title
+	{
+	font-size: 24px;
+	padding-top: 16px;
+}
+
+#passwdCheckContainer #passwdCheckForm .useremail {
+	font-size: 21px;
+	border-radius: 5px;
+}
+
+#passwdCheckContainer #passwdCheckForm .comment {
+	font-size: 15px;
+	padding-top: 16px;
+}
+
+#passwdCheckContainer #passwdCheckForm .signRow {
+	padding-top: 16px;
+}
+
+#passwdCheckContainer #passwdCheckForm .signRow>input {
+	width: 80%;
+	height: 50px;
+}
+
+#passwdCheckContainer #passwdCheckForm .buttonWrap {
+	padding-top: 16px;
+}
+
+#passwdCheckContainer #passwdCheckForm button {
+	all: unset;
+	cursor: pointer;
+	background-color: white;
+	padding: 5px 0px;
+	margin-top: 16px;
+	width: 80px;
+	border-radius: 5px;
+	box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px
+		rgba(0, 0, 0, 0.08);
+	border: 2px solid rgba(0, 0, 0, 0.2);
+	color: rgba(0, 0, 0, 0.7);
+	text-transform: uppercase;
+	font-weight: 800;
+	font-size: 12px;
+}
+
+/* 비밀번호변경 */
+#passwdChangeForm {
+	width: 30%;
+	height: 60%;
+	text-align: center;
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	background-color: white;
+	border-radius: 15px;
+	box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px
+		rgba(0, 0, 0, 0.08);
+	padding: 25px;
+}
+
+#passwdChangeContainer {
+	width: 100%;
+	height: 100vh;
+	background-color: #f6f9fc;
+}
+
+#passwdChangeContainer #passwdChangeForm .logo, #passwdChangeContainer #passwdChangeForm .title
+	{
+	font-size: 24px;
+	padding-top: 16px;
+}
+
+#passwdChangeContainer #passwdChangeForm .comment {
+	font-size: 15px;
+	padding-top: 16px;
+}
+
+#passwdChangeContainer #passwdChangeForm .signRow {
+	padding-top: 16px;
+}
+
+#passwdChangeContainer #passwdChangeForm .signRow>input {
+	width: 80%;
+	height: 50px;
+}
+
+#passwdChangeContainer #passwdChangeForm .buttonWrap {
+	padding-top: 16px;
+}
+
+#passwdChangeContainer #passwdChangeForm .pwCheck {
+	height: 16px;
+}
+
+#passwdChangeContainer #passwdChangeForm button {
+	all: unset;
+	cursor: pointer;
+	background-color: white;
+	padding: 5px 0px;
+	margin-top: 16px;
+	width: 80px;
+	border-radius: 5px;
+	box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px
+		rgba(0, 0, 0, 0.08);
+	border: 2px solid rgba(0, 0, 0, 0.2);
+	color: rgba(0, 0, 0, 0.7);
+	text-transform: uppercase;
+	font-weight: 800;
+	font-size: 12px;
+}
+
+/* 반응형(모바일) */
+@media screen and (max-width: 768px) {
+	#desktop {
+		display: none;
+	}
+	#mobile {
+		display: block;
+	}
+
+	/* Header mobile */
+	.headerM {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 10px 36px;
+		/* background-color: rgba(34,34,34, 0.3); */
+		color: #fafafa;
+	}
+	.headerM_menuBtn {
+		font-size: 24px;
+		cursor: pointer;
+		z-index: 1;
+	}
+
+	/* Navbar mobile */
+	.navbarM {
+		display: none;
+	}
+	.navbarM.active {
+		display: block;
+	}
+	.navbarM {
+		width: 100%;
+		height: 100%;
+		background-color: #212121;
+		position: absolute;
+		top: 0;
+	}
+	.navbarM_menu {
+		width: 100%;
+		height: 80%;
+		padding: 90px 0 20px 16px;
+		font-size: 28px;
+	}
+	.submenuM_leports, .submenuM_trade {
+		display: none;
+	}
+	.submenuM_leports.active, .submenuM_trade.active {
+		display: block;
+	}
+	.navbarM_login {
+		width: 100%;
+		height: 10%;
+		padding: 1.5em 2.2em;
+		text-align: center;
+	}
+	.navbarM_signUp {
+		width: 100%;
+		height: 10%;
+		padding: 1.5em 2.2em;
+		text-align: center;
+		background-color: #fafafa;
+	}
+	.navbarM_signUp>a {
+		color: #212121;
+	}
+}
+
+/* Main Contents (임시값) */
+main_contents {
+	/* 	width: 100%; */
+	
+}
+
+video {
+	position: fixed;
+	top: 0;
+	left: 0;
+	min-width: 100%;
+	min-height: 100%;
+	background-size: cover;
+	background-position: center;
+	z-index: -1;
+}
+
+/* recommend */
+#recommend_contents {
+	width: 100%;
+}
+
+#recommend_contents .banner {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	width: 100%;
+	height: 800px;
+	background-color: grey;
+	text-align: center; /* 임시값 */
+	line-height: 800px; /* 임시값 */
+}
+
+#recommend_contents .banner_box {
+	height: 720px; /* banner height - 헤더 height */
+}
+
+#recommend_contents .recommend_title {
+	width: 100%;
+	height: 300px;
+	line-height: 300px;
+	text-align: center;
+	background-color: #E1E2E1;
+}
+
+/* 슬라이더 */
+#recommend_contents .recommend_leports_slider {
+	height: 500px;
+	padding: 32px;
+}
+
+#recommend_contents .recommend_leports_slider .swiper-container {
+	width: 100%;
+	height: 100%;
+}
+
+#recommend_contents .recommend_leports_slider .swiper-container .swiper-wrapper .swiper-slide
+	{
+	text-align: center;
+	font-size: 18px;
+	background: grey;
+	/* Center slide text vertically */
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+	border-radius: 50%;
+}
+
+.swiper-button-prev:after, .swiper-button-next:after {
+	color: black;
+}
+
+/* 슬라이더 끝 */
+#recommend_contents .inside1 {
+	background-color: #E1E2E1;
+	text-align: center;
+	padding: 100px 0;
+}
+
+#recommend_contents .inside2 {
+	background-color: grey;
+	text-align: center;
+	padding: 100px 0;
+}
+
+/* Resale 중고거래 - 혜빈*/
+#Resale_list .trade_nav>ul {
+	display: flex;
+	justify-content: center;
+} /* 레포츠 리스트 */
+#leports_list .leports_category_selector_wrap {
+	margin: 0 10%;
+	background-color: grey;
+}
+
+#leports_list .leports_category_selector_wrap .leports_category_selector
+	{
+	display: flex;
+	width: 100%;
+	/* justify-content: space-between; */
+}
+
+#leports_list .leports_category_selector_wrap .leports_category_selector>li
+	{
+	width: 100%;
+	padding: 0 10px;
+	text-align: center;
+	border: 1px solid black;
+}
+
+#leports_list .leports_list_sort_wrap {
+	width: 100%;
+	height: 30px;
+	margin: 10px 0;
+	background-color: red;
+}
+
+#leports_list .leports_list_sort_wrap .leports_list_sort {
+	position: absolute;
+	right: 45px;
+}
+
+#leports_list .leports_items {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+#leports_list .leports_items .leports_item {
+	border: 1px solid black;
+	width: 300px;
+	height: 300px;
+	margin: 10px;
+}
+
+/* 달력 */
+.scriptCalendar a {
+	color: #000000;
+	text-decoration: none;
+}
+
+.scriptCalendar {
+	text-align: center;
+}
+
+.scriptCalendar>thead>tr>td {
+	width: 50px;
+	height: 50px;
+}
+
+.scriptCalendar>thead>tr:first-child>td {
+	font-weight: bold;
+}
+
+.scriptCalendar>thead>tr:last-child>td {
+	background-color: #f0f3f5;
+}
+
+.scriptCalendar>tbody>tr>td {
+	width: 50px;
+	height: 50px;
+}
+
+#Resale_list .trade_nav>ul>li {
+	padding: 10px;
+}
+
+
+/* 중고거래 - 혜빈 */
+.trade_nav .option_btn {
+	display: flex;
+	justify-content: center;
+}
+
+.trade_nav .option_btn a {
+	padding: 10px;
+	background: gray;
+}
+
+.productsList {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.trade_list {
+	width: 25%;
+	padding: 30px;
+}
+
+
+/* trade_recomments 대댓글 기능 - 혜빈 */
+.comment_cont.re{
+	background:#f7f9fa;
+	margin-left:20px;
+	border-bottom:2px solid #dae1e6;
+}

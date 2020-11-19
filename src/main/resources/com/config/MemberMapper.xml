@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MemberMapper">
+	<!-- 회원가입 -->
+	<insert id="memberAdd" parameterType="MemberDTO">
+		insert into member(user_id, user_name, user_email,user_pw, salt, user_verify, partner_verify) 
+			values('M'||member_seq.nextval, #{user_name}, #{user_email}, #{user_pw}, #{salt}, #{user_verify}, #{partner_verify})
+	</insert>
+	
+	<!-- salt 찾기 -->
+	<select id="searchSalt" parameterType="String" resultType="String">
+		select salt from member where user_email = #{user_email}
+	</select>
+	
+	<!-- 로그인 -->
+	<select id="memberLogin" parameterType="hashmap" resultType="MemberDTO">
+		select * from member 
+		where user_email = #{user_email} and user_pw = #{user_pw}
+	</select>
+	
+	<!-- 이메일 인증 확인  -->
+	<update id="user_verifyUpdate" parameterType="String">
+		update member set user_verify = 1 
+		where user_email = #{user_email}
+	</update>
+	
+	<!-- 비밀번호 변경 -->
+	<update id="pwUpdate" parameterType="hashmap">
+		update member set user_pw = #{user_pw} 
+		where user_email = #{user_email}
+	</update>
+	
+	<!-- 회원 탈퇴 -->
+	<delete id="memberDelete" parameterType="String">
+		delete from member where user_email = #{user_email}
+	</delete>
+</mapper>
