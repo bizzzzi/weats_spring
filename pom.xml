@@ -3,9 +3,9 @@
 		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.shop</groupId>
-	<artifactId>shop</artifactId>
-	<name>ShopMiniSpringProject</name>
+	<groupId>com.weats</groupId>
+	<artifactId>weats</artifactId>
+	<name>weatsProject</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
