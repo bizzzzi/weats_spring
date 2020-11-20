@@ -48,4 +48,9 @@ public class MemberDAO {
 		return template.delete("memberDelete", user_email);
 	}
 
+	public int emailCheck(String user_email) {
+		int n = template.selectOne("emailCheck", user_email);
+		return n;
+	}
+
 }

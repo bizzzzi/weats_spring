@@ -48,4 +48,9 @@ public class MemberService {
 		// TODO Auto-generated method stub
 		
 	}
+
+	public int emailCheck(String user_email) {
+		int n = dao.emailCheck(user_email);
+		return n;
+	}
 }

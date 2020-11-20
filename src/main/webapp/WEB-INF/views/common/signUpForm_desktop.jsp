@@ -10,8 +10,9 @@
 				<div class="closeBtn2">❌</div>
 				<hr>
 				<div class="signRow">
-					<input type="email" name="user_email" class="userEmail"
+					<input type="email" name="user_email" class="userEmail" id="user_email"
 						placeholder="이메일 주소(아이디)" />
+						<span id="result" style="display:none"></span>
 				</div>
 				<div class="signRow">
 					<input type="text" name="user_name" class="userName"
