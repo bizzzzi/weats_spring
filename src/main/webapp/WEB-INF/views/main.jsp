@@ -1,6 +1,7 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,14 +11,9 @@
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <script src="https://kit.fontawesome.com/400289e08c.js" crossorigin="anonymous"></script>
 
-<% String mesg = (String) session.getAttribute("mesg");
-	if(mesg != null) {
-
-%>
-<script> alert("<%=mesg%>")</script>
-<% }
-	session.removeAttribute("mesg");
-%>
+<c:if test="${!empty mesg }"> <!-- /memberAdd -->
+	<script>alert("${mesg}")</script> <!-- 회원가입, 로그인 시 mesg넘어옴(addFlashAttribute) -->
+</c:if>
 
 </head>
 <body>
