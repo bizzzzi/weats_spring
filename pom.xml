@@ -89,7 +89,13 @@
 			</exclusions>
 			<scope>runtime</scope>
 		</dependency>
-
+		<!-- logbak -->
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.1.7</version>
+		</dependency>
+		
 		<!-- @Inject -->
 		<dependency>
 			<groupId>javax.inject</groupId>
