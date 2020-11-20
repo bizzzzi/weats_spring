@@ -4,7 +4,7 @@
 <div class="modal2 hidden">
 	<div class="modalOverlay2"></div>
 	<div id="signUpForm">
-		<form action="MemberAddServlet" method="POST">
+		<form action="userJoin" method="POST">
 			<div id="signUp">
 				<div class="title">회원가입</div>
 				<div class="closeBtn2">❌</div>
