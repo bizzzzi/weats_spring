@@ -33,7 +33,7 @@
 	</div>
 	<div id="main_contents">
 		<video autoplay="autoplay" loop="loop" muted="muted">
-			<source src="../video/main.mp4" type="video/mp4">
+			<source src="video/main.mp4" type="video/mp4">
 		</video>
 	</div>
 <script type="text/javascript" src="js/main.js"></script>
