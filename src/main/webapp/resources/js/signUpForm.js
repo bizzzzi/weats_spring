@@ -3,6 +3,7 @@ let username=document.querySelector("#signUp .userName");
 let userpasswd=document.querySelector("#signUp .userPasswd");
 let userpasswd2=document.querySelector("#signUp .userPasswd2");
 const SignUpBtn=document.querySelector(".SignUpBtn");
+let emailCheck = document.querySelector("#result");
 
 //input null체크
 function nullCheck(e){
@@ -21,6 +22,11 @@ function nullCheck(e){
 	}else if(userpasswd2.value.length==0){
 		alert("비밀번호 확인을 입력해주세요");
 		userpasswd2.focus();
+		e.preventDefault();
+	} else if(emailCheck.innerText == "이메일 중복"){
+		alert("이미 가입된 이메일입니다");
+		useremail.value = null;
+		useremail.focus();
 		e.preventDefault();
 	} else {
 		Check(); //약관동의 체크 메소드
@@ -54,10 +60,6 @@ function passwdCheck(e){
 	document.getElementById("pwCheck").innerHTML=str;
 }
 
-//이메일 중복,@체크
-function emailCheck(){
-
-}
 
 //전체 약관선택 체크박스 --onclick="checkall(this)"//class="ck"추가
 function checkall(n) {
@@ -71,3 +73,22 @@ function checkall(n) {
 
 SignUpBtn.addEventListener("click",nullCheck);
 userpasswd2.addEventListener("keyup",passwdCheck);
+
+$("#user_email").on("keyup", function() {
+	console.log("XXXX");
+	$.ajax({
+		type : "GET",
+		url : "emailCheck", //서버 주소
+		data : {
+			user_email : $("#user_email").val(), //전송 데이터
+		},
+		dataType : "text", //응답 데이터 타입
+		success : function(data, status, xhr) {
+			console.log(data);
+			$("#result").text(data);
+		},
+		error : function(xhr, status, error) {
+			console.log("error");
+		}
+	});
+});// end
