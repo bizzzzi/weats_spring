@@ -92,3 +92,20 @@ $("#user_email").on("keyup", function() {
 		}
 	});
 });// end
+
+$("#userJoin").on("submit", function() {
+	$.ajax({
+		type : "GET",
+		url : "emailCheck", //서버 주소
+		data : {
+			user_email : $("#user_email").val(), //전송 데이터
+		},
+		dataType : "text", //응답 데이터 타입
+		success : function(data, status, xhr) {
+			location.href = 'mailCheck';
+		},
+		error : function(xhr, status, error) {
+			console.log("error");
+		}
+	});
+});// end

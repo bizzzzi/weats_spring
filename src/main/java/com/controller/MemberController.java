@@ -22,7 +22,7 @@ public class MemberController {
 	
 	@Autowired
 	UserVerify userVerify;
-		
+
 	@RequestMapping("/userJoin")
 	public String userJoin(String user_name, String user_email, String user_pw
 			, HttpSession session, RedirectAttributes rttr) {
@@ -40,7 +40,7 @@ public class MemberController {
 		String next = null;
 		if(n != 0) {
 			String code = SHA256.getEncrypt(user_email, "cos");
-			String localhost = "http://localhost:8080/weats/";
+			String localhost = "http://localhost:8900/weats/";
 			String content = "다음 링크에 접속하여 이메일 인증  <a href='"+localhost+"checkEmail?code="+code+"'>이메일 인증하기</a>" ;
 			
 			String title = "weats 이메일 인증";
@@ -48,14 +48,20 @@ public class MemberController {
 			session.setAttribute("code", code);
 			rttr.addFlashAttribute("content", content);
 			rttr.addFlashAttribute("title", title);
-			next = "redirect:mailSending";
-			
+			next = "/mailSending";
+			System.out.println("test");
+			System.out.println(next);
 		} else {
 			rttr.addFlashAttribute("mesg", "회원가입 실패, 다시 시도해주세요.");
 			next = "redirect:/";
 		}
-		
 		return next;
+	}
+	
+	
+	@RequestMapping("/mailCheck")
+	public String test() {
+		return "mailCheck";
 	}
 	
 	@RequestMapping(value="/emailCheck", produces="text/plain;charset=UTF-8")

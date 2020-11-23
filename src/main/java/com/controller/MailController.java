@@ -27,7 +27,8 @@ public class MailController {
 	MemberService service;
 	
 	@RequestMapping("/mailSending")
-	public String mailSending(HttpServletRequest request, HttpSession session) {
+	public void mailSending(HttpServletRequest request, HttpSession session) {
+		System.out.println("test1");
 		String setfrom = "weats";
 		String tomail = "";
 		String title = "";
@@ -54,8 +55,7 @@ public class MailController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-		return "mailCheck";
+//		return "mailCheck";
 	}
 	
 	@RequestMapping("/checkEmail")
