@@ -1,12 +1,13 @@
 <%@page import="com.dto.MemberDTO"%>
 <%@page import="com.dto.PartnerDTO"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
 
-<%
+<%-- <%
 	PartnerDTO pdto=(PartnerDTO)session.getAttribute("partner");
-
 
 		String partner_id=pdto.getPartner_id();
 		String c_name=pdto.getC_name();
@@ -20,7 +21,7 @@
 	MemberDTO dto=(MemberDTO)session.getAttribute("login");
 	String user_id=pdto.getUser_id();
 	
-%>
+%> --%>
 
  
 <!DOCTYPE html>
@@ -35,13 +36,13 @@
 
   <div class="partner_mypage_form">
     <form method="post">
-	    <input type="hidden" name="partner_id" value="<%=partner_id%>">
-	    <input type="hidden" name="user_id" value="<%=user_id%>">
+	    <input type="hidden" name="partner_id" value="${pdto.partner_id}">
+	    <input type="hidden" name="user_id" value="${dto.user_id}">
       <div class="box">
         <div class="title">상호 이름</div>
         <div class="sub_box">
           <div>
-            <input type="text" class="c_name" name="c_name" value="<%=c_name%>">
+            <input type="text" class="c_name" name="c_name" value="${pdto.c_name}">
           </div>
         </div>
       </div>
@@ -49,7 +50,7 @@
         <div class="title">연락처</div>
         <div class="sub_box">
           <div>
-            <input type="text" class="c_phone" name="c_phone" value="<%=c_phone%>">
+            <input type="text" class="c_phone" name="c_phone" value="${pdto.c_phone}">
           </div>
           <div class="comment">
             상시 가능한 연락처를 입력해주세요.
@@ -60,10 +61,10 @@
         <div class="title">주소</div>
         <div class="sub_box">
           <div>
-            <input type="text" name="c_postnum" id="sample4_postcode" value="<%=c_postnum%>">
+            <input type="text" name="c_postnum" id="sample4_postcode" value="${pdto.c_postnum}">
             <input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
-            <input type="text" name="c_address" id="sample4_roadAddress" value="<%=c_address%>"><br>
-            <input type="text" name="c_detail_address" id="c_detail_address" value="<%=c_detail_address%>">
+            <input type="text" name="c_address" id="sample4_roadAddress" value="${pdto.c_address}"><br>
+            <input type="text" name="c_detail_address" id="c_detail_address" value="${pdto.c_detail_address}">
           </div>
         </div>
       </div>
@@ -71,7 +72,7 @@
         <div class="title">사업자 등록번호</div>
         <div class="sub_box">
           <input type="text" name="partner_license_num" class="partner_license_num" size="23" maxlength="10"
-            value="<%=partner_license_num%>">
+            value="${pdto.partner_license_num}">
         </div>
       </div>
       <div class="box">

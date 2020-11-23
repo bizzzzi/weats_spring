@@ -2,6 +2,8 @@
 <%@page import="com.dto.ReservationDTO"%>
 <%@page import="java.util.List"%>
 <%@page import="com.dto.LeportsDTO"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  
@@ -26,9 +28,8 @@
       <li>연락처</li>
       <li>가격</li>
     </ul>
- 
-      <%
-
+    
+<%-- <%
 List<ReservationControlDTO> list=(List<ReservationControlDTO>)session.getAttribute("leportsList");
 	
        for(int i=0; i<list.size(); i++){
@@ -43,17 +44,19 @@ List<ReservationControlDTO> list=(List<ReservationControlDTO>)session.getAttribu
 	String rs_phone=dto.getRs_phone();
 	String rs_price=dto.getRs_price(); 
 
-%> 
+%>  --%>
+<c:forEach var="dto" items="${leportsList}" varStatus="status">
     <ul class="content">
-      <li class="leports_main_img"><img src="#" alt="상품 대표 이미지"><%=leports_main_img %></li>
-      <li class="leports_title"><%=leports_title %></li>
-      <li class="rs_date"><%=rs_date%></li>
-      <li class="rs_persons"><%=rs_persons %></li>
-      <li class="rs_name"><%=rs_name %></li>
-      <li class="rs_phone"><%=rs_phone %></li>
-      <li class="rs_price"><%=rs_price %></li>
+      <li class="leports_main_img"><img src="#" alt="상품 대표 이미지">${dto.leports_main_img}</li>
+      <li class="leports_title">${dto.leports_title}</li>
+      <li class="rs_date"><${dto.rs_date}</li>
+      <li class="rs_persons">${dto.rs_persons}</li>
+      <li class="rs_name">${dto.rs_name}</li>
+      <li class="rs_phone">${dto.rs_phone}</li>
+      <li class="rs_price">${dto.rs_price}</li>
     </ul>
  </div>  
-<%} %>
+</c:forEach>
+<%-- <%} %> --%>
 </body>
 </html>

@@ -1,8 +1,10 @@
 <%@page import="com.dto.LeportsItemDTO"%>
 <%@page import="com.dto.LeportsDTO"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
+<%-- <%
   	LeportsDTO dto=(LeportsDTO)session.getAttribute("leports");
 	String leports_title=dto.getLeports_title(); 
 	String leports_type=dto.getLeports_type();
@@ -15,7 +17,7 @@
 	String leports_price=idto.getLeports_price();
 	String leports_max_capacity=idto.getLeports_max_capacity();
 	String leports_item_title=idto.getLeports_item_title();
-%>    
+%>     --%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,12 +29,12 @@
   <hr>
   <div class="product_control_page">
     <form method="post">
-<input type="hidden" name="leports_id" value="<%=leports_id%>">
+<input type="hidden" name="leports_id" value="${dto.leports_id}">
       <div class="box">
         <div class="title">상품 이름</div>
         <div class="sub_box">
           <div>
-            <input type="text" name="leports_title" class="leports_title" value="<%=leports_title%>">
+            <input type="text" name="leports_title" class="leports_title" value="${dto.leports_title}">
           </div>
         </div>
       </div>
@@ -40,7 +42,7 @@
         <div class="title">한줄 요약</div>
         <div class="sub_box">
           <div>
-            <input type="text" name="leports_summary" class="leports_summary" value="<%=item_summary%>">
+            <input type="text" name="leports_summary" class="leports_summary" value="${idto.item_summary}">
           </div>
         </div>
       </div>
@@ -48,7 +50,7 @@
         <div class="title">상품 소개</div>
         <div class="sub_box">
           <div>
-            <textarea name="leports_content" class="leports_content" cols="30" rows="10"><%=leports_content %></textarea>
+            <textarea name="leports_content" class="leports_content" cols="30" rows="10">${dto.leports_content}</textarea>
           </div>
         </div>
       </div>
@@ -112,7 +114,7 @@
         <div class="title">레포츠 아이템 이름</div>
         <div class="sub_box">
           <div>
-            <input type="text" name="leports_item_title" class="leports_item_title" value="<%=leports_item_title%>">
+            <input type="text" name="leports_item_title" class="leports_item_title" value="${idto.leports_item_title}">
           </div>
         </div>
       </div>
@@ -120,7 +122,7 @@
         <div class="title">가격(원)</div>
         <div class="sub_box">
           <div>
-            <input type="text" name="leports_price" class="leports_price" value="<%=leports_price%>">
+            <input type="text" name="leports_price" class="leports_price" value="${idto.leports_price}">
           </div>
         </div>
       </div>
@@ -128,7 +130,7 @@
         <div class="title">최대 수용 인원</div>
         <div class="sub_box">
           <div>
-            <input type="number" name="leports_max_capacity" class="leports_max_capacity" value="<%=leports_max_capacity%>">
+            <input type="number" name="leports_max_capacity" class="leports_max_capacity" value="${idto.leports_max_capacity}">
           </div>
         </div>
       </div>

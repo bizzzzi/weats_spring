@@ -1,21 +1,24 @@
 <%@page import="com.dto.MemberDTO"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-    <%
+    <%-- <%
     	MemberDTO dto=(MemberDTO)session.getAttribute("login");
     	System.out.print("파트너 등록: "+dto.getUser_id());
     	String user_id="";
     	if(dto!=null){
     		user_id=dto.getUser_id();
     	}
-    %>
+    %> --%>
+    
 <h1 class="main_title">파트너 등록</h1>
   <hr>
 
   <div class="partner_form" id="partner">
     <form action="PartnerAddServlet" method="post">
-    <input type="hidden" name="user_id" value="<%=user_id%>">
+    <input type="hidden" name="user_id" value="${dto.user_id}">
       <div class="box">
         <div class="title">상호 이름*</div>
         <div class="sub_box">

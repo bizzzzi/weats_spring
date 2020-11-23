@@ -1,14 +1,14 @@
 <%@page import="com.dto.LeportsDTO"%>
 <%@page import="com.dto.PartnerDTO"%>
-<%@page import="com.dto.MemberDTO"%>
+<%@page import="com.dto.MemberDTO"%><%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<%
+<%-- <%
 LeportsDTO dto = (LeportsDTO) session.getAttribute("leports");
 String leports_id=dto.getLeports_id();
-
-%>
+%> --%>
 <!DOCTYPE html>
 <html>
 
@@ -24,7 +24,7 @@ String leports_id=dto.getLeports_id();
   <div class="partner_registration_form">
     <form action="ProductAddItemServlet" method="post">
 
-      <input type="hidden" name="leports_id" value="<%=leports_id%>">
+      <input type="hidden" name="leports_id" value="${dto.leports_id}">
 
       <div class="box">
         <div class="title">레포츠 아이템 이름</div>

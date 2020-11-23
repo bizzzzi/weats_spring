@@ -1,7 +1,15 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	
-	<%
+<c:if test="${! empty mesg}">
+	<script>
+		alert('${mesg}');
+	</script>
+</c:if>
+	
+<%-- <%
 	String mesg=(String)session.getAttribute("partnerUpdateMesg");
 	if(mesg!=null){
 %>    
@@ -11,7 +19,8 @@ alert('<%=mesg%>');
 <%
 	}
 	session.removeAttribute("partnerUpdateMesg");
-%>
+%> --%>
+
 <!DOCTYPE html>
 <html>
 <head>
