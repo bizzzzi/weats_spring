@@ -33,7 +33,7 @@
 		</p>
 	</div>
 	<!-- 댓글 -->
-	<form action="TradeCommentWrite" method="POST">
+	<form action="loginCheck/TradeCommentWrite" method="POST">
 		<strong>Comments</strong>
 		<br>
 		<input type="hidden"  name="trade_depth" value=0>

@@ -14,6 +14,7 @@
 	<mvc:default-servlet-handler/>
 	<mvc:view-controller path="/" view-name="main"/>
 	<mvc:view-controller path="/tradeList" view-name="tradeList"/>
+	<mvc:view-controller path="/tradeWrite" view-name="tradeWrite"/>
 
 
 	<mvc:resources location="/resources/" mapping="/**"/>

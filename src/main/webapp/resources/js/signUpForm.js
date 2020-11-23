@@ -91,4 +91,4 @@ $("#user_email").on("keyup", function() {
 			console.log("error");
 		}
 	});
-});// end
+});// end-

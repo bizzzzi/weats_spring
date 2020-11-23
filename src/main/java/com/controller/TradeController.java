@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
+import java.lang.reflect.Member;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,16 +47,22 @@ public class TradeController {
 
     //중고거래 상품 등록
     @RequestMapping(value="/loginCheck/TradeWrite")
-    public String TradeWrite(HttpSession session,TradeDTO dto){
+    public String TradeWrite(){
+        return "redirect:../tradeWrite";
+    }
+
+    //중고거래 상품 등록
+    @RequestMapping(value="TradeWrite")
+    public String TradeWriteForm(HttpSession session,TradeDTO dto){
         MemberDTO member = (MemberDTO)session.getAttribute("login");
         dto.setUser_id(member.getUser_id());
-        System.out.println(dto);
-        return null;
+        int result = service.TradeWrite(dto);
+        System.out.println("중고거래 상품등록"+"\t"+result);
+        return "redirect:/TradeList";
     }
 
     @RequestMapping(value="/TradeDetail")
     public ModelAndView tradeDetail(String trade_id){
-        System.out.println("tradeDetail:"+trade_id);
         TradeDTO dto=service.TradeDetail(trade_id);
         List<TradeCommentsDTO> list=service.CommentList(trade_id);
         ModelAndView mav=new ModelAndView();
@@ -68,8 +75,20 @@ public class TradeController {
         mav.addObject("dto",dto);
         mav.addObject("commentsList",list);
         mav.addObject("recommentsList",list2);
-        System.out.println(list2);
         mav.setViewName("tradeDetail");
         return mav;
+    }
+    @RequestMapping(value = "loginCheck/TradeCommentWrite")
+    public String TradeComment(HttpSession session,TradeCommentsDTO cDTO){
+        System.out.println("댓글");
+        MemberDTO mDTO = (MemberDTO)session.getAttribute("login");
+        cDTO.setUser_id(mDTO.getUser_id());
+        int result = 0;
+        String nextPage = null;
+        if(cDTO.getTrade_depth() == 0){
+            result = service.CommentWrite(cDTO);
+            System.out.println("댓글 결과: "+"\t"+result);
+        }
+        return "redirect:../TradeDetail?trade_id="+cDTO.getTrade_id();
     }
 }
