@@ -4,15 +4,15 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!-- div class="Resale_list" -->
 
-
 <div class="trade_nav">
 	<ul>
 		<li><a href="TradeList?trade_type=판매">판매</a></li>
 		<li><a href="TradeList?trade_type=대여">대여</a></li>
 	</ul>
 	<div class="option_btn">
-		<a href="TradeList?trade_type=self&user_id=M3">내가 등록한 제품</a> <a
-			href="TradeForm">판매/대여 등록</a>
+<%--		<a href="TradeList?trade_type=self&user_id=M3">내가 등록한 제품</a>--%>
+		<a href="loginCheck/TradeList">내가 등록한 제품</a>
+		<a href="loginCheck/TradeWrite">판매/대여 등록</a>
 	</div>
 </div>
 
