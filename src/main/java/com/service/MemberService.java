@@ -28,15 +28,13 @@ public class MemberService {
 	//회원의 salt키 추출
 	public String getSaltMember(String user_email) {
 		// TODO Auto-generated method stub
-		String salt = null;
-		return salt;
+		return dao.getSaltMember(user_email);
 	}
 	
 	//로그인 
 	public MemberDTO memberLogin(Map<String, String> map) {
 		// TODO Auto-generated method stub
-		MemberDTO dto = null; 
-		return dto;
+		return dao.memberLogin(map);
 	}
 
 	public void pwUpdate(Map<String, String> map) {

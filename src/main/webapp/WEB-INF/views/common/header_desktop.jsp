@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <div class="header">
 	<div class="logo">
-		<h2><a href="main.jsp">Acorn</a></h2>
+		<h2><a href="/weats/">Acorn</a></h2>
 	</div>
 	<ul class="nav">
 		<li><a href="RecommendServlet">추천</a></li>
@@ -37,7 +37,7 @@
 			<ul>
 				<li class="mypageOpenBtn"><a href="MainMemberMyPage.jsp">마이페이지</a></li>
 				<li><a href="MainPartnerForm.jsp">파트너등록</a></li>
-				<li class="logoutOpenBtn"><a href="MemberLogoutServlet">로그아웃</a></li>
+				<li class="logoutOpenBtn"><a href="logout">로그아웃</a></li>
 			</ul>
 		</div>
 <%
@@ -48,7 +48,7 @@
 			<ul>
 				<li class="mypageOpenBtn"><a href="#">마이페이지</a></li>
 				<li class="productRegisterOpenBtn"><a href="MainPartner.jsp">파트너 페이지</a></li>
-				<li class="logoutOpenBtn"><a href="MemberLogoutServlet">로그아웃</a></li>
+				<li class="logoutOpenBtn"><a href="logout">로그아웃</a></li>
 			</ul>
 		</div>
 <%

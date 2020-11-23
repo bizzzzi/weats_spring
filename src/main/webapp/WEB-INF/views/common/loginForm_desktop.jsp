@@ -5,7 +5,7 @@
 <div class="modal hidden">
 	<div class="modalOverlay"></div>
 	<div id="loginForm">
-		<form action="MemberLoginServlet" method="POST">
+		<form action="login" method="POST">
 			<div class="title">로그인</div>
 			<div class="closeBtn">❌</div>
 			<hr>

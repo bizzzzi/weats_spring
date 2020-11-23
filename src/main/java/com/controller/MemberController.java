@@ -1,5 +1,6 @@
 package com.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.dto.MemberDTO;
 import com.encrypt.SHA256;
+import com.encrypt.UserVerify;
 import com.service.MemberService;
 
 @Controller
@@ -17,6 +19,9 @@ public class MemberController {
 	
 	@Autowired
 	MemberService service;
+	
+	@Autowired
+	UserVerify userVerify;
 		
 	@RequestMapping("/userJoin")
 	public String userJoin(String user_name, String user_email, String user_pw
@@ -65,5 +70,29 @@ public class MemberController {
 		return mesg;
 	}
 	
+	@RequestMapping("/login")
+	public String login(String user_email, String user_pw, HttpSession session, RedirectAttributes rttr) {
+		System.out.println(user_email+"\t"+user_pw);
+		MemberDTO dto = userVerify.verify(user_email, user_pw);
+		System.out.println(dto);
+		String next = "";
+		if(dto!=null) {
+			dto.setUser_pw(null);
+			rttr.addFlashAttribute("mesg", "로그인 성공");
+			session.setAttribute("login", dto);
+			next = "redirect:/"; /* 파트너 verify 컨트롤러로 이동하게 수정 필요 */
+		}else { 
+			rttr.addFlashAttribute("mesg", "로그인 실패");
+			next = "redirect:/";
+		}
+		return next;
+	}
+	
+	@RequestMapping("/logout")
+	public String logout(HttpSession session, RedirectAttributes rttr) {
+		session.removeAttribute("login");
+		rttr.addFlashAttribute("mesg", "로그아웃");
+		return "redirect:/";
+	}
 	
 }
