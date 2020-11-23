@@ -1,5 +1,8 @@
 package com.dto;
 
+import org.apache.ibatis.type.Alias;
+
+@Alias("TradeDTO")
 public class TradeDTO {
 	private String trade_id;
 	private String user_id;

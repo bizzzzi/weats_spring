@@ -13,7 +13,19 @@
 	<mvc:annotation-driven/>
 	<mvc:default-servlet-handler/>
 	<mvc:view-controller path="/" view-name="main"/>
+	<mvc:view-controller path="/tradeList" view-name="tradeList"/>
+
+
 	<mvc:resources location="/resources/" mapping="/**"/>
+	<mvc:resources location="/WEB-INF/views/" mapping="/**"/>
+
+	<!-- interceptor 등록 -->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/loginCheck/**"/>
+			<ref bean="loginCheckInterceptor"/>
+		</mvc:interceptor>
+	</mvc:interceptors>
 
 	<!-- 메일 -->
 	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
@@ -29,12 +41,9 @@
 			</props>
 		</property>
 	</bean>
-	
-	
-	
+
 	<!-- jsp 전담 ViewResolver -->
-	<bean
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
