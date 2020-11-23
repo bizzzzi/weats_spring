@@ -24,8 +24,6 @@ public class MemberController {
 		
 		String salt = SHA256.generateSalt();
 		user_pw = SHA256.getEncrypt(user_pw,salt);
-		System.out.println(salt);
-		System.out.println(user_pw);
 		
 		MemberDTO dto = new MemberDTO();
 		dto.setUser_name(user_name);
@@ -38,8 +36,7 @@ public class MemberController {
 		if(n != 0) {
 			String code = SHA256.getEncrypt(user_email, "cos");
 			String localhost = "http://localhost:8080/weats/";
-			String content = "다음 링크에 접속하여 이메일 인증  "
-					+ "<a href='"+localhost+"checkEmail?code="+code+"'>이메일 인증하기</a>" ;
+			String content = "다음 링크에 접속하여 이메일 인증  <a href='"+localhost+"checkEmail?code="+code+"'>이메일 인증하기</a>" ;
 			
 			String title = "weats 이메일 인증";
 			session.setAttribute("tomail", user_email);
@@ -60,8 +57,9 @@ public class MemberController {
 	@ResponseBody
 	public String emailCheck(String user_email) {
 		int n = service.emailCheck(user_email);
+		System.out.println(n);
 		String mesg = "이메일 사용가능";
-		if (n == 1) {
+		if (n != 0) {
 			mesg = "이메일 중복";
 		}
 		return mesg;

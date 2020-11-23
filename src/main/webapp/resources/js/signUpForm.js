@@ -25,6 +25,7 @@ function nullCheck(e){
 		e.preventDefault();
 	} else if(emailCheck.innerText == "이메일 중복"){
 		alert("이미 가입된 이메일입니다");
+		useremail.value = null;
 		useremail.focus();
 		e.preventDefault();
 	} else {
@@ -74,6 +75,7 @@ SignUpBtn.addEventListener("click",nullCheck);
 userpasswd2.addEventListener("keyup",passwdCheck);
 
 $("#user_email").on("keyup", function() {
+	console.log("XXXX");
 	$.ajax({
 		type : "GET",
 		url : "emailCheck", //서버 주소

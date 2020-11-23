@@ -15,7 +15,6 @@ public class MemberDAO {
 	
 	public int userJoin(MemberDTO dto) {
 		// TODO Auto-generated method stub
-		System.out.println(dto);
 		return template.insert("userJoin", dto);
 	}
 	
@@ -49,6 +48,7 @@ public class MemberDAO {
 	}
 
 	public int emailCheck(String user_email) {
+		System.out.println("DAO => user_email  "+ user_email);
 		int n = template.selectOne("emailCheck", user_email);
 		return n;
 	}
