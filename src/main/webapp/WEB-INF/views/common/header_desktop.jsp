@@ -8,16 +8,16 @@
 	</div>
 	<ul class="nav">
 		<li><a href="RecommendServlet">추천</a></li>
-		<li class="topmenu"><a href="LeportsListServlet?category=byType">레포츠&nbsp;<i class="fas fa-angle-down"></i></a>
+		<li class="topmenu"><a href="leportsList?category=byType">레포츠&nbsp;<i class="fas fa-angle-down"></i></a>
 			<ul class="submenu">
-				<li><a href="LeportsListServlet?category=byLoc">지역별 레포츠</a></li>
-				<li><a href="LeportsListServlet?category=byType">종류별 레포츠</a></li>
+				<li><a href="leportsList?category=byLoc">지역별 레포츠</a></li>
+				<li><a href="leportsList?category=byType">종류별 레포츠</a></li>
 			</ul>
 		</li>
-		<li class="topmenu"><a href="TradeListServlet">중고거래&nbsp;<i class="fas fa-angle-down"></i></a>
+		<li class="topmenu"><a href="TradeList">중고거래&nbsp;<i class="fas fa-angle-down"></i></a>
 			<ul class="submenu">
-				<li><a href="TradeListServlet?category=판매">판매</a></li>
-				<li><a href="TradeListServlet?category=대여">대여</a></li>
+				<li><a href="TradeList?trade_type=판매">판매</a></li>
+				<li><a href="TradeList?trade_type=대여">대여</a></li>
 			</ul>
 		</li>
 		<li><a href="#">고객센터</a></li>
