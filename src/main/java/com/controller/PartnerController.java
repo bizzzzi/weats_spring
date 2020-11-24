@@ -124,9 +124,8 @@ public class PartnerController {
 	//상품 삭제
 	@RequestMapping("/ProductDelete")
 	public String ProductDelete(String leports_id){
-		pservice.leportsDelete(leports_id);
-		
-		return "";
+		pservice.leportsDelete(leports_id);	
+		return "MainPartner";
 	}
 	
 	//예약관리
