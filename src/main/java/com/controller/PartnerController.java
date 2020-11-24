@@ -17,6 +17,7 @@ import com.dto.LeportsDTO;
 import com.dto.LeportsItemDTO;
 import com.dto.MemberDTO;
 import com.dto.PartnerDTO;
+import com.dto.ReservationControlDTO;
 import com.service.PartnerService;
 
 @Controller
@@ -130,11 +131,13 @@ public class PartnerController {
 	
 	//예약관리
 	@RequestMapping("/ProductResevation")
-	public String ProductResevation(HttpSession session) {
+	public ModelAndView ProductResevation(HttpSession session) {
+		ModelAndView mav=new ModelAndView();
 		MemberDTO mdto=(MemberDTO)session.getAttribute("login");
 		String user_id=mdto.getUser_id();
-		pservice.ReservationControl(user_id);
-		
-		return "";
+		List<ReservationControlDTO>list=pservice.ReservationControl(user_id);
+		mav.addObject("leportsList",list);
+		mav.setViewName("partner/reservationControl");
+		return mav;
 	}
 }
