@@ -36,7 +36,7 @@
 		<div class="nav">
 			<ul>
 				<li class="mypageOpenBtn"><a href="MainMemberMyPage.jsp">마이페이지</a></li>
-				<li><a href="MainPartnerForm.jsp">파트너등록</a></li>
+				<li><a href="partner/partnerForm">파트너등록</a></li>
 				<li class="logoutOpenBtn"><a href="logout">로그아웃</a></li>
 			</ul>
 		</div>
@@ -47,7 +47,7 @@
 		<div class="nav">
 			<ul>
 				<li class="mypageOpenBtn"><a href="#">마이페이지</a></li>
-				<li class="productRegisterOpenBtn"><a href="MainPartner.jsp">파트너 페이지</a></li>
+				<li class="productRegisterOpenBtn"><a href="MainPartner">파트너 페이지</a></li>
 				<li class="logoutOpenBtn"><a href="logout">로그아웃</a></li>
 			</ul>
 		</div>
