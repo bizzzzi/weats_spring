@@ -13,6 +13,7 @@
 	<mvc:annotation-driven/>
 	<mvc:default-servlet-handler/>
 	<mvc:view-controller path="/" view-name="main"/>
+	<mvc:view-controller path="/MainPayment" view-name="/payment/MainPayment"/>
 	<mvc:resources location="/resources/" mapping="/**"/>
 
 	<!-- 메일 -->

@@ -30,11 +30,6 @@ public class LeportsController {
 		
 		if(type == null && loc == null) type = "all";
 		
-		System.out.println("category === "+category);
-		System.out.println("type === "+type);
-		System.out.println("loc === "+loc);
-		System.out.println("align === "+selectAlign);
-		
 		request.setAttribute("align", selectAlign);
 		session.setAttribute("category", category);
 		
@@ -58,15 +53,11 @@ public class LeportsController {
 		}
 		if(selectAlign == null || selectAlign.equals("defalut")) {
 			System.out.println("null :  "+list);
-		} else if(selectAlign.equals("maxPrice")) {
 			Collections.sort(list, (a, b) -> b.getLeports_price() - a.getLeports_price());
-			System.out.println("max : "+list);
 		} else if(selectAlign.equals("minPrice")) {
 			Collections.sort(list, (a, b) -> a.getLeports_price() - b.getLeports_price());
-			System.out.println("min : "+list);
 		} else if(selectAlign.equals("review")){
 			Collections.sort(list, (a, b) -> b.getReview_cnt() - a.getReview_cnt());
-			System.out.println("review : "+list);
 		}
 		
 		request.setAttribute("leportsList", list);
