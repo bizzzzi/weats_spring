@@ -22,9 +22,10 @@
 <div>
 	<div>
 		<form action="leportsReserve" method="post">
-				<%-- <input type="text" name="main_img" style="display:none" value="<%=main_img%>">
+				<input type="text" name="main_img" style="display:none" value="<%=main_img%>">
 				<input type="text" name="leports_title" style="display:none" value="<%=leports_title%>">
-				<input type="text" name="c_address" style="display:none" value="<%=c_address%>"> --%>
+				<input type="text" name="c_address" style="display:none" value="<%=c_address%>">
+				<input type="text" name="c_detail_address" style="display:none" value="<%=c_detail_address%>">
 				
 				
 			<b><%=leports_title%></b>
@@ -79,9 +80,9 @@
 						<li>1명 <b><%=price%></b></li>
 					</ul>
 					<div class="list_item">
-						<input class="js_itemName" type="text" value="<%=item_title%>" style="display: none">  
+						<input class="js_itemName" type="text" name="item_title" value="<%=item_title%>" style="display: none">  
 						<input class="js_maxPerson" type="text" value="<%=max_capacity%>" style="display: none">
-						<input class="js_itemPrice" type="text" value="<%=price%>" style="display: none">
+						<input class="js_itemPrice" type="text" name="item_price" value="<%=price%>" style="display: none">
 						<button type="button" class="js_dwBtn"><img src="#">마이너스 버튼</button>
 						<input class="js_pCount" type="text" name="personnelConut" value="0" readonly>
 						<button type="button" class="js_upBtn"><img src="#">플러스 버튼</button>

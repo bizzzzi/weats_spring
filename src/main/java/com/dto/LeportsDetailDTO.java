@@ -1,5 +1,7 @@
 package com.dto;
 
+import java.util.List;
+
 import org.apache.ibatis.type.Alias;
 
 import lombok.AllArgsConstructor;
@@ -29,6 +31,7 @@ public class LeportsDetailDTO {
 	private String c_detail_address;
 	private String c_phone;
 	private String leports_content;
+	private List<LeportsDetailDTO> list;
 	
 	
 }	

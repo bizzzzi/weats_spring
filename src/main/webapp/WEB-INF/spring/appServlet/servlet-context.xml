@@ -15,7 +15,6 @@
 	<mvc:view-controller path="/" view-name="main"/>
 	<mvc:view-controller path="/tradeList" view-name="tradeList"/>
 
-
 	<mvc:resources location="/resources/" mapping="/**"/>
 	<mvc:resources location="/WEB-INF/views/" mapping="/**"/>
 
