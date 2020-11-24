@@ -119,8 +119,7 @@ public class PartnerController {
 	public String ProductUpdate(LeportsDTO ldto,LeportsItemDTO idto) {
 		pservice.ProductUpdateLeports(ldto);
 		pservice.ProductUpdateItem(idto);
-		
-		return "";
+		return "MainPartner";
 	}
 	//상품 삭제
 	@RequestMapping("/ProductDelete")

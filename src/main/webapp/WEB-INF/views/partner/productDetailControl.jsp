@@ -135,7 +135,7 @@
         </div>
       </div>
       <div class="Btn">
-        <button class="submitBtn" type="submit" formaction="ProductUpdateServlet">수정</button>
+        <button class="submitBtn" type="submit" formaction="ProductUpdate">수정</button>
         <button class="cancleBtn" type="reset">취소</button>
         <button class="deletetBtn" type="submit" formaction="">삭제</button>
       </div>
