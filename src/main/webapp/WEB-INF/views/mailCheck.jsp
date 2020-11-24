@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div id="mailCheckFormWrap">
-		<jsp:include page="mail/mailCheckForm.jsp"></jsp:include>
+		<jsp:include page="mail/mailCheckForm.jsp" flush="true"></jsp:include>
 	</div>
 </body>
 </html>

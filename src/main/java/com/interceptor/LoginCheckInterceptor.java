@@ -1,12 +1,17 @@
 package com.interceptor;
 
 import org.springframework.stereotype.Component;
+import org.springframework.ui.Model;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.PrintWriter;
+import java.util.Collection;
+import java.util.Map;
 
 @Component
 public class LoginCheckInterceptor extends HandlerInterceptorAdapter {
@@ -17,7 +22,9 @@ public class LoginCheckInterceptor extends HandlerInterceptorAdapter {
 		System.out.println("preHandle() 호출");
 		HttpSession session=request.getSession();
 		if(session.getAttribute("login")==null) {//로그인 검사
-			response.sendRedirect("../loginForm");
+			session.setAttribute("mesg","로그인이 필요합니다.");
+			response.sendRedirect("../");
+			//loginForm_desktop.jsp
 			return false;
 		}else {
 			return true;//로그인 정보가 있는 경우 작업 계속 진행
