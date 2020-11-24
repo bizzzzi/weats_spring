@@ -60,7 +60,6 @@ public class MailController {
 			System.out.println("test4");
 			e.printStackTrace();
 		}
-//		return "mailCheck";
 	}
 	
 	@RequestMapping("/checkEmail")
