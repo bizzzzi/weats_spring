@@ -82,7 +82,7 @@
 					<div class="list_item">
 						<input class="js_itemName" type="text" name="item_title" value="<%=item_title%>" style="display: none">  
 						<input class="js_maxPerson" type="text" value="<%=max_capacity%>" style="display: none">
-						<input class="js_itemPrice" type="text" name="" value="<%=price%>" style="display: none">
+						<input class="js_itemPrice" type="text" name="item_price" value="<%=price%>" style="display: none">
 						<button type="button" class="js_dwBtn"><img src="#">마이너스 버튼</button>
 						<input class="js_pCount" type="text" name="personnelConut" value="0" readonly>
 						<button type="button" class="js_upBtn"><img src="#">플러스 버튼</button>

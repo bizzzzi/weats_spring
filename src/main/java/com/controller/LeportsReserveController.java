@@ -1,30 +1,28 @@
 package com.controller;
 
-import java.util.List;
-import java.util.Map;
-
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Arrays;
+import java.util.List;
 
 @Controller
 public class LeportsReserveController {
 	
 	@RequestMapping("/leportsReserve")
 	public String reserve(HttpServletRequest request,
-						  String main_img, String leports_title, String c_address, String c_detail_address,
-						  String [] item_title, String [] personnelConut) {
-//		String main_img = request.getParameter("main_img");
-//		String leports_title = request.getParameter("leports_title");
-//		String c_address = request.getParameter("c_address");
-//		String c_detail_address = request.getParameter("c_detail_address");
-//		String [] item_title = request.getParameterValues("item_title");
-//		String [] personnelConut = request.getParameterValues("personnelConut");
-		request.setAttribute("main_img", main_img);
+						  @ModelAttribute("main_img") String main_img, @ModelAttribute("leports_title") String leports_title,
+						  @ModelAttribute("c_address") String c_address, @ModelAttribute("c_detail_address") String c_detail_address,
+						  @ModelAttribute("totalPrice") String totalPrice,
+						  @RequestParam(value="item_title") List<String> item_title,
+						  @RequestParam(value="items_price") List<String> item_price,
+						  @RequestParam(value="personnelConut") List<String> personnelConut) {
 		request.setAttribute("item_title", item_title);
-
+		request.setAttribute("item_price", item_price);
+		request.setAttribute("personnelConut", personnelConut);
 		return "MainPayment";
 	}
 	

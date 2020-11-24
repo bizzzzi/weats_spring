@@ -13,13 +13,8 @@
 	<mvc:annotation-driven/>
 	<mvc:default-servlet-handler/>
 	<mvc:view-controller path="/" view-name="main"/>
-<<<<<<< HEAD
-	<mvc:view-controller path="/MainPayment" view-name="/payment/MainPayment"/>
-=======
 	<mvc:view-controller path="/tradeList" view-name="tradeList"/>
 
-
->>>>>>> leports
 	<mvc:resources location="/resources/" mapping="/**"/>
 	<mvc:resources location="/WEB-INF/views/" mapping="/**"/>
 

@@ -28,7 +28,7 @@ let down = (i, x) => {
 		   	<div>
 		   		<div>${pCount[i].value} X ${itemPrice[i].value}원</div>
 				<div class="select_item_price">${pCount[i].value * itemPrice[i].value}</div>
-				<input type="text" style="display:none" value="${pCount[i].value * itemPrice[i].value}" name="items_price" />
+				/*<input type="text" style="display:none" value="${pCount[i].value * itemPrice[i].value}" name="items_price" />*/
 			</div>
 		   </div>`;
 		selectItemPrice = document.querySelectorAll('.select_item_price');

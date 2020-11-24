@@ -1,5 +1,6 @@
+<%@ page import="java.util.List" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -9,8 +10,23 @@
   </head>
   <body>
   <%
-  	String totalPrice = (String)request.getAttribute("totalPrice"); 
 	String main_img = (String)request.getAttribute("main_img");
+	String leports_title = (String)request.getAttribute("leports_title");
+	String c_address = (String)request.getAttribute("c_address");
+	String c_detail_address = (String)request.getAttribute("c_detail_address");
+	String totalPrice = (String)request.getAttribute("totalPrice");/*총 가격*/
+	List<String> item_title = (List<String>) request.getAttribute("item_title"); /*아이템 제목 리스트*/
+	List<String> item_price = (List<String>) request.getAttribute("item_price"); /*아이템 별 토탈 가격*/
+	List<String> personnelConut = (List<String>) request.getAttribute("personnelConut"); /*아이템 별 예약 인원 수*/
+
+    System.out.println("JSP main_img === " + main_img);
+    System.out.println("JSP leports_title === " + leports_title);
+    System.out.println("JSP c_address === " + c_address);
+    System.out.println("JSP c_detail_address === " + c_detail_address);
+    System.out.println("JSP totalPrice === " + totalPrice);
+    System.out.println("JSP item_title === " + item_title.size());
+    System.out.println("JSP item_price === " + item_price.size());
+    System.out.println("JSP personnelConut === " + personnelConut.size());
   %>
     <h1>결제하기</h1>
     <div class="payment_form_wrap">
