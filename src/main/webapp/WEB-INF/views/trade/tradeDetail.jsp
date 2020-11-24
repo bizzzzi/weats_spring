@@ -3,6 +3,7 @@
 <%@taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%--login 정보 조회하여 user_id 파싱--%>
+
 <section style="margin: 0 auto;">
 	<!-- 상품상세정보 -->
 	<div class="products_info">
@@ -52,7 +53,7 @@
 					<span>${dto.trade_comment}</span>
 					<p>${dto.comment_regidate}</p>
 					<p>depth: ${dto.trade_depth}</p>
-					<c:if test="${dto.user_id eq 'M3'}">
+					<c:if test="${dto.user_id eq login.user_id}">
 						<button class="delBtn2" data-commentlevel="${dto.trade_comment_level}" data-user="user_id">삭제</button>
 						<button class="updateBtn2" data-commentlevel="${dto.trade_comment_level}" data-user="user_id">수정</button>
 						<button class="re_comment_btn" value="${dto.trade_comment_id}">댓글달기</button>
@@ -65,7 +66,7 @@
 								<span>${dto2.trade_comment}</span>
 								<p>${dto2.comment_regidate}</p>
 								<p>depth: ${dto2.trade_depth}</p>
-								<c:if test="${dto.user_id eq 'M3'}">
+								<c:if test="${dto.user_id eq login.user_id}">
 									<button class="delBtn" data-commentid="${dto2.trade_comment_id}" data-user="user_id">삭제</button>
 									<button class="updateBtn" data-commentid="${dto2.trade_comment_id}" data-user="user_id">수정</button>
 								</c:if>
