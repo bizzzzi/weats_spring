@@ -14,6 +14,11 @@
 	<mvc:default-servlet-handler/>
 	<mvc:view-controller path="/" view-name="main"/>
 	<mvc:resources location="/resources/" mapping="/**"/>
+	<mvc:view-controller path="/MainPartner" view-name="MainPartner"/>
+	<mvc:view-controller path="partner/partnerForm" view-name="partner/partnerForm"/>
+	<mvc:view-controller path="productRegistrationForm_leports" view-name="partner/productRegistrationForm_leports"/>
+	<mvc:view-controller path="/partnerMypage" view-name="partner/partnerMypage"/>
+	<mvc:view-controller path="/productRegistrationForm_item" view-name="partner/productRegistrationForm_item"/>
 
 	<!-- 메일 -->
 	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">

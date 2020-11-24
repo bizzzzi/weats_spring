@@ -17,7 +17,7 @@
   <hr>
 
   <div class="partner_form" id="partner">
-    <form action="PartnerAddServlet" method="post">
+    <form action="../PartnerAdd" method="post">
     <input type="hidden" name="user_id" value="${dto.user_id}">
       <div class="box">
         <div class="title">상호 이름*</div>

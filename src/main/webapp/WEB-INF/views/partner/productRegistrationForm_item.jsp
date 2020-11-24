@@ -22,9 +22,9 @@ String leports_id=dto.getLeports_id();
   <hr>
 
   <div class="partner_registration_form">
-    <form action="ProductAddItemServlet" method="post">
+    <form action="ItemAdd" method="post">
 
-      <input type="hidden" name="leports_id" value="${dto.leports_id}">
+      <input type="text" name="leports_id" value="${dto.leports_id}">
 
       <div class="box">
         <div class="title">레포츠 아이템 이름</div>

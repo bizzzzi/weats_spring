@@ -14,7 +14,7 @@
   <hr>
 
   <div class="partner_registration_form">
-    <form action="../ProductAddLeportsServlet" method="post">
+    <form action="LeportsAdd" method="post">
     
 
  

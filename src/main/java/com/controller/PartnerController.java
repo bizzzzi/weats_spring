@@ -6,7 +6,10 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.dto.LeportsDTO;
@@ -34,38 +37,56 @@ public class PartnerController {
 	
 	//파트너 마이페이지
 	@RequestMapping("/PartnerMypage")
-	public String PartnerMypage(HttpSession session) {
+	public String PartnerMypage(HttpSession session,RedirectAttributes attr) {
 		MemberDTO mdto=(MemberDTO) session.getAttribute("login");
 		String user_id=mdto.getUser_id();
-		pservice.partnerSelect(user_id);
-		return "";
+		PartnerDTO pdto=pservice.partnerSelect(user_id);
+		//session.setAttribute("partner", pdto);
+		attr.addFlashAttribute("pdto",pdto);
+		return "redirect:/partnerMypage";
 	}
 	
 	//마이페이지 수정
 	@RequestMapping("/PartnerUpdate")
 	public String PartnerUpdate(PartnerDTO dto) {
 		pservice.partnerUpdate(dto);
-		return "";
+		return "redirect:/PartnerMypage";
 	}
 	//파트너 탈퇴
 	@RequestMapping("/PartnerDelete")
-	public String PartnerDelete(String partner_id) {
+	public String PartnerDelete(String partner_id,String user_id) {
 		pservice.partnerDelete(partner_id);
-		return "";
+		pservice.partner_verifyReset(user_id);
+		return "main";
 	}
 	
 	//레포츠 등록
 	@RequestMapping("/LeportsAdd")
-	public String ProductAdd(LeportsDTO dto) {
+	public String ProductAdd(@ModelAttribute("LeportsForm")LeportsDTO dto,HttpSession session,RedirectAttributes attr) {
+		//PartnerDTO pdto=(PartnerDTO) session.getAttribute("partner");
+		//String partner_id=pdto.getPartner_id();
+		dto.setPartner_id("P24");//session저장후 수정
 		pservice.leportsInsert(dto);
-		return "";
+		session.setAttribute("leports",dto);
+		attr.addFlashAttribute("LeportsForm",dto);
+		return "redirect:/LeportsIdSelect";
+	}
+	//레포츠 아이디찾기
+	@RequestMapping("/LeportsIdSelect")
+	public String LeportsIdSelect(@ModelAttribute("LeportsForm")LeportsDTO dto,RedirectAttributes attr) {
+		String leports_title=dto.getLeports_title();
+		LeportsDTO ldto=pservice.leportsIdSelect(leports_title);
+		//session.setAttribute("leports", ldto);
+		attr.addFlashAttribute("dto", ldto);
+		return "redirect:/productRegistrationForm_item";
 	}
 	
 	//레포츠 아이템 등록
 	@RequestMapping("/ItemAdd")
-	public String ItemAdd(LeportsItemDTO dto) {
+	public String ItemAdd(LeportsItemDTO dto,String leports_id) {
+		dto.setLeports_id(leports_id);
 		pservice.leportsItemInsert(dto);
-		return "";
+		return "MainPartner";
 	}
 	
 	//레포츠 등록 리스트
@@ -73,7 +94,6 @@ public class PartnerController {
 	public String LeportsAddList(HttpSession session,RedirectAttributes attr) {
 		PartnerDTO pdto=(PartnerDTO)session.getAttribute("partner");
 		String partner_id=pdto.getPartner_id();
-		
 		List<LeportsDTO> list=pservice.ProductControl(partner_id);
 		attr.addFlashAttribute("leportsAddList",list);
 		
