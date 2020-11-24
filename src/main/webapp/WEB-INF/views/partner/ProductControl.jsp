@@ -33,8 +33,8 @@
 <c:forEach var="ldto" items="${leportsAddList}" varStatus="status">
 <input type="hidden" name="leports_id" value="${ldto.leports_id}">
     <ul class="content">
-      <li class="product_img"><img src="#" alt="상품 대표 이미지"><a href="ProductDetailSelectServlet?leports_id=${ldto.leports_id}"><${ldto.leports_main_img}</a></li>
-      <li class="product_name"><a href="#">${ldto.leports_title}</a></li>
+      <li class="product_img"><img src="#" alt="상품 대표 이미지"><a href="ProductDetail?leports_id=${ldto.leports_id}"><${ldto.leports_main_img}</a></li>
+      <li class="product_name"><a href="ProductDetail?leports_id=${ldto.leports_id}">${ldto.leports_title}</a></li>
     </ul>
   </div>
 </c:forEach>

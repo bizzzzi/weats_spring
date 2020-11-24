@@ -29,12 +29,12 @@
   <hr>
   <div class="product_control_page">
     <form method="post">
-<input type="hidden" name="leports_id" value="${dto.leports_id}">
+<input type="hidden" name="leports_id" value="${ldto.leports_id}">
       <div class="box">
         <div class="title">상품 이름</div>
         <div class="sub_box">
           <div>
-            <input type="text" name="leports_title" class="leports_title" value="${dto.leports_title}">
+            <input type="text" name="leports_title" class="leports_title" value="${ldto.leports_title}">
           </div>
         </div>
       </div>
@@ -42,7 +42,7 @@
         <div class="title">한줄 요약</div>
         <div class="sub_box">
           <div>
-            <input type="text" name="leports_summary" class="leports_summary" value="${idto.item_summary}">
+            <input type="text" name="leports_summary" class="leports_summary" value="${idto.leports_summary}">
           </div>
         </div>
       </div>
@@ -50,7 +50,7 @@
         <div class="title">상품 소개</div>
         <div class="sub_box">
           <div>
-            <textarea name="leports_content" class="leports_content" cols="30" rows="10">${dto.leports_content}</textarea>
+            <textarea name="leports_content" class="leports_content" cols="30" rows="10">${ldto.leports_content}</textarea>
           </div>
         </div>
       </div>

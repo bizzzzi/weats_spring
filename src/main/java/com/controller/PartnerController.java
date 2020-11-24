@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.dto.LeportsDTO;
@@ -91,22 +92,26 @@ public class PartnerController {
 	
 	//레포츠 등록 리스트
 	@RequestMapping("/LeportsAddList")
-	public String LeportsAddList(HttpSession session,RedirectAttributes attr) {
+	public ModelAndView LeportsAddList(HttpSession session) {
 		//PartnerDTO pdto=(PartnerDTO)session.getAttribute("partner");
 		//String partner_id=pdto.getPartner_id();
 		List<LeportsDTO> list=pservice.ProductControl("P24");
-		attr.addFlashAttribute("leportsAddList",list);
-		
-		return "redirect:/ProductControl";
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("leportsAddList",list);
+		mav.setViewName("partner/ProductControl");
+		return mav;
 	}
 	
 	//상품 상세페이지
 	@RequestMapping("/ProductDetail")
-	public String ProductDetail(String leports_id) {
-		pservice.ProductDetailLeports(leports_id);
-		pservice.ProductDetailItem(leports_id);
-		
-		return "";
+	public ModelAndView ProductDetail(String leports_id) {
+		ModelAndView mav=new ModelAndView();
+		LeportsDTO ldto=pservice.ProductDetailLeports(leports_id);
+		LeportsItemDTO idto=pservice.ProductDetailItem(leports_id);
+		mav.addObject("ldto",ldto);
+		mav.addObject("idto",idto);
+		mav.setViewName("partner/productDetailControl");
+		return mav;
 	}
 	
 	//상품 페이지 수정
