@@ -1,5 +1,8 @@
 package com.dto;
 
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class TradeCommentsDTO {
 	private String trade_comment_id;
 	private String trade_id;
