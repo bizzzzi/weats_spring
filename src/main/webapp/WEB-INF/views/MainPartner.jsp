@@ -34,7 +34,7 @@ alert('<%=mesg%>');
 			<li><a href="productRegistrationForm_leports">상품등록</a></li>
 		</ul>
 		<ul>
-			<li><a href="ProductControlServlet">등록상품관리</a></li>
+			<li><a href="LeportsAddList">등록상품관리</a></li>
 			<li><a href="ReservationControl">예약 관리</a></li>
 		</ul>
 	</div>

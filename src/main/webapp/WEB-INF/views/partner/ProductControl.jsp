@@ -30,7 +30,7 @@
 	String leports_main_img=dto.getLeports_main_img();
 	String leports_id=dto.getLeports_id();
 %> --%>
-<c:forEach var="ldto" items="${leports}" varStatus="status">
+<c:forEach var="ldto" items="${leportsAddList}" varStatus="status">
 <input type="hidden" name="leports_id" value="${ldto.leports_id}">
     <ul class="content">
       <li class="product_img"><img src="#" alt="상품 대표 이미지"><a href="ProductDetailSelectServlet?leports_id=${ldto.leports_id}"><${ldto.leports_main_img}</a></li>

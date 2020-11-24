@@ -92,12 +92,12 @@ public class PartnerController {
 	//레포츠 등록 리스트
 	@RequestMapping("/LeportsAddList")
 	public String LeportsAddList(HttpSession session,RedirectAttributes attr) {
-		PartnerDTO pdto=(PartnerDTO)session.getAttribute("partner");
-		String partner_id=pdto.getPartner_id();
-		List<LeportsDTO> list=pservice.ProductControl(partner_id);
+		//PartnerDTO pdto=(PartnerDTO)session.getAttribute("partner");
+		//String partner_id=pdto.getPartner_id();
+		List<LeportsDTO> list=pservice.ProductControl("P24");
 		attr.addFlashAttribute("leportsAddList",list);
 		
-		return "";
+		return "redirect:/ProductControl";
 	}
 	
 	//상품 상세페이지
