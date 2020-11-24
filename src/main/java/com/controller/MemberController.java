@@ -1,6 +1,5 @@
 package com.controller;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,19 +47,19 @@ public class MemberController {
 			session.setAttribute("code", code);
 			rttr.addFlashAttribute("content", content);
 			rttr.addFlashAttribute("title", title);
-			next = "/mailSending";
+			next = "redirect:/mailSending";
 			System.out.println("test");
-			System.out.println(next);
 		} else {
 			rttr.addFlashAttribute("mesg", "회원가입 실패, 다시 시도해주세요.");
 			next = "redirect:/";
 		}
+		System.out.println(next);
 		return next;
 	}
 	
-	
+	//이메일 전송 완료후 페이지
 	@RequestMapping("/mailCheck")
-	public String test() {
+	public String mailCheck() {
 		return "mailCheck";
 	}
 	

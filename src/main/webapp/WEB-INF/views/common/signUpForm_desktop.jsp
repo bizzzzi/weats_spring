@@ -4,7 +4,7 @@
 <div class="modal2 hidden">
 	<div class="modalOverlay2"></div>
 	<div id="signUpForm">
-		<form id="userJoin" action="userJoin" method="POST">
+		<form id="userJoin" action="mailCheck" method="POST">
 			<div id="signUp">
 				<div class="title">회원가입</div>
 				<div class="closeBtn2">❌</div>
@@ -15,11 +15,11 @@
 						<span id="result" style="display:none"></span>
 				</div>
 				<div class="signRow">
-					<input type="text" name="user_name" class="userName"
+					<input type="text" name="user_name" class="userName" id="user_name"
 						placeholder="이름(예:홍길동)" />
 				</div>
 				<div class="signRow">
-					<input type="password" name="user_pw" class="userPasswd"
+					<input type="password" name="user_pw" class="userPasswd" id="user_pw"
 						placeholder="비밀번호(영문, 숫자, 특수문자 기호)" />
 				</div>
 				<div class="signRow"> 

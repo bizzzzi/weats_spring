@@ -11,6 +11,7 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
@@ -35,7 +36,9 @@ public class MailController {
 		String content = "";
 		
 		Map<String, ?> redirectMap = RequestContextUtils.getInputFlashMap(request);
+		System.out.println(redirectMap);
 		if(redirectMap != null) {
+			System.out.println("test2");
 			tomail = (String)session.getAttribute("tomail");
 			title = (String) redirectMap.get("title");
 			content = (String) redirectMap.get("content");
@@ -43,6 +46,7 @@ public class MailController {
 		}
 		
 		try {
+			System.out.println("test3");
 			MimeMessage message = mailSender.createMimeMessage();
 			MimeMessageHelper messageHelper = new MimeMessageHelper(message, true, "UTF-8");
 
@@ -53,6 +57,7 @@ public class MailController {
 
 			mailSender.send(message);
 		} catch (Exception e) {
+			System.out.println("test4");
 			e.printStackTrace();
 		}
 //		return "mailCheck";
