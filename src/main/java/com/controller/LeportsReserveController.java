@@ -19,10 +19,10 @@ public class LeportsReserveController {
 						  @ModelAttribute("totalPrice") String totalPrice, @ModelAttribute("reserveDay") String reserveDay,
 						  @RequestParam(value="item_name") List<String> item_title,
 						  @RequestParam(value="items_price") List<String> item_price,
-						  @RequestParam(value="reserve_count") List<String> personnelConut) {
+						  @RequestParam(value="reserve_count") List<String> reserve_count) {
 		request.setAttribute("item_title", item_title);
 		request.setAttribute("item_price", item_price);
-		request.setAttribute("personnelConut", personnelConut);
+		request.setAttribute("reserve_count", reserve_count);
 		return "MainPayment";
 	}
 	
