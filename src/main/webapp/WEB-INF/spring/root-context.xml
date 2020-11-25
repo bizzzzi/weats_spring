@@ -42,6 +42,7 @@
 				<value>com.dto.ReservationDTO</value>
 				<value>com.dto.ReservationControlDTO</value>
 				<value>com.dto.TradeCommentsDTO</value>
+				<value>com.dto.KakaoPayDTO</value>
 			</list>
 		</property>
 	</bean>
