@@ -27,6 +27,7 @@
     System.out.println("JSP item_title === " + item_title.size());
     System.out.println("JSP item_price === " + item_price.size());
     System.out.println("JSP personnelConut === " + personnelConut.size());
+    System.out.println(item_title);
   %>
     <h1>결제하기</h1>
     <div class="payment_form_wrap">

@@ -56,7 +56,7 @@
 					</thead>
 					<tbody></tbody>
 				</table>
-				<input class="choiceDay_data" type="text" value=""
+				<input class="choiceDay_data" name="reserveDay" type="text" value=""
 					style="display: none">
 				<!-- <div class="choiceDay_data"></div> -->
 			</div>

@@ -16,10 +16,10 @@ public class LeportsReserveController {
 	public String reserve(HttpServletRequest request,
 						  @ModelAttribute("main_img") String main_img, @ModelAttribute("leports_title") String leports_title,
 						  @ModelAttribute("c_address") String c_address, @ModelAttribute("c_detail_address") String c_detail_address,
-						  @ModelAttribute("totalPrice") String totalPrice,
-						  @RequestParam(value="item_title") List<String> item_title,
+						  @ModelAttribute("totalPrice") String totalPrice, @ModelAttribute("reserveDay") String reserveDay,
+						  @RequestParam(value="item_name") List<String> item_title,
 						  @RequestParam(value="items_price") List<String> item_price,
-						  @RequestParam(value="personnelConut") List<String> personnelConut) {
+						  @RequestParam(value="reserve_count") List<String> personnelConut) {
 		request.setAttribute("item_title", item_title);
 		request.setAttribute("item_price", item_price);
 		request.setAttribute("personnelConut", personnelConut);
