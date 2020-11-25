@@ -39,7 +39,7 @@ function reply(e){
 				$(dom).parents().filter(".recomment_cont").remove();
 			},
 			error:function(xhr,status,error){
-				alert("error");
+				alert("로그인이 필요합니다.");
 			}
 		});
 }
@@ -127,7 +127,7 @@ $(".re_comment_btn").on("click",function(event){
 
 function getHtml(trade_id,comment_id,user_id){
   var result = '';
-  result += "<form class='recomment_cont' method='post' style='margin-bottom:20px;' >"+
+  result += "<form class='recomment_cont' method='post'>"+
 	        		"<input type='hidden' name='re_trade_id' value='"+trade_id+"'>"+
 	        		"<input type='hidden' name='re_trade_depth' value=1>"+
 	        		"<input type='hidden' name='re_trade_comment_id' value='"+comment_id+"'>"+
@@ -141,7 +141,7 @@ function getHtml(trade_id,comment_id,user_id){
 
 function getHtml2(comment_id,trade_comment,comment_regidate,user_id){
   var result = '';
-  result += "<div class='comment_cont re' style='margin-left: 20px;'>"+
+  result += "<div class='comment_cont re'>"+
 	        		"<input type='hidden' name='trade_comment_id' value='"+comment_id+"'/>"+
 	  				"<strong style='color: #ff0000'>"+user_id+"</strong><br>"+
 	        		"<span>"+trade_comment+"</span>"+

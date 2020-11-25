@@ -21,8 +21,8 @@
 		<c:forEach var="x" items="${tradeList}" varStatus="status">
 		<ul class="trade_list">
 			<a href="TradeDetail?trade_id=${x.trade_id}">
-				<li class="trade_main_img" style="background: #eee;">
-					<!-- <img src="fff.png"> --> <span class="img_src">${x.trade_main_img}</span>
+				<li class="trade_main_img" >
+					<img src="images/${x.trade_main_img}.png" >
 				</li>
 				<li><span class="trade_title">${x.trade_title}</span></li>
 				<li><span class="trade_price">${x.trade_price}</span></li>

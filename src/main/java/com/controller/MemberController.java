@@ -82,7 +82,7 @@ public class MemberController {
 		System.out.println(dto);
 		String next = "";
 		if(dto!=null) {
-			dto.setUser_pw(null);
+			dto.setUser_pw(null);//session에 비밀번호 미저장
 			rttr.addFlashAttribute("mesg", "로그인 성공");
 			session.setAttribute("login", dto);
 			next = "redirect:/PartnerKeyCheck"; /* 파트너 verify 컨트롤러로 이동하게 수정 필요 */

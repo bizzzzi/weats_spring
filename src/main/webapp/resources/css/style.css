@@ -663,7 +663,7 @@ video {
 #leports_list .leports_items .leports_item {
 	border: 1px solid black;
 	width: 300px;
-	height: 300px;
+	height: 350px;
 	margin: 10px;
 }
 
@@ -726,6 +726,58 @@ video {
 /* trade_recomments 대댓글 기능 - 혜빈 */
 .comment_cont.re{
 	background:#f7f9fa;
-	margin-left:20px;
 	border-bottom:2px solid #dae1e6;
+}
+.comment_cont.re:last-child{
+	border-bottom: none;
+}
+
+.trade_main_img{
+	width:100%;
+}
+.trade_main_img > img{
+	width: 100%;
+	object-fit: cover;
+	height: 135px;
+}
+.trade_main_img2{
+	width:60%;
+}
+.trade_img > li{
+	display: flex;
+	justify-content: center;
+}
+.trade_img div{
+	display: flex;
+}
+.trade_img div img{
+	width:100%;
+}
+.trade_title{
+	color:red
+}
+#Resale_list section{
+	width:70%;
+}
+#Resale_list .products_info .text_info li{
+	padding:15px 5px;
+}
+.comment_cont{
+	border-bottom: 2px solid #dae1e6;
+}
+.leports_item img{
+	width: 100%;
+	object-fit: cover;
+	height: 150px;
+}
+
+.leports_items.main > img{
+	width:500px;
+}
+.leports_items.sub {
+	display: flex;
+	justify-content: space-around;
+}
+.leports_items.sub > img{
+	width:25%;
 }
