@@ -48,7 +48,8 @@
 
 	<!-- 4. SqlSessionTemplate --> <!-- SqlSession과 같은 기능을 함 -->
 	<bean id="sessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
-		<constructor-arg name="sqlSessionFactory" ref="sessionFactory"/>
+		<!--<constructor-arg name="sqlSessionFactory" ref="sessionFactory"/>-->
+		<constructor-arg ref="sessionFactory"/>
 	</bean>
 	<!-- 여기까지 Mybatis 설정 -->
 

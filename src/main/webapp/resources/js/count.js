@@ -24,11 +24,12 @@ let down = (i, x) => {
 		pCount[i].value -= x;
 		selectItem[i].innerHTML = `<div class="select_items_option${[i]}">
 		   	<div>${itemName[i].value}</div>
-			<input type="text" style="display:none" value="${itemName[i].value}" name="itemName" />
+			<input type="text" style="display:none" value="${itemName[i].value}" name="item_name" />
 		   	<div>
 		   		<div>${pCount[i].value} X ${itemPrice[i].value}원</div>
 				<div class="select_item_price">${pCount[i].value * itemPrice[i].value}</div>
-				/*<input type="text" style="display:none" value="${pCount[i].value * itemPrice[i].value}" name="items_price" />*/
+				<input type="text" style="display:none" value="${pCount[i].value * itemPrice[i].value}" name="items_price" />
+				<input type="text" style="display:none" value="${pCount[i]}" name="reserve_count"/>
 			</div>
 		   </div>`;
 		selectItemPrice = document.querySelectorAll('.select_item_price');
@@ -55,11 +56,12 @@ let up = (i, x) => {
 		pCount[i].value = pCountValue;
 		selectItem[i].innerHTML = `<div class="select_items_option${[i]}">
 		   							<div>${itemName[i].value}</div>
-									<input type="text" style="display:none" value="${itemName[i].value}" name="itemName" />
+									<input type="text" style="display:none" value="${itemName[i].value}" name="item_name" />
 		   							<div>
 		   								<div>${pCount[i].value} X ${itemPrice[i].value}원</div>
 										<div class="select_item_price">${pCount[i].value * itemPrice[i].value}</div>
 										<input type="text" style="display:none" value="${pCount[i].value * itemPrice[i].value}" name="items_price" />
+										<input type="text" style="display:none" value="${pCount[i]}" name="reserve_count"/>
 									</div>
 								   </div>`;
 		selectItemPrice = document.querySelectorAll('.select_item_price');
