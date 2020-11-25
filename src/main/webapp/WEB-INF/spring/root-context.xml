@@ -42,13 +42,15 @@
 				<value>com.dto.ReservationDTO</value>
 				<value>com.dto.ReservationControlDTO</value>
 				<value>com.dto.TradeCommentsDTO</value>
+				<value>com.dto.KakaoPayDTO</value>
 			</list>
 		</property>
 	</bean>
 
 	<!-- 4. SqlSessionTemplate --> <!-- SqlSession과 같은 기능을 함 -->
 	<bean id="sessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
-		<constructor-arg name="sqlSessionFactory" ref="sessionFactory"/>
+		<!--<constructor-arg name="sqlSessionFactory" ref="sessionFactory"/>-->
+		<constructor-arg ref="sessionFactory"/>
 	</bean>
 	<!-- 여기까지 Mybatis 설정 -->
 

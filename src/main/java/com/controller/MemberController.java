@@ -39,7 +39,7 @@ public class MemberController {
 		String next = null;
 		if(n != 0) {
 			String code = SHA256.getEncrypt(user_email, "cos");
-			String localhost = "http://localhost:8900/weats/";
+			String localhost = "http://localhost:8080/weats/";
 			String content = "다음 링크에 접속하여 이메일 인증  <a href='"+localhost+"checkEmail?code="+code+"'>이메일 인증하기</a>" ;
 			
 			String title = "weats 이메일 인증";

@@ -8,10 +8,10 @@
 	</div>
 	<ul class="nav">
 		<li><a href="RecommendServlet">추천</a></li>
-		<li class="topmenu"><a href="LeportsListServlet?category=byType">레포츠&nbsp;<i class="fas fa-angle-down"></i></a>
+		<li class="topmenu"><a href="leportsList?category=byType">레포츠&nbsp;<i class="fas fa-angle-down"></i></a>
 			<ul class="submenu">
-				<li><a href="LeportsListServlet?category=byLoc">지역별 레포츠</a></li>
-				<li><a href="LeportsListServlet?category=byType">종류별 레포츠</a></li>
+				<li><a href="leportsList?category=byLoc">지역별 레포츠</a></li>
+				<li><a href="leportsList?category=byType">종류별 레포츠</a></li>
 			</ul>
 		</li>
 		<li class="topmenu"><a href="TradeList">중고거래&nbsp;<i class="fas fa-angle-down"></i></a>

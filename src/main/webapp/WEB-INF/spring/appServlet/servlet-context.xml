@@ -22,7 +22,6 @@
 	<mvc:view-controller path="/ProductControl" view-name="partner/ProductControl"/>
 
 
-
 	<mvc:resources location="/resources/" mapping="/**"/>
 	<mvc:resources location="/WEB-INF/views/" mapping="/**"/>
 
