@@ -34,7 +34,7 @@
 		</p>
 	</div>
 	<!-- 댓글 -->
-	<form action="loginCheck/TradeCommentWrite" method="POST">
+	<form action="loginCheck/TradeReply" method="POST">
 		<strong>Comments</strong>
 		<br>
 		<input type="hidden"  name="trade_depth" value=0>
@@ -54,8 +54,8 @@
 					<p>${dto.comment_regidate}</p>
 					<p>depth: ${dto.trade_depth}</p>
 					<c:if test="${dto.user_id eq login.user_id}">
-						<button class="delBtn2" data-commentlevel="${dto.trade_comment_level}" data-user="user_id">삭제</button>
-						<button class="updateBtn2" data-commentlevel="${dto.trade_comment_level}" data-user="user_id">수정</button>
+						<button class="delBtn2" data-commentlevel="${dto.trade_comment_level}">삭제</button>
+						<button class="updateBtn2" data-commentlevel="${dto.trade_comment_level}" >수정</button>
 						<button class="re_comment_btn" value="${dto.trade_comment_id}">댓글달기</button>
 					</c:if>
 					<c:forEach var="dto2" items="${recommentsList}" varStatus="status">
@@ -66,9 +66,9 @@
 								<span>${dto2.trade_comment}</span>
 								<p>${dto2.comment_regidate}</p>
 								<p>depth: ${dto2.trade_depth}</p>
-								<c:if test="${dto.user_id eq login.user_id}">
-									<button class="delBtn" data-commentid="${dto2.trade_comment_id}" data-user="user_id">삭제</button>
-									<button class="updateBtn" data-commentid="${dto2.trade_comment_id}" data-user="user_id">수정</button>
+								<c:if test="${dto2.user_id eq login.user_id}">
+									<button class="delBtn" data-commentid="${dto2.trade_comment_id}" onclick="del(event)">삭제</button>
+									<button class="updateBtn" data-commentid="${dto2.trade_comment_id}">수정</button>
 								</c:if>
 							</div>
 						</c:if>

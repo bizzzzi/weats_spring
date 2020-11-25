@@ -83,6 +83,18 @@ public class TradeController {
         mav.setViewName("tradeDetail");
         return mav;
     }
+    @RequestMapping(value = "/loginCheck/TradeReply")
+    public String TradeReply(HttpSession session,TradeCommentsDTO cDTO){
+        System.out.println("댓글");
+        MemberDTO mDTO = (MemberDTO)session.getAttribute("login");
+        cDTO.setUser_id(mDTO.getUser_id());
+        int result = 0;
+        String nextPage = null;
+        result = service.CommentWrite(cDTO);
+        System.out.println("댓글 결과: "+"\t"+result);
+        return "redirect:../TradeDetail?trade_id="+cDTO.getTrade_id();
+    }
+
     @RequestMapping(value="/loginCheck/TradeCommentWrite")
     @ResponseBody
     public void TradeComment(HttpSession session, TradeCommentsDTO cDTO, HttpServletResponse response) throws IOException {
@@ -91,18 +103,12 @@ public class TradeController {
         cDTO.setUser_id(mDTO.getUser_id());
         int result = 0;
         String nextPage = null;
-       // if(cDTO.getTrade_depth() == 0){
-           // result = service.CommentWrite(cDTO);
-         //   System.out.println("댓글 결과: "+"\t"+result);
-        //}else if(cDTO.getTrade_depth() == 1){
-            cDTO.setTrade_comment_level(cDTO.getTrade_comment_id());
-            result = service.ReCommentWrite(cDTO);
-            System.out.println("대댓글depth: "+cDTO.getTrade_depth());
-            System.out.println("대댓글 insert결과: "+result+cDTO);
-            String CommentJSON = "{\"trade_comment_id\": \"" + cDTO.getTrade_comment_id() + "\",\"comment_regidate\":\""+service.CommentRegidate(cDTO.getTrade_comment_id())+"\",\"trade_comment\":\""+cDTO.getTrade_comment()+"\",\"user_id\":\""+cDTO.getUser_id()+"\"}";
-            response.getWriter().print(CommentJSON);
-        //}
-        //return "redirect:../TradeDetail?trade_id="+cDTO.getTrade_id();
+        cDTO.setTrade_comment_level(cDTO.getTrade_comment_id());
+        result = service.ReCommentWrite(cDTO);
+        System.out.println("대댓글depth: "+cDTO.getTrade_depth());
+        System.out.println("대댓글 insert결과: "+result+cDTO);
+        String CommentJSON = "{\"trade_comment_id\": \"" + cDTO.getTrade_comment_id() + "\",\"comment_regidate\":\""+service.CommentRegidate(cDTO.getTrade_comment_id())+"\",\"trade_comment\":\""+cDTO.getTrade_comment()+"\",\"user_id\":\""+cDTO.getUser_id()+"\"}";
+        response.getWriter().print(CommentJSON);
     }
     @RequestMapping(value="/loginCheck/TradeCommentDelete")
     @ResponseBody
