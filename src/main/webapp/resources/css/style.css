@@ -85,7 +85,8 @@ li {
 }
 
 .submenu a {
-	color: #fafafa;
+	/* color: #fafafa; */
+	color: black;
 }
 /* test */
 #desktop .header .login {
