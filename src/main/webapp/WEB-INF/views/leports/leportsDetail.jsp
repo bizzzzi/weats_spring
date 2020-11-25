@@ -29,12 +29,14 @@
 				
 				
 			<b><%=leports_title%></b>
-			<div>
-				<img src="<%=main_img%>">메인 사진
+			<div class="leports_items main" >
+				<img src="images/<%=main_img%>.png">
 			</div>
-			<div>
-				<img src="<%=sub_img1%>">서브 1 <img src="<%=sub_img2%>">서브2 
-				<img src="<%=sub_img3%>">서브 3 <img src="<%=sub_img4%>">서브4
+			<div class="leports_items sub">
+				<img src="images/<%=sub_img1%>.png">
+				<img src="images/<%=sub_img2%>.png">
+				<img src="images/<%=sub_img3%>.png">
+				<img src="images/<%=sub_img4%>.png">
 			</div>
 			<div>
 				<table class="scriptCalendar">
