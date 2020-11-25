@@ -61,13 +61,25 @@ public class PartnerController {
 		pservice.partner_verifyReset(user_id);
 		return "main";
 	}
+	//파트너 키 체크
+	@RequestMapping("/PartnerKeyCheck")
+	public String PartnerkeyCheck(HttpSession session) {
+		MemberDTO mdto=(MemberDTO)session.getAttribute("login");
+		int partner_key=mdto.getPartner_verify();
+		String user_id=mdto.getUser_id();
+		PartnerDTO pdto=pservice.partnerSelect(user_id);
+		if(partner_key==1) {
+			session.setAttribute("partner", pdto);
+		}
+		return "redirect:/";
+	}
 	
 	//레포츠 등록
 	@RequestMapping("/LeportsAdd")
 	public String ProductAdd(@ModelAttribute("LeportsForm")LeportsDTO dto,HttpSession session,RedirectAttributes attr) {
-		//PartnerDTO pdto=(PartnerDTO) session.getAttribute("partner");
-		//String partner_id=pdto.getPartner_id();
-		dto.setPartner_id("P24");//session저장후 수정
+		PartnerDTO pdto=(PartnerDTO) session.getAttribute("partner");
+		String partner_id=pdto.getPartner_id();
+		dto.setPartner_id(partner_id);//session저장후 수정
 		pservice.leportsInsert(dto);
 		session.setAttribute("leports",dto);
 		attr.addFlashAttribute("LeportsForm",dto);
@@ -94,9 +106,9 @@ public class PartnerController {
 	//레포츠 등록 리스트
 	@RequestMapping("/LeportsAddList")
 	public ModelAndView LeportsAddList(HttpSession session) {
-		//PartnerDTO pdto=(PartnerDTO)session.getAttribute("partner");
-		//String partner_id=pdto.getPartner_id();
-		List<LeportsDTO> list=pservice.ProductControl("P24");
+		PartnerDTO pdto=(PartnerDTO)session.getAttribute("partner");
+		String partner_id=pdto.getPartner_id();
+		List<LeportsDTO> list=pservice.ProductControl(partner_id);
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("leportsAddList",list);
 		mav.setViewName("partner/ProductControl");
