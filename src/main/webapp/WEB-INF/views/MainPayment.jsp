@@ -1,6 +1,7 @@
 <%@ page import="java.util.List" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -9,42 +10,23 @@
     <title>결제 페이지</title>
   </head>
   <body>
-  <%
-	String main_img = (String)request.getAttribute("main_img");
-	String leports_title = (String)request.getAttribute("leports_title");
-	String c_address = (String)request.getAttribute("c_address");
-	String c_detail_address = (String)request.getAttribute("c_detail_address");
-	String totalPrice = (String)request.getAttribute("totalPrice");/*총 가격*/
-	List<String> item_title = (List<String>) request.getAttribute("item_title"); /*아이템 제목 리스트*/
-	List<String> item_price = (List<String>) request.getAttribute("item_price"); /*아이템 별 토탈 가격*/
-	List<String> personnelConut = (List<String>) request.getAttribute("personnelConut"); /*아이템 별 예약 인원 수*/
-
-    System.out.println("JSP main_img === " + main_img);
-    System.out.println("JSP leports_title === " + leports_title);
-    System.out.println("JSP c_address === " + c_address);
-    System.out.println("JSP c_detail_address === " + c_detail_address);
-    System.out.println("JSP totalPrice === " + totalPrice);
-    System.out.println("JSP item_title === " + item_title.size());
-    System.out.println("JSP item_price === " + item_price.size());
-    System.out.println("JSP personnelConut === " + personnelConut.size());
-    System.out.println(item_title);
-  %>
     <h1>결제하기</h1>
     <div class="payment_form_wrap">
-      <form>
+      <form action="kakaoPay" method="post">
         <div class="PRODUCT_INFORMATION">
           <h3>상품 정보</h3>
           <ul>
             <!-- class명은 임시입니다~~ -->
-            <li class="leports_main_img"><img src="" /><%=main_img %>레포츠 메인 이미지</li>
-            <li class="leports_title">레포츠 타이틀</li>
-            <li class="c_name">업체명</li>
-            <li class="c_detail_address">업체 상세 주소</li>
-            <li class="rs_date">예약일</li>
-            <li class="leports_item_title">선택 아이템 상세명 ex)서핑강습 2시간</li>
-            <li class="leports_summary">선택시간 ex)강습시간: 9:30~11:30</li>
-            <li class="persons">선택인원수</li>
-            <li class="rs_price">가격*선택인원수</li>
+            <li class="leports_main_img"><img src="" />${main_img}</li>
+            <li class="leports_title">${leports_title}</li>
+            <li class="c_address">${c_address}</li>
+            <li class="c_detail_address">${c_detail_address}</li>
+            <li class="rs_date">${reserveDay}</li>
+            <c:forEach var="item" items="${item_title}" varStatus="status">
+            	<li class="leports_item_title">${item}</li>
+            	<li class="persons">${reserve_count[status.index]}</li>
+            	<li class="rs_price">${item_price[status.index]}</li>
+            </c:forEach>
           </ul>
         </div>
 
@@ -82,7 +64,7 @@
 
         <div class="PAYMENT_BUTTON">
           아래 버튼을 선택하면 게스트 권리 포기서, 환불 정책 및 게스트 환불 정책에 동의하는 것입니다.<br />
-          <button><%=totalPrice %>원 확인 및 결제</button>
+          <button type="submit">${totalPrice}원 확인 및 결제</button>
         </div>
       </form>
     </div>
