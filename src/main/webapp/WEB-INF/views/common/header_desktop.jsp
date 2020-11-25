@@ -8,10 +8,10 @@
 	</div>
 	<ul class="nav">
 		<li><a href="RecommendServlet">추천</a></li>
-		<li class="topmenu"><a href="LeportsListServlet?category=byType">레포츠&nbsp;<i class="fas fa-angle-down"></i></a>
+		<li class="topmenu"><a href="leportsList?category=byType">레포츠&nbsp;<i class="fas fa-angle-down"></i></a>
 			<ul class="submenu">
-				<li><a href="LeportsListServlet?category=byLoc">지역별 레포츠</a></li>
-				<li><a href="LeportsListServlet?category=byType">종류별 레포츠</a></li>
+				<li><a href="leportsList?category=byLoc">지역별 레포츠</a></li>
+				<li><a href="leportsList?category=byType">종류별 레포츠</a></li>
 			</ul>
 		</li>
 		<li class="topmenu"><a href="TradeList">중고거래&nbsp;<i class="fas fa-angle-down"></i></a>
@@ -36,7 +36,7 @@
 		<div class="nav">
 			<ul>
 				<li class="mypageOpenBtn"><a href="MainMemberMyPage.jsp">마이페이지</a></li>
-				<li><a href="MainPartnerForm.jsp">파트너등록</a></li>
+				<li><a href="partner/partnerForm">파트너등록</a></li>
 				<li class="logoutOpenBtn"><a href="logout">로그아웃</a></li>
 			</ul>
 		</div>
@@ -47,7 +47,7 @@
 		<div class="nav">
 			<ul>
 				<li class="mypageOpenBtn"><a href="#">마이페이지</a></li>
-				<li class="productRegisterOpenBtn"><a href="MainPartner.jsp">파트너 페이지</a></li>
+				<li class="productRegisterOpenBtn"><a href="MainPartner">파트너 페이지</a></li>
 				<li class="logoutOpenBtn"><a href="logout">로그아웃</a></li>
 			</ul>
 		</div>
