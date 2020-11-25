@@ -20,6 +20,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="leports_sub_img3" property="leports_sub_img3"></result>
 		<result column="leports_sub_img4" property="leports_sub_img4"></result>
 		<result column="leports_content" property="leports_content"></result>
+		<result column="review_cnt" property="review_cnt"></result>
+		
 	</resultMap>
 	
 	<resultMap type="LeportsItemDTO" id="leportsItem">
@@ -43,7 +45,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="leportsList" parameterType="hashmap" resultType="LeportsThumbnailDTO">
 		select l.leports_id, l.leports_title, l.leports_main_img,
 		l.leports_loc,
-		litem.leports_summary, litem.leports_price
+		litem.leports_summary, litem.leports_price, l.review_cnt
 		from leports l
 		join leports_item litem
 		on l.leports_id = litem.leports_id

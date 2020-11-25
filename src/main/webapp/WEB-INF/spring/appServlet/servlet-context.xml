@@ -14,6 +14,7 @@
 	<mvc:default-servlet-handler/>
 	<mvc:view-controller path="/" view-name="main"/>
 	<mvc:view-controller path="/tradeList" view-name="tradeList"/>
+	<mvc:view-controller path="/tradeWrite" view-name="tradeWrite"/>
 	<mvc:view-controller path="/MainPartner" view-name="MainPartner"/>
 	<mvc:view-controller path="partner/partnerForm" view-name="partner/partnerForm"/>
 	<mvc:view-controller path="productRegistrationForm_leports" view-name="partner/productRegistrationForm_leports"/>

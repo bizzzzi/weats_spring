@@ -26,7 +26,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- <select id="CommentList" parameterType="String" resultType="TradeCommentsDTO"> 
 		select * from trade_comments where trade_id=#{trade_id} order by comment_regidate 
 		desc </select> -->
-
 	<insert id="ReCommentWrite" parameterType="TradeCommentsDTO">
 		insert into trade_comments values('TC'||trade_comment_seq.nextval,#{trade_id},#{user_id},#{trade_comment},sysdate,#{trade_comment_level},#{trade_depth})
 		<selectKey keyProperty="trade_comment_id" resultType="String" order="AFTER">
@@ -40,13 +39,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="CommentRegidate" parameterType="String" resultType="String">
 		select comment_regidate from trade_comments where trade_comment_id=#{trade_comment_id}
 	</select>
-	
 	<select id="CommentList" parameterType="String"
 		resultType="TradeCommentsDTO">
 		select * from trade_comments where trade_id=#{trade_id}
 		order by trade_comment_level desc,comment_regidate asc
 	</select>
-	
 	<delete id="CommentDel" parameterType="String">
 		delete from trade_comments where trade_comment_id=#{trade_comment_id}
 	</delete>
