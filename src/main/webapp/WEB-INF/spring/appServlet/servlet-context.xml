@@ -16,7 +16,7 @@
 	<mvc:view-controller path="/tradeList" view-name="tradeList"/>
 	<mvc:view-controller path="/tradeWrite" view-name="tradeWrite"/>
 	<mvc:view-controller path="/MainPartner" view-name="MainPartner"/>
-	<mvc:view-controller path="/partnerForm" view-name="partner/partnerForm"/>
+	<mvc:view-controller path="/partnerForm" view-name="partnerForm"/>
 	<mvc:view-controller path="productRegistrationForm_leports" view-name="partner/productRegistrationForm_leports"/>
 	<mvc:view-controller path="/partnerMypage" view-name="partner/partnerMypage"/>
 	<mvc:view-controller path="/productRegistrationForm_item" view-name="partner/productRegistrationForm_item"/>

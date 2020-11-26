@@ -17,7 +17,7 @@
 <hr>
 
 <div class="partner_form" id="partner">
-	<form action="../PartnerAdd" method="post">
+	<form action="PartnerAdd" method="post">
 		<input type="hidden" name="user_id" value="${login.user_id}">
 		<div class="box">
 			<div class="title">상호 이름*</div>
