@@ -58,7 +58,7 @@
         <div class="title">대표 사진</div>
         <div class="sub_box">
           <div>
-            <input class="leports_main_img" name="leports_main_img" type="file" accept="img/*" required multiple>
+            <input class="leports_main_img" name="leports_main_img" type="file" accept="img/*">
           </div>
         </div>
       </div>
@@ -66,16 +66,16 @@
         <div class="title">서브 사진</div>
         <div class="sub_box">
           <div>
-            <input class="leports_sub_img1" name="leports_sub_img1" type="file" accept="img/*" required multiple>
+            <input class="leports_sub_img1" name="leports_sub_img1" type="file" accept="img/*">
           </div>
           <div>
-            <input class="leports_sub_img2" name="leports_sub_img2" type="file" accept="img/*" required multiple>
+            <input class="leports_sub_img2" name="leports_sub_img2" type="file" accept="img/*">
           </div>
           <div>
-            <input class="leports_sub_img3" name="leports_sub_img3" type="file" accept="img/*" required multiple>
+            <input class="leports_sub_img3" name="leports_sub_img3" type="file" accept="img/*">
           </div>
            <div>
-            <input class="leports_sub_img4" name="leports_sub_img4" type="file" accept="img/*" required multiple>
+            <input class="leports_sub_img4" name="leports_sub_img4" type="file" accept="img/*">
           </div>
         </div>
       </div>

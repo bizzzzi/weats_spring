@@ -30,13 +30,13 @@
 				
 			<b><%=leports_title%></b>
 			<div class="leports_items main" >
-				<img src="images/<%=main_img%>.png">
+				<img src="images/<%=main_img%>">
 			</div>
 			<div class="leports_items sub">
-				<img src="images/<%=sub_img1%>.png">
-				<img src="images/<%=sub_img2%>.png">
-				<img src="images/<%=sub_img3%>.png">
-				<img src="images/<%=sub_img4%>.png">
+				<img src="images/<%=sub_img1%>">
+				<img src="images/<%=sub_img2%>">
+				<img src="images/<%=sub_img3%>">
+				<img src="images/<%=sub_img4%>">
 			</div>
 			<div>
 				<table class="scriptCalendar">
