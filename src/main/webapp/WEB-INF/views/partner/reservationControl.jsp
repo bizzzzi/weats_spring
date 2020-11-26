@@ -47,7 +47,7 @@ List<ReservationControlDTO> list=(List<ReservationControlDTO>)session.getAttribu
 %>  --%>
 <c:forEach var="dto" items="${leportsList}" varStatus="status">
     <ul class="content">
-      <li class="leports_main_img"><img src="#" alt="상품 대표 이미지">${dto.leports_main_img}</li>
+      <li class="leports_main_img"><img src="images/${dto.leports_main_img}" alt="상품 대표 이미지"></li>
       <li class="leports_title">${dto.leports_title}</li>
       <li class="rs_date">${dto.rs_date}</li>
       <li class="rs_persons">${dto.rs_persons}</li>
