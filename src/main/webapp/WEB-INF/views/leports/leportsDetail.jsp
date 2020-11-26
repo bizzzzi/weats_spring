@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <div>
 	<div>
-		<form action="leportsReserve" method="post">
+		<form action="loginCheck/leportsReserve" method="post">
 				<input type="text" name="main_img" style="display:none" value="${leportsDetail[0].leports_main_img}">
 				<input type="text" name="leports_title" style="display:none" value="${leportsDetail[0].leports_title}">
 				<input type="text" name="c_address" style="display:none" value="${leportsDetail[0].c_address}">

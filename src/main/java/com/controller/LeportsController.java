@@ -70,14 +70,15 @@ public class LeportsController {
 	}
 	
 	@RequestMapping("/leportsDetail")
-	public String leportsDetail(String leports_id, HttpServletRequest request) {
+	public String leportsDetail(String leports_id, HttpServletRequest request, HttpSession session) {
 		List<LeportsDetailDTO> list = service.leportsDetail(leports_id);
 		request.setAttribute("leportsDetail", list);
-		
+
 		List<LeportsReviewDTO> reviewList = service.reviewAll(leports_id);
 		request.setAttribute("leportsReview", reviewList);
 		System.out.println(reviewList);
-		
+
+		session.setAttribute("leports_id", leports_id);
 		return "/MainLeportsDetail";
 	}
 }
