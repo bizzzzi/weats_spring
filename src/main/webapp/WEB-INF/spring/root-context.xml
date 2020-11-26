@@ -27,6 +27,7 @@
 				<value>classpath:com/config/MemberMapper.xml</value>
 				<value>classpath:com/config/PartnerMapper.xml</value>
 				<value>classpath:com/config/TradeMapper.xml</value>
+				<value>classpath:com/config/ReservationMapper.xml</value>
 			</list>
 		</property>
 		<property name="typeAliases">

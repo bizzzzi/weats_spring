@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ReservationMapper">
+	<insert id="reserveAdd" parameterType="ReservationDTO">
+		insert into reservation(reservation_id, user_id, leports_id, rs_name, rs_phone, rs_persons, rs_paymethod, rs_date, rs_payment_date, rs_price)
+			values('RS'||reservation_seq.nextval, #{user_id}, #{leports_id}, #{rs_name}, #{rs_phone}, #{rs_persons} , #{rs_paymethod}
+			, #{rs_date}, sysdate, #{rs_price})
+	</insert>
+</mapper>

@@ -16,6 +16,7 @@ import lombok.ToString;
 @Getter @Setter
 @ToString
 public class LeportsDetailDTO {
+	private String leports_id;
 	private String leports_title;
 	private String leports_main_img;
 	private String leports_sub_img1;
@@ -31,7 +32,4 @@ public class LeportsDetailDTO {
 	private String c_detail_address;
 	private String c_phone;
 	private String leports_content;
-	private List<LeportsDetailDTO> list;
-	
-	
-}	
+}
