@@ -29,7 +29,12 @@
             </c:forEach>
           </ul>
         </div>
-
+        <!-- 데이터 넘기는 항목들 -->        
+        <input type="text" name="reserveDay" style="display:none;" value="${reserveDay}">
+        <input type="text" name="item_title" style="display:none;" value="${item_title}">
+        <input type="text" name="reserve_count" style="display:none;" value="${reserve_count}">
+        <input type="text" name="item_price" style="display:none;" value="${item_price}">
+        <!-- 끝 -->
         <div class="TRAVELER_INFORMATION">
           <h3>여행자 정보</h3>
           예약자명:<input type="text" name="rs_name" /><br />
