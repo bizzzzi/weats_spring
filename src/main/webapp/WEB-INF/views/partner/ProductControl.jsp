@@ -12,7 +12,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1 class="main_title">상품 관리</h1>
+<h1 class="main_title">등록한 상품</h1>
   <hr>
   <div class="product_control_table">
     <ul class="subject">
