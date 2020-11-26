@@ -9,12 +9,12 @@
 	<div class="products_info">
 		<div class="imgframe">
 			<ul class="trade_img">
-				<li><img class="trade_main_img2" src="images/${dto.trade_main_img}.png"></li>
+				<li><img class="trade_main_img2" src="images/${dto.trade_main_img}"></li>
 				<div>
-					<li><img class="trade_sub_img1" src="images/${dto.trade_sub_img2}.png"></li>
-					<li><img class="trade_sub_img2" src="images/${dto.trade_sub_img2}.png"></li>
-					<li><img class="trade_sub_img3" src="images/${dto.trade_sub_img3}.png"></li>
-					<li><img class="trade_sub_img4" src="images/${dto.trade_sub_img4}.png"></li>
+					<li><img class="trade_sub_img1" src="images/${dto.trade_sub_img2}"></li>
+					<li><img class="trade_sub_img2" src="images/${dto.trade_sub_img2}"></li>
+					<li><img class="trade_sub_img3" src="images/${dto.trade_sub_img3}"></li>
+					<li><img class="trade_sub_img4" src="images/${dto.trade_sub_img4}"></li>
 				</div>
 			</ul>
 		</div>

@@ -83,7 +83,7 @@ if (category != null) {
 	<div class="leports_item">
 	<a href="leportsDetail?leports_id=<%=leports_id%>">
 		<div>
-			<img src="images/<%=leports_main_img%>.png">
+			<img src="images/<%=leports_main_img%>">
 		</div>
 		<div>
 			<ul>

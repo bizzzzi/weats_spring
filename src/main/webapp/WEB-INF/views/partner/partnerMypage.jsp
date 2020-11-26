@@ -81,7 +81,7 @@
           <div class="guide_img">
             <img src="profile.png" alt="서류 제출 가이드 사진">
             <input id="image_upload" class="image_inputType_file" name="partner_license_docs"
-              placeholder="하이픈(-)은 빼고 입력해주세요." type="file" accept="img/*" required multiple>
+              placeholder="하이픈(-)은 빼고 입력해주세요." type="file" accept="img/*">
             <!-- file형태와 image만 업로드하도록 설정 -->
           </div>
           <div class="comment">
