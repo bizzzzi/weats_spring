@@ -13,6 +13,8 @@ let itemName = document.querySelectorAll('.js_itemName');
 let maxPerson = document.querySelectorAll('.js_maxPerson');
 // 아이템 가격
 let itemPrice = document.querySelectorAll('.js_itemPrice');
+// 총 선택 인원수 넣을곳 (인원수 변경)
+let pTotalCount = document.querySelector('.js_pTotalCount');
 
 for (let i = 0; i < dwBtn.length; i++) {
 	dwBtn[i].addEventListener('click', () => down(i, 1));
@@ -22,6 +24,7 @@ for (let i = 0; i < dwBtn.length; i++) {
 let down = (i, x) => {
 	if (Number(pCount[i].value) > 1) {
 		pCount[i].value -= x;
+		pTotalCount.value -= x;
 		selectItem[i].innerHTML = `<div class="select_items_option${[i]}">
 		   	<div>${itemName[i].value}</div>
 			<input type="text" style="display:none" value="${itemName[i].value}" name="item_name" />
@@ -39,6 +42,7 @@ let down = (i, x) => {
 		console.log(totalPrice.value);
 	} else if (Number(pCount[i].value) === 1){
 		pCount[i].value -= x;
+		pTotalCount.value -= x;
 		price -= Number(itemPrice[i].value);
 		totalAmount.innerText = price;
 		totalPrice.value = price;
@@ -54,6 +58,7 @@ let up = (i, x) => {
 	if (Number(pCount[i].value) < Number(maxPerson[i].value)) {
 		pCountValue += x;
 		pCount[i].value = pCountValue;
+		pTotalCount.value++;
 		selectItem[i].innerHTML = `<div class="select_items_option${[i]}">
 		   							<div>${itemName[i].value}</div>
 									<input type="text" style="display:none" value="${itemName[i].value}" name="item_name" />
