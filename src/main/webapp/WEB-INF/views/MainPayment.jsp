@@ -33,7 +33,7 @@
         <input type="text" name="reserveDay" style="display:none;" value="${reserveDay}">
         <input type="text" name="item_title" style="display:none;" value="${item_title}">
         <input type="text" name="reserve_count" style="display:none;" value="${reserve_count}">
-        <input type="text" name="item_price" style="display:none;" value="${item_price}">
+        <input type="text" name="totalPrice" style="display:none;" value="${totalPrice}">
         <!-- 끝 -->
         <div class="TRAVELER_INFORMATION">
           <h3>여행자 정보</h3>
