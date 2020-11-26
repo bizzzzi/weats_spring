@@ -3,25 +3,28 @@
 <%@taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%--login 정보 조회하여 user_id 파싱--%>
+
 <section style="margin: 0 auto;">
 	<!-- 상품상세정보 -->
 	<div class="products_info">
 		<div class="imgframe">
 			<ul class="trade_img">
-				<li><img class="trade_main_img" src="fff.png">${dto.trade_main_img}</li>
-				<li><img class="trade_sub_img1" src="fff.png">${dto.trade_sub_img1}</li>
-				<li><img class="trade_sub_img2" src="fff.png">${dto.trade_sub_img2}</li>
-				<li><img class="trade_sub_img3" src="fff.png">${dto.trade_sub_img3}</li>
-				<li><img class="trade_sub_img4" src="fff.png">${dto.trade_sub_img4}</li>
+				<li><img class="trade_main_img2" src="images/${dto.trade_main_img}.png"></li>
+				<div>
+					<li><img class="trade_sub_img1" src="images/${dto.trade_sub_img2}.png"></li>
+					<li><img class="trade_sub_img2" src="images/${dto.trade_sub_img2}.png"></li>
+					<li><img class="trade_sub_img3" src="images/${dto.trade_sub_img3}.png"></li>
+					<li><img class="trade_sub_img4" src="images/${dto.trade_sub_img4}.png"></li>
+				</div>
 			</ul>
 		</div>
 		<div class="text_info">
 			<ul>
-				<li>${dto.trade_regidate}</li>
-				<li>${dto.trade_title}</li>
-				<li>${dto.trade_price}</li>
-				<li>${dto.trade_phone}</li>
-				<li>${dto.trade_user_name}</li>
+				<li><b>등록날짜</b> ${dto.trade_regidate}</li>
+				<li><h4>${dto.trade_title}</h4></li>
+				<li><b>가격</b><strong>${dto.trade_price}</strong></li>
+				<li><b>연락처</b>${dto.trade_phone}</li>
+				<li><b>작성자</b>${dto.trade_user_name}</li>
 			</ul>
 		</div>
 	</div>
@@ -33,7 +36,7 @@
 		</p>
 	</div>
 	<!-- 댓글 -->
-	<form action="TradeCommentWrite" method="POST">
+	<form action="loginCheck/TradeReply" method="POST">
 		<strong>Comments</strong>
 		<br>
 		<input type="hidden"  name="trade_depth" value=0>
@@ -52,11 +55,11 @@
 					<span>${dto.trade_comment}</span>
 					<p>${dto.comment_regidate}</p>
 					<p>depth: ${dto.trade_depth}</p>
-					<c:if test="${dto.user_id eq 'M3'}">
-						<button class="delBtn2" data-commentlevel="${dto.trade_comment_level}" data-user="user_id">삭제</button>
-						<button class="updateBtn2" data-commentlevel="${dto.trade_comment_level}" data-user="user_id">수정</button>
-						<button class="re_comment_btn" value="${dto.trade_comment_id}">댓글달기</button>
+					<c:if test="${dto.user_id eq login.user_id}">
+						<button class="delBtn2" data-commentlevel="${dto.trade_comment_level}">삭제</button>
+						<button class="updateBtn2" data-commentlevel="${dto.trade_comment_level}" >수정</button>
 					</c:if>
+					<button class="re_comment_btn" value="${dto.trade_comment_id}">댓글달기</button>
 					<c:forEach var="dto2" items="${recommentsList}" varStatus="status">
 						<c:if test="${dto2.trade_comment_level eq dto.trade_comment_id}">
 							<div class="comment_cont re">
@@ -65,9 +68,9 @@
 								<span>${dto2.trade_comment}</span>
 								<p>${dto2.comment_regidate}</p>
 								<p>depth: ${dto2.trade_depth}</p>
-								<c:if test="${dto.user_id eq 'M3'}">
-									<button class="delBtn" data-commentid="${dto2.trade_comment_id}" data-user="user_id">삭제</button>
-									<button class="updateBtn" data-commentid="${dto2.trade_comment_id}" data-user="user_id">수정</button>
+								<c:if test="${dto2.user_id eq login.user_id}">
+									<button class="delBtn" data-commentid="${dto2.trade_comment_id}" onclick="del(event)">삭제</button>
+									<button class="updateBtn" data-commentid="${dto2.trade_comment_id}">수정</button>
 								</c:if>
 							</div>
 						</c:if>

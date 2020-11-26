@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.lang.model.type.ArrayType;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -51,8 +52,11 @@ public class LeportsController {
 				}
 			}
 		}
+		List<String> aaa = new ArrayList<>();
+
 		if(selectAlign == null || selectAlign.equals("defalut")) {
-			System.out.println("null :  "+list);
+			Collections.sort(list);
+		} else if(selectAlign.equals("maxPrice")) {
 			Collections.sort(list, (a, b) -> b.getLeports_price() - a.getLeports_price());
 		} else if(selectAlign.equals("minPrice")) {
 			Collections.sort(list, (a, b) -> a.getLeports_price() - b.getLeports_price());
