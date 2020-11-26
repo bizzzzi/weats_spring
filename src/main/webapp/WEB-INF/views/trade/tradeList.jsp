@@ -22,7 +22,7 @@
 		<ul class="trade_list">
 			<a href="TradeDetail?trade_id=${x.trade_id}">
 				<li class="trade_main_img" >
-					<img src="images/${x.trade_main_img}.png" >
+					<img src="images/${x.trade_main_img}" >
 				</li>
 				<li><span class="trade_title">${x.trade_title}</span></li>
 				<li><span class="trade_price">${x.trade_price}</span></li>

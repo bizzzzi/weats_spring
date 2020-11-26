@@ -53,8 +53,9 @@ public class LeportsController {
 		}
 		if(selectAlign == null || selectAlign.equals("defalut")) {
 			System.out.println("null :  "+list);
+		} else if(selectAlign.equals("maxPrice")) {
 			Collections.sort(list, (a, b) -> b.getLeports_price() - a.getLeports_price());
-		} else if(selectAlign.equals("minPrice")) {
+		}else if(selectAlign.equals("minPrice")) {
 			Collections.sort(list, (a, b) -> a.getLeports_price() - b.getLeports_price());
 		} else if(selectAlign.equals("review")){
 			Collections.sort(list, (a, b) -> b.getReview_cnt() - a.getReview_cnt());
