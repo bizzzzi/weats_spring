@@ -3,9 +3,20 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ReservationMapper">
+	<!--카카오 페이 결제를 눌럿을 때 insert-->
 	<insert id="reserveAdd" parameterType="ReservationDTO">
 		insert into reservation(reservation_id, user_id, leports_id, rs_name, rs_phone, rs_persons, rs_paymethod, rs_date, rs_payment_date, rs_price)
 			values('RS'||reservation_seq.nextval, #{user_id}, #{leports_id}, #{rs_name}, #{rs_phone}, #{rs_persons} , #{rs_paymethod}
-			, #{rs_date}, sysdate, #{rs_price})
+			, to_date(#{rs_date}, 'yy-mm-dd'), sysdate, #{rs_price})
 	</insert>
+
+	<!-- 에약 번호 select-->
+	<select id="reserveId" parameterType="hashmap" resultType="string">
+		select reservation_id from reservation where user_id = #{user_id} and leports_id = #{leports_id}
+	</select>
+
+	<!--결제가 제대로 완료되지 않으면  delete-->
+	<delete id="deleteReserve" parameterType="string">
+		delete from reservation where reservation_id = #{reservation_id}
+	</delete>
 </mapper>
