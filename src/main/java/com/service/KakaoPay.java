@@ -28,11 +28,11 @@ public class KakaoPay {
     public String kakaoPayReady(Map<String, String> map, List<String> item_title) {
         RestTemplate restTemplate = new RestTemplate();
 
-        String reserveDay = map.get("reserveDay").toString();
-        String totalPrice = map.get("totalPrice").toString();
-        String user_name = map.get("rs_name").toString();
-        String item_name = item_title.get(0)+" 외"+(item_title.size()-1);
-        String quantity = map.get("totalPersonnelConut").toString();
+        String reservation_id = map.get("reservation_id").toString();//예약 번호
+        String totalPrice = map.get("totalPrice").toString(); //총 가격
+        String user_name = map.get("rs_name").toString(); //예약자 이름
+        String item_name = item_title.get(0)+" 외"+(item_title.size()-1);//아이템 이름1 외 나머지갯수
+        String quantity = map.get("totalPersonnelConut").toString(); //총 수량
 
         System.out.println(totalPrice);
         System.out.println(user_name);
@@ -48,7 +48,7 @@ public class KakaoPay {
         // 서버로 요청할 Body
         MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
         params.add("cid", "TC0ONETIME");
-        params.add("partner_order_id", "1001");
+        params.add("partner_order_id", reservation_id);
 //        params.add("partner_user_id", (String) map.get("rs_name"));
         params.add("partner_user_id", user_name);
 //        params.add("item_name", item_title.get(0)+"외"+(item_title.size()-1));
@@ -84,13 +84,10 @@ public class KakaoPay {
     public KakaoPayApprovalDTO kakaoPayInfo(String pg_token, Map<String, ?> map, List<String> item_title) {
 
         RestTemplate restTemplate = new RestTemplate();
-        String totalPrice = map.get("totalPrice").toString();
-        String user_name = map.get("rs_name").toString();
-        String item_name = item_title.get(0)+" 외"+(item_title.size()-1);
-
-        System.out.println(totalPrice);
-        System.out.println(user_name);
-        System.out.println(item_name);
+        
+        String reservation_id = map.get("reservation_id").toString();//예약 번호
+        String totalPrice = map.get("totalPrice").toString(); //총 가격
+        String user_name = map.get("rs_name").toString(); //예약자 이름
 
         // 서버로 요청할 Header
         HttpHeaders headers = new HttpHeaders();
@@ -102,7 +99,7 @@ public class KakaoPay {
         MultiValueMap<String, String> params = new LinkedMultiValueMap<String, String>();
         params.add("cid", "TC0ONETIME");
         params.add("tid", kakaoPayDTO.getTid());
-        params.add("partner_order_id", "1001");
+        params.add("partner_order_id", reservation_id);
         params.add("partner_user_id", user_name);
         params.add("pg_token", pg_token);
         params.add("total_amount", totalPrice);
