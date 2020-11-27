@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -85,6 +86,18 @@ public class PartnerController {
 		attr.addFlashAttribute("LeportsForm",dto);
 		return "redirect:/LeportsIdSelect";
 	}
+	//레포츠 이름 중복검사
+	@RequestMapping(value = "/titleDuplicateCheck",produces = "text/plain; charset=UTF-8")
+	@ResponseBody
+	public String titleDuplicateCheck(@RequestParam("title")String leports_title) {
+		LeportsDTO ldto=pservice.leportsIdSelect(leports_title);
+		String mesg="";
+		if(ldto!=null) {
+			mesg="중복된 상품명입니다.";
+		}
+		return mesg;
+	}
+	
 	//레포츠 아이디찾기
 	@RequestMapping("/LeportsIdSelect")
 	public String LeportsIdSelect(@ModelAttribute("LeportsForm")LeportsDTO dto,RedirectAttributes attr) {

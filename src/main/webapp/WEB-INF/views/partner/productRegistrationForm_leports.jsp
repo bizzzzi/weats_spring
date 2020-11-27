@@ -2,7 +2,7 @@
 <%@page import="com.dto.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,6 +23,7 @@
         <div class="sub_box">
           <div>
             <input type="text" name="leports_title" class="leports_title" placeholder="ex) 서핑강습 2시간">
+            <span id="result"></span>
           </div>
         </div>
       </div>
@@ -92,9 +93,37 @@
       </div>
    
       <div class="Btn">
-        <button class="submitBtn" type="submit">다음</button>
+        <button class="submitBtn" type="submit" disabled="disabled">다음</button>
       </div>
     </form>
   </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript">   
+$(document).ready(function(){
+	$(".leports_title").on("keyup",function(){
+		$.ajax({
+			url:'titleDuplicateCheck',
+			type:'get',
+			data:{
+				title:$(".leports_title").val(),
+			},
+			dataType:"text",
+			success:function(data,status,xhr){
+				if(data=="중복된 상품명입니다."){
+					console.log(data);
+					$("#result").text(data);
+					$(".submitBtn").attr("disabled","disabled");
+				}else{
+					$("#result").text(data);
+					$(".submitBtn").removeAttr("disabled");
+				}
+			},
+			erorr:function(xhr,status,error){
+				console.log("error");
+			}
+		});
+	});
+});
+</script> 
 </body>
 </html>
