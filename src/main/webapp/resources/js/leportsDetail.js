@@ -114,5 +114,24 @@ let viewReview = () => {
 }
 
 
+// 결제하기 버튼 클릭 
+let userChoiceDay = document.querySelector('.choiceDay_data');
+let paymentBtn = document.querySelector('.paymentBtn');
+
+let navigatePage = () => {
+	if(userChoiceDay.value === "") {
+		alert("날짜를 선택해주세요.");
+		event.preventDefault();
+	} else if(Number(pTotalCount.value) === 0) {
+		alert("상품을 선택해주세요.")
+		event.preventDefault();
+	}
+}
+
+paymentBtn.addEventListener("click", navigatePage);
+
+
+
+
 
 

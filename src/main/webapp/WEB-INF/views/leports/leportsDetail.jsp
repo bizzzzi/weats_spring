@@ -87,7 +87,7 @@
 				<input type="text" style="display: none" name="totalPrice" />
 			</div>
 			<div>
-				<input type="submit" value="결제하기 버튼"/>
+				<input class="paymentBtn" type="submit" value="결제하기 버튼"/>
 			</div>
 		</form>
 		<div>
