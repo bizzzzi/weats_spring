@@ -12,6 +12,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<a href="MainPartner">파트너 메인</a>
 <h1 class="main_title">등록한 상품</h1>
   <hr>
   <div class="product_control_table">

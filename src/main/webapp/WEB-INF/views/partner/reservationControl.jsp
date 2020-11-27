@@ -15,6 +15,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<a href="MainPartner">파트너 메인</a>
 <h1 class="main_title">예약 관리</h1>
   <hr>
 

@@ -25,6 +25,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<a href="MainPartner">파트너 메인</a>
  <h1 class="main_title">상품 상세페이지(파트너용)</h1>
   <hr>
   <div class="product_control_page">
@@ -35,6 +36,7 @@
         <div class="sub_box">
           <div>
             <input type="text" name="leports_title" class="leports_title" value="${ldto.leports_title}">
+            <span id="result"></span>
           </div>
         </div>
       </div>
@@ -141,5 +143,31 @@
       </div>
     </form>
   </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript">   
+$(document).ready(function(){
+	$(".leports_title").on("keyup",function(){
+		$.ajax({
+			url:'titleDuplicateCheck',
+			type:'get',
+			data:{
+				title:$(".leports_title").val(),
+			},
+			dataType:"text",
+			success:function(data,status,xhr){
+				if(data=="중복된 상품명입니다."){
+					console.log(data);
+					$("#result").text(data);
+				}else{
+					$("#result").text(data);
+				}
+			},
+			erorr:function(xhr,status,error){
+				console.log("error");
+			}
+		});
+	});
+});
+</script> 
 </body>
 </html>

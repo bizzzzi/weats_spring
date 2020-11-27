@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,7 +36,7 @@ public class PartnerController {
 		if(n==1) {
 			pservice.partner_verifyUpdate(user_id);
 		}
-		return "main";
+		return "redirect:/";
 	}
 	
 	//파트너 마이페이지
@@ -51,17 +52,20 @@ public class PartnerController {
 	
 	//마이페이지 수정
 	@RequestMapping("/PartnerUpdate")
-	public String PartnerUpdate(PartnerDTO dto) {
+	public String PartnerUpdate(PartnerDTO dto,RedirectAttributes attr) {
 		pservice.partnerUpdate(dto);
-		return "redirect:/PartnerMypage";
+		attr.addFlashAttribute("partnermesg", "파트너 정보가 수정되었습니다.");
+		return "redirect:/MainPartner";
 	}
+	
 	//파트너 탈퇴
 	@RequestMapping("/PartnerDelete")
 	public String PartnerDelete(String partner_id,String user_id) {
 		pservice.partnerDelete(partner_id);
 		pservice.partner_verifyReset(user_id);
-		return "main";
+		return "redirect:/logout";
 	}
+
 	//파트너 키 체크
 	@RequestMapping("/PartnerKeyCheck")
 	public String PartnerkeyCheck(HttpSession session) {
@@ -110,10 +114,11 @@ public class PartnerController {
 	
 	//레포츠 아이템 등록
 	@RequestMapping("/ItemAdd")
-	public String ItemAdd(LeportsItemDTO dto,String leports_id) {
+	public String ItemAdd(LeportsItemDTO dto,String leports_id,RedirectAttributes attr) {
 		dto.setLeports_id(leports_id);
 		pservice.leportsItemInsert(dto);
-		return "MainPartner";
+		attr.addFlashAttribute("partnermesg", "상품이 등록되었습니다.");
+		return "redirect:/MainPartner";
 	}
 	
 	//레포츠 등록 리스트
@@ -142,16 +147,18 @@ public class PartnerController {
 	
 	//상품 페이지 수정
 	@RequestMapping("/ProductUpdate")
-	public String ProductUpdate(LeportsDTO ldto,LeportsItemDTO idto) {
+	public String ProductUpdate(LeportsDTO ldto,LeportsItemDTO idto,RedirectAttributes attr) {
 		pservice.ProductUpdateLeports(ldto);
 		pservice.ProductUpdateItem(idto);
-		return "MainPartner";
+		attr.addFlashAttribute("partnermesg","상품정보가 수정되었습니다.");
+		return "redirect:/MainPartner";
 	}
 	//상품 삭제
 	@RequestMapping("/ProductDelete")
-	public String ProductDelete(String leports_id){
+	public String ProductDelete(String leports_id,RedirectAttributes attr){
 		pservice.leportsDelete(leports_id);	
-		return "MainPartner";
+		attr.addFlashAttribute("partnermesg", "상품이 삭제되었습니다.");
+		return "redirect:/MainPartner";
 	}
 	
 	//예약관리
