@@ -4,6 +4,7 @@ let pCount = document.querySelectorAll('.js_pCount');
 let selectItem = document.querySelectorAll('.js_selectItem');
 let selectItemPrice;
 let totalAmount = document.querySelector(".js_total_amount");
+let totalAmount2 = document.querySelector(".js_total_amount2");
 let totalPrice = document.querySelector("input[name='totalPrice']");
 let price = 0;
 
@@ -38,6 +39,7 @@ let down = (i, x) => {
 		selectItemPrice = document.querySelectorAll('.select_item_price');
 		price -= Number(itemPrice[i].value);
 		totalAmount.innerText = price;
+		totalAmount2.innerText = price;
 		totalPrice.value = price;
 		console.log(totalPrice.value);
 	} else if (Number(pCount[i].value) === 1){
@@ -45,6 +47,7 @@ let down = (i, x) => {
 		pTotalCount.value -= x;
 		price -= Number(itemPrice[i].value);
 		totalAmount.innerText = price;
+		totalAmount2.innerText = price;
 		totalPrice.value = price;
 		console.log(totalPrice.value);
         selectItem[i].innerHTML = "";
@@ -72,6 +75,7 @@ let up = (i, x) => {
 		selectItemPrice = document.querySelectorAll('.select_item_price');
 		price += Number(itemPrice[i].value);
 		totalAmount.innerText = price;
+		totalAmount2.innerText = price;
 		totalPrice.value = price;
 		console.log(totalPrice.value);
 	}
