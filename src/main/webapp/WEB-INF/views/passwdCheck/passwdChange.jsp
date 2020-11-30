@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div id="passwdChangeContainer">
-		<form id="passwdChangeForm" action="MemberPasswdChange" method="post">
+		<form id="passwdChangeForm" action="loginCheck/passwdChange" method="post">
 			<div class="logo">로고</div>
 			<div class="title">비밀번호 변경</div>
 			<div class="comment">변경할 비밀번호를 입력하세요</div>
@@ -18,7 +18,7 @@
 					placeholder="비밀번호 입력" />
 			</div>
 			<div class="signRow">
-				<input type="password" name="new_pw" class="userPasswd2"
+				<input type="password" name="new_pw2" class="userPasswd2"
 					placeholder="비밀번호 입력" />
 			</div>
 			<div class="pwCheck"></div>

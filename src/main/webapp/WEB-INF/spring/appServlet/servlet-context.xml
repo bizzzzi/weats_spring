@@ -21,9 +21,9 @@
 	<mvc:view-controller path="/partnerMypage" view-name="partner/partnerMypage"/>
 	<mvc:view-controller path="/productRegistrationForm_item" view-name="partner/productRegistrationForm_item"/>
 	<mvc:view-controller path="/ProductControl" view-name="partner/ProductControl"/>
-	<!--<mvc:view-controller path="/kakaoPaySuccess" view-name="payment/KakaoPaySuccess"/>-->
-
-
+	<mvc:view-controller path="/MainMemberMyPage" view-name="MainMemberMyPage"/>
+	<mvc:view-controller path="/MainAccountManagement" view-name="MainAccountManagement"/>
+	<mvc:view-controller path="/passwdChange" view-name="passwdCheck/passwdChange"/>
 
 	<mvc:resources location="/resources/" mapping="/**"/>
 	<mvc:resources location="/WEB-INF/views/" mapping="/**"/>

@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 <body>
 	<%
@@ -21,7 +21,7 @@
 	session.removeAttribute("mesg");
 %>
 	<div id="passwdCheckContainer">
-		<form id="passwdCheckForm" action="passwdCheckServlet" method="post">
+		<form id="passwdCheckForm" action="passwdCheck" method="post">
 			<div class="logo">로고</div>
 			<div class="title">시작하기</div>
 			<div class="useremail"><%=user_email %></div>

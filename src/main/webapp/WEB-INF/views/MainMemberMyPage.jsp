@@ -24,8 +24,8 @@
 		<jsp:include page="common/header_mobile.jsp" flush="true"></jsp:include>
 		<jsp:include page="common/navbar_mobile.jsp" flush="true"></jsp:include>
 	</div>
-	<div id="memberAccountManagement">
-		<jsp:include page="member/accountManagement.jsp" flush="true"></jsp:include>
+	<div id="memberMypage">
+		<jsp:include page="member/memberMypage.jsp" flush="true"></jsp:include>
 	</div>
 <script type="text/javascript" src="js/main.js"></script>
 <script type="text/javascript" src="js/modal.js"></script>

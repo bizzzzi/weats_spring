@@ -39,6 +39,7 @@ public class MemberDAO {
 
 	public int pwUpdate(Map<String, String> map) {
 		// TODO Auto-generated method stub
+		System.out.println("MemberDAO pwUpdate : "+map);
 		return template.update("pwUpdate", map);
 	}
 

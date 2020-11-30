@@ -35,7 +35,7 @@
 		안녕하세요.<%= username %>님.
 		<div class="nav">
 			<ul>
-				<li class="mypageOpenBtn"><a href="MainMemberMyPage.jsp">마이페이지</a></li>
+				<li class="mypageOpenBtn"><a href="MainMemberMyPage">마이페이지</a></li>
 				<li><a href="partnerForm">파트너등록</a></li>
 				<li class="logoutOpenBtn"><a href="logout">로그아웃</a></li>
 			</ul>
@@ -46,7 +46,7 @@
 		안녕하세요.<%= username %>파트너님.
 		<div class="nav">
 			<ul>
-				<li class="mypageOpenBtn"><a href="#">마이페이지</a></li>
+				<li class="mypageOpenBtn"><a href="MainMemberMyPage">마이페이지</a></li>
 				<li class="productRegisterOpenBtn"><a href="MainPartner">파트너 페이지</a></li>
 				<li class="logoutOpenBtn"><a href="logout">로그아웃</a></li>
 			</ul>
