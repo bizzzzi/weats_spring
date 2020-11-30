@@ -29,12 +29,17 @@
             </c:forEach>
           </ul>
         </div>
-
+        <!-- 데이터 넘기는 항목들 -->        
+        <input type="text" name="reserveDay" style="display:none;" value="${reserveDay}">
+        <input type="text" name="item_title" style="display:none;" value="${item_title}">
+        <input type="text" name="totalPersonnelConut" style="display:none;" value="${totalPersonnelConut}">
+        <input type="text" name="totalPrice" style="display:none;" value="${totalPrice}">
+        <!-- 끝 -->
         <div class="TRAVELER_INFORMATION">
           <h3>여행자 정보</h3>
-          예약자명:<input type="text" name="rs_name" /><br />
-          연락처:<input type="text" name="rs_phone" /><br />
-          이메일:<input type="text" /><br />
+          예약자명:<input class="rs_name_js" type="text" name="rs_name"/><br />
+          연락처:<input class="rs_phone_js" type="text" name="rs_phone" /><br />
+          이메일:<input class="rs_email_js" type="text" /><br />
         </div>
 
         <div class="PAYMETHOD">
@@ -64,9 +69,10 @@
 
         <div class="PAYMENT_BUTTON">
           아래 버튼을 선택하면 게스트 권리 포기서, 환불 정책 및 게스트 환불 정책에 동의하는 것입니다.<br />
-          <button type="submit">${totalPrice}원 확인 및 결제</button>
+          <button class="paymentBtn" type="submit">${totalPrice}원 확인 및 결제</button>
         </div>
       </form>
     </div>
+    <script type="text/javascript" src="../js/payment.js"></script>
   </body>
 </html>

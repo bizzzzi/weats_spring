@@ -12,11 +12,12 @@ import java.util.List;
 @Controller
 public class LeportsReserveController {
 	
-	@RequestMapping("/leportsReserve")
+	@RequestMapping("/loginCheck/leportsReserve")
 	public String reserve(HttpServletRequest request,
 						  @ModelAttribute("main_img") String main_img, @ModelAttribute("leports_title") String leports_title,
 						  @ModelAttribute("c_address") String c_address, @ModelAttribute("c_detail_address") String c_detail_address,
 						  @ModelAttribute("totalPrice") String totalPrice, @ModelAttribute("reserveDay") String reserveDay,
+						  @ModelAttribute("totalPersonnelConut") String totalPersonnelConut,
 						  @RequestParam(value="item_name") List<String> item_title,
 						  @RequestParam(value="items_price") List<String> item_price,
 						  @RequestParam(value="reserve_count") List<String> reserve_count) {

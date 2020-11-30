@@ -45,7 +45,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="leportsList" parameterType="hashmap" resultType="LeportsThumbnailDTO">
 		select l.leports_id, l.leports_title, l.leports_main_img,
 		l.leports_loc,
-		litem.leports_summary, litem.leports_price, l.review_cnt
+		litem.leports_summary, litem.leports_price, l.review_cnt, to_char(l.leports_regidate, 'yyyy-mm-dd') leports_regidate
 		from leports l
 		join leports_item litem
 		on l.leports_id = litem.leports_id
@@ -66,7 +66,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="leportsDetailSelect" parameterType="String" resultType="LeportsDetailDTO">
-		select l.leports_title, l.leports_main_img, l.leports_sub_img1, l.leports_sub_img2, l.leports_sub_img3, l.leports_sub_img4,
+		select l.leports_id, l.leports_title, l.leports_main_img, l.leports_sub_img1, l.leports_sub_img2, l.leports_sub_img3, l.leports_sub_img4,
 			to_char(l.leports_regidate, 'yyyy-mm-dd') leports_regidate,
 			litem.leports_item_title, litem.leports_summary, litem.leports_price, litem.leports_max_capacity,
 			p.c_address, p.c_detail_address, p.c_phone, l.leports_content

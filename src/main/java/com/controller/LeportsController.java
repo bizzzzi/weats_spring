@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.lang.model.type.ArrayType;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -51,7 +52,10 @@ public class LeportsController {
 				}
 			}
 		}
+		List<String> aaa = new ArrayList<>();
+
 		if(selectAlign == null || selectAlign.equals("defalut")) {
+			Collections.sort(list);
 			System.out.println("null :  "+list);
 		} else if(selectAlign.equals("maxPrice")) {
 			Collections.sort(list, (a, b) -> b.getLeports_price() - a.getLeports_price());
@@ -66,14 +70,15 @@ public class LeportsController {
 	}
 	
 	@RequestMapping("/leportsDetail")
-	public String leportsDetail(String leports_id, HttpServletRequest request) {
+	public String leportsDetail(String leports_id, HttpServletRequest request, HttpSession session) {
 		List<LeportsDetailDTO> list = service.leportsDetail(leports_id);
 		request.setAttribute("leportsDetail", list);
-		
+
 		List<LeportsReviewDTO> reviewList = service.reviewAll(leports_id);
 		request.setAttribute("leportsReview", reviewList);
 		System.out.println(reviewList);
-		
+
+		session.setAttribute("leports_id", leports_id);
 		return "/MainLeportsDetail";
 	}
 }

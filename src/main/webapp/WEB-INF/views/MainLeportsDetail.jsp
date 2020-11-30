@@ -25,16 +25,19 @@
 		<jsp:include page="common/header_mobile.jsp" flush="true"></jsp:include>
 		<jsp:include page="common/navbar_mobile.jsp" flush="true"></jsp:include>
 	</div>
+	<div class="test1">
 	<div id="leports_Detail_Nav">
 		<jsp:include page="leports/leportsDetailNav.jsp" flush="true"></jsp:include>
 	</div>
 	<div id="leports_Detail">
 		<jsp:include page="leports/leportsDetail.jsp" flush="true"></jsp:include>
 	</div>
+		<jsp:include page="leports/leportsReview.jsp" flush="true"></jsp:include>
+	</div>
 <script type="text/javascript" src="js/main.js"></script>
 <script type="text/javascript" src="js/modal.js"></script>
 <script type="text/javascript" src="js/signUpForm.js"></script>
-<script type="text/javascript" src="js/count.js"></script>
+<script type="text/javascript" src="js/leportsDetail.js"></script>
 <script type="text/javascript" src="js/calendar.js"></script>
 </body>
 </html>
