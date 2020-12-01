@@ -5,7 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <script src="https://kit.fontawesome.com/400289e08c.js" crossorigin="anonymous"></script>
 <style type="text/css">
@@ -15,8 +14,7 @@
 </style>
 </head>
 <body>
-
-	<div id="desktop">
+<div id="desktop">
 		<jsp:include page="common/header_desktop.jsp" flush="true"></jsp:include>
 		<jsp:include page="common/loginForm_desktop.jsp" flush="true"></jsp:include>
 		<jsp:include page="common/signUpForm_desktop.jsp" flush="true"></jsp:include>
@@ -25,19 +23,13 @@
 		<jsp:include page="common/header_mobile.jsp" flush="true"></jsp:include>
 		<jsp:include page="common/navbar_mobile.jsp" flush="true"></jsp:include>
 	</div>
-	<div class="test1">
-	<div id="leports_Detail_Nav">
-		<jsp:include page="leports/leportsDetailNav.jsp" flush="true"></jsp:include>
-	</div>
-	<div id="leports_Detail">
-		<jsp:include page="leports/leportsDetail.jsp" flush="true"></jsp:include>
-	</div>
-		<jsp:include page="leports/leportsReview.jsp" flush="true"></jsp:include>
+	<div id="partnerFormWrap">
+		<jsp:include page="partner/partnerForm.jsp" flush="true"></jsp:include>
 	</div>
 <script type="text/javascript" src="js/main.js"></script>
 <script type="text/javascript" src="js/modal.js"></script>
 <script type="text/javascript" src="js/signUpForm.js"></script>
-<script type="text/javascript" src="js/leportsDetail.js"></script>
-<script type="text/javascript" src="js/calendar.js"></script>
+<script type="text/javascript" src="js/thumbnail.js"></script>
+<script type="text/javascript" src="js/addBtn.js"></script>
 </body>
 </html>

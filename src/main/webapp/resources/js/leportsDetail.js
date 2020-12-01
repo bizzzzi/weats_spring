@@ -4,6 +4,7 @@ let pCount = document.querySelectorAll('.js_pCount');
 let selectItem = document.querySelectorAll('.js_selectItem');
 let selectItemPrice;
 let totalAmount = document.querySelector(".js_total_amount");
+let totalAmount2 = document.querySelector(".js_total_amount2");
 let totalPrice = document.querySelector("input[name='totalPrice']");
 let price = 0;
 
@@ -13,6 +14,8 @@ let itemName = document.querySelectorAll('.js_itemName');
 let maxPerson = document.querySelectorAll('.js_maxPerson');
 // 아이템 가격
 let itemPrice = document.querySelectorAll('.js_itemPrice');
+// 총 선택 인원수 넣을곳 (인원수 변경)
+let pTotalCount = document.querySelector('.js_pTotalCount');
 
 for (let i = 0; i < dwBtn.length; i++) {
 	dwBtn[i].addEventListener('click', () => down(i, 1));
@@ -22,6 +25,7 @@ for (let i = 0; i < dwBtn.length; i++) {
 let down = (i, x) => {
 	if (Number(pCount[i].value) > 1) {
 		pCount[i].value -= x;
+		pTotalCount.value -= x;
 		selectItem[i].innerHTML = `<div class="select_items_option${[i]}">
 		   	<div>${itemName[i].value}</div>
 			<input type="text" style="display:none" value="${itemName[i].value}" name="item_name" />
@@ -35,12 +39,15 @@ let down = (i, x) => {
 		selectItemPrice = document.querySelectorAll('.select_item_price');
 		price -= Number(itemPrice[i].value);
 		totalAmount.innerText = price;
+		totalAmount2.innerText = price;
 		totalPrice.value = price;
 		console.log(totalPrice.value);
 	} else if (Number(pCount[i].value) === 1){
 		pCount[i].value -= x;
+		pTotalCount.value -= x;
 		price -= Number(itemPrice[i].value);
 		totalAmount.innerText = price;
+		totalAmount2.innerText = price;
 		totalPrice.value = price;
 		console.log(totalPrice.value);
         selectItem[i].innerHTML = "";
@@ -54,6 +61,7 @@ let up = (i, x) => {
 	if (Number(pCount[i].value) < Number(maxPerson[i].value)) {
 		pCountValue += x;
 		pCount[i].value = pCountValue;
+		pTotalCount.value++;
 		selectItem[i].innerHTML = `<div class="select_items_option${[i]}">
 		   							<div>${itemName[i].value}</div>
 									<input type="text" style="display:none" value="${itemName[i].value}" name="item_name" />
@@ -67,6 +75,7 @@ let up = (i, x) => {
 		selectItemPrice = document.querySelectorAll('.select_item_price');
 		price += Number(itemPrice[i].value);
 		totalAmount.innerText = price;
+		totalAmount2.innerText = price;
 		totalPrice.value = price;
 		console.log(totalPrice.value);
 	}
@@ -107,6 +116,25 @@ let viewReview = () => {
 		reviewListBtn.innerText = "후기 전체보기";
 	}
 }
+
+
+// 결제하기 버튼 클릭 
+let userChoiceDay = document.querySelector('.choiceDay_data');
+let paymentBtn = document.querySelector('.paymentBtn');
+
+let navigatePage = () => {
+	if(userChoiceDay.value === "") {
+		alert("날짜를 선택해주세요.");
+		event.preventDefault();
+	} else if(Number(pTotalCount.value) === 0) {
+		alert("상품을 선택해주세요.")
+		event.preventDefault();
+	}
+}
+
+paymentBtn.addEventListener("click", navigatePage);
+
+
 
 
 

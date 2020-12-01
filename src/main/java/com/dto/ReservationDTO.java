@@ -1,5 +1,8 @@
 package com.dto;
 
+import org.apache.ibatis.type.Alias;
+
+@Alias("ReservationDTO")
 public class ReservationDTO {
 	
 	String reservation_id;

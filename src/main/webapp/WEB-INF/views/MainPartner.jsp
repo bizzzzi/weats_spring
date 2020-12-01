@@ -3,12 +3,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	
-<c:if test="${! empty mesg}">
+<c:if test="${! empty partnermesg}">
 	<script>
-		alert('${mesg}');
+		alert('${partnermesg}');
 	</script>
 </c:if>
-	
+<c:remove var="partnermesg" scope="session"></c:remove>
 <%-- <%
 	String mesg=(String)session.getAttribute("partnerUpdateMesg");
 	if(mesg!=null){
