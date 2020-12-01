@@ -50,4 +50,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<delete id="CommentDel2" parameterType="String">
 		delete from trade_comments where trade_comment_level=#{trade_comment_level}
 	</delete>
+	<update id="CommentUpdate" parameterType="HashMap">
+		update trade_comments set trade_comment = #{trade_comment}, comment_regidate = sysdate where trade_comment_id = #{trade_comment_id}
+	</update>
 </mapper>

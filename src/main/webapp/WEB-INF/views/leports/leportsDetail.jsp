@@ -28,7 +28,7 @@
 				<input type="text" name="c_detail_address" style="display:none" value="<%=c_detail_address%>">
 				
 				
-			<b><%=leports_title%></b>
+			<b><%=leports_title%>${leports_title}</b>
 			<div class="leports_items main" >
 				<img src="images/<%=main_img%>">
 			</div>
