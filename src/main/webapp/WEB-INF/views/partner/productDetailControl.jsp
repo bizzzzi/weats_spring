@@ -4,33 +4,22 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%-- <%
-  	LeportsDTO dto=(LeportsDTO)session.getAttribute("leports");
-	String leports_title=dto.getLeports_title(); 
-	String leports_type=dto.getLeports_type();
-	String leports_content=dto.getLeports_content(); 
-	String leports_loc=dto.getLeports_loc();
-	String leports_id=dto.getLeports_id();
-	
-	LeportsItemDTO idto=(LeportsItemDTO)session.getAttribute("item");
-	String item_summary=idto.getLeports_summary();
-	String leports_price=idto.getLeports_price();
-	String leports_max_capacity=idto.getLeports_max_capacity();
-	String leports_item_title=idto.getLeports_item_title();
-%>     --%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+  <meta charset="UTF-8">
+  <title>Insert title here</title>
+  <link rel="stylesheet" href="css/partner.css">
 </head>
 <body>
-<a href="MainPartner">파트너 메인</a>
- <h1 class="main_title">상품 상세페이지(파트너용)</h1>
-  <hr>
-  <div class="product_control_page">
-    <form method="post">
-<input type="hidden" name="leports_id" value="${ldto.leports_id}">
+  <header class="header">
+    <a href="MainPartner">메인으로 이동</a>
+    <h1 class="main_title">상품 상세페이지(파트너용)</h1>
+    <hr>
+  </header>
+  <div class="product_Detail_control">
+    <form class="wrap" method="post">
+      <input type="hidden" name="leports_id" value="${ldto.leports_id}">
       <div class="box">
         <div class="title">상품 이름</div>
         <div class="sub_box">
@@ -52,7 +41,8 @@
         <div class="title">상품 소개</div>
         <div class="sub_box">
           <div>
-            <textarea name="leports_content" class="leports_content" cols="30" rows="10">${ldto.leports_content}</textarea>
+            <textarea name="leports_content" class="leports_content" cols="30"
+              rows="10">${ldto.leports_content}</textarea>
           </div>
         </div>
       </div>
@@ -76,7 +66,7 @@
           <div>
             <input class="leports_sub_img3" name="leports_sub_img3" type="file" accept="img/*">
           </div>
-           <div>
+          <div>
             <input class="leports_sub_img4" name="leports_sub_img4" type="file" accept="img/*">
           </div>
         </div>
@@ -132,7 +122,8 @@
         <div class="title">최대 수용 인원</div>
         <div class="sub_box">
           <div>
-            <input type="number" name="leports_max_capacity" class="leports_max_capacity" value="${idto.leports_max_capacity}">
+            <input type="number" name="leports_max_capacity" class="leports_max_capacity"
+              value="${idto.leports_max_capacity}">
           </div>
         </div>
       </div>
@@ -144,30 +135,31 @@
     </form>
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script type="text/javascript">   
-$(document).ready(function(){
-	$(".leports_title").on("keyup",function(){
-		$.ajax({
-			url:'titleDuplicateCheck',
-			type:'get',
-			data:{
-				title:$(".leports_title").val(),
-			},
-			dataType:"text",
-			success:function(data,status,xhr){
-				if(data=="중복된 상품명입니다."){
-					console.log(data);
-					$("#result").text(data);
-				}else{
-					$("#result").text(data);
-				}
-			},
-			erorr:function(xhr,status,error){
-				console.log("error");
-			}
-		});
-	});
-});
-</script> 
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $(".leports_title").on("keyup", function () {
+        $.ajax({
+          url: 'titleDuplicateCheck',
+          type: 'get',
+          data: {
+            title: $(".leports_title").val(),
+          },
+          dataType: "text",
+          success: function (data, status, xhr) {
+            if (data == "중복된 상품명입니다.") {
+              console.log(data);
+              $("#result").text(data);
+            } else {
+              $("#result").text(data);
+            }
+          },
+          erorr: function (xhr, status, error) {
+            console.log("error");
+          }
+        });
+      });
+    });
+  </script>
+  <script src="js/thumbnail.js"></script>
 </body>
 </html>
