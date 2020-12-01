@@ -21,4 +21,5 @@ public class MemberDTO {
 	String salt;
 	int user_verify;
 	int partner_verify;
+	int admin_verify;
 }

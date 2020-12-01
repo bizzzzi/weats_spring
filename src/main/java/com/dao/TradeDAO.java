@@ -1,6 +1,9 @@
 package com.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import com.dto.TradeCommentsDTO;
 import com.dto.TradeDTO;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -52,6 +55,11 @@ public class TradeDAO {
 	
 	public int CommentDel2(String trade_comment_level) {
 		int result=template.delete("CommentDel2",trade_comment_level);
+		return result;
+	}
+
+	public int CommentUpdate(HashMap<String,String> map){
+		int result = template.insert("CommentUpdate",map);
 		return result;
 	}
 	

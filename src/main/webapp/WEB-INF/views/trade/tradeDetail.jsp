@@ -48,29 +48,29 @@
 	<div class="trade_comment_list">
 		<input type="hidden" name="re_user_id" value="user_id">
 		<c:forEach var="dto" items="${commentsList}" varStatus="status">
-			<c:if test="${dto.trade_depth eq 0}">
-				<div class="comment_cont">
+			<c:if test="${dto.trade_depth eq 0}" >
+				<div class="comment_cont" id="${dto.trade_comment_id}">
 					<strong style="color:#ff0000">${dto.user_id}</strong>
 					<br>
-					<span>${dto.trade_comment}</span>
-					<p>${dto.comment_regidate}</p>
+					<span class="commentUpdate">${dto.trade_comment}</span>
+					<p class="comment_regidate">${dto.comment_regidate}</p>
 					<p>depth: ${dto.trade_depth}</p>
 					<c:if test="${dto.user_id eq login.user_id}">
 						<button class="delBtn2" data-commentlevel="${dto.trade_comment_level}">삭제</button>
-						<button class="updateBtn2" data-commentlevel="${dto.trade_comment_level}" >수정</button>
+						<button class="updateBtn" data-commentid="${dto.trade_comment_id}" onclick="update(event)" >수정</button>
 					</c:if>
-					<button class="re_comment_btn" value="${dto.trade_comment_id}">댓글달기</button>
+					<button class="re_comment_btn" value="${dto.trade_comment_id}" onclick="cowrite(event)" >댓글달기</button>
 					<c:forEach var="dto2" items="${recommentsList}" varStatus="status">
 						<c:if test="${dto2.trade_comment_level eq dto.trade_comment_id}">
-							<div class="comment_cont re">
-								<strong style="color:red">${dto2.user_id}</strong>
+							<div class="comment_cont re" id="${dto2.trade_comment_id}">
+								<strong style="color:#ff0000">${dto2.user_id}</strong>
 								<br>
-								<span>${dto2.trade_comment}</span>
-								<p>${dto2.comment_regidate}</p>
+								<span class="commentUpdate">${dto2.trade_comment}</span>
+								<p class="comment_regidate">${dto2.comment_regidate}</p>
 								<p>depth: ${dto2.trade_depth}</p>
 								<c:if test="${dto2.user_id eq login.user_id}">
 									<button class="delBtn" data-commentid="${dto2.trade_comment_id}" onclick="del(event)">삭제</button>
-									<button class="updateBtn" data-commentid="${dto2.trade_comment_id}">수정</button>
+									<button class="updateBtn" data-commentid="${dto2.trade_comment_id}" onclick="update(event)">수정</button>
 								</c:if>
 							</div>
 						</c:if>
