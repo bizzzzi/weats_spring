@@ -22,7 +22,8 @@
 		<jsp:include page="common/header_mobile.jsp" flush="true"></jsp:include>
 		<jsp:include page="common/navbar_mobile.jsp" flush="true"></jsp:include>
 	</div>
-	<div id="memberMypage">
+
+	<div id="userReservation">
 		<jsp:include page="member/userReservation.jsp" flush="true"></jsp:include>
 	</div>
 <script type="text/javascript" src="js/main.js"></script>
