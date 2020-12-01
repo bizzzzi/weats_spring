@@ -1,0 +1,216 @@
+@charset "UTF-8";
+
+@import
+	url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap')
+	;
+
+@import
+	url('https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@600&display=swap')
+	;
+body {
+  background-color: rgb(255, 255, 255);
+}
+
+.partner_form {
+  width: 60%;
+  height: 60%;
+  position: relative;
+  padding: 3% 20%;
+}
+
+.main_title {
+  /* font-size: 20pt; */
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.partner_form form {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(255, 255, 255);
+}
+
+.box {
+  display: flex;
+  height: 150px;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  /* background-color: cornflowerblue; */
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 1%;
+}
+
+.sub_box {
+  float: left;
+  /* background-color: rgb(119, 250, 119); */
+  width: 80%;
+  border-radius: 1%;
+  box-sizing: border-box;
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.2;
+}
+
+.partner_form img {
+  background-color: green;
+  height: 70px;
+}
+
+.comment {
+  font-size: 9pt;
+  padding-top: 2%;
+}
+
+.Btn {
+  background-color: rgb(255, 255, 255);
+  position: relative;
+}
+
+.submitBtn:hover {
+  background-color: rgb(187, 221, 248);
+}
+
+.Btn p {
+  display: flex;
+  justify-content: center;
+}
+
+.submitBtn {
+  display: block;
+  width: 200px;
+  height: 40px;
+  line-height: 40px;
+  border: 1px rgb(12, 11, 11) solid;
+ /*  margin: 15px auto; */
+  background-color: rgb(255, 255, 255);
+  text-align: center;
+  cursor: pointer;
+  color: #333;
+  transition: all 0.9s, color 0.3;
+}
+
+.partner_mypage {
+  width: 60%;
+  height: 60%;
+  position: relative;
+  padding: 3% 20%;
+}
+
+.partner_mypage form {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(255, 255, 255);
+}
+
+.partner_mypage img {
+  background-color: green;
+  height: 70px;
+}
+
+.Btn, .addBtn{
+  display: block;
+  width: 200px;
+  height: 40px;
+  line-height: 40px;
+  border: 1px rgb(12, 11, 11) solid;
+  margin: 15px auto;
+  background-color: rgb(255, 255, 255);
+  text-align: center;
+  cursor: pointer;
+  color: #333;
+  transition: all 0.9s, color 0.3;
+}
+
+.Btn:hover {
+  background-color: rgb(187, 221, 248);
+}
+
+.btn_wrap {
+  display: flex;
+}
+
+.image_container {
+  display: flex;
+  padding-left: 30%;
+}
+
+body {
+  font-size: 13px;
+  color: rgba(33, 33, 33, 0.89);
+  background-color: rgb(255, 255, 255);
+}
+
+.main_title {
+  display: flex;
+  justify-content: center;
+  font-size: 40px;
+  font-weight: normal;
+  font-style: normal;
+  color: #212121;
+  line-height: inherit;
+}
+
+.wrap ul {
+  list-style: none;
+  /* padding: inherit; */
+  display: flex;
+  background-color: rgb(255, 255, 255);
+}
+
+.wrap li {
+  padding: inherit;
+}
+
+.wrap {
+  width: 60%;
+  height: 60%;
+  position: relative;
+  padding: 3% 20%;
+  /* text-align: right; */
+}
+
+.thead {
+  vertical-align: middle;
+  border-color: inherit;
+  box-sizing: border-box;
+  letter-spacing: 0px;
+}
+
+.thead li{
+  padding-right: 4rem;
+}
+
+.tbody {
+  color: rgba(33, 33, 33, 0.89);
+  font-size: 13px;
+  letter-spacing: 0px;
+  display: flex;
+  vertical-align: middle;
+  border-color: inherit;
+}
+
+/* 상품 출력될 테이블 라인 */
+.thead, .tbody {
+  border-bottom: 1px solid #e5e5e5;
+  border-top: 0;
+  padding: 15px 8px;
+  vertical-align: middle;
+  font-weight: normal;
+  line-height: 1.42857143;
+}
+
+.partner_registration_form p{
+	display: flex;
+    justify-content: center;
+}
