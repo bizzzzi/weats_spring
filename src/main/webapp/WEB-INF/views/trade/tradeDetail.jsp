@@ -59,7 +59,7 @@
 						<button class="delBtn2" data-commentlevel="${dto.trade_comment_level}">삭제</button>
 						<button class="updateBtn" data-commentid="${dto.trade_comment_id}" onclick="update(event)" >수정</button>
 					</c:if>
-					<button class="re_comment_btn" value="${dto.trade_comment_id}">댓글달기</button>
+					<button class="re_comment_btn" value="${dto.trade_comment_id}" onclick="cowrite(event)" >댓글달기</button>
 					<c:forEach var="dto2" items="${recommentsList}" varStatus="status">
 						<c:if test="${dto2.trade_comment_level eq dto.trade_comment_id}">
 							<div class="comment_cont re" id="${dto2.trade_comment_id}">
