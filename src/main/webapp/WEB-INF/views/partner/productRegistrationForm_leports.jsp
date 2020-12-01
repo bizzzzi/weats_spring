@@ -2,27 +2,27 @@
 <%@page import="com.dto.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+  <meta charset="UTF-8">
+  <title>Insert title here</title>
+  <link rel="stylesheet" href="css/partner.css">
 </head>
 <body>
-<h1 class="main_title">상품 등록</h1>
-  <hr>
-
-  <div class="partner_registration_form">
+  <header class="header">
+    <a href="MainPartner">메인으로 이동</a>
+    <h1 class="main_title">상품 등록</h1>
+    <hr>
+  </header>
+  <div class="partner_registration_form wrap">
     <form action="LeportsAdd" method="post">
-    
-
- 
       <div class="box">
         <div class="title">상품 이름</div>
         <div class="sub_box">
           <div>
             <input type="text" name="leports_title" class="leports_title" placeholder="ex) 서핑강습 2시간">
+            <span id="result"></span>
           </div>
         </div>
       </div>
@@ -46,16 +46,16 @@
         <div class="title">서브 사진</div>
         <div class="sub_box">
           <div>
-            <input class="leports_sub_img1" name="leports_sub_img1" type="file" accept="img/*" required multiple>
+            <input class="leports_sub_img1" name="leports_sub_img1" type="file" accept="img/*">
           </div>
           <div>
-            <input class="leports_sub_img2" name="leports_sub_img2" type="file" accept="img/*" required multiple>
+            <input class="leports_sub_img2" name="leports_sub_img2" type="file" accept="img/*">
           </div>
           <div>
-            <input class="leports_sub_img3" name="leports_sub_img3" type="file" accept="img/*" required multiple>
+            <input class="leports_sub_img3" name="leports_sub_img3" type="file" accept="img/*">
           </div>
-            <div>
-            <input class="leports_sub_img4" name="leports_sub_img4" type="file" accept="img/*" required multiple>
+          <div>
+            <input class="leports_sub_img4" name="leports_sub_img4" type="file" accept="img/*">
           </div>
         </div>
       </div>
@@ -90,11 +90,38 @@
           </div>
         </div>
       </div>
-   
       <div class="Btn">
-        <button class="submitBtn" type="submit">다음</button>
+        <button class="submitBtn" type="submit" disabled="disabled">다음</button>
       </div>
     </form>
   </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $(".leports_title").on("keyup", function () {
+        $.ajax({
+          url: 'titleDuplicateCheck',
+          type: 'get',
+          data: {
+            title: $(".leports_title").val(),
+          },
+          dataType: "text",
+          success: function (data, status, xhr) {
+            if (data == "중복된 상품명입니다.") {
+              console.log(data);
+              $("#result").text(data);
+              $(".submitBtn").attr("disabled", "disabled");
+            } else {
+              $("#result").text(data);
+              $(".submitBtn").removeAttr("disabled");
+            }
+          },
+          erorr: function (xhr, status, error) {
+            console.log("error");
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
