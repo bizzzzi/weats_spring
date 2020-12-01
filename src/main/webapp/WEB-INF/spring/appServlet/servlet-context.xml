@@ -24,6 +24,7 @@
 	<mvc:view-controller path="/MainMemberMyPage" view-name="MainMemberMyPage"/>
 	<mvc:view-controller path="/MainAccountManagement" view-name="MainAccountManagement"/>
 	<mvc:view-controller path="/passwdChange" view-name="passwdCheck/passwdChange"/>
+	<mvc:view-controller path="/MainUserReservation" view-name="MainUserReservation"/>
 
 	<mvc:resources location="/resources/" mapping="/**"/>
 	<mvc:resources location="/WEB-INF/views/" mapping="/**"/>

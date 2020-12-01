@@ -52,6 +52,8 @@ public class MemberManagerController {
                 next = "redirect:/";
             } else if(page.equals("pwchange")) { //비밀번호 변경 버튼 클릭 시
                 next = "redirect:/passwdChange";
+            } else if(page.equals("reserve")){
+                next = "redirect:/MainUserReservation";
             }
         } else { //비번 인증 실패 시
             session.setAttribute("mesg", "비밀번호를 잘못 입력하셨습니다.");
@@ -75,6 +77,4 @@ public class MemberManagerController {
 
         return "redirect:/MainAccountManagement";
     }
-
-
 }

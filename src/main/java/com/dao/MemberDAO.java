@@ -31,15 +31,12 @@ public class MemberDAO {
 
 	public MemberDTO memberLogin(Map<String, String> map) {
 		// TODO Auto-generated method stub
-		System.out.println("MemberDAO : 넘어온 데이터"+map);
 		MemberDTO dto = template.selectOne("memberLogin", map);
-		System.out.println("MemberDAO : db 데이터" + dto);
 		return dto;
 	}
 
 	public int pwUpdate(Map<String, String> map) {
 		// TODO Auto-generated method stub
-		System.out.println("MemberDAO pwUpdate : "+map);
 		return template.update("pwUpdate", map);
 	}
 
@@ -49,7 +46,6 @@ public class MemberDAO {
 	}
 
 	public int emailCheck(String user_email) {
-		System.out.println("DAO => user_email  "+ user_email);
 		int n = template.selectOne("emailCheck", user_email);
 		return n;
 	}
