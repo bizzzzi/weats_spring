@@ -24,4 +24,8 @@ public class ReserveService {
     public void deleteReserve(String reservation_id) {
         dao.deleteReserve(reservation_id);
     }
+
+    public List<ReservationDTO> reserveList(String user_id) {
+        return dao.reserveList(user_id);
+    }
 }

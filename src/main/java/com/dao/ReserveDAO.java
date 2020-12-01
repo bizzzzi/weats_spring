@@ -24,4 +24,8 @@ public class ReserveDAO {
     public void deleteReserve(String reservation_id) {
         template.delete("deleteReserve", reservation_id);
     }
+
+    public List<ReservationDTO> reserveList(String user_id) {
+        return template.selectList("reserveList", user_id);
+    }
 }
