@@ -23,7 +23,7 @@
 		<jsp:include page="common/navbar_mobile.jsp" flush="true"></jsp:include>
 	</div>
 	<div id="memberMypage">
-		<jsp:include page="member/memberMypage.jsp" flush="true"></jsp:include>
+		<jsp:include page="member/userReservation.jsp" flush="true"></jsp:include>
 	</div>
 <script type="text/javascript" src="js/main.js"></script>
 <script type="text/javascript" src="js/modal.js"></script>
