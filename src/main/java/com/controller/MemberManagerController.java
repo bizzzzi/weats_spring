@@ -1,26 +1,24 @@
 package com.controller;
 
-import com.dto.MemberDTO;
-import com.dto.MyReserveDTO;
-import com.dto.ReservationDTO;
-import com.encrypt.SHA256;
-import com.encrypt.UserVerify;
-import com.service.MemberService;
-import com.service.ReserveService;
-import com.sun.xml.internal.ws.resources.HttpserverMessages;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.servlet.http.HttpSession;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.dto.MemberDTO;
+import com.dto.MyReserveDTO;
+import com.encrypt.SHA256;
+import com.encrypt.UserVerify;
+import com.service.MemberService;
+import com.service.ReserveService;
 
 @Controller
 public class MemberManagerController {
@@ -86,18 +84,15 @@ public class MemberManagerController {
         return "redirect:/MainAccountManagement";
     }
 
-    @GetMapping("/myReservePage")
+    @GetMapping("/loginCheck/myReservePage")
     public String myReservePage(HttpSession session, Model model){
         MemberDTO dto = (MemberDTO) session.getAttribute("login");
         String user_id = dto.getUser_id();
         List<MyReserveDTO> list = reserveService.reserveList(user_id);
-
         for(MyReserveDTO xxx: list){
             System.out.println(xxx);
         }
-
         model.addAttribute("myReserve", list);
-        
         return "/MainUserReservation";
     }
 }
