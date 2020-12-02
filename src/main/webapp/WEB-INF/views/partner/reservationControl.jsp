@@ -31,6 +31,36 @@
       <li>연락처</li>
       <li>가격</li>
     </ul>
+<<<<<<< HEAD
+    
+<%-- <%
+List<ReservationControlDTO> list=(List<ReservationControlDTO>)session.getAttribute("leportsList");
+	
+       for(int i=0; i<list.size(); i++){
+		ReservationControlDTO dto=list.get(i); 
+		
+ 	String leports_title=dto.getLeports_title();
+	String leports_main_img=dto.getLeports_main_img();
+	String leports_id=dto.getLeports_id();
+	String rs_date=dto.getRs_date();
+	String rs_persons=dto.getRs_persons();
+	String rs_name=dto.getRs_name();
+	String rs_phone=dto.getRs_phone();
+	String rs_price=dto.getRs_price(); 
+
+%>  --%>
+<c:forEach var="dto" items="${leportsList}" varStatus="status">
+    <ul class="content">
+      <li class="leports_main_img"><img src="images/${dto.leports_main_img}" alt="상품 대표 이미지" style="width: 400px"></li>
+      <li class="leports_title">${dto.leports_title}</li>
+      <li class="rs_date">${dto.rs_date}</li>
+      <li class="rs_persons">${dto.rs_persons}</li>
+      <li class="rs_name">${dto.rs_name}</li>
+      <li class="rs_phone">${dto.rs_phone}</li>
+      <li class="rs_price">${dto.rs_price}</li>
+    </ul>
+ </div>  
+</c:forEach>
     <c:forEach var="dto" items="${leportsList}" varStatus="status">
       <ul class="tbody content">
         <li class="leports_main_img"><img src="images/${dto.leports_main_img}" alt="상품 대표 이미지"></li>

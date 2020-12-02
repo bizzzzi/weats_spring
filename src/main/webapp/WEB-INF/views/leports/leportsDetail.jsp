@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+		 pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <div class="leports_detail_wrap">
 	<div class="contents">
@@ -23,28 +23,28 @@
 			<div>
 				<table class="scriptCalendar">
 					<thead>
-						<tr>
-							<td onClick="prevCalendar();" style="cursor: pointer">&#60;&#60;</td>
-							<td colspan="5">
-								<span id="calYear">YYYY</span>년 
-								<span id="calMonth">MM</span>월
-							</td>
-							<td onClick="nextCalendar();" style="cursor: pointer">&#62;&#62;</td>
-						</tr>
-						<tr>
-							<td>일</td>
-							<td>월</td>
-							<td>화</td>
-							<td>수</td>
-							<td>목</td>
-							<td>금</td>
-							<td>토</td>
-						</tr>
+					<tr>
+						<td onClick="prevCalendar();" style="cursor: pointer">&#60;&#60;</td>
+						<td colspan="5">
+							<span id="calYear">YYYY</span>년
+							<span id="calMonth">MM</span>월
+						</td>
+						<td onClick="nextCalendar();" style="cursor: pointer">&#62;&#62;</td>
+					</tr>
+					<tr>
+						<td>일</td>
+						<td>월</td>
+						<td>화</td>
+						<td>수</td>
+						<td>목</td>
+						<td>금</td>
+						<td>토</td>
+					</tr>
 					</thead>
 					<tbody></tbody>
 				</table>
 				<input class="choiceDay_data" name="reserveDay" type="text" value=""
-					style="display: none">
+					   style="display: none">
 				<!-- <div class="choiceDay_data"></div> -->
 			</div>
 			<div>
@@ -93,12 +93,12 @@
 			</div>
 		</form>
 		<div>상품 상세 설명(사진 가능) : ${leportsDetail[0].leports_content}</div>
-		</div>
-		<div class="side_nav">
-			<button>티켓 선택</button>
-			<div class="js_total_amount2"></div>
-		</div>
-		
+	</div>
+	<div class="side_nav">
+		<button>티켓 선택</button>
+		<div class="js_total_amount2"></div>
+	</div>
+
 
 	<%-- 레포츠 등록 일자 :
 	${leportsDetail[0].leports_regidate} --%>
