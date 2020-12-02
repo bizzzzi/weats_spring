@@ -7,6 +7,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<script src="https://kit.fontawesome.com/400289e08c.js" crossorigin="anonymous"></script>
+<style type="text/css">
+	a {
+		color: black; /* 임시값 나중에 Css 공통수정 */
+	}
+</style>
 </head>
 <body>
 	<div id="desktop">
