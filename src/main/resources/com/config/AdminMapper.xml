@@ -6,4 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="MemberList" resultType="MemberDTO">
 		select user_id, user_name, user_email, user_verify, partner_verify from member
 	</select>
+	<select id="PartnerList" resultType="PartnerDTO">
+		select c_name, c_postnum, c_address, c_detail_address, c_partner_license_num, partner_license_dosc from partner
+	</select>
 </mapper>

@@ -2,6 +2,7 @@ package com.dao;
 
 
 import com.dto.MemberDTO;
+import com.dto.PartnerDTO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -18,4 +19,9 @@ public class AdminDAO {
         List<MemberDTO> list = template.selectList("MemberList");
         return list;
     }
+    public List<PartnerDTO> PartnerList(){
+        List<PartnerDTO> list = template.selectList("PartnerList");
+        return list;
+    }
+
 }
