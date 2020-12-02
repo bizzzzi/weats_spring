@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,22 +26,21 @@
 		<jsp:include page="../common/navbar_mobile.jsp" flush="true"></jsp:include>
 	</div>
 	
-	<h1>파트너 관리</h1>
 	<hr>
+	<div class="title">업체명</div>
+	<div class="content">${dto.c_name}</div>
+	<div class="title">주소</div>
+	<div class="content">${dto.c_postnum} - ${dto.c_address} - ${dto.c_detail_address}</div>
+	<div class="title">전화번호</div>
+	<div class="content">${dto.c_phone}</div>
+	<div class="title">사업자 번호</div>
+	<div class="content">${dto.partner_license_num}</div>
+	<div class="title">사업 등록증</div>
+	<div class="content"><img src="${dto.partner_license_docs}"></div>
 	
-	<div class="subject">
-		<ul>
-			<li>업체명</li>
-			<li>파트너 승인여부</li>
-		</ul>
+	<div class="emailBtn">
+		<input type="button" value="파트너 승인">
+		<input type="button" value="파트너 비승인">
 	</div>
-	
-	<c:forEach var="dto" items="" varStatus="status">
-		<ul>
-			<li><a href="AdminPartnerDetail">${dto.c_name}</a></li>
-			<li>${dto.partner_verify}</li>
-		</ul>	
-	</c:forEach>
-	
 </body>
 </html>
