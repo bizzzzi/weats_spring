@@ -41,9 +41,12 @@ public class PartnerController {
 		attr.addFlashAttribute("mesg","승인 완료 후 안내 메일을 전송해드립니다.");
 		return "redirect:/";
 	}
-	
+	@RequestMapping(value="/partnerCheck/MainPartner")
+	public String MainPartner(){
+		return "redirect:/MainPartner";
+	}
 	//파트너 마이페이지
-	@RequestMapping("/PartnerMypage")
+	@RequestMapping("/partnerCheck/PartnerMypage")
 	public String PartnerMypage(HttpSession session,RedirectAttributes attr) {
 		MemberDTO mdto=(MemberDTO) session.getAttribute("login");
 		String user_id=mdto.getUser_id();
@@ -86,6 +89,7 @@ public class PartnerController {
 	@RequestMapping("/LeportsAdd")
 	public String ProductAdd(@ModelAttribute("LeportsForm")LeportsDTO dto,HttpSession session,RedirectAttributes attr) {
 		PartnerDTO pdto=(PartnerDTO) session.getAttribute("partner");
+		System.out.println("등록"+pdto);
 		String partner_id=pdto.getPartner_id();
 		dto.setPartner_id(partner_id);//session저장후 수정
 		pservice.leportsInsert(dto);
@@ -125,14 +129,14 @@ public class PartnerController {
 	}
 	
 	//레포츠 등록 리스트
-	@RequestMapping("/LeportsAddList")
+	@RequestMapping("/partnerCheck/LeportsAddList")
 	public ModelAndView LeportsAddList(HttpSession session) {
 		PartnerDTO pdto=(PartnerDTO)session.getAttribute("partner");
 		String partner_id=pdto.getPartner_id();
 		List<LeportsDTO> list=pservice.ProductControl(partner_id);
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("leportsAddList",list);
-		mav.setViewName("partner/ProductControl");
+		mav.setViewName("redirect:../ProductControl");
 		return mav;
 	}
 	
@@ -165,7 +169,7 @@ public class PartnerController {
 	}
 	
 	//예약관리
-	@RequestMapping("/ProductResevation")
+	@RequestMapping("/partnerCheck/ProductResevation")
 	public ModelAndView ProductResevation(HttpSession session) {
 		ModelAndView mav=new ModelAndView();
 		MemberDTO mdto=(MemberDTO)session.getAttribute("login");

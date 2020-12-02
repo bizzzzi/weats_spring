@@ -57,9 +57,9 @@
 			<ul>
 				<li class="mypageOpenBtn"><a href="#">마이페이지</a></li>
 				<% if(partner_verify==1){ %>
-					<li class="productRegisterOpenBtn"><a href="SubPartner">파트너 승인 대기</a></li>
+					<li class="productRegisterOpenBtn">파트너 승인 대기</li>
 				<% } else if(partner_verify==2){%>
-					<li class="productRegisterOpenBtn"><a href="MainPartner">파트너 페이지</a></li>
+					<li class="productRegisterOpenBtn"><a href="partnerCheck/MainPartner">파트너 페이지</a></li>
 				<%}%>
 				<li class="logoutOpenBtn"><a href="logout">로그아웃</a></li>
 			</ul>

@@ -10,7 +10,6 @@
 	<!-- resultMap - id: resultMap명  -->
 	<!-- column - db칼럼명	-->
 	<!--	property - 맴버변수명-->
-
 	<resultMap id="MemberDTO" type="MemberDTO">
 		<result column="partner_verify" property="partner_verify"/>
 		<result column="user_id" property="user_id"/>
