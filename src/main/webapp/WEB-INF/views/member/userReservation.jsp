@@ -1,4 +1,3 @@
-<%@ page import="com.dto.MyReserveDTO" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 		 pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -9,13 +8,10 @@
 	<div><!-- 메인이미지 넣을공간 -->
 		<img src="#" />
 	</div>
-<%--	<c:forEach var="item" items="myReserve" varStatus="status">--%>
-<%--		${item.leports_title}--%>
+	<c:forEach var="item" items="${myReserve}" varStatus="status">
+		${item.leports_title}
+	</c:forEach>
 
-<%--	</c:forEach>--%>
-	<% MyReserveDTO dto = (MyReserveDTO)request.getAttribute("myReserve");
-		System.out.println("jsp"+dto);
-	%>
 	레포츠타이틀<br>
 	예약날짜<br>
 	아이템이름<br>
