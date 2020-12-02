@@ -16,15 +16,6 @@
 </style>
 </head>
 <body>
-	<div id="desktop">
-		<jsp:include page="../common/header_desktop.jsp" flush="true"></jsp:include>
-		<jsp:include page="../common/loginForm_desktop.jsp" flush="true"></jsp:include>
-		<jsp:include page="../common/signUpForm_desktop.jsp" flush="true"></jsp:include>
-	</div>
-	<div id="mobile">
-		<jsp:include page="../common/header_mobile.jsp" flush="true"></jsp:include>
-		<jsp:include page="../common/navbar_mobile.jsp" flush="true"></jsp:include>
-	</div>
 	
 	<h1>파트너 관리</h1>
 	<hr>
@@ -32,10 +23,6 @@
 	<div class="subject">
 		<ul>
 			<li>업체명</li>
-			<li>주소</li>
-			<li>전화번호</li>
-			<li>사업자 번호</li>
-			<li>사업자 문서</li>
 			<li>파트너 승인여부</li>
 		</ul>
 	</div>
@@ -46,9 +33,9 @@
 			<li>${dto.c_postnum} ${dto.c_address} ${dto.c_detail_address}</li>
 			<li>${dto.c_partner_license_num}</li>
 			<li><img src="${dto.partner_license_dosc}"></li>
-<%--			<li>${dto.partner_verify}</li>--%>
+			<li><a href="AdminPartnerDetail?c_name=${dto.c_name}">${dto.c_name}</a></li>
+			<%--			<li>${dto.partner_verify}</li>--%>
 		</ul>	
 	</c:forEach>
-	
 </body>
 </html>

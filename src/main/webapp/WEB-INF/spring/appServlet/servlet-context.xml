@@ -22,8 +22,8 @@
 	<mvc:view-controller path="/partnerMypage" view-name="partner/partnerMypage"/>
 	<mvc:view-controller path="/productRegistrationForm_item" view-name="partner/productRegistrationForm_item"/>
 	<mvc:view-controller path="/ProductControl" view-name="partner/ProductControl"/>
-	<mvc:view-controller path="/AdminMember" view-name="admin/AdminMember"/>
-	<mvc:view-controller path="/AdminPartner" view-name="admin/AdminPartner"/>
+	<mvc:view-controller path="/AdminMember" view-name="AdminMember"/>
+	<mvc:view-controller path="/AdminPartner" view-name="AdminPartner"/>
 	<!--<mvc:view-controller path="/kakaoPaySuccess" view-name="payment/KakaoPaySuccess"/>-->
 
 

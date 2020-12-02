@@ -16,17 +16,7 @@
 </style>
 </head>
 <body>
-	
-	<div id="desktop">
-		<jsp:include page="../common/header_desktop.jsp" flush="true"></jsp:include>
-		<jsp:include page="../common/loginForm_desktop.jsp" flush="true"></jsp:include>
-		<jsp:include page="../common/signUpForm_desktop.jsp" flush="true"></jsp:include>
-	</div>
-	<div id="mobile">
-		<jsp:include page="../common/header_mobile.jsp" flush="true"></jsp:include>
-		<jsp:include page="../common/navbar_mobile.jsp" flush="true"></jsp:include>
-	</div>
-	
+
 	<h1>회원관리</h1>
 	<hr>
 
