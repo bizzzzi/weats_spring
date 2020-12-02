@@ -40,7 +40,7 @@
 		</ul>
 	</div>
 
-	<c:forEach var="dto" items="" varStatus="status">
+	<c:forEach var="dto" items="${memberList}" varStatus="status">
 		<ul>
  			<li>${dto.user_id}</li>
 			<li>${dto.user_name}</li>
