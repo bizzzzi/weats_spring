@@ -1,6 +1,7 @@
 package com.controller;
 
 import com.dto.MemberDTO;
+import com.dto.MyReserveDTO;
 import com.dto.ReservationDTO;
 import com.encrypt.SHA256;
 import com.encrypt.UserVerify;
@@ -9,6 +10,7 @@ import com.service.ReserveService;
 import com.sun.xml.internal.ws.resources.HttpserverMessages;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -84,12 +86,18 @@ public class MemberManagerController {
         return "redirect:/MainAccountManagement";
     }
 
-    @GetMapping("/loginCheck/myReservePage")
-    public String myReservePage(HttpSession session){
+    @GetMapping("/myReservePage")
+    public String myReservePage(HttpSession session, Model model){
         MemberDTO dto = (MemberDTO) session.getAttribute("login");
         String user_id = dto.getUser_id();
-        List<ReservationDTO> list = reserveService.reserveList(user_id);
+        List<MyReserveDTO> list = reserveService.reserveList(user_id);
 
-        return null;
+        for(MyReserveDTO xxx: list){
+            System.out.println(xxx);
+        }
+
+        model.addAttribute("myReserve", list);
+        
+        return "/MainUserReservation";
     }
 }

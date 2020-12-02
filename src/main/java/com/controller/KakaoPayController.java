@@ -38,13 +38,19 @@ public class KakaoPayController {
         String leports_id = (String)session.getAttribute("leports_id");
         String rs_name  = map.get("rs_name");
         String rs_phone  = map.get("rs_phone");
-        String quantity  = map.get("totalPersonnelConut");
+        int quantity  = Integer.parseInt(map.get("totalPersonnelConut"));
         String rs_date = map.get("reserveDay");
-        String total_price = map.get("totalPrice");
+        int total_price = Integer.parseInt(map.get("totalPrice"));
+        String item_name = "";
+        if(item_title.size() > 1) {
+            item_name = item_title.get(0) +" 외 "+ (item_title.size()-1);
+        } else {
+            item_name = item_title.get(0);
+        }
 
         //카카오 페이 결제 버튼 클릭 시 db에 insert (결제가 제대로 완료되지 않으면 delete, 예약 번호 때문)
         ReservationDTO dto = new ReservationDTO(null, user_id,leports_id, rs_name, rs_phone,quantity,
-                "카카오 페이", rs_date, null, total_price, null);
+                "카카오 페이", rs_date, null, total_price, item_name);
         int n = service.reserveAdd(dto);
         Map<String, String> reserveId_search = new HashMap<>();
         reserveId_search.put("user_id", user_id);
@@ -59,8 +65,8 @@ public class KakaoPayController {
         }
 
         session.setAttribute("user_info", map);
-        session.setAttribute("item_title", item_title);
-        return  "redirect:"+kakaopay.kakaoPayReady(map, item_title);
+        session.setAttribute("item_name", item_name);
+        return  "redirect:"+kakaopay.kakaoPayReady(map, item_name);
     }
 
     @RequestMapping("/kakaoPaySuccess")
@@ -70,9 +76,9 @@ public class KakaoPayController {
         System.out.println("kakaoPaySuccess pg_token : " + pg_token);
 
         Map<String, String> map = (Map<String, String>) session.getAttribute("user_info");
-        List<String> item_title =  (List<String>) session.getAttribute("item_title");
+        String item_name =  (String)session.getAttribute("item_name");
 
-        model.addAttribute("pay_info", kakaopay.kakaoPayInfo(pg_token, map, item_title));
+        model.addAttribute("pay_info", kakaopay.kakaoPayInfo(pg_token, map));
         model.addAttribute("user_info", map);
         session.removeAttribute("user_info");
         session.removeAttribute("item_title");

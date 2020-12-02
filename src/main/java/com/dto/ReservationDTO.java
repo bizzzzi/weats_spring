@@ -15,11 +15,11 @@ public class ReservationDTO {
 	private String leports_id;
 	private String rs_name;
 	private String rs_phone;
-	private String rs_persons;
+	private int rs_persons;
 	private String rs_paymethod;
 	private String rs_date;
 	private String rs_payment_date;
-	private String rs_price;
+	private int rs_price;
 	private String rs_item_name;
 
 

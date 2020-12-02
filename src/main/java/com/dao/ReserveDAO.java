@@ -1,5 +1,6 @@
 package com.dao;
 
+import com.dto.MyReserveDTO;
 import com.dto.ReservationDTO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,7 @@ public class ReserveDAO {
         template.delete("deleteReserve", reservation_id);
     }
 
-    public List<ReservationDTO> reserveList(String user_id) {
+    public List<MyReserveDTO> reserveList(String user_id) {
         return template.selectList("reserveList", user_id);
     }
 }
