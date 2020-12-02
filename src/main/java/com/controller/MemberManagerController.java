@@ -1,12 +1,16 @@
 package com.controller;
 
 import com.dto.MemberDTO;
+import com.dto.MyReserveDTO;
+import com.dto.ReservationDTO;
 import com.encrypt.SHA256;
 import com.encrypt.UserVerify;
 import com.service.MemberService;
+import com.service.ReserveService;
 import com.sun.xml.internal.ws.resources.HttpserverMessages;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,13 +19,17 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Controller
 public class MemberManagerController {
 
     @Autowired
-    MemberService service;
+    MemberService memberService;
+
+    @Autowired
+    ReserveService reserveService;
 
     @Autowired
     UserVerify userVerify;
@@ -46,7 +54,7 @@ public class MemberManagerController {
             System.out.println("비번 인증 완료");
 
             if(page.equals("delete")) { //회원 탈퇴 클릭시 넘어오는 page 키의 value
-                service.memberDelete(user_email);
+                memberService.memberDelete(user_email);
                 System.out.println("회원 탈퇴 완료");
                 session.removeAttribute("login");
                 next = "redirect:/";
@@ -66,15 +74,30 @@ public class MemberManagerController {
     public String passwdChacge(HttpSession session, @RequestParam("new_pw") String pw) {
         MemberDTO login_dto = (MemberDTO) session.getAttribute("login");
         String user_email = login_dto.getUser_email();
-        String salt = service.getSaltMember(user_email);
+        String salt = memberService.getSaltMember(user_email);
         System.out.println(user_email);
         System.out.println(salt);
         String new_pw = SHA256.getEncrypt(pw, salt);
         Map<String, String> map = new HashMap<String, String>();
         map.put("user_email", user_email);
         map.put("user_pw",new_pw);
-        service.pwUpdate(map);
+        memberService.pwUpdate(map);
 
         return "redirect:/MainAccountManagement";
+    }
+
+    @GetMapping("/myReservePage")
+    public String myReservePage(HttpSession session, Model model){
+        MemberDTO dto = (MemberDTO) session.getAttribute("login");
+        String user_id = dto.getUser_id();
+        List<MyReserveDTO> list = reserveService.reserveList(user_id);
+
+        for(MyReserveDTO xxx: list){
+            System.out.println(xxx);
+        }
+
+        model.addAttribute("myReserve", list);
+        
+        return "/MainUserReservation";
     }
 }

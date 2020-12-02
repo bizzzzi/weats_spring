@@ -25,13 +25,12 @@ public class KakaoPay {
     private KakaoPayDTO kakaoPayDTO;
     private KakaoPayApprovalDTO kakaoPayApprovalDTO;
 
-    public String kakaoPayReady(Map<String, String> map, List<String> item_title) {
+    public String kakaoPayReady(Map<String, String> map, String item_name) {
         RestTemplate restTemplate = new RestTemplate();
 
         String reservation_id = map.get("reservation_id").toString();//예약 번호
         String totalPrice = map.get("totalPrice").toString(); //총 가격
         String user_name = map.get("rs_name").toString(); //예약자 이름
-        String item_name = item_title.get(0)+" 외"+(item_title.size()-1);//아이템 이름1 외 나머지갯수
         String quantity = map.get("totalPersonnelConut").toString(); //총 수량
 
         System.out.println(totalPrice);
@@ -41,7 +40,7 @@ public class KakaoPay {
 
         // 서버로 요청할 Header
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Authorization", "KakaoAK " + "2205cce01014f20ea162e302d60d1d14");
+        headers.add("Authorization", "KakaoAK " + "9878cbbff3c62606cc0c687926f0f79a");
         headers.add("Accept", MediaType.APPLICATION_JSON_UTF8_VALUE);
         headers.add("Content-Type", MediaType.APPLICATION_FORM_URLENCODED_VALUE + ";charset=UTF-8");
 
@@ -57,9 +56,9 @@ public class KakaoPay {
         params.add("total_amount", totalPrice);
 //        params.add("total_amount", (String)map.get("totalPrice"));
         params.add("tax_free_amount", "100");
-        params.add("approval_url", "http://localhost:8900/weats/kakaoPaySuccess");
-        params.add("cancel_url", "http://localhost:8900/weats/kakaoPayCancel");
-        params.add("fail_url", "http://localhost:8900/weats/kakaoPaySuccessFail");
+        params.add("approval_url", "http://localhost:8080/weats/kakaoPaySuccess");
+        params.add("cancel_url", "http://localhost:8080/weats/kakaoPayCancel");
+        params.add("fail_url", "http://localhost:8080/weats/kakaoPaySuccessFail");
 
         HttpEntity<MultiValueMap<String, String>> body = new HttpEntity<MultiValueMap<String, String>>(params, headers);
 
@@ -81,7 +80,7 @@ public class KakaoPay {
 
     }
 
-    public KakaoPayApprovalDTO kakaoPayInfo(String pg_token, Map<String, ?> map, List<String> item_title) {
+    public KakaoPayApprovalDTO kakaoPayInfo(String pg_token, Map<String, ?> map) {
 
         RestTemplate restTemplate = new RestTemplate();
         

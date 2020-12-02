@@ -7,6 +7,7 @@ import com.service.TradeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -18,7 +19,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.reflect.Member;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class TradeController {
@@ -124,6 +127,16 @@ public class TradeController {
             result = service.CommentDel2(trade_comment_level);
             System.out.println("댓글 삭제 2: "+"\t"+result);
         }
+    }
+    @RequestMapping("/loginCheck/TradeCommentUpdate")
+    @ResponseBody
+    public void TradeCommentUpdate(@RequestParam HashMap<String,String> map, HttpServletResponse response) throws IOException {
+        int result = 0;
+        map.keySet();
+        result = service.CommentUpdate(map);
+        String comment_regidate = service.CommentRegidate(map.get("trade_comment_id"));
+        System.out.println("댓글 수정: "+result);
+        response.getWriter().print(comment_regidate);
     }
 }
 

@@ -1,6 +1,7 @@
 package com.service;
 
 import com.dao.ReserveDAO;
+import com.dto.MyReserveDTO;
 import com.dto.ReservationDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,5 +24,9 @@ public class ReserveService {
 
     public void deleteReserve(String reservation_id) {
         dao.deleteReserve(reservation_id);
+    }
+
+    public List<MyReserveDTO> reserveList(String user_id) {
+        return dao.reserveList(user_id);
     }
 }

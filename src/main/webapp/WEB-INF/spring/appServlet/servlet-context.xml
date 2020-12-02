@@ -13,6 +13,7 @@
 	<mvc:annotation-driven/>
 	<mvc:default-servlet-handler/>
 	<mvc:view-controller path="/" view-name="main"/>
+	<mvc:view-controller path="/admin" view-name="admin"/>
 	<mvc:view-controller path="/tradeList" view-name="tradeList"/>
 	<mvc:view-controller path="/tradeWrite" view-name="tradeWrite"/>
 	<mvc:view-controller path="/MainPartner" view-name="MainPartner"/>
@@ -24,7 +25,6 @@
 	<mvc:view-controller path="/MainMemberMyPage" view-name="MainMemberMyPage"/>
 	<mvc:view-controller path="/MainAccountManagement" view-name="MainAccountManagement"/>
 	<mvc:view-controller path="/passwdChange" view-name="passwdCheck/passwdChange"/>
-	<mvc:view-controller path="/MainUserReservation" view-name="MainUserReservation"/>
 
 	<mvc:resources location="/resources/" mapping="/**"/>
 	<mvc:resources location="/WEB-INF/views/" mapping="/**"/>

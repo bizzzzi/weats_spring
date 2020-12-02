@@ -1,6 +1,8 @@
 package com.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.dto.TradeCommentsDTO;
 import org.apache.ibatis.session.SqlSession;
@@ -68,5 +70,9 @@ public class TradeService {
 		int result=dao.CommentDel2(trade_comment_level);
 		return result;
 	}
-	
+
+	public int CommentUpdate(HashMap<String,String> map){
+		int result = dao.CommentUpdate(map);
+		return result;
+	}
 }

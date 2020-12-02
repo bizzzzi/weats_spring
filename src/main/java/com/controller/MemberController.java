@@ -81,14 +81,19 @@ public class MemberController {
 		MemberDTO dto = userVerify.verify(user_email, user_pw);
 		System.out.println(dto);
 		String next = "";
-		if(dto!=null) {
+		if(dto!=null && dto.getAdmin_verify()==0) {
 			dto.setUser_pw(null);//session에 비밀번호 미저장
 			rttr.addFlashAttribute("mesg", "로그인 성공");
 			session.setAttribute("login", dto);
 			next = "redirect:/PartnerKeyCheck"; /* 파트너 verify 컨트롤러로 이동하게 수정 필요 */
-		}else { 
+		}else if(dto==null){
 			rttr.addFlashAttribute("mesg", "로그인 실패");
 			next = "redirect:/";
+		}else if(dto!=null && dto.getAdmin_verify()==1){
+			dto.setUser_pw(null);
+			rttr.addFlashAttribute("mesg","관리자 로그인 성공");
+			session.setAttribute("login", dto);
+			next = "redirect:/admin";
 		}
 		return next;
 	}
