@@ -16,15 +16,6 @@
 </style>
 </head>
 <body>
-	<div id="desktop">
-		<jsp:include page="../common/header_desktop.jsp" flush="true"></jsp:include>
-		<jsp:include page="../common/loginForm_desktop.jsp" flush="true"></jsp:include>
-		<jsp:include page="../common/signUpForm_desktop.jsp" flush="true"></jsp:include>
-	</div>
-	<div id="mobile">
-		<jsp:include page="../common/header_mobile.jsp" flush="true"></jsp:include>
-		<jsp:include page="../common/navbar_mobile.jsp" flush="true"></jsp:include>
-	</div>
 	
 	<h1>파트너 관리</h1>
 	<hr>
@@ -38,7 +29,7 @@
 	
 	<c:forEach var="dto" items="" varStatus="status">
 		<ul>
-			<li><a href="AdminPartnerDetail">${dto.c_name}</a></li>
+			<li><a href="AdminPartnerDetail?c_name=${dto.c_name}">${dto.c_name}</a></li>
 			<li>${dto.partner_verify}</li>
 		</ul>	
 	</c:forEach>
