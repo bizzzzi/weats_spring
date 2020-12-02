@@ -1,12 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
-PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="AdminMapper">
 	<select id="MemberList" resultType="MemberDTO">
 		select user_id, user_name, user_email, user_verify, partner_verify from member
 	</select>
-	<select id="PartnerList" resultType="PartnerDTO">
-		select c_name, c_postnum, c_address, c_detail_address, c_partner_license_num, partner_license_dosc from partner
+	<!--resultMap - type:객체 타입	-->
+	<!-- resultMap - id: resultMap명  -->
+	<!-- column - db칼럼명	-->
+	<!--	property - 맴버변수명-->
+
+	<resultMap id="MemberDTO" type="MemberDTO">
+		<result column="partner_verify" property="partner_verify"/>
+		<result column="user_id" property="user_id"/>
+	</resultMap>
+	<resultMap id="PartnerDTO" type="PartnerDTO">
+		<result column="user_id" property="user_id"/>
+		<result column="c_name" property="c_name"/>
+		<result column="c_postnum" property="c_postnum"/>
+		<result column="c_address" property="c_detail_address"/>
+		<result column="partner_license_num" property="partner_license_num"/>
+		<result column="partner_license_docs" property="partner_license_docs"/>
+		<collection property="memberDTO" resultMap="MemberDTO"/>
+	</resultMap>
+
+	<select id="PartnerList" resultMap="PartnerDTO">
+		select m.user_id, m.partner_verify, p.c_name from member m,partner p where m.user_id = p.user_id
 	</select>
 </mapper>

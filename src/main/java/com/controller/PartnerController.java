@@ -29,13 +29,16 @@ public class PartnerController {
 	
 	//파트너 등록
 	@RequestMapping("/PartnerAdd")
-	public String partnerAdd(PartnerDTO dto,HttpSession session) {
-		int n=pservice.partnerInsert(dto);
+	public String partnerAdd(PartnerDTO dto,HttpSession session,RedirectAttributes attr) {
 		MemberDTO mdto=(MemberDTO)session.getAttribute("login");
 		String user_id=mdto.getUser_id();
+		dto.setUser_id(user_id);
+		int n=pservice.partnerInsert(dto);
+		//승인 대기로 변경
 		if(n==1) {
 			pservice.partner_verifyUpdate(user_id);
 		}
+		attr.addFlashAttribute("mesg","승인 완료 후 안내 메일을 전송해드립니다.");
 		return "redirect:/";
 	}
 	

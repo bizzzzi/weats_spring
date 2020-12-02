@@ -26,11 +26,11 @@ public class AdminController {
     @RequestMapping(value="/partnerList")
     public String PartnerList(RedirectAttributes attr){
         List<PartnerDTO> list = service.PartnerList();
+        list=service.PartnerList();
         attr.addFlashAttribute("PartnerList",list);
         System.out.println(list);
         return "redirect:/AdminPartner";
     }
-
     //파트너 회원 승인여부 구분하기
 
 

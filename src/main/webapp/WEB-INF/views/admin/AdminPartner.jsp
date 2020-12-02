@@ -31,10 +31,10 @@
 		<ul>
 			<li>${dto.c_name}</li>
 			<li>${dto.c_postnum} ${dto.c_address} ${dto.c_detail_address}</li>
-			<li>${dto.c_partner_license_num}</li>
-			<li><img src="${dto.partner_license_dosc}"></li>
+			<li>${dto.partner_license_num}</li>
+			<li><img src="${dto.partner_license_docs}"></li>
 			<li><a href="AdminPartnerDetail?c_name=${dto.c_name}">${dto.c_name}</a></li>
-			<%--			<li>${dto.partner_verify}</li>--%>
+			<li>${dto.memberDTO.partner_verify}</li>
 		</ul>	
 	</c:forEach>
 </body>
