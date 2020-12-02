@@ -9,12 +9,15 @@ import com.service.ReserveService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class MemberManagerController {
@@ -85,13 +88,10 @@ public class MemberManagerController {
         MemberDTO dto = (MemberDTO) session.getAttribute("login");
         String user_id = dto.getUser_id();
         List<MyReserveDTO> list = reserveService.reserveList(user_id);
-
         for(MyReserveDTO xxx: list){
             System.out.println(xxx);
         }
-
         model.addAttribute("myReserve", list);
-        
         return "/MainUserReservation";
     }
 }
