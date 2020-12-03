@@ -33,8 +33,11 @@ public class AdminService {
         return user_email;
     }
 
-    public int PartnerUpdate(String user_id){
-       int result = dao.PartnerUpdate(user_id);
-       return result;
+    public void PartnerUpdate(MemberDTO dto){
+        dao.PartnerUpdate(dto);
+    }
+
+    public void PartnerDel(String user_id){
+        dao.PartnerDel(user_id);
     }
 }

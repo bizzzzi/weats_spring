@@ -17,7 +17,7 @@
 	<div class="emailBtn">
 		<c:if test="${dto.memberDTO.partner_verify eq 1}">
 			<a href="partnerConfirm?uID=${dto.memberDTO.user_id}">파트너 승인</a>
-			<a href="partnerReject">파트너 비승인</a>
+			<a href="partnerConfirm?uID=${dto.memberDTO.user_id}&reject=reject">파트너 비승인</a>
 		</c:if>
 		<c:if test="${dto.memberDTO.partner_verify eq 2}">
 			<li>승인완료</li>

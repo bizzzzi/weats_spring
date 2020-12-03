@@ -91,6 +91,7 @@ public class MailController {
 		String content = "";
 		String next = "";
 		String uID = "";
+		String result = "";
 
 
 		Map<String, ?> redirectMap = RequestContextUtils.getInputFlashMap(request);
@@ -99,6 +100,7 @@ public class MailController {
 			title = (String) redirectMap.get("title");
 			content = (String) redirectMap.get("content");
 			uID = (String) redirectMap.get("uID");
+			result = (String) redirectMap.get("result");
 		}
 		try {
 			MimeMessage message = mailSender.createMimeMessage();
@@ -110,8 +112,14 @@ public class MailController {
 			messageHelper.setText(content, true); // 메일 내용
 
 			mailSender.send(message);
+			if(result == "success"){
+				rttr.addFlashAttribute("result",result);
+				next = "redirect:/partnerUpdate";
+			}else{//result == reject
+				rttr.addFlashAttribute("result",result);
+				next = "redirect:/partnerUpdate";
+			}
 			rttr.addFlashAttribute("uID",uID);
-			next = "redirect:/partnerUpdate";
 		} catch (Exception e) {
 			System.out.println("error");
 			e.printStackTrace();

@@ -46,25 +46,42 @@ public class AdminController {
         return mav;
     }
     @RequestMapping("/partnerConfirm")
-    public String partnerConfirm(String uID,HttpSession session, RedirectAttributes attr){
+    public String partnerConfirm(String uID,String reject, HttpSession session, RedirectAttributes attr){
         String partner_email = service.PartnerEmail(uID);
         String code = SHA256.getEncrypt(partner_email, "cos");
-        String title = "weats 파트너 승인이 완료되었습니다.";
-        String content = "weats와 함께 해주셔서 감사합니다. 파트너 승인이 완료되었습니다." ;
+        String title = "weats 파트너 승인 결과입니다.";
+        String content = "";
+        String result = "";
+        if(reject != null){//partner 비승인
+            content = "weats와 함께 해주셔서 감사합니다. 파트너 승인 결과는 불합격입니다." ;
+            result = "reject";
+        }else{
+            content = "weats와 함께 해주셔서 감사합니다. 파트너 승인이 완료되었습니다." ;
+            result = "success";
+        }
         session.setAttribute("tomail", partner_email);
         session.setAttribute("code", code);
-        attr.addFlashAttribute("content", content);
         attr.addFlashAttribute("title", title);
         attr.addFlashAttribute("uID", uID);
+        attr.addFlashAttribute("content", content);
+        attr.addFlashAttribute("result", result );
         return "redirect:/partnerSending";
     }
     @RequestMapping("/partnerUpdate")
     public String partnerUpdate(HttpServletRequest request){
         Map<String,?> map = RequestContextUtils.getInputFlashMap(request);
         String user_id = (String)map.get("uID");
-        System.out.println("partnerUpdate: "+user_id);
-        int result = service.PartnerUpdate(user_id);
-        System.out.println("2로 변경"+result);
+        String result = (String)map.get("result");
+        MemberDTO dto = new MemberDTO();
+        dto.setUser_id(user_id);
+        if(result == "success"){
+            dto.setPartner_verify(2);
+            service.PartnerUpdate(dto);
+        }else{
+            dto.setPartner_verify(0);
+            service.PartnerUpdate(dto);
+            service.PartnerDel(user_id);
+        }
         return "redirect:/partnerList";
     }
 }

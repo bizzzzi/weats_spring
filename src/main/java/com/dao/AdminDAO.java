@@ -34,9 +34,12 @@ public class AdminDAO {
         return user_email;
     }
 
-    public int PartnerUpdate(String user_id){
-        int result = template.update("PartnerUpdate",user_id);
-        return result;
+    public void PartnerUpdate(MemberDTO dto){
+        template.update("PartnerUpdate",dto);
+    }
+
+    public void PartnerDel(String user_id){
+        template.delete("PartnerDel",user_id);
     }
 
 }

@@ -38,9 +38,13 @@
 		select user_email from member where user_id = #{user_id}
 	</select>
 
-	<update id="PartnerUpdate" parameterType="String">
-		update member set partner_verify = 2
+	<update id="PartnerUpdate" parameterType="MemberDTO">
+		update member set partner_verify = #{partner_verify}
 		where user_id = #{user_id}
 	</update>
+
+	<delete id="PartnerDel" parameterType="String">
+		delete from partner where user_id = #{user_id}
+	</delete>
 
 </mapper>
