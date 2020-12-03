@@ -27,4 +27,17 @@ public class AdminService {
         PartnerDTO dto = dao.PartnerDetail(partner_id);
         return dto;
     }
+
+    public String PartnerEmail(String user_id){
+        String user_email = dao.PartnerEmail(user_id);
+        return user_email;
+    }
+
+    public void PartnerUpdate(MemberDTO dto){
+        dao.PartnerUpdate(dto);
+    }
+
+    public void PartnerDel(String user_id){
+        dao.PartnerDel(user_id);
+    }
 }

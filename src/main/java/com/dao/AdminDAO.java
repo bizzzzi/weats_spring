@@ -29,4 +29,17 @@ public class AdminDAO {
         return dto;
     }
 
+    public String PartnerEmail(String user_id){
+        String user_email = template.selectOne("PartnerEmail",user_id);
+        return user_email;
+    }
+
+    public void PartnerUpdate(MemberDTO dto){
+        template.update("PartnerUpdate",dto);
+    }
+
+    public void PartnerDel(String user_id){
+        template.delete("PartnerDel",user_id);
+    }
+
 }
