@@ -29,4 +29,14 @@ public class AdminDAO {
         return dto;
     }
 
+    public String PartnerEmail(String user_id){
+        String user_email = template.selectOne("PartnerEmail",user_id);
+        return user_email;
+    }
+
+    public int PartnerUpdate(String user_id){
+        int result = template.update("PartnerUpdate",user_id);
+        return result;
+    }
+
 }
