@@ -16,6 +16,7 @@ import java.util.Map;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -31,7 +32,7 @@ public class MemberManagerController {
     @Autowired
     UserVerify userVerify;
 
-    @GetMapping("/loginCheck/passwdCheck")
+    @GetMapping("/loginCheck/passwdCheckPage")
     public String passwdCheckPage(String page, String reservation_id, String rs_price, HttpSession session) {
         if(page != null) {
             session.setAttribute("page", page);
@@ -97,5 +98,11 @@ public class MemberManagerController {
         }
         model.addAttribute("myReserve", list);
         return "/MainUserReservation";
+    }
+    
+    @PostMapping("/loginCheck/reviewWrite")
+    public String reviewWrite(@ModelAttribute("leports_title") String leports_title) {
+    	
+    	return "MainReviewWriteForm";
     }
 }
