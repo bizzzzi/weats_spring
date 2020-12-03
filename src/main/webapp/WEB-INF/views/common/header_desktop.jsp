@@ -38,6 +38,7 @@
 	   <div class="nav">
 		<ul>
 			<li class="mypageOpenBtn"><a href="admin">관리자 페이지</a></li>
+			<li class="logoutOpenBtn"><a href="logout">로그아웃</a></li>
 		</ul>
 	   </div>
     <%}else if(partner_verify == 0){ %>
