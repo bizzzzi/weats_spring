@@ -22,11 +22,19 @@ public class ReserveDAO {
         return template.selectList("reserveId", reserveId_search);
     }
 
-    public void deleteReserve(String reservation_id) {
-        template.delete("deleteReserve", reservation_id);
+    public void deleteReserve(Map<String, String> map) {
+        template.delete("deleteReserve", map);
     }
 
     public List<MyReserveDTO> reserveList(String user_id) {
         return template.selectList("reserveList", user_id);
+    }
+
+    public void reserveTidAdd(Map<String, String> tidMap) {
+        template.update("reserveTidAdd", tidMap);
+    }
+
+    public String tidSearch(Map<String, String> map) {
+        return template.selectOne("tidSearch", map);
     }
 }
