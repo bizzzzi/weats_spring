@@ -32,9 +32,13 @@ public class MemberManagerController {
     UserVerify userVerify;
 
     @GetMapping("/loginCheck/passwdCheck")
-    public String passwdCheckPage(String page, HttpSession session) {
+    public String passwdCheckPage(String page, String reservation_id, String rs_price, HttpSession session) {
         if(page != null) {
             session.setAttribute("page", page);
+        }
+        if(reservation_id != null && rs_price != null) {
+            session.setAttribute("reservation_id", reservation_id);
+            session.setAttribute("rs_price", rs_price);
         }
         return "passwdCheck/passwdCheck";
     }
@@ -57,8 +61,8 @@ public class MemberManagerController {
                 next = "redirect:/";
             } else if(page.equals("pwchange")) { //비밀번호 변경 버튼 클릭 시
                 next = "redirect:/passwdChange";
-            } else if(page.equals("reserve")){
-                next = "redirect:/MainUserReservation";
+            } else if(page.equals("reserveCancel")){
+                next = "redirect:/kakaopayCancel";
             }
         } else { //비번 인증 실패 시
             session.setAttribute("mesg", "비밀번호를 잘못 입력하셨습니다.");

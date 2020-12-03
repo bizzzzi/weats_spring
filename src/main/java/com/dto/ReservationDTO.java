@@ -21,6 +21,6 @@ public class ReservationDTO {
 	private String rs_payment_date;
 	private int rs_price;
 	private String rs_item_name;
-
+	private String tid;
 
 }

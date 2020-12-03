@@ -22,11 +22,15 @@ public class ReserveService {
         return dao.reserveId(reserveId_search);
     }
 
-    public void deleteReserve(String reservation_id) {
-        dao.deleteReserve(reservation_id);
+    public void deleteReserve(Map<String, String> map) {
+        dao.deleteReserve(map);
     }
 
     public List<MyReserveDTO> reserveList(String user_id) {
         return dao.reserveList(user_id);
+    }
+
+    public String tidSearch(Map<String, String> map) {
+        return dao.tidSearch(map);
     }
 }

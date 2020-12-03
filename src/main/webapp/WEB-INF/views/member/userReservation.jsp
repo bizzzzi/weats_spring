@@ -9,7 +9,11 @@
    <div><!-- 메인이미지 넣을공간 -->
       <img src="${item.leports_main_img}" />
    </div>
-   <input type="text" name="leports_id" style="display:none" value="${leports_id}" />
+   <input type="text" name="reservation_id" style="display:none" value="${item.reservation_id}" />
+   <input type="text" name="rs_price" style="display:none" value="${item.rs_price}" />
+
+   <input type="text" name="page" style="display: none" value="reserveCancel"/>
+   ${item.reservation_id}<br>
    ${item.leports_title}<br>
    ${item.rs_date}<br>
    ${item.rs_item_name}<br>
