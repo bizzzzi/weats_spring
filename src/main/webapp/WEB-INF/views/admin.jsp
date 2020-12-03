@@ -23,7 +23,7 @@
 	<div id="admin_main">
 		<ul>
 			<li><a href="memberList">회원관리</a></li>
-			<li><a href="AdminPartner">파트너 관리</a></li>
+			<li><a href="partnerList">파트너 관리</a></li>
 		</ul>
 	</div>
 </body>
