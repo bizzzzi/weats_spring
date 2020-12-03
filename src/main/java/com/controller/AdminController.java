@@ -6,6 +6,7 @@ import com.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
@@ -19,20 +20,26 @@ public class AdminController {
     public String MemberList(RedirectAttributes attr){
         List<MemberDTO> list = service.MemberList();
         attr.addFlashAttribute("memberList",list);
-        System.out.println(list);
         return "redirect:/AdminMember";
     }
-
+    //파트너 회원 승인여부 구분하기
     @RequestMapping(value="/partnerList")
     public String PartnerList(RedirectAttributes attr){
-        List<PartnerDTO> list = service.PartnerList();
-        list=service.PartnerList();
+        List<PartnerDTO> list =service.PartnerList();
         attr.addFlashAttribute("PartnerList",list);
-        System.out.println(list);
         return "redirect:/AdminPartner";
     }
-    //파트너 회원 승인여부 구분하기
 
+    @RequestMapping(value="/AdminPartnerDetail")
+    public ModelAndView AdminPartnerDetail(String pID){
+        System.out.println("파트너 아이디: "+pID);
+        ModelAndView mav = new ModelAndView();
+        PartnerDTO dto = service.PartnerDetail(pID);
+        mav.addObject("dto",dto);
+        System.out.println(dto);
+        mav.setViewName("AdminPartnerDetail");
+        return mav;
+    }
 
 
 }

@@ -79,7 +79,7 @@ public class PartnerController {
 		int partner_key=mdto.getPartner_verify();
 		String user_id=mdto.getUser_id();
 		PartnerDTO pdto=pservice.partnerSelect(user_id);
-		if(partner_key==1) {
+		if(partner_key==2) {
 			session.setAttribute("partner", pdto);
 		}
 		return "redirect:/";

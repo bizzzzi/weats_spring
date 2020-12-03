@@ -2,21 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="css/style.css">
-<script src="https://kit.fontawesome.com/400289e08c.js" crossorigin="anonymous"></script>
-<style type="text/css">
-	a {
-		color: black; /* 임시값 나중에 Css 공통수정 */
-	}
-</style>
-</head>
-<body>
-
 	<h1>회원관리</h1>
 	<hr>
 
@@ -38,6 +23,4 @@
 			<li>${dto.user_verify}</li>
 			<li>${dto.partner_verify}</li>
 		</ul>
-	</c:forEach>	
-</body>
-</html>
+	</c:forEach>
