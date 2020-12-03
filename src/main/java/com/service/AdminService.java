@@ -22,4 +22,9 @@ public class AdminService {
         List<PartnerDTO> list = dao.PartnerList();
         return list;
     }
+
+    public PartnerDTO PartnerDetail(String partner_id){
+        PartnerDTO dto = dao.PartnerDetail(partner_id);
+        return dto;
+    }
 }

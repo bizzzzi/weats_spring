@@ -2,21 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>    
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="css/style.css">
-<script src="https://kit.fontawesome.com/400289e08c.js" crossorigin="anonymous"></script>
-<style type="text/css">
-	a {
-		color: black; /* 임시값 나중에 Css 공통수정 */
-	}
-</style>
-</head>
-<body>
-	
+
 	<hr>
 	<div class="title">업체명</div>
 	<div class="content">${dto.c_name}</div>
@@ -30,8 +16,13 @@
 	<div class="content"><img src="${dto.partner_license_docs}"></div>
 	
 	<div class="emailBtn">
-		<input type="button" value="파트너 승인">
-		<input type="button" value="파트너 비승인">
+		<c:if test="${dto.memberDTO.partner_verify eq 1}">
+			<input type="button" value="파트너 승인">
+			<input type="button" value="파트너 비승인">
+		</c:if>
+		<c:if test="${dto.memberDTO.partner_verify eq 2}">
+			<li>승인완료</li>
+		</c:if>
+
 	</div>
-</body>
-</html>
+

@@ -24,4 +24,9 @@ public class AdminDAO {
         return list;
     }
 
+    public PartnerDTO PartnerDetail(String partner_id){
+        PartnerDTO dto= template.selectOne("PartnerDetail",partner_id);
+        return dto;
+    }
+
 }

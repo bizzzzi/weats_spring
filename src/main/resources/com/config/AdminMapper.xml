@@ -16,6 +16,7 @@
 	</resultMap>
 	<resultMap id="PartnerDTO" type="PartnerDTO">
 		<result column="user_id" property="user_id"/>
+		<result column="partner_id" property="partner_id"/>
 		<result column="c_name" property="c_name"/>
 		<result column="c_postnum" property="c_postnum"/>
 		<result column="c_address" property="c_detail_address"/>
@@ -25,6 +26,14 @@
 	</resultMap>
 
 	<select id="PartnerList" resultMap="PartnerDTO">
-		select m.user_id, m.partner_verify, p.c_name from member m,partner p where m.user_id = p.user_id
+		select m.user_id, m.partner_verify, p.c_name, p.partner_id, p.c_postnum, p.c_address, p.partner_license_num from member m,partner p where m.user_id = p.user_id
 	</select>
+
+	<select id="PartnerDetail" resultMap="PartnerDTO">
+		select m.partner_verify, p.c_name, p.partner_id, p.c_postnum, p.c_address, p.partner_license_num, p.c_phone, p.partner_license_docs
+		from member m,partner p
+		where m.user_id = p.user_id and p.partner_id = #{partner_id}
+	</select>
+
+
 </mapper>

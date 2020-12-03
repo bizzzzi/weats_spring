@@ -2,20 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="css/style.css">
-<script src="https://kit.fontawesome.com/400289e08c.js" crossorigin="anonymous"></script>
-<style type="text/css">
-	a {
-		color: black; /* 임시값 나중에 Css 공통수정 */
-	}
-</style>
-</head>
-<body>
 	
 	<h1>파트너 관리</h1>
 	<hr>
@@ -33,9 +19,12 @@
 			<li>${dto.c_postnum} ${dto.c_address} ${dto.c_detail_address}</li>
 			<li>${dto.partner_license_num}</li>
 			<li><img src="${dto.partner_license_docs}"></li>
-			<li><a href="AdminPartnerDetail?c_name=${dto.c_name}">${dto.c_name}</a></li>
-			<li>${dto.memberDTO.partner_verify}</li>
-		</ul>	
+			<li><a href="AdminPartnerDetail?pID=${dto.partner_id}">${dto.c_name}</a></li>
+			<c:if test="${dto.memberDTO.partner_verify eq 1}">
+				<li>승인대기</li>
+			</c:if>
+			<c:if test="${dto.memberDTO.partner_verify eq 2}">
+				<li>승인완료</li>
+			</c:if>
+		</ul>
 	</c:forEach>
-</body>
-</html>
