@@ -46,7 +46,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<insert id="reviewWrite" parameterType="LeportsReviewDTO">
-		insert into reservation_review values('RS_R'||rs_review_seq.nextval, #{leports_id}, #{reservation_id}, #{user_id}, #{review_comments}, sysdate, #{user_name})
+		insert into reservation_review values('RS_R'||rs_review_seq.nextval, #{leports_id}, #{reservation_id}, #{user_id}, #{review_comments}, sysdate)
 	</insert>
 
 	<select id="reviewList" parameterType="string" resultType="LeportsReviewDTO">

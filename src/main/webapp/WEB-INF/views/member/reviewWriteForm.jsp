@@ -23,10 +23,10 @@
             </div>
         </div>
         <div class="review_contents">
-            <textarea rows="10" class="review_textarea"></textarea>
+            <textarea rows="10" class="review_textarea" name="review_comments"></textarea>
         </div>   
         <div class="cmd">
-            <input type="button" name="save" id="save" value="등록">
+            <input type="submit" name="save" id="save" value="등록">
         </div>
         <input type="hidden" name="leports_id" value="${leports_id}">
 		<input type="hidden" name="reservation_id" value="${reservation_id}">
