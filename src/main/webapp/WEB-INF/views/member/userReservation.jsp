@@ -23,7 +23,6 @@
    ${item.rs_persons}<br>
    ${item.rs_price}<br>
 
-
    <input type="hidden" class="review_verify" value="${item.review_verify}"/>
    <input type="hidden" name="rs_price" value="${item.rs_price}"/>
    <input type="hidden" name="reservation_id" value="${item.reservation_id}" />

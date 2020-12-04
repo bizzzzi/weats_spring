@@ -46,7 +46,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<insert id="reviewWrite" parameterType="LeportsReviewDTO">
-		insert into reservation_review values('RS_R'||rs_review_seq.nextval, #{leports_id}, #{reservation_id}, #{user_id}, #{review_comments}, sysdate)
+		insert into reservation_review values('RS_R'||rs_review_seq.nextval, #{leports_id}, #{reservation_id}, #{user_id}, #{review_comments}, sysdate, #{review_star})
 	</insert>
 	<!--리뷰 작성했는지 안했는지 판단 -->
 	<update id="reviewVerify" parameterType="hashmap">
@@ -54,7 +54,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 
 	<select id="reviewList" parameterType="string" resultType="LeportsReviewDTO">
-		select r.user_id, r.review_comments, r.review_regidate,
+		select r.user_id, r.review_comments, r.review_regidate, r.review_star,
 		       l.leports_id, l.leports_title, m.user_email
 		from reservation_review r
 		join leports l
