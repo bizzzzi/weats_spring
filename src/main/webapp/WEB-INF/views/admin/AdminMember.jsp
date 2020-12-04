@@ -21,8 +21,21 @@
 	 			<li>${dto.user_id}</li>
 				<li>${dto.user_name}</li>
 				<li>${dto.user_email}</li>
-				<li>${dto.user_verify}</li>
-				<li>${dto.partner_verify}</li>
+				<c:if test="${dto.user_verify eq 1}">
+					<li>인증완료</li>
+				</c:if>
+				<c:if test="${dto.user_verify eq 0}">
+					<li>미인증</li>
+				</c:if>
+				<c:if test="${dto.partner_verify eq 0}">
+					<li>일반회원</li>
+				</c:if>
+				<c:if test="${dto.partner_verify eq 1}">
+					<li>등록 대기</li>
+				</c:if>
+				<c:if test="${dto.partner_verify eq 2}">
+					<li>파트너</li>
+				</c:if>
 			</ul>
 		</c:forEach>
 		</div>

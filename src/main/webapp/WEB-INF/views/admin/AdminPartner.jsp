@@ -7,7 +7,9 @@
 	<hr>
 	<div class="content">
 		<div class="subject">
-			<ul>
+			<ul>	
+				<li>멤버ID</li>
+				<li>파트너ID</li>
 				<li>업체명</li>
 				<li>주소</li>
 				<li>사업자번호</li>
@@ -17,6 +19,8 @@
 		<div class="list">
 			<c:forEach var="dto" items="${PartnerList}" varStatus="status">
 				<ul>
+					<li>${dto.user_id}</li>
+					<li>${dto.partner_id}</li>
 					<li><a href="AdminPartnerDetail?pID=${dto.partner_id}">${dto.c_name}</a></li>
 					<li>${dto.c_postnum} ${dto.c_address} ${dto.c_detail_address}</li>
 					<li>${dto.partner_license_num}</li>
