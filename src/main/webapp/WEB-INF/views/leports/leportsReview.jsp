@@ -7,7 +7,7 @@
 	<c:forEach var="dto" items="${leportsReview}" varStatus="status">
 		<div class="review_list" data-value="${status.index}"
 			style='border: 1px solid black; width: 100%'>
-			<div>${dto.user_email}</div>
+			<div class="review_email">${dto.user_email}</div>
 			<div>${dto.review_comments}</div>
 			<div>${dto.review_regidate}</div>
 		</div>
