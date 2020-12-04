@@ -11,7 +11,6 @@
    </div>
    <%--예약 취소--%>
 
-
    <input type="text" name="page" style="display: none" value="reserveCancel"/>
    ${item.reservation_id}<br>
 
@@ -25,6 +24,8 @@
    ${item.rs_price}<br>
 
 
+   <input type="hidden" class="review_verify" value="${item.review_verify}"/>
+   <input type="hidden" name="rs_price" value="${item.rs_price}"/>
    <input type="hidden" name="reservation_id" value="${item.reservation_id}" />
    <input type="hidden" name="leports_id" value="${item.leports_id}"/>
    <input class="rs_date" type="hidden" value="${item.rs_date}"/>

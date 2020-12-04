@@ -36,10 +36,13 @@ public class MemberManagerController {
 
     @GetMapping("/loginCheck/passwdCheck")
     public String passwdCheckPage(String page, String reservation_id, String rs_price, HttpSession session) {
+        System.out.println(reservation_id+"\t"+rs_price);
+
         if(page != null) {
             session.setAttribute("page", page);
         }
         if(reservation_id != null && rs_price != null) {
+
             session.setAttribute("reservation_id", reservation_id);
             session.setAttribute("rs_price", rs_price);
         }
@@ -95,9 +98,7 @@ public class MemberManagerController {
         MemberDTO login = (MemberDTO) session.getAttribute("login");
         String user_id = login.getUser_id();
         List<MyReserveDTO> list = reserveService.reserveList(user_id);
-        for(MyReserveDTO xxx: list){
-            System.out.println(xxx);
-        }
+
         model.addAttribute("myReserve", list);
         return "/MainUserReservation";
     }
@@ -115,7 +116,13 @@ public class MemberManagerController {
         LeportsReviewDTO LeportsReviewDTO = new LeportsReviewDTO(null, leports_id, reservation_id, login.getUser_id()
                 , review_comments, null, null, null);
         int n = reserveService.reviewWrite(LeportsReviewDTO);
-        if(n != 0) rttr.addFlashAttribute("mesg", "리뷰 작성이 완료되었습니다.");
+        if(n != 0) {
+            Map<String, String> map = new HashMap<String, String>();
+            map.put("user_id", login.getUser_id());
+            map.put("reservation_id", reservation_id);
+            reserveService.reviewVerify(map);
+            rttr.addFlashAttribute("mesg", "리뷰 작성이 완료되었습니다.");
+        }
         else rttr.addFlashAttribute("mesg", "리뷰 작성을 다시 시도해주세요.");
         return "redirect:myReservePage";
     }

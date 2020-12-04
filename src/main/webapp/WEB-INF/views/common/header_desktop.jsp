@@ -50,7 +50,7 @@
 		안녕하세요.<%= username %>님.
 		<div class="nav">
 			<ul>
-				<li class="mypageOpenBtn"><a href="MainMemberMyPage">마이페이지</a></li>
+				<li class="mypageOpenBtn"><a href="${path}/MainMemberMyPage">마이페이지</a></li>
 				<li><a href="partnerForm">파트너등록</a></li>
 				<li class="logoutOpenBtn"><a href="logout">로그아웃</a></li>
 			</ul>
@@ -61,7 +61,7 @@
 		안녕하세요.<%= username %>파트너님.
 		<div class="nav">
 			<ul>
-				<li class="mypageOpenBtn"><a href="MainMemberMyPage">마이페이지</a></li>
+				<li class="mypageOpenBtn"><a href="${path}/MainMemberMyPage">마이페이지</a></li>
 				<% if(partner_verify==1){ %>
 					<li class="productRegisterOpenBtn">파트너 승인 대기</li>
 				<% } else if(partner_verify==2){%>

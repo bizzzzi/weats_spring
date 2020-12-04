@@ -11,6 +11,7 @@ import org.apache.ibatis.type.Alias;
 public class MyReserveDTO {
     private String reservation_id;
     private String leports_id;
+
     private String leports_title;
     private String leports_main_img;
     private String rs_item_name;
@@ -20,4 +21,5 @@ public class MyReserveDTO {
     private String c_phone;
     private String c_address;
     private String c_detail_address;
+    private int review_verify;
 }

@@ -2,6 +2,7 @@ const rs_date = document.querySelectorAll('.rs_date');
 const cancel = document.querySelectorAll('.cancel');
 const review = document.querySelectorAll('.review');
 const rs_form = document.querySelectorAll('.reservationCancellation');
+const review_verify = document.querySelectorAll('.review_verify');
 	
 	
 const today = new Date();
@@ -19,11 +20,16 @@ for(let date of rs_date){
 	if(today <= rsDate) {
 		console.log("예약취소", rsDate);
 	    cancel[i].type = 'submit';
+	} else if(today > rsDate && review_verify[i].value === "0"){
+			console.log("리뷰쓰기", rsDate);
+			rs_form[i].action = 'reviewWriteForm';
+			rs_form[i].method = 'post';
+			review[i].type = 'submit';
 	} else {
-	    console.log("리뷰쓰기", rsDate);
-	    rs_form[i].action = 'reviewWriteForm';
-	    rs_form[i].method = 'post';
-	    review[i].type = 'submit';
+		review[i].addEventListener("click", (e) => {
+			alert("이미 리뷰를 작성하셨습니다.");
+			e.preventDefault();
+		})
 	}
 	i++;
 }

@@ -9,7 +9,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="reserveAdd" parameterType="ReservationDTO">
 		insert into reservation
 			values('RS'||reservation_seq.nextval, #{user_id}, #{leports_id}, #{rs_name}, #{rs_phone}, #{rs_persons} , #{rs_paymethod}
-			, to_date(#{rs_date}, 'yy-mm-dd'), sysdate, #{rs_price}, #{rs_item_name}, null)
+			, to_date(#{rs_date}, 'yy-mm-dd'), sysdate, #{rs_price}, #{rs_item_name}, null, 0)
 	</insert>
 
 	<!--tid 추가-->
@@ -30,7 +30,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!--예약 내역 리스트-->
 	<select id="reserveList" parameterType="string" resultType="MyReserveDTO">
 		select l.leports_id, l.leports_title, l.leports_main_img, p.c_phone, p.c_address, p.c_detail_address,
-			r.reservation_id, r.rs_item_name, r.rs_persons, r.rs_date, r.rs_price
+			r.reservation_id, r.rs_item_name, r.rs_persons, r.rs_date, r.rs_price, r.review_verify
 		from reservation r
 		join leports l
 		on r.leports_id = l.leports_id
@@ -48,6 +48,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="reviewWrite" parameterType="LeportsReviewDTO">
 		insert into reservation_review values('RS_R'||rs_review_seq.nextval, #{leports_id}, #{reservation_id}, #{user_id}, #{review_comments}, sysdate)
 	</insert>
+	<!--리뷰 작성했는지 안했는지 판단 -->
+	<update id="reviewVerify" parameterType="hashmap">
+		update reservation set review_verify = 1 where user_id = #{user_id} and reservation_id = #{reservation_id}
+	</update>
 
 	<select id="reviewList" parameterType="string" resultType="LeportsReviewDTO">
 		select r.user_id, r.review_comments, r.review_regidate,
