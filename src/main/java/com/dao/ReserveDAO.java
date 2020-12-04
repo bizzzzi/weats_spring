@@ -46,4 +46,8 @@ public class ReserveDAO {
     public List<LeportsReviewDTO> reviewList(String user_id) {
         return template.selectList("reviewList", user_id);
     }
+
+    public void reviewVerify(Map<String, String> map) {
+        template.update("reviewVerify", map);
+    }
 }

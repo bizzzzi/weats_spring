@@ -22,5 +22,6 @@ public class ReservationDTO {
 	private int rs_price;
 	private String rs_item_name;
 	private String tid;
+	private int review_verify;
 
 }

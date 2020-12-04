@@ -3,6 +3,7 @@ Rating.prototype.rate = 0;
 
 Rating.prototype.setRate = function(newrate) {
 	//별점 마킹 - 클릭한 별 이하 모든 별 체크 처리
+	document.querySelector('.review_star').value = newrate;
 	this.rate = newrate;
 	let items = document.querySelectorAll('.rate_radio');
 	items.forEach(function(item, idx) {
@@ -12,6 +13,7 @@ Rating.prototype.setRate = function(newrate) {
 			item.checked = false;
 		}
 	});
+
 }
 
 let rating = new Rating();

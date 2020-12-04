@@ -17,4 +17,5 @@ public class LeportsReviewDTO {
 	private String review_regidate;
 	private String leports_title;
 	private String user_email;
+	private int review_star;
 }

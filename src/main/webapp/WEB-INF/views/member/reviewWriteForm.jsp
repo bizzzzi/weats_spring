@@ -28,6 +28,7 @@
         <div class="cmd">
             <input type="submit" name="save" id="save" value="등록">
         </div>
+        <input type="hidden" class="review_star" name="review_star"/>
         <input type="hidden" name="leports_id" value="${leports_id}">
 		<input type="hidden" name="reservation_id" value="${reservation_id}">
     </form>

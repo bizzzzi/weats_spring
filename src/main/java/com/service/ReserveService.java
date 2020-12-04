@@ -43,4 +43,8 @@ public class ReserveService {
     public List<LeportsReviewDTO> reviewList(String user_id) {
         return dao.reviewList(user_id);
     }
+
+    public void reviewVerify(Map<String, String> map) {
+        dao.reviewVerify(map);
+    }
 }

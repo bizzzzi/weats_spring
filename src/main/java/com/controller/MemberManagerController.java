@@ -40,6 +40,7 @@ public class MemberManagerController {
             session.setAttribute("page", page);
         }
         if(reservation_id != null && rs_price != null) {
+
             session.setAttribute("reservation_id", reservation_id);
             session.setAttribute("rs_price", rs_price);
         }
@@ -95,9 +96,7 @@ public class MemberManagerController {
         MemberDTO login = (MemberDTO) session.getAttribute("login");
         String user_id = login.getUser_id();
         List<MyReserveDTO> list = reserveService.reserveList(user_id);
-        for(MyReserveDTO xxx: list){
-            System.out.println(xxx);
-        }
+
         model.addAttribute("myReserve", list);
         return "/MainUserReservation";
     }
@@ -110,22 +109,30 @@ public class MemberManagerController {
     }
 
     @PostMapping("/loginCheck/reviewWrite")
-    public String reviewWrite(String leports_id, String reservation_id, String review_comments, HttpSession session, RedirectAttributes rttr) {
+    public String reviewWrite(String leports_id, String reservation_id, String review_comments, String review_star, HttpSession session, RedirectAttributes rttr) {
+        System.out.println(review_star);
         MemberDTO login = (MemberDTO) session.getAttribute("login");
         LeportsReviewDTO LeportsReviewDTO = new LeportsReviewDTO(null, leports_id, reservation_id, login.getUser_id()
-                , review_comments, null, null, null);
+                , review_comments, null, null, null, Integer.parseInt(review_star));
         int n = reserveService.reviewWrite(LeportsReviewDTO);
-        if(n != 0) rttr.addFlashAttribute("mesg", "리뷰 작성이 완료되었습니다.");
+        if(n != 0) {
+            Map<String, String> map = new HashMap<String, String>();
+            map.put("user_id", login.getUser_id());
+            map.put("reservation_id", reservation_id);
+            reserveService.reviewVerify(map);
+            rttr.addFlashAttribute("mesg", "리뷰 작성이 완료되었습니다.");
+        }
         else rttr.addFlashAttribute("mesg", "리뷰 작성을 다시 시도해주세요.");
         return "redirect:myReservePage";
     }
 
 
     @GetMapping("/loginCheck/myReview")
-    public String myReview(HttpSession session) {
+    public String myReview(HttpSession session, Model model) {
         MemberDTO login = (MemberDTO)session.getAttribute("login");
         List<LeportsReviewDTO> reviewList = reserveService.reviewList(login.getUser_id());
         System.out.println(reviewList);
-        return null;
+        model.addAttribute("reviewList", reviewList);
+        return "MainMyReview";
     }
 }

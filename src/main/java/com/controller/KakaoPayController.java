@@ -51,7 +51,7 @@ public class KakaoPayController {
 
         //카카오 페이 결제 버튼 클릭 시 db에 insert (결제가 제대로 완료되지 않으면 delete, 예약 번호 때문)
         ReservationDTO dto = new ReservationDTO(null, user_id,leports_id, rs_name, rs_phone,quantity,
-                "카카오 페이", rs_date, null, total_price, item_name, null);
+                "카카오 페이", rs_date, null, total_price, item_name, null, 0);
         int n = service.reserveAdd(dto);
         Map<String, String> reserveId_search = new HashMap<>();
         reserveId_search.put("user_id", user_id);

@@ -20,4 +20,5 @@ public class MyReserveDTO {
     private String c_phone;
     private String c_address;
     private String c_detail_address;
+    private int review_verify;
 }

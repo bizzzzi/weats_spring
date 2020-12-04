@@ -808,7 +808,7 @@ video {
 
 /* 리뷰 별점 */
 	/* 레이아웃 외곽 너비 400px 제한*/
-#userReservation .wrap{
+#reviewWrite .wrap{
     max-width: 480px;
     /* margin: 0 auto; 화면 가운데로 */
     background-color: #fff;
@@ -817,12 +817,12 @@ video {
     box-sizing: border-box;
 
 }
-#userReservation .reviewform textarea{
+#reviewWrite .reviewform textarea{
     width: 100%;
     padding: 10px;
     box-sizing: border-box;
 }
-#userReservation .rating .rate_radio {
+#reviewWrite .rating .rate_radio {
     position: relative;
     display: inline-block;
     z-index: 20;
@@ -834,7 +834,7 @@ video {
     vertical-align: top;
     display: none;
 }
-#userReservation .rating .rate_radio + label {
+#reviewWrite .rating .rate_radio + label {
     position: relative;
     display: inline-block;
     margin-left: -4px;
@@ -847,18 +847,18 @@ video {
     cursor: pointer;
     background-color: #f0f0f0;
 }
-#userReservation .rating .rate_radio:checked + label {
+#reviewWrite .rating .rate_radio:checked + label {
     background-color: red;
 }
 
-#userReservation .warning_msg {
+#reviewWrite .warning_msg {
     display: none;
     position: relative;
     text-align: center;
     background: #ffffff;
     line-height: 26px;
     width: 100%;
-    color: red;
+    color: #ff0000;
     padding: 10px;
     box-sizing: border-box;
     border: 1px solid #e0e0e0;
