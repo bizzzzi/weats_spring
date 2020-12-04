@@ -11,7 +11,7 @@
 		<span>${login.user_email}</span>
 	</div>
 	<div>
-		<a href="loginCheck/passwdCheckPage?page=delete">회원탈퇴</a>
-		<a href="loginCheck/passwdCheckPage?page=pwchange">비밀번호 변경</a>
+		<a href="loginCheck/passwdCheck?page=delete">회원탈퇴</a>
+		<a href="loginCheck/passwdCheck?page=pwchange">비밀번호 변경</a>
 	</div>
 </form>

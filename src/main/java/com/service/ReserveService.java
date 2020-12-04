@@ -3,6 +3,7 @@ package com.service;
 import com.dao.ReserveDAO;
 import com.dto.MyReserveDTO;
 import com.dto.ReservationDTO;
+import com.dto.ReservationReviewDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,5 +33,10 @@ public class ReserveService {
 
     public String tidSearch(Map<String, String> map) {
         return dao.tidSearch(map);
+    }
+
+    public int reviewWrite(ReservationReviewDTO reservationReviewDTO) {
+
+        return dao.reviewWrite(reservationReviewDTO);
     }
 }

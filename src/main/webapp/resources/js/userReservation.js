@@ -21,7 +21,7 @@ for(let date of rs_date){
 	    cancel[i].type = 'submit';
 	} else {
 	    console.log("리뷰쓰기", rsDate);
-	    rs_form[i].action = 'reviewWrite';
+	    rs_form[i].action = 'reviewWriteForm';
 	    rs_form[i].method = 'post';
 	    review[i].type = 'submit';
 	}

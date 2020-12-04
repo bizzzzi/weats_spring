@@ -10,6 +10,7 @@ import org.apache.ibatis.type.Alias;
 @ToString
 public class MyReserveDTO {
     private String reservation_id;
+    private String leports_id;
     private String leports_title;
     private String leports_main_img;
     private String rs_item_name;
