@@ -37,16 +37,16 @@ document.querySelector('.review_textarea').addEventListener('keydown', function(
 			}
 		});
 
-document.querySelector('#save').addEventListener('click', function(e) {
+document.querySelector('.reviewform').addEventListener('submit', function(e) {
 	//별점 선택 안했으면 메시지 표시
 	if (rating.rate == 0) {
 		alert('별점을 선택해 주세요.');
-		return false;
+		e.preventDefault();
 	}
 	//리뷰 5자 미만이면 메시지 표시
 	if (document.querySelector('.review_textarea').value.length < 5) {
 		alert('5자 이상 작성해 주세요.');
-		return false;
+		e.preventDefault();
 	}
 });
 
