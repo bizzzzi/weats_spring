@@ -5,7 +5,7 @@
 <h1>나의예약내역</h1>
 <!-- 예약갯수만큼 반복 출력 -->
 <c:forEach var="item" items="${myReserve}" varStatus="status">
-<form action="passwdCheck" method="get">
+<form class="reservationCancellation" action="passwdCheckPage" method="get">
    <div><!-- 메인이미지 넣을공간 -->
       <img src="${item.leports_main_img}" />
    </div>
@@ -23,7 +23,10 @@
    ${item.rs_persons}<br>
    ${item.rs_price}<br>
 
-   <input type="submit" value="예약취소" />
+   <input class="rs_date" type="hidden" value="${item.rs_date}"/>
+   <input name="leports_title" type="hidden" value="${item.leports_title}"/>
+   <input class="cancel" type="button" value="예약취소" />
+   <input class="review" type="button" value="리뷰쓰기" />
 </form>
 </c:forEach>
 <script>
