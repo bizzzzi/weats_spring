@@ -1,6 +1,8 @@
 <%@page import="com.dto.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <div class="header">
 	<div class="logo">
@@ -8,12 +10,15 @@
 	</div>
 	<ul class="nav">
 		<li><a href="RecommendServlet">추천</a></li>
-		<li class="topmenu"><a href="leportsList?category=byType">레포츠&nbsp;<i class="fas fa-angle-down"></i></a>
-			<ul class="submenu">
-				<li><a href="leportsList?category=byLoc">지역별 레포츠</a></li>
-				<li><a href="leportsList?category=byType">종류별 레포츠</a></li>
-			</ul>
-		</li>
+		<c:set var="path" value="${pageContext.request.contextPath}" />
+				<li class="topmenu"><a href="${path}/leportsList?category=byType">레포츠&nbsp;<i class="fas fa-angle-down"></i></a>
+					<ul class="submenu">
+						<li><a href="${path}/leportsList?category=byLoc">지역별 레포츠</a></li>
+						<li><a href="${path}/leportsList?category=byType">종류별 레포츠</a></li>
+						<b>true</b>
+					</ul>
+				</li>
+
 		<li class="topmenu"><a href="TradeList">중고거래&nbsp;<i class="fas fa-angle-down"></i></a>
 			<ul class="submenu">
 				<li><a href="TradeList?trade_type=판매">판매</a></li>

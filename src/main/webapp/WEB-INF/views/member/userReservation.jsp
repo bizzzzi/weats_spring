@@ -22,6 +22,12 @@
    ${item.c_phone}<br>
    ${item.rs_persons}<br>
    ${item.rs_price}<br>
+
    <input type="submit" value="예약취소" />
 </form>
 </c:forEach>
+<script>
+
+
+
+</script>
