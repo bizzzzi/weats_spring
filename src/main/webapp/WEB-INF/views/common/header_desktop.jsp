@@ -30,8 +30,18 @@
    if(dto != null){
     String username = dto.getUser_name();
     int partner_verify = dto.getPartner_verify();
-    if(partner_verify == 0){
+    int admin_verify=dto.getAdmin_verify();
+    if(admin_verify==1){
+    	
 %>
+	 <%= username %> 관리자
+	   <div class="nav">
+		<ul>
+			<li class="mypageOpenBtn"><a href="admin">관리자 페이지</a></li>
+			<li class="logoutOpenBtn"><a href="logout">로그아웃</a></li>
+		</ul>
+	   </div>
+    <%}else if(partner_verify == 0){ %>
 		안녕하세요.<%= username %>님.
 		<div class="nav">
 			<ul>
@@ -41,13 +51,22 @@
 			</ul>
 		</div>
 <%
-    }else{
+    }else if(partner_verify != 0){
 %>
 		안녕하세요.<%= username %>파트너님.
 		<div class="nav">
 			<ul>
+<<<<<<< HEAD
 				<li class="mypageOpenBtn"><a href="MainMemberMyPage">마이페이지</a></li>
 				<li class="productRegisterOpenBtn"><a href="MainPartner">파트너 페이지</a></li>
+=======
+				<li class="mypageOpenBtn"><a href="#">마이페이지</a></li>
+				<% if(partner_verify==1){ %>
+					<li class="productRegisterOpenBtn">파트너 승인 대기</li>
+				<% } else if(partner_verify==2){%>
+					<li class="productRegisterOpenBtn"><a href="partnerCheck/MainPartner">파트너 페이지</a></li>
+				<%}%>
+>>>>>>> develop
 				<li class="logoutOpenBtn"><a href="logout">로그아웃</a></li>
 			</ul>
 		</div>

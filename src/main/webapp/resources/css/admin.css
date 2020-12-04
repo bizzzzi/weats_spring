@@ -1,0 +1,34 @@
+@charset "UTF-8";
+
+.content{
+	width:100%;
+}
+.content .subject{
+	justify-content: center;
+	align-items: center;
+	display: flex;
+}
+.content .subject ul{
+	display: flex;
+	text-align:center;
+	width: 100%;
+}
+.content .subject ul li{
+	text-align:center;
+	width:100%;
+	margin: 10px;
+}
+
+.content .list{
+	justify-content:center;
+	align-items: center;
+}
+.content .list ul{
+	display: flex;
+	justify-content:center;
+}
+.content .list ul li{
+	text-align:center;
+	width:100%;
+	margin: 10px;
+}
