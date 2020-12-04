@@ -33,6 +33,7 @@
 		<li><a href="leportsList?category=byLoc&loc=경상">경상</a></li>
 		<li><a href="leportsList?category=byLoc&loc=부산">부산</a></li>
 		<li><a href="leportsList?category=byLoc&loc=전라">전라</a></li>
+		<li><a href="leportsList?category=byLoc&loc=제주">제주</a></li>
 		<li><a href="leportsList?category=byLoc&loc=기타">기타</a></li>
 	</ul>
 </div>
@@ -73,7 +74,6 @@
 					<li style="display: none">상품 아이디: ${dto.leports_id}</li>
 					<li>상품 이름: ${dto.leports_title}</li>
 					<li>한줄 설명: ${dto.leports_summary}</li>
-					<li>지역: ${dto.leports_loc}</li>
 					<li>가격: ${dto.leports_price}</li>
 					<li>리뷰: ${dto.review_cnt}개</li>
 				</ul>

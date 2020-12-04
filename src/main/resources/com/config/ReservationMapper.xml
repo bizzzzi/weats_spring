@@ -7,7 +7,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!--카카오 페이 결제를 눌럿을 때 insert-->
 	<insert id="reserveAdd" parameterType="ReservationDTO">
-		insert into reservation(reservation_id, user_id, leports_id, rs_name, rs_phone, rs_persons, rs_paymethod, rs_date, rs_payment_date, rs_price, rs_item_name, tid)
+		insert into reservation
 			values('RS'||reservation_seq.nextval, #{user_id}, #{leports_id}, #{rs_name}, #{rs_phone}, #{rs_persons} , #{rs_paymethod}
 			, to_date(#{rs_date}, 'yy-mm-dd'), sysdate, #{rs_price}, #{rs_item_name}, null)
 	</insert>
@@ -29,7 +29,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!--예약 내역 리스트-->
 	<select id="reserveList" parameterType="string" resultType="MyReserveDTO">
-		select l.leports_title, l.leports_main_img, p.c_phone, p.c_address, p.c_detail_address,
+		select l.leports_id, l.leports_title, l.leports_main_img, p.c_phone, p.c_address, p.c_detail_address,
 			r.reservation_id, r.rs_item_name, r.rs_persons, r.rs_date, r.rs_price
 		from reservation r
 		join leports l
@@ -44,4 +44,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="tidSearch" parameterType="hashmap" resultType="string">
 		select tid from reservation where reservation_id = #{reservation_id} and user_id = #{user_id}
 	</select>
+
+	<insert id="reviewWrite" parameterType="ReservationReviewDTO">
+		insert into reservation_review values('RS_R'||rs_review_seq.nextval, #{leports_id}, #{reservation_id}, #{user_id}, #{review_comments}, sysdate, #{user_name})
+	</insert>
 </mapper>

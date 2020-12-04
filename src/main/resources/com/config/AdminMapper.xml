@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="AdminMapper">
+	<select id="MemberList" resultType="MemberDTO">
+		select user_id, user_name, user_email, user_verify, partner_verify from member
+	</select>
+	<!--resultMap - type:객체 타입	-->
+	<!-- resultMap - id: resultMap명  -->
+	<!-- column - db칼럼명	-->
+	<!--	property - 맴버변수명-->
+	<resultMap id="MemberDTO" type="MemberDTO">
+		<result column="partner_verify" property="partner_verify"/>
+		<result column="user_id" property="user_id"/>
+	</resultMap>
+	<resultMap id="PartnerDTO" type="PartnerDTO">
+		<result column="user_id" property="user_id"/>
+		<result column="partner_id" property="partner_id"/>
+		<result column="c_name" property="c_name"/>
+		<result column="c_postnum" property="c_postnum"/>
+		<result column="c_address" property="c_detail_address"/>
+		<result column="partner_license_num" property="partner_license_num"/>
+		<result column="partner_license_docs" property="partner_license_docs"/>
+		<collection property="memberDTO" resultMap="MemberDTO"/>
+	</resultMap>
+
+	<select id="PartnerList" resultMap="PartnerDTO">
+		select m.user_id, m.partner_verify, p.c_name, p.partner_id, p.c_postnum, p.c_address, p.partner_license_num from member m,partner p where m.user_id = p.user_id
+	</select>
+
+	<select id="PartnerDetail" resultMap="PartnerDTO">
+		select m.user_id, m.partner_verify, p.c_name, p.partner_id, p.c_postnum, p.c_address, p.partner_license_num, p.c_phone, p.partner_license_docs
+		from member m,partner p
+		where m.user_id = p.user_id and p.partner_id = #{partner_id}
+	</select>
+	<select id="PartnerEmail" parameterType="String" resultType="String">
+		select user_email from member where user_id = #{user_id}
+	</select>
+
+	<update id="PartnerUpdate" parameterType="MemberDTO">
+		update member set partner_verify = #{partner_verify}
+		where user_id = #{user_id}
+	</update>
+
+	<delete id="PartnerDel" parameterType="String">
+		delete from partner where user_id = #{user_id}
+	</delete>
+
+</mapper>

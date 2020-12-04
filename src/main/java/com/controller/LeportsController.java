@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dto.LeportsDetailDTO;
@@ -27,11 +28,11 @@ public class LeportsController {
 	
 	@RequestMapping("/leportsList")
 	public String leportsList(String category, String type, String loc, String selectAlign
-			, HttpSession session, HttpServletRequest request) {
-		
+			, HttpSession session, Model model) {
+
 		if(type == null && loc == null) type = "all";
-		
-		request.setAttribute("align", selectAlign);
+
+		model.addAttribute("align", selectAlign);
 		session.setAttribute("category", category);
 		
 		Map<String, String> map = new HashMap<String, String>();
@@ -64,18 +65,18 @@ public class LeportsController {
 		} else if(selectAlign.equals("review")){
 			Collections.sort(list, (a, b) -> b.getReview_cnt() - a.getReview_cnt());
 		}
-		
-		request.setAttribute("leportsList", list);
-		return "/MainLeports";
+
+		model.addAttribute("leportsList", list);
+		return "MainLeports";
 	}
-	
+
 	@RequestMapping("/leportsDetail")
-	public String leportsDetail(String leports_id, HttpServletRequest request, HttpSession session) {
+	public String leportsDetail(String leports_id, Model model, HttpSession session) {
 		List<LeportsDetailDTO> list = service.leportsDetail(leports_id);
-		request.setAttribute("leportsDetail", list);
+		model.addAttribute("leportsDetail", list);
 
 		List<LeportsReviewDTO> reviewList = service.reviewAll(leports_id);
-		request.setAttribute("leportsReview", reviewList);
+		model.addAttribute("leportsReview", reviewList);
 		System.out.println(reviewList);
 
 		session.setAttribute("leports_id", leports_id);

@@ -10,12 +10,15 @@ public class PartnerDTO {
 	private String c_phone;
 	private String partner_license_num;
 	private String partner_license_docs;
+
+	private MemberDTO memberDTO;
+
 	public PartnerDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	public PartnerDTO(String partner_id, String user_id, String c_name, String c_postnum, String c_address,
-			String c_detail_address, String c_phone, String partner_license_num, String partner_license_docs) {
+			String c_detail_address, String c_phone, String partner_license_num, String partner_license_docs, MemberDTO memberDTO) {
 		super();
 		this.partner_id = partner_id;
 		this.user_id = user_id;
@@ -26,6 +29,7 @@ public class PartnerDTO {
 		this.c_phone = c_phone;
 		this.partner_license_num = partner_license_num;
 		this.partner_license_docs = partner_license_docs;
+		this.memberDTO = memberDTO;
 	}
 	public String getPartner_id() {
 		return partner_id;
@@ -81,6 +85,15 @@ public class PartnerDTO {
 	public void setPartner_license_docs(String partner_license_docs) {
 		this.partner_license_docs = partner_license_docs;
 	}
+
+	public MemberDTO getMemberDTO() {
+		return memberDTO;
+	}
+
+	public void setMemberDTO(MemberDTO memberDTO) {
+		this.memberDTO = memberDTO;
+	}
+
 	@Override
 	public String toString() {
 		return "PartnerDTO [partner_id=" + partner_id + ", user_id=" + user_id + ", c_name=" + c_name + ", c_postnum="

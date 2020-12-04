@@ -2,6 +2,7 @@ package com.dao;
 
 import com.dto.MyReserveDTO;
 import com.dto.ReservationDTO;
+import com.dto.ReservationReviewDTO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -36,5 +37,9 @@ public class ReserveDAO {
 
     public String tidSearch(Map<String, String> map) {
         return template.selectOne("tidSearch", map);
+    }
+
+    public int reviewWrite(ReservationReviewDTO reservationReviewDTO) {
+        return template.insert("reviewWrite", reservationReviewDTO);
     }
 }

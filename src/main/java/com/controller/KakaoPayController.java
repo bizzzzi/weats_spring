@@ -118,6 +118,8 @@ public class KakaoPayController {
         String tid = service.tidSearch(map); //tid 검색
         model.addAttribute("cancel_info", kakaopay.kakaopayCancel(tid, rs_price));
         service.deleteReserve(map);
+        session.removeAttribute("reservation_id");
+        session.removeAttribute("rs_price");
 
         return "payment/kakaoPayCancel";
     }

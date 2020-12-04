@@ -2,10 +2,12 @@ package com.controller;
 
 import com.dto.MemberDTO;
 import com.dto.MyReserveDTO;
+import com.dto.ReservationReviewDTO;
 import com.encrypt.SHA256;
 import com.encrypt.UserVerify;
 import com.service.MemberService;
 import com.service.ReserveService;
+import oracle.ucp.proxy.annotation.Post;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +21,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class MemberManagerController {
@@ -32,7 +35,7 @@ public class MemberManagerController {
     @Autowired
     UserVerify userVerify;
 
-    @GetMapping("/loginCheck/passwdCheckPage")
+    @GetMapping("/loginCheck/passwdCheck")
     public String passwdCheckPage(String page, String reservation_id, String rs_price, HttpSession session) {
         if(page != null) {
             session.setAttribute("page", page);
@@ -46,8 +49,8 @@ public class MemberManagerController {
     @PostMapping("/loginCheck/passwdCheck")
     public String passwdCheck(String user_pw, HttpSession session) {
         String page = (String)session.getAttribute("page");
-        MemberDTO login_dto = (MemberDTO) session.getAttribute("login");
-        String user_email = login_dto.getUser_email();
+        MemberDTO login = (MemberDTO) session.getAttribute("login");
+        String user_email = login.getUser_email();
 
         MemberDTO dto = userVerify.verify(user_email, user_pw);
 
@@ -74,8 +77,8 @@ public class MemberManagerController {
 
     @PostMapping("/loginCheck/passwdChange")
     public String passwdChacge(HttpSession session, @RequestParam("new_pw") String pw) {
-        MemberDTO login_dto = (MemberDTO) session.getAttribute("login");
-        String user_email = login_dto.getUser_email();
+        MemberDTO login = (MemberDTO) session.getAttribute("login");
+        String user_email = login.getUser_email();
         String salt = memberService.getSaltMember(user_email);
         System.out.println(user_email);
         System.out.println(salt);
@@ -90,8 +93,8 @@ public class MemberManagerController {
 
     @GetMapping("/loginCheck/myReservePage")
     public String myReservePage(HttpSession session, Model model){
-        MemberDTO dto = (MemberDTO) session.getAttribute("login");
-        String user_id = dto.getUser_id();
+        MemberDTO login = (MemberDTO) session.getAttribute("login");
+        String user_id = login.getUser_id();
         List<MyReserveDTO> list = reserveService.reserveList(user_id);
         for(MyReserveDTO xxx: list){
             System.out.println(xxx);
@@ -100,9 +103,21 @@ public class MemberManagerController {
         return "/MainUserReservation";
     }
     
-    @PostMapping("/loginCheck/reviewWrite")
-    public String reviewWrite(@ModelAttribute("leports_title") String leports_title) {
+    @PostMapping("/loginCheck/reviewWriteForm")
+    public String reviewWriteForm(@ModelAttribute("leports_title") String leports_title, @ModelAttribute("leports_id") String leports_id
+            , @ModelAttribute("reservation_id") String reservation_id){
     	
     	return "MainReviewWriteForm";
+    }
+
+    @PostMapping("/loginCheck/reviewWrite")
+    public String reviewWrite(String leports_id, String reservation_id, String user_name, String review_comments, HttpSession session, RedirectAttributes rttr) {
+        MemberDTO login = (MemberDTO) session.getAttribute("login");
+        ReservationReviewDTO reservationReviewDTO = new ReservationReviewDTO(null, leports_id, reservation_id, login.getUser_id(), user_name
+                , review_comments, null);
+        int n = reserveService.reviewWrite(reservationReviewDTO);
+        if(n != 0) rttr.addFlashAttribute("mesg", "리뷰 작성이 완료되었습니다.");
+        else rttr.addFlashAttribute("mesg", "리뷰 작성을 다시 시도해주세요.");
+        return "redirect:myReservePage";
     }
 }
