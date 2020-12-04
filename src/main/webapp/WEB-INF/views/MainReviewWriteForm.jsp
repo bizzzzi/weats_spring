@@ -28,5 +28,6 @@
 	</div>
 <script type="text/javascript" src="../js/main.js"></script> <!-- 경로확인해아함 -->
 <script type="text/javascript" src="../js/modal.js"></script>
+<script type="text/javascript" src="../js/star.js"></script>
 </body>
 </html>
