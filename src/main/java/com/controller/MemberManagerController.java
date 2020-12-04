@@ -1,13 +1,12 @@
 package com.controller;
 
+import com.dto.LeportsReviewDTO;
 import com.dto.MemberDTO;
 import com.dto.MyReserveDTO;
-import com.dto.ReservationReviewDTO;
 import com.encrypt.SHA256;
 import com.encrypt.UserVerify;
 import com.service.MemberService;
 import com.service.ReserveService;
-import oracle.ucp.proxy.annotation.Post;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -111,13 +110,22 @@ public class MemberManagerController {
     }
 
     @PostMapping("/loginCheck/reviewWrite")
-    public String reviewWrite(String leports_id, String reservation_id, String user_name, String review_comments, HttpSession session, RedirectAttributes rttr) {
+    public String reviewWrite(String leports_id, String reservation_id, String review_comments, HttpSession session, RedirectAttributes rttr) {
         MemberDTO login = (MemberDTO) session.getAttribute("login");
-        ReservationReviewDTO reservationReviewDTO = new ReservationReviewDTO(null, leports_id, reservation_id, login.getUser_id(), user_name
-                , review_comments, null);
-        int n = reserveService.reviewWrite(reservationReviewDTO);
+        LeportsReviewDTO LeportsReviewDTO = new LeportsReviewDTO(null, leports_id, reservation_id, login.getUser_id()
+                , review_comments, null, null, null);
+        int n = reserveService.reviewWrite(LeportsReviewDTO);
         if(n != 0) rttr.addFlashAttribute("mesg", "리뷰 작성이 완료되었습니다.");
         else rttr.addFlashAttribute("mesg", "리뷰 작성을 다시 시도해주세요.");
         return "redirect:myReservePage";
+    }
+
+
+    @GetMapping("/loginCheck/myReview")
+    public String myReview(HttpSession session) {
+        MemberDTO login = (MemberDTO)session.getAttribute("login");
+        List<LeportsReviewDTO> reviewList = reserveService.reviewList(login.getUser_id());
+        System.out.println(reviewList);
+        return null;
     }
 }

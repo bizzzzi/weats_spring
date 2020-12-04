@@ -1,9 +1,9 @@
 package com.service;
 
 import com.dao.ReserveDAO;
+import com.dto.LeportsReviewDTO;
 import com.dto.MyReserveDTO;
 import com.dto.ReservationDTO;
-import com.dto.ReservationReviewDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,8 +35,12 @@ public class ReserveService {
         return dao.tidSearch(map);
     }
 
-    public int reviewWrite(ReservationReviewDTO reservationReviewDTO) {
+    public int reviewWrite(LeportsReviewDTO LeportsReviewDTO) {
 
-        return dao.reviewWrite(reservationReviewDTO);
+        return dao.reviewWrite(LeportsReviewDTO);
+    }
+
+    public List<LeportsReviewDTO> reviewList(String user_id) {
+        return dao.reviewList(user_id);
     }
 }

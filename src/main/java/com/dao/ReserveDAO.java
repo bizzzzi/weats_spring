@@ -1,8 +1,8 @@
 package com.dao;
 
+import com.dto.LeportsReviewDTO;
 import com.dto.MyReserveDTO;
 import com.dto.ReservationDTO;
-import com.dto.ReservationReviewDTO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -39,7 +39,11 @@ public class ReserveDAO {
         return template.selectOne("tidSearch", map);
     }
 
-    public int reviewWrite(ReservationReviewDTO reservationReviewDTO) {
-        return template.insert("reviewWrite", reservationReviewDTO);
+    public int reviewWrite(LeportsReviewDTO LeportsReviewDTO) {
+        return template.insert("reviewWrite", LeportsReviewDTO);
+    }
+
+    public List<LeportsReviewDTO> reviewList(String user_id) {
+        return template.selectList("reviewList", user_id);
     }
 }

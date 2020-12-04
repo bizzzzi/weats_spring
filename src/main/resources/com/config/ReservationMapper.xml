@@ -45,7 +45,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select tid from reservation where reservation_id = #{reservation_id} and user_id = #{user_id}
 	</select>
 
-	<insert id="reviewWrite" parameterType="ReservationReviewDTO">
+	<insert id="reviewWrite" parameterType="LeportsReviewDTO">
 		insert into reservation_review values('RS_R'||rs_review_seq.nextval, #{leports_id}, #{reservation_id}, #{user_id}, #{review_comments}, sysdate, #{user_name})
 	</insert>
+
+	<select id="reviewList" parameterType="string" resultType="LeportsReviewDTO">
+		select r.user_id, r.review_comments, r.review_regidate,
+		       l.leports_id, l.leports_title, m.user_email
+		from reservation_review r
+		join leports l
+		on r.leports_id = l.leports_id
+		join member m
+		on r.user_id = m.user_id
+		where r.user_id = #{user_id}
+		order by r.review_regidate desc
+	</select>
 </mapper>
