@@ -118,7 +118,7 @@ let viewReview = () => {
 }
 
 
-// 결제하기 버튼 클릭 
+// 결제하기 버튼 클릭
 let userChoiceDay = document.querySelector('.choiceDay_data');
 let paymentBtn = document.querySelector('.paymentBtn');
 
@@ -135,7 +135,15 @@ let navigatePage = () => {
 paymentBtn.addEventListener("click", navigatePage);
 
 
+// 마스킹
+let review_email = document.querySelectorAll('.review_email');
 
-
+for(let i = 0; i < review_email.length; i++) {
+	let originStr = review_email[i].innerText; 
+	let emailStr = originStr.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi); 
+	let strLength;
+	strLength = emailStr.toString().split('@')[0].length - 3;
+	review_email[i].innerText = originStr.toString().replace(new RegExp('.(?=.{0,' + strLength + '}@)', 'g'), '*');
+}
 
 

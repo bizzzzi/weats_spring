@@ -23,11 +23,10 @@
 		<jsp:include page="common/navbar_mobile.jsp" flush="true"></jsp:include>
 	</div>
 
-	<div id="reviewWrite">
-		<jsp:include page="member/reviewWriteForm.jsp" flush="true"></jsp:include>
+	<div id="myReview">
+		<jsp:include page="member/myReview.jsp" flush="true"></jsp:include>
 	</div>
 <script type="text/javascript" src="../js/main.js"></script> <!-- 경로확인해아함 -->
 <script type="text/javascript" src="../js/modal.js"></script>
-<script type="text/javascript" src="../js/star.js"></script>
 </body>
 </html>
