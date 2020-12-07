@@ -6,14 +6,13 @@
 <!-- 예약갯수만큼 반복 출력 -->
 <c:forEach var="item" items="${myReserve}" varStatus="status">
 <form class="reservationCancellation" action="passwdCheck" method="get">
-   <div><!-- 메인이미지 넣을공간 -->
+   <div class="leportsImg"><!-- 메인이미지 넣을공간 -->
       <img src="${item.leports_main_img}" />
    </div>
    <%--예약 취소--%>
-
    <input type="text" name="page" style="display: none" value="reserveCancel"/>
+   <div class="itemInfo">
    ${item.reservation_id}<br>
-
    ${item.leports_title}<br>
    ${item.rs_date}<br>
    ${item.rs_item_name}<br>
@@ -22,7 +21,7 @@
    ${item.c_phone}<br>
    ${item.rs_persons}<br>
    ${item.rs_price}<br>
-
+	</div>
    <input type="hidden" class="review_verify" value="${item.review_verify}"/>
    <input type="hidden" name="rs_price" value="${item.rs_price}"/>
    <input type="hidden" name="reservation_id" value="${item.reservation_id}" />
@@ -34,8 +33,3 @@
    <input class="review" type="button" value="리뷰쓰기" />
 </form>
 </c:forEach>
-<script>
-
-
-
-</script>

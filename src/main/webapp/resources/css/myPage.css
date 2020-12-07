@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+#mypageSideMenu {
+	width: 20%;
+	height: 100vh;
+	background-color: grey;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+}
+
+#mypageContent {
+	width: 80%;
+	height: 100vh;
+	background-color: darkgrey;
+}
+
+#myPageWrap {
+	display:flex;
+}
+
+/* 나의예약내역	 */
+.reservationCancellation {
+	display:flex;
+	border: 1px solid black;
+	margin: 15px
+}
+
+.reservationCancellation .leportsImg {
+	width: 20%;
+	height: 100%;
+}
+
+.reservationCancellation .itemInfo {
+	width: 60%;
+	height: 100%;
+}
