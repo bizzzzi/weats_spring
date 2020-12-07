@@ -35,3 +35,33 @@
 	width: 60%;
 	height: 100%;
 }
+
+.reservationCancellation .btn {
+	width: 20%;
+	height: 100%;
+	text-align: center;
+}
+
+/* 나의 리뷰 내역 */
+.myReviewForm {
+	display:flex;
+	border: 1px solid black;
+	margin: 15px;
+	height: 150px; /* 임시값 */
+}
+
+.myReviewForm .leportsImg {
+	width: 20%;
+	height: 100%;
+}
+
+.myReviewForm .itemInfo {
+	width: 60%;
+	height: 100%;
+}
+
+.myReviewForm .btn {
+	width: 20%;
+	height: 100%;
+	text-align: center;
+}

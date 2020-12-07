@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="../css/style.css">
+<link rel="stylesheet" type="text/css" href="../css/myPage.css">
 <script src="https://kit.fontawesome.com/400289e08c.js" crossorigin="anonymous"></script>
 <style type="text/css">
 	a {
@@ -22,9 +23,13 @@
 		<jsp:include page="common/header_mobile.jsp" flush="true"></jsp:include>
 		<jsp:include page="common/navbar_mobile.jsp" flush="true"></jsp:include>
 	</div>
-
-	<div id="myReview">
-		<jsp:include page="member/myReview.jsp" flush="true"></jsp:include>
+	<div id="myPageWrap">
+		<div id="mypageSideMenu">
+			<jsp:include page="member/memberMypage.jsp" flush="true"></jsp:include>
+		</div>
+		<div id="mypageContent">
+			<jsp:include page="member/myReview.jsp" flush="true"></jsp:include>
+		</div>
 	</div>
 <script type="text/javascript" src="../js/main.js"></script> <!-- 경로확인해아함 -->
 <script type="text/javascript" src="../js/modal.js"></script>

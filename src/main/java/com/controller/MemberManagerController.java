@@ -151,6 +151,6 @@ public class MemberManagerController {
         map.put("user_id", login.getUser_id());
         map.put("review_id", review_id);
         reserveService.reviewDelete(map);
-        return null;
+        return "redirect:loginCheck/myReview";
     }
 }
