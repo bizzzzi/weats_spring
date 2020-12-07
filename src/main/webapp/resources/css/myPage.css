@@ -1,0 +1,67 @@
+@charset "UTF-8";
+
+#mypageSideMenu {
+	width: 20%;
+	height: 100vh;
+	background-color: grey;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+}
+
+#mypageContent {
+	width: 80%;
+	height: 100vh;
+	background-color: darkgrey;
+}
+
+#myPageWrap {
+	display:flex;
+}
+
+/* 나의예약내역	 */
+.reservationCancellation {
+	display:flex;
+	border: 1px solid black;
+	margin: 15px
+}
+
+.reservationCancellation .leportsImg {
+	width: 20%;
+	height: 100%;
+}
+
+.reservationCancellation .itemInfo {
+	width: 60%;
+	height: 100%;
+}
+
+.reservationCancellation .btn {
+	width: 20%;
+	height: 100%;
+	text-align: center;
+}
+
+/* 나의 리뷰 내역 */
+.myReviewForm {
+	display:flex;
+	border: 1px solid black;
+	margin: 15px;
+	height: 150px; /* 임시값 */
+}
+
+.myReviewForm .leportsImg {
+	width: 20%;
+	height: 100%;
+}
+
+.myReviewForm .itemInfo {
+	width: 60%;
+	height: 100%;
+}
+
+.myReviewForm .btn {
+	width: 20%;
+	height: 100%;
+	text-align: center;
+}
