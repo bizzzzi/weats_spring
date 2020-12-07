@@ -1,0 +1,10 @@
+.customer_nav{
+    width: 80%;
+    margin: 0 auto;
+}
+.customer_nav ul{
+    display: flex;
+}
+.customer_nav li{
+    width: 100%
+}
