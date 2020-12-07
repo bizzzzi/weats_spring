@@ -146,6 +146,7 @@ public class PartnerController {
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("leportsAddList",list);
 		mav.setViewName("redirect:../ProductControl");
+		System.out.println(list);
 		return mav;
 	}
 	
