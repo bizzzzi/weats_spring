@@ -14,5 +14,5 @@
    내가준평점<br>
    리뷰작성날짜<br>
    <input type="button" value="리뷰수정" />
-   <input type="button" value="리뷰작성" /><!-- ? -->
+   <input type="button" value="리뷰삭제" />
 </form>

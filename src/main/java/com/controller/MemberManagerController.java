@@ -110,7 +110,6 @@ public class MemberManagerController {
 
     @PostMapping("/loginCheck/reviewWrite")
     public String reviewWrite(String leports_id, String reservation_id, String review_comments, String review_star, HttpSession session, RedirectAttributes rttr) {
-        System.out.println(review_star);
         MemberDTO login = (MemberDTO) session.getAttribute("login");
         LeportsReviewDTO LeportsReviewDTO = new LeportsReviewDTO(null, leports_id, reservation_id, login.getUser_id()
                 , review_comments, null, null, null, Integer.parseInt(review_star));
@@ -131,8 +130,24 @@ public class MemberManagerController {
     public String myReview(HttpSession session, Model model) {
         MemberDTO login = (MemberDTO)session.getAttribute("login");
         List<LeportsReviewDTO> reviewList = reserveService.reviewList(login.getUser_id());
-        System.out.println(reviewList);
         model.addAttribute("reviewList", reviewList);
         return "MainMyReview";
+    }
+
+    @PostMapping("/reviewUpdate")
+    public String reviewUpdate(@RequestParam Map<String, String> map, HttpSession session) {
+        MemberDTO login = (MemberDTO)session.getAttribute("login");
+        map.put("user_id", login.getUser_id());
+        reserveService.reviewUpdate(map);
+        return null;
+    }
+    @PostMapping("/reviewDelete")
+    public String reviewDelete(String review_id, HttpSession session) {
+        Map<String, String> map = new HashMap<String, String>();
+        MemberDTO login = (MemberDTO)session.getAttribute("login");
+        map.put("user_id", login.getUser_id());
+        map.put("review_id", review_id);
+        reserveService.reviewDelete(map);
+        return null;
     }
 }
