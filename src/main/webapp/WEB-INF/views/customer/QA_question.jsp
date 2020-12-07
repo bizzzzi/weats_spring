@@ -3,7 +3,7 @@
     <section>
         <h2>1:1 문의하기</h2>
         <div>
-            <form action="#" method="post">
+            <form action="customer_question" method="post">
                 <ul>
                     <li>
                         <ul>

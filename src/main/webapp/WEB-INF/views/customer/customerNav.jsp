@@ -5,7 +5,7 @@
             <input type="text" name="search">
             <input type="submit" value="검색">
         </form>
-        <a href="QA_question">1:1 문의하기</a>
+        <a href="loginCheck/qa_question">1:1 문의하기</a>
     </div>
     <div class="customer_nav">
         <ul>
