@@ -28,6 +28,7 @@
 				<value>classpath:com/config/PartnerMapper.xml</value>
 				<value>classpath:com/config/TradeMapper.xml</value>
 				<value>classpath:com/config/ReservationMapper.xml</value>
+				<value>classpath:com/config/AdminMapper.xml</value>
 			</list>
 		</property>
 		<property name="typeAliases">
@@ -45,6 +46,9 @@
 				<value>com.dto.TradeCommentsDTO</value>
 				<value>com.dto.KakaoPayDTO</value>
 				<value>com.dto.KakaoPayApprovalDTO</value>
+				<value>com.dto.KakaoPayCancelDTO</value>
+				<value>com.dto.KakaoPayCancelDTO</value>
+				<value>com.dto.MyReserveDTO</value>
 			</list>
 		</property>
 	</bean>

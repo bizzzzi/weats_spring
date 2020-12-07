@@ -39,12 +39,12 @@ public class MemberService {
 
 	public void pwUpdate(Map<String, String> map) {
 		// TODO Auto-generated method stub
-		int n;
+		dao.pwUpdate(map);
 	}
 	
 	public void memberDelete(String user_email) {
 		// TODO Auto-generated method stub
-		
+		dao.memberDelete(user_email);
 	}
 
 	public int emailCheck(String user_email) {

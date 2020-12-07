@@ -22,9 +22,13 @@
 	<mvc:view-controller path="/partnerMypage" view-name="partner/partnerMypage"/>
 	<mvc:view-controller path="/productRegistrationForm_item" view-name="partner/productRegistrationForm_item"/>
 	<mvc:view-controller path="/ProductControl" view-name="partner/ProductControl"/>
+	<mvc:view-controller path="/MainMemberMyPage" view-name="MainMemberMyPage"/>
+	<mvc:view-controller path="/MainAccountManagement" view-name="MainAccountManagement"/>
+	<mvc:view-controller path="/passwdChange" view-name="passwdCheck/passwdChange"/>
+	<mvc:view-controller path="/AdminMember" view-name="AdminMember"/>
+	<mvc:view-controller path="/AdminPartner" view-name="AdminPartner"/>
+	<mvc:view-controller path="/Recommend" view-name="MainRecommend"/>
 	<!--<mvc:view-controller path="/kakaoPaySuccess" view-name="payment/KakaoPaySuccess"/>-->
-
-
 
 	<mvc:resources location="/resources/" mapping="/**"/>
 	<mvc:resources location="/WEB-INF/views/" mapping="/**"/>
@@ -34,6 +38,13 @@
 		<mvc:interceptor>
 			<mvc:mapping path="/loginCheck/**"/>
 			<ref bean="loginCheckInterceptor"/>
+		</mvc:interceptor>
+	</mvc:interceptors>
+	<!-- Partner interceptor 등록 -->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/partnerCheck/**"/>
+			<ref bean="partnerCheckInterceptor"/>
 		</mvc:interceptor>
 	</mvc:interceptors>
 

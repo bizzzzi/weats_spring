@@ -9,18 +9,6 @@
 	</script>
 </c:if>
 <c:remove var="partnermesg" scope="session"></c:remove>
-<%-- <%
-	String mesg=(String)session.getAttribute("partnerUpdateMesg");
-	if(mesg!=null){
-%>    
-<script>
-alert('<%=mesg%>');
-</script>
-<%
-	}
-	session.removeAttribute("partnerUpdateMesg");
-%> --%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,12 +37,12 @@ alert('<%=mesg%>');
 	
 	<div id="partner_main">
 		<ul>
-			<li><a href="PartnerMypage">계정관리</a></li>
+			<li><a href="partnerCheck/PartnerMypage">계정관리</a></li>
 			<li><a href="productRegistrationForm_leports">상품등록</a></li>
 		</ul>
 		<ul>
-			<li><a href="LeportsAddList">등록상품관리</a></li>
-			<li><a href="ProductResevation">예약 관리</a></li>
+			<li><a href="partnerCheck/LeportsAddList">등록상품관리</a></li>
+			<li><a href="partnerCheck/ProductResevation">예약 관리</a></li>
 		</ul>
 	</div>
 	

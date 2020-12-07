@@ -805,3 +805,61 @@ video {
 .test1 {
 	padding: 0 100px;
 }
+
+/* 리뷰 별점 */
+	/* 레이아웃 외곽 너비 400px 제한*/
+#reviewWrite .wrap{
+    max-width: 480px;
+    /* margin: 0 auto; 화면 가운데로 */
+    background-color: #fff;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+
+}
+#reviewWrite .reviewform textarea{
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+#reviewWrite .rating .rate_radio {
+    position: relative;
+    display: inline-block;
+    z-index: 20;
+    opacity: 0.001;
+    width: 60px;
+    height: 60px;
+    background-color: #fff;
+    cursor: pointer;
+    vertical-align: top;
+    display: none;
+}
+#reviewWrite .rating .rate_radio + label {
+    position: relative;
+    display: inline-block;
+    margin-left: -4px;
+    z-index: 10;
+    width: 30px;
+    height: 30px;
+    background-image: url('../images/starrate.png');
+    background-repeat: no-repeat;
+    background-size: 30px 30px;
+    cursor: pointer;
+    background-color: #f0f0f0;
+}
+#reviewWrite .rating .rate_radio:checked + label {
+    background-color: red;
+}
+
+#reviewWrite .warning_msg {
+    display: none;
+    position: relative;
+    text-align: center;
+    background: #ffffff;
+    line-height: 26px;
+    width: 100%;
+    color: #ff0000;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #e0e0e0;
+}

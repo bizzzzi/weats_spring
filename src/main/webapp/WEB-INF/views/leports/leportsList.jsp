@@ -33,6 +33,7 @@
 		<li><a href="leportsList?category=byLoc&loc=경상">경상</a></li>
 		<li><a href="leportsList?category=byLoc&loc=부산">부산</a></li>
 		<li><a href="leportsList?category=byLoc&loc=전라">전라</a></li>
+		<li><a href="leportsList?category=byLoc&loc=제주">제주</a></li>
 		<li><a href="leportsList?category=byLoc&loc=기타">기타</a></li>
 	</ul>
 </div>

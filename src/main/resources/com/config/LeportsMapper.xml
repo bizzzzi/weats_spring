@@ -3,45 +3,8 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="LeportsMapper">
-	<resultMap type="PartnerDTO" id="partner">
-		<result column="c_address" property="c_address"></result>
-		<result column="c_detail_address" property="c_detail_address"></result>
-		<result column="c_phone" property="c_phone"></result>
-	</resultMap>
 
-	<resultMap type="LeportsDTO" id="leports">
-		<result column="leports_id" property="leports_id"></result>
-		<result column="leports_title" property="leports_title"></result>
-		<result column="leports_loc" property="leports_loc"></result>
-		<result column="leports_regidate" property="leports_regidate"></result>
-		<result column="leports_main_img" property="leports_main_img"></result>
-		<result column="leports_sub_img1" property="leports_sub_img1"></result>
-		<result column="leports_sub_img2" property="leports_sub_img2"></result>
-		<result column="leports_sub_img3" property="leports_sub_img3"></result>
-		<result column="leports_sub_img4" property="leports_sub_img4"></result>
-		<result column="leports_content" property="leports_content"></result>
-		<result column="review_cnt" property="review_cnt"></result>
-		
-	</resultMap>
-	
-	<resultMap type="LeportsItemDTO" id="leportsItem">
-		<result column="leports_item_title" property="leports_item_title"></result>
-		<result column="leports_summary" property="leports_summary"></result>
-		<result column="leports_price" property="leports_price"></result>
-		<result column="leports_max_capacity" property="leports_max_capacity"></result>
-	</resultMap>
-	
-	<resultMap type="LeportsThumbnailDTO" id="thumbnailDTO">
-		<collection property="leports" resultMap="leports"></collection>
-		<collection property="leportsItem" resultMap="leportsItem"></collection>
-	</resultMap>
-	
-	<resultMap type="LeportsDetailDTO" id="detailDTO">
-		<collection property="partner" resultMap="partner"></collection>
-		<collection property="leports" resultMap="leports"></collection>
-		<collection property="leportsItem" resultMap="leportsItem"></collection>
-	</resultMap>
-	
+<!--	레포츠 전체 리스트-->
 	<select id="leportsList" parameterType="hashmap" resultType="LeportsThumbnailDTO">
 		select l.leports_id, l.leports_title, l.leports_main_img,
 		l.leports_loc,
@@ -54,7 +17,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				where leports_type = #{type} order by l.leports_id
 			</when>
 			<when test="loc == '기타'">
-				where leports_loc not in('서울','인천','경기','강원', '충청', '경상', '부산','전라') order by leports_id
+				where leports_loc not in('서울', '인천', '경기', '강원', '충청', '경상', '부산', '전라', '제주') order by leports_id
 			</when>
 			<when test="loc != null and loc != 'all'">
 				where leports_loc = #{loc} order by l.leports_id
@@ -64,7 +27,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			</otherwise>
 		</choose>
 	</select>
-	
+<!--	레포츠 상세 페이지-->
 	<select id="leportsDetailSelect" parameterType="String" resultType="LeportsDetailDTO">
 		select l.leports_id, l.leports_title, l.leports_main_img, l.leports_sub_img1, l.leports_sub_img2, l.leports_sub_img3, l.leports_sub_img4,
 			to_char(l.leports_regidate, 'yyyy-mm-dd') leports_regidate,
@@ -77,10 +40,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		on l.leports_id = litem.leports_id
 		where l.leports_id = #{leports_id}
 	</select>
-	
+
+<!--	레포츠 상세 페이지 리뷰-->
 	<select id="reviewAll" parameterType="string" resultType="LeportsReviewDTO">
-		select review_id, leports_id, reservation_id, user_id, user_name, review_comments, to_char(review_regidate, 'yyyy-mm-dd') review_regidate
-		from reservation_review where leports_id = #{leports_id}
+		select r.review_id, r.leports_id, r.reservation_id, r.user_id, m.user_email, r.review_comments, to_char(r.review_regidate, 'yyyy-mm-dd') review_regidate
+		from reservation_review r
+		join member m
+		on r.user_id = m.user_id
+		where leports_id = #{leports_id}
 	</select>
 
 </mapper>
