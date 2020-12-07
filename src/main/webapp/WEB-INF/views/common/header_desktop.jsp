@@ -15,10 +15,8 @@
 					<ul class="submenu">
 						<li><a href="${path}/leportsList?category=byLoc">지역별 레포츠</a></li>
 						<li><a href="${path}/leportsList?category=byType">종류별 레포츠</a></li>
-						<b>true</b>
 					</ul>
 				</li>
-
 		<li class="topmenu"><a href="TradeList">중고거래&nbsp;<i class="fas fa-angle-down"></i></a>
 			<ul class="submenu">
 				<li><a href="TradeList?trade_type=판매">판매</a></li>

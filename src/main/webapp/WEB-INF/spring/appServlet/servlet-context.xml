@@ -27,6 +27,7 @@
 	<mvc:view-controller path="/passwdChange" view-name="passwdCheck/passwdChange"/>
 	<mvc:view-controller path="/AdminMember" view-name="AdminMember"/>
 	<mvc:view-controller path="/AdminPartner" view-name="AdminPartner"/>
+	<mvc:view-controller path="/Recommend" view-name="MainRecommend"/>
 	<!--<mvc:view-controller path="/kakaoPaySuccess" view-name="payment/KakaoPaySuccess"/>-->
 
 	<mvc:resources location="/resources/" mapping="/**"/>
