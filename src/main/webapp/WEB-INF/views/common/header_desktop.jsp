@@ -20,7 +20,7 @@
 				<li><a href="TradeList?trade_type=대여">대여</a></li>
 			</ul>
 		</li>
-		<li><a href="#">고객센터</a></li>
+		<li><a href="MainCustomer">고객센터</a></li>
 	</ul>
 	<div class="login">
 		<a class="ico" href="#"><i class="fas fa-user-circle"></i></a>
