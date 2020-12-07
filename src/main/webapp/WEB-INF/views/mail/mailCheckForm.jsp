@@ -30,7 +30,7 @@
 			전송되었습니다.
 		</p>
 		<p>받으신 이메일을 열어 버튼을 클릭하면 가입이 완료됩니다.</p>
-		<button onclick="location.href='main.jsp'">확인</button>
+		<button onclick="location.href='/weats/'">확인</button>
 	</div>
 </body>
 </html>

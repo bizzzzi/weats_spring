@@ -110,15 +110,15 @@ public class MemberManagerController {
 
     @PostMapping("/loginCheck/reviewWrite")
     public String reviewWrite(String leports_id, String reservation_id, String review_comments, String review_star, HttpSession session, RedirectAttributes rttr) {
-        System.out.println(review_star);
         MemberDTO login = (MemberDTO) session.getAttribute("login");
         LeportsReviewDTO LeportsReviewDTO = new LeportsReviewDTO(null, leports_id, reservation_id, login.getUser_id()
-                , review_comments, null, null, null, Integer.parseInt(review_star));
+                , review_comments, null, null,null, null, Integer.parseInt(review_star));
         int n = reserveService.reviewWrite(LeportsReviewDTO);
         if(n != 0) {
             Map<String, String> map = new HashMap<String, String>();
             map.put("user_id", login.getUser_id());
             map.put("reservation_id", reservation_id);
+
             reserveService.reviewVerify(map);
             rttr.addFlashAttribute("mesg", "리뷰 작성이 완료되었습니다.");
         }
@@ -134,5 +134,23 @@ public class MemberManagerController {
         System.out.println(reviewList);
         model.addAttribute("reviewList", reviewList);
         return "MainMyReview";
+    }
+
+//    @PostMapping("/reviewUpdate")
+//    public String reviewUpdate(@RequestParam Map<String, String> map, HttpSession session) {
+//        MemberDTO login = (MemberDTO)session.getAttribute("login");
+//        map.put("user_id", login.getUser_id());
+//        reserveService.reviewUpdate(map);
+//        return null;
+//    }
+    @PostMapping("/loginCheck/reviewDelete")
+    public String reviewDelete(String review_id, HttpSession session) {
+        Map<String, String> map = new HashMap<String, String>();
+        System.out.println(review_id);
+        MemberDTO login = (MemberDTO)session.getAttribute("login");
+        map.put("user_id", login.getUser_id());
+        map.put("review_id", review_id);
+        reserveService.reviewDelete(map);
+        return null;
     }
 }

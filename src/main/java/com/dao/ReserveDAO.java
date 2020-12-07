@@ -50,4 +50,13 @@ public class ReserveDAO {
     public void reviewVerify(Map<String, String> map) {
         template.update("reviewVerify", map);
     }
+
+//    public void reviewUpdate(Map<String,?> map) {
+//        template.update("reviewUpdate", map);
+//    }
+
+    public void reviewDelete(Map<String, String> map) {
+        System.out.println(map);
+        template.delete("reviewDelete", map);
+    }
 }

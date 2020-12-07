@@ -19,18 +19,20 @@
 		<result column="partner_id" property="partner_id"/>
 		<result column="c_name" property="c_name"/>
 		<result column="c_postnum" property="c_postnum"/>
-		<result column="c_address" property="c_detail_address"/>
+		<result column="c_address" property="c_address"/>
+		<result column="c_detail_address" property="c_detail_address"/>
 		<result column="partner_license_num" property="partner_license_num"/>
 		<result column="partner_license_docs" property="partner_license_docs"/>
+		<result column="c_phone" property="c_phone"/>
 		<collection property="memberDTO" resultMap="MemberDTO"/>
 	</resultMap>
 
 	<select id="PartnerList" resultMap="PartnerDTO">
-		select m.user_id, m.partner_verify, p.c_name, p.partner_id, p.c_postnum, p.c_address, p.partner_license_num from member m,partner p where m.user_id = p.user_id
+		select m.user_id, m.partner_verify, p.c_name, p.partner_id, p.c_postnum, p.c_address, p.c_detail_address, p.partner_license_num from member m,partner p where m.user_id = p.user_id
 	</select>
 
 	<select id="PartnerDetail" resultMap="PartnerDTO">
-		select m.user_id, m.partner_verify, p.c_name, p.partner_id, p.c_postnum, p.c_address, p.partner_license_num, p.c_phone, p.partner_license_docs
+		select m.user_id, m.partner_verify, p.c_name, p.partner_id, p.c_postnum, p.c_address, p.c_detail_address, p.c_phone, p.partner_license_num, p.c_phone, p.partner_license_docs
 		from member m,partner p
 		where m.user_id = p.user_id and p.partner_id = #{partner_id}
 	</select>

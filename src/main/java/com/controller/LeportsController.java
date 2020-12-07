@@ -57,7 +57,6 @@ public class LeportsController {
 
 		if(selectAlign == null || selectAlign.equals("defalut")) {
 			Collections.sort(list);
-			System.out.println("null :  "+list);
 		} else if(selectAlign.equals("maxPrice")) {
 			Collections.sort(list, (a, b) -> b.getLeports_price() - a.getLeports_price());
 		}else if(selectAlign.equals("minPrice")) {
@@ -77,7 +76,6 @@ public class LeportsController {
 
 		List<LeportsReviewDTO> reviewList = service.reviewAll(leports_id);
 		model.addAttribute("leportsReview", reviewList);
-		System.out.println(reviewList);
 
 		session.setAttribute("leports_id", leports_id);
 		return "/MainLeportsDetail";
