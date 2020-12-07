@@ -145,7 +145,7 @@ public class PartnerController {
 		List<LeportsDTO> list=pservice.ProductControl(partner_id);
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("leportsAddList",list);
-		mav.setViewName("redirect:../ProductControl");
+		mav.setViewName("partner/ProductControl");
 		return mav;
 	}
 	
