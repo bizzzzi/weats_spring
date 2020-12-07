@@ -1,0 +1,23 @@
+.customer_btn{
+    width: 80%;
+    display: flex;
+    margin: 0 auto;
+    text-align: center;
+}
+.customer_btn form{
+    width: 80%;
+}
+section{
+    width: 100%;
+    margin: 0 auto;
+}
+.howList{
+    width: 80%;
+    margin: 0 auto;
+}
+.howList li{
+    display: flex;
+}
+.howImg {
+    width: 81%;
+}
