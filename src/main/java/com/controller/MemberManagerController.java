@@ -112,12 +112,13 @@ public class MemberManagerController {
     public String reviewWrite(String leports_id, String reservation_id, String review_comments, String review_star, HttpSession session, RedirectAttributes rttr) {
         MemberDTO login = (MemberDTO) session.getAttribute("login");
         LeportsReviewDTO LeportsReviewDTO = new LeportsReviewDTO(null, leports_id, reservation_id, login.getUser_id()
-                , review_comments, null, null, null, Integer.parseInt(review_star));
+                , review_comments, null, null,null, null, Integer.parseInt(review_star));
         int n = reserveService.reviewWrite(LeportsReviewDTO);
         if(n != 0) {
             Map<String, String> map = new HashMap<String, String>();
             map.put("user_id", login.getUser_id());
             map.put("reservation_id", reservation_id);
+
             reserveService.reviewVerify(map);
             rttr.addFlashAttribute("mesg", "리뷰 작성이 완료되었습니다.");
         }
@@ -130,6 +131,7 @@ public class MemberManagerController {
     public String myReview(HttpSession session, Model model) {
         MemberDTO login = (MemberDTO)session.getAttribute("login");
         List<LeportsReviewDTO> reviewList = reserveService.reviewList(login.getUser_id());
+        System.out.println(reviewList);
         model.addAttribute("reviewList", reviewList);
         return "MainMyReview";
     }
@@ -141,9 +143,10 @@ public class MemberManagerController {
 //        reserveService.reviewUpdate(map);
 //        return null;
 //    }
-    @PostMapping("/reviewDelete")
+    @PostMapping("/loginCheck/reviewDelete")
     public String reviewDelete(String review_id, HttpSession session) {
         Map<String, String> map = new HashMap<String, String>();
+        System.out.println(review_id);
         MemberDTO login = (MemberDTO)session.getAttribute("login");
         map.put("user_id", login.getUser_id());
         map.put("review_id", review_id);

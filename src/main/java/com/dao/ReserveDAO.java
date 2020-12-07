@@ -56,6 +56,7 @@ public class ReserveDAO {
 //    }
 
     public void reviewDelete(Map<String, String> map) {
+        System.out.println(map);
         template.delete("reviewDelete", map);
     }
 }
