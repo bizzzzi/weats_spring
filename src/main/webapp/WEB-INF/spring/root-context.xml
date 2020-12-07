@@ -46,6 +46,9 @@
 				<value>com.dto.TradeCommentsDTO</value>
 				<value>com.dto.KakaoPayDTO</value>
 				<value>com.dto.KakaoPayApprovalDTO</value>
+				<value>com.dto.KakaoPayCancelDTO</value>
+				<value>com.dto.KakaoPayCancelDTO</value>
+				<value>com.dto.MyReserveDTO</value>
 			</list>
 		</property>
 	</bean>
