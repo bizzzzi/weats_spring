@@ -16,7 +16,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				where leports_type = #{type} order by l.leports_id
 			</when>
 			<when test="loc == '기타'">
-				where leports_loc not in('서울','인천','경기','강원', '충청', '경상', '부산', '전라', '제주') order by leports_id
+				where leports_loc not in('서울', '인천', '경기', '강원', '충청', '경상', '부산', '전라', '제주') order by leports_id
 			</when>
 			<when test="loc != null and loc != 'all'">
 				where leports_loc = #{loc} order by l.leports_id
