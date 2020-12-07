@@ -7,7 +7,7 @@
 		<h2><a href="/weats/">Acorn</a></h2>
 	</div>
 	<ul class="nav">
-		<li><a href="RecommendServlet">추천</a></li>
+		<li><a href="Recommend">추천</a></li>
 		<li class="topmenu"><a href="leportsList?category=byType">레포츠&nbsp;<i class="fas fa-angle-down"></i></a>
 			<ul class="submenu">
 				<li><a href="leportsList?category=byLoc">지역별 레포츠</a></li>
