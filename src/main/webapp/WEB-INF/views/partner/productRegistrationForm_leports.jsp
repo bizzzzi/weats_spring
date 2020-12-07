@@ -64,6 +64,7 @@
         <div class="sub_box">
           <div>
             <select name="leports_loc" class="leports_loc">
+              <option value="시도">시도를 선택하세요.</option>
               <option value="서울">서울특별시</option>
               <option value="부산">부산광역시</option>
               <option value="대구">대구광역시</option>
@@ -81,7 +82,6 @@
               <option value="경상">경상북도</option>
               <option value="경상">경상남도</option>
               <option value="제주">제주도</option>
-
             </select>
           </div>
         </div>

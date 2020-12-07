@@ -48,9 +48,9 @@ public class ReserveService {
         dao.reviewVerify(map);
     }
 
-    public void reviewUpdate(Map<String,?> map) {
-        dao.reviewUpdate(map);
-    }
+//    public void reviewUpdate(Map<String,?> map) {
+//        dao.reviewUpdate(map);
+//    }
 
     public void reviewDelete(Map<String, String> map) {
         dao.reviewDelete(map);

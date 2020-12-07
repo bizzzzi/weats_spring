@@ -134,13 +134,13 @@ public class MemberManagerController {
         return "MainMyReview";
     }
 
-    @PostMapping("/reviewUpdate")
-    public String reviewUpdate(@RequestParam Map<String, String> map, HttpSession session) {
-        MemberDTO login = (MemberDTO)session.getAttribute("login");
-        map.put("user_id", login.getUser_id());
-        reserveService.reviewUpdate(map);
-        return null;
-    }
+//    @PostMapping("/reviewUpdate")
+//    public String reviewUpdate(@RequestParam Map<String, String> map, HttpSession session) {
+//        MemberDTO login = (MemberDTO)session.getAttribute("login");
+//        map.put("user_id", login.getUser_id());
+//        reserveService.reviewUpdate(map);
+//        return null;
+//    }
     @PostMapping("/reviewDelete")
     public String reviewDelete(String review_id, HttpSession session) {
         Map<String, String> map = new HashMap<String, String>();

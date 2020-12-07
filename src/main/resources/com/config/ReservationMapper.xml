@@ -66,10 +66,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		order by r.review_regidate desc
 	</select>
 	<!--리뷰 수정-->
-	<update id="reviewUpdate" parameterType="hashmap">
-		update reservation_review set review_comments = #{review_comments} and review_star = #{review_star}
-		where review_id = #{review_id} and user_id = #{user_id}
-	</update>
+<!--	<update id="reviewUpdate" parameterType="hashmap">-->
+<!--		update reservation_review set review_comments = #{review_comments} and review_star = #{review_star}-->
+<!--		where review_id = #{review_id} and user_id = #{user_id}-->
+<!--	</update>-->
 	<!--리뷰 삭제-->
 	<delete id="reviewDelete" parameterType="hashmap">
 		delete from reservation_review where reivew_id = #{review_id} and user_id = #{user_id}
