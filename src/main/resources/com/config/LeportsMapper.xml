@@ -4,6 +4,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="LeportsMapper">
 
+<!--	레포츠 전체 리스트-->
 	<select id="leportsList" parameterType="hashmap" resultType="LeportsThumbnailDTO">
 		select l.leports_id, l.leports_title, l.leports_main_img,
 		l.leports_loc,
@@ -16,7 +17,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				where leports_type = #{type} order by l.leports_id
 			</when>
 			<when test="loc == '기타'">
-				where leports_loc not in('서울','인천','경기','강원', '충청', '경상', '부산', '전라', '제주') order by leports_id
+				where leports_loc not in('서울', '인천', '경기', '강원', '충청', '경상', '부산', '전라', '제주') order by leports_id
 			</when>
 			<when test="loc != null and loc != 'all'">
 				where leports_loc = #{loc} order by l.leports_id
@@ -26,7 +27,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			</otherwise>
 		</choose>
 	</select>
-	
+<!--	레포츠 상세 페이지-->
 	<select id="leportsDetailSelect" parameterType="String" resultType="LeportsDetailDTO">
 		select l.leports_id, l.leports_title, l.leports_main_img, l.leports_sub_img1, l.leports_sub_img2, l.leports_sub_img3, l.leports_sub_img4,
 			to_char(l.leports_regidate, 'yyyy-mm-dd') leports_regidate,
@@ -40,6 +41,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where l.leports_id = #{leports_id}
 	</select>
 
+<!--	레포츠 상세 페이지 리뷰-->
 	<select id="reviewAll" parameterType="string" resultType="LeportsReviewDTO">
 		select r.review_id, r.leports_id, r.reservation_id, r.user_id, m.user_email, r.review_comments, to_char(r.review_regidate, 'yyyy-mm-dd') review_regidate
 		from reservation_review r

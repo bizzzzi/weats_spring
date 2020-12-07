@@ -16,6 +16,7 @@ public class LeportsReviewDTO {
 	private String review_comments;
 	private String review_regidate;
 	private String leports_title;
+	private String leports_main_img;
 	private String user_email;
 	private int review_star;
 }
