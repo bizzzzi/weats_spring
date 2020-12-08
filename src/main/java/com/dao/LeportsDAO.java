@@ -38,5 +38,13 @@ public class LeportsDAO {
 		return list;
 	}
 
+	//리뷰 작성 시 리뷰 cnt 증가
+	public void reviewCountUp(String leports_id) {
+		template.update("reviewCountUp", leports_id);
+	}
 
+
+	public void reviewCountDown(String leports_id) {
+		template.update("reviewCountDown", leports_id);
+	}
 }
