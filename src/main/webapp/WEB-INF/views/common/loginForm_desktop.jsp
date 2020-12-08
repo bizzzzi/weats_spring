@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 
 
-<div class="modal hidden">
+<div class="loginModal hidden">
 	<div class="modalOverlay"></div>
 	<div id="loginForm">
 		<form action="login" method="POST">
