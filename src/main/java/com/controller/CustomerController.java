@@ -15,9 +15,19 @@ public class CustomerController {
         return "MainCustomer";
     }
 
-    @RequestMapping("/MainHowToUse")
+    @RequestMapping("/QA_howToUse")
     public String mainHowToUse(){
         return "MainHowToUse";
+    }
+
+    @RequestMapping("/loginCheck/QA_question")
+    public String MainQuestion(){
+        return "redirect:/MainQuestion";
+    }
+
+    @RequestMapping("/loginCheck/QA_questionList")
+    public String MainQuestionList(){
+        return "redirect:/MainQuestionList";
     }
 
 }

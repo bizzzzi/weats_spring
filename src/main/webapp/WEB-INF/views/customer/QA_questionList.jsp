@@ -1,11 +1,34 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
     <section>
         <h2>나의 문의 내역</h2>
-        <ul>
-            <a href="#">
-            <li><h4>파트너 등록은 어떻게 하나요?</h4></li>
-            <li><span>weats는 날씨 기반 형 레포츠 추천/ 예약 사이트입니다. 회원가입 후 파트너 등록하기 버튼을 눌러 진행해주세요</span></li>
-            </a>
-        </ul>
+        <div class="qList">
+            <ul>
+                <li>문의ID</li>
+                <li>문의제목</li>
+                <li>문의내용</li>
+                <li>등록날짜</li>
+            </ul>
+        </div>
+        <div class="qList">
+            <%--foreach문 만들어놨다--%>
+<%--            <c:forEach var="dto" items="${QuestionList}" varStatus="status">--%>
+<%--                <ul>--%>
+<%--                    <a href="MyQuestionList?qID=${dto.question_id}">--%>
+<%--                        <li>${dto.question_id}</li>--%>
+<%--                        <li>${dto.q_title}</li>--%>
+<%--                        <li>${dto.q_content}</li>--%>
+<%--                        <li>${dto.q_regidate}</li>--%>
+<%--                    </a>--%>
+<%--                </ul>--%>
+<%--            </c:forEach>--%>
+            <ul>
+                <li>qID</li>
+                <li>답변 부탁드려요.</li>
+                <li>결제 취소하고 싶습니다.</li>
+                <li>2020.11.20</li>
+            </ul>
+        </div>
     </section>
