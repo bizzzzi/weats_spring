@@ -14,7 +14,7 @@
 <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
 </head>
 <body>
-
+	<div id="wrap">
 	<div id="desktop">
 		<jsp:include page="common/header_desktop.jsp" flush="true"></jsp:include>
 		<jsp:include page="common/loginForm_desktop.jsp" flush="true"></jsp:include>
@@ -23,7 +23,8 @@
 	<div id="Resale_list">
 		<jsp:include page="trade/tradeDetail.jsp" flush="true"></jsp:include>
 	</div>
-
+		<jsp:include page="common/footer.jsp" flush="true"></jsp:include>
+	</div>
 <script type="text/javascript" src="js/modal.js"></script>
 <script type="text/javascript" src="js/signUpForm.js"></script>
 <script type="text/javascript" src="js/trade_recomments.js"></script>
