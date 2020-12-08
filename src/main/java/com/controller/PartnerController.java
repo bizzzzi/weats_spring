@@ -1,6 +1,7 @@
 package com.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -165,13 +166,23 @@ public class PartnerController {
 	
 	//상품 페이지 수정
 	@RequestMapping("/ProductUpdate")
-	public String ProductUpdate(LeportsDTO ldto,LeportsItemDTO idto,RedirectAttributes attr) {
+	public String ProductUpdate(LeportsDTO ldto,LeportsItemDTO idto,String[] leports_item_title,
+			String[] leports_summary,int[] leports_price, int[] leports_max_capacity,
+			String[] leports_item_id,RedirectAttributes attr) {
 		pservice.ProductUpdateLeports(ldto);
-		List<LeportsItemDTO> list=new ArrayList<LeportsItemDTO>(); 
-		list.add(idto);
-		System.out.println(list);
+		System.out.println(leports_item_id);
 		//int n=pservice.ProductUpdateItem(list);
-		System.out.println(idto);
+		for(int i=0; i<leports_item_id.length; i++) {
+			idto.setLeports_item_id(leports_item_id[i]);
+			idto.setLeports_item_title(leports_item_title[i]);
+			idto.setLeports_max_capacity(leports_max_capacity[i]);
+			idto.setLeports_price(leports_price[i]);
+			idto.setLeports_summary(leports_summary[i]);
+			int n=pservice.ProductUpdateItem(idto);
+			System.out.println(n);
+			System.out.println(idto);
+		}
+
 		//System.out.println(n);
 		attr.addFlashAttribute("partnermesg","상품정보가 수정되었습니다.");
 		return "redirect:/MainPartner";

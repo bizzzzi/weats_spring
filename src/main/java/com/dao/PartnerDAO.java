@@ -96,7 +96,7 @@ public class PartnerDAO {
 		return n;
 	}
 	//레포츠 아이템 수정
-	public int ProductUpdateItem(List<LeportsItemDTO> dto) {
+	public int ProductUpdateItem(LeportsItemDTO dto) {
 		int n=template.update("ProductUpdateItem",dto);
 		return n;
 	}

@@ -112,13 +112,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where leports_id=#{leports_id}
 	</update>
 	<!-- 레포츠 아이템 수정 -->
-	<update id="ProductUpdateItem" parameterType="java.util.List">
-		<foreach collection="list" item="item" index="index" open="DECLARE BEGIN" close="; END;">
+	<update id="ProductUpdateItem" parameterType="leportsItemDTO">
+		
 			update leports_item set leports_item_title=#{leports_item_title},
 			leports_summary=#{leports_summary},leports_price=#{leports_price},
 			leports_max_capacity=#{leports_max_capacity}
 			where leports_item_id= #{leports_item_id}
-		</foreach>
+
 	</update>
 
 	<!-- 예약관리 -->
