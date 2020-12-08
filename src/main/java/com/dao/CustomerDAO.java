@@ -12,8 +12,8 @@ public class CustomerDAO {
     @Autowired
     SqlSessionTemplate template;
 
-    public int questionAdd(CustomerQnADTO customerQnADTO) {
-        return template.insert("questionAdd", customerQnADTO);
+    public int questionWrite(CustomerQnADTO customerQnADTO) {
+        return template.insert("questionWrite", customerQnADTO);
     }
 
     public List<CustomerQnADTO> userQuestionList(String user_id) {

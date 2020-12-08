@@ -29,6 +29,8 @@
 	<mvc:view-controller path="/AdminPartner" view-name="AdminPartner"/>
 	<mvc:view-controller path="/loginCheck/qa_question" view-name="customer/QA_question"/>
 	<mvc:view-controller path="/Recommend" view-name="MainRecommend"/>
+	<mvc:view-controller path="/MainQuestion" view-name="MainQuestion"/>
+	<mvc:view-controller path="/MainQuestionList" view-name="MainQuestionList"/>
 	<!--<mvc:view-controller path="/kakaoPaySuccess" view-name="payment/KakaoPaySuccess"/>-->
 
 	<mvc:resources location="/resources/" mapping="/**"/>

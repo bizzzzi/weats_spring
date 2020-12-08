@@ -8,8 +8,11 @@
     width: 80%;
 }
 section{
-    width: 100%;
+    width: 80%;
     margin: 0 auto;
+}
+section h2{
+    text-align: center;
 }
 .howList{
     width: 80%;
@@ -20,4 +23,31 @@ section{
 }
 .howImg {
     width: 81%;
+}
+/*1:1 문의*/
+.questionForm ul li{
+    display: flex;
+    margin: 10px 0px;
+}
+.questionForm ul li strong{
+    width: 20%;
+}
+.questionForm ul li input,select{
+    width: 100%;
+}
+.qa_submit{
+    display: flex;
+    justify-content: center;
+}
+.qa_submit input{
+    margin: 0px 5px;
+}
+
+.qList ul{
+    display: flex;
+    justify-content: space-around;
+}
+.qList li{
+    width: 100%;
+    text-align: center;
 }

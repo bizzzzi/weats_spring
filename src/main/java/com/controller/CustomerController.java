@@ -28,18 +28,18 @@ public class CustomerController {
         return "MainCustomer";
     }
 
-    @RequestMapping("/MainHowToUse")
+    @RequestMapping("/QA_howToUse")
     public String mainHowToUse(){
         return "MainHowToUse";
     }
 
-    @PostMapping("/loginCheck/customer_question")
-    public String customerQuestion(CustomerQnADTO customerQnADTO, HttpSession session) {
+    @PostMapping("/loginCheck/questionWrite")
+    public String questionWrite(CustomerQnADTO customerQnADTO, HttpSession session) {
         logger.debug("{}", customerQnADTO);
         MemberDTO login = (MemberDTO) session.getAttribute("login");
         customerQnADTO.setUser_id(login.getUser_id());
 
-        int n = customerService.questionAdd(customerQnADTO);
+        int n = customerService.questionWrite(customerQnADTO);
         logger.debug("{} insert 갯수 ", n);
         return "redirect:/MainCustomer";
     }
@@ -51,7 +51,6 @@ public class CustomerController {
         logger.debug("나의 문의내역 리스트 : {}", customerQnADTOList);
         return null; //나의 문의내역 테이블로 리턴
     }
-
 
 }
 

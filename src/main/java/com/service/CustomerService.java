@@ -13,8 +13,8 @@ public class CustomerService {
     CustomerDAO dao;
 
 
-    public int questionAdd(CustomerQnADTO customerQnADTO) {
-        return dao.questionAdd(customerQnADTO);
+    public int questionWrite(CustomerQnADTO customerQnADTO) {
+        return dao.questionWrite(customerQnADTO);
     }
 
     public List<CustomerQnADTO> userQuestionList(String user_id) {

@@ -3,9 +3,9 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="CustomerMapper">
-	<insert id="questionAdd" parameterType="CustomerQnADTO">
+	<insert id="questionWrite" parameterType="CustomerQnADTO">
 		insert into customer_question values('Q'||customer_question_seq.nextval, #{user_id}, #{q_title}, #{q_type}, #{q_content}
-			, #{q_reservation_id}, #{q_phone}, sysdate, 0, #{user_email}, #{user_name}, 'QG'||customer_question_seq.currval)
+			, #{q_reservation_id}, #{q_phone}, sysdate, 0, #{user_email}, #{user_name}, 'Q'||customer_question_seq.currval)
 	</insert>
 
 	<select id="userQuestionList" parameterType="string">

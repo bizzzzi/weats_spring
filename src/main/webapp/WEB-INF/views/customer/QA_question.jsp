@@ -3,7 +3,7 @@
     <section>
         <h2>1:1 문의하기</h2>
         <div>
-            <form action="customer_question" method="post">
+            <form action="questionWrite" method="post">
                 <ul>
                     <li>
                         <ul>
@@ -20,40 +20,24 @@
                         </ul>
                     </li>
                     <li>
-                        <ul class="question_input">
-                            <li><strong>이메일 주소</strong></li>
-                            <li><input type="text" name="user_email"/></li>
-                        </ul>
+                        <strong>이메일 주소</strong>
+                        <input type="text" name="user_email"/>
                     </li>
                     <li>
-                        <ul class="question_input">
-                            <li><strong>제목</strong></li>
-                            <li><input type="text" name="q_title"/></li>
-                        </ul>
+                        <strong>제목</strong>
+                        <input type="text" name="q_title"/>
                     </li>
                     <li>
-                        <ul class="question_input">
-                            <li><strong>이름</strong></li>
-                            <li><input type="text" name="user_name"/></li>
-                        </ul>
+                        <strong>전화번호</strong>
+                        <input type="text" name="q_phone"/>
                     </li>
                     <li>
-                        <ul class="question_input">
-                            <li><strong>전화번호</strong></li>
-                            <li><input type="text" name="q_phone"/></li>
-                        </ul>
+                        <strong>예약번호</strong>
+                        <input type="text" name="q_reservation_id"/>
                     </li>
                     <li>
-                        <ul class="question_input">
-                            <li><strong>예약번호</strong></li>
-                            <li><input type="text" name="q_reservation_id"/></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <ul class="question_input detail">
-                            <li><strong>세부내용</strong></li>
-                            <li><textarea name="q_content"></textarea></li>
-                        </ul>
+                        <strong>세부내용</strong>
+                        <input type="text" name="q_content"/>
                     </li>
                 </ul>
                 <div class="qa_submit">
