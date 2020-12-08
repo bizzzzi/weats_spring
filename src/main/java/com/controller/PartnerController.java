@@ -28,7 +28,7 @@ import com.sun.jna.platform.linux.LibC.Sysinfo;
 public class PartnerController {
 	@Autowired
 	PartnerService pservice;
-	
+
 	//파트너 등록
 	@RequestMapping("/PartnerAdd")
 	public String partnerAdd(PartnerDTO dto,HttpSession session,RedirectAttributes attr) {
@@ -57,7 +57,7 @@ public class PartnerController {
 		attr.addFlashAttribute("pdto",pdto);
 		return "redirect:/partnerMypage";
 	}
-	
+
 	//마이페이지 수정
 	@RequestMapping("/PartnerUpdate")
 	public String PartnerUpdate(PartnerDTO dto,RedirectAttributes attr) {
@@ -65,7 +65,7 @@ public class PartnerController {
 		attr.addFlashAttribute("partnermesg", "파트너 정보가 수정되었습니다.");
 		return "redirect:/MainPartner";
 	}
-	
+
 	//파트너 탈퇴
 	@RequestMapping("/PartnerDelete")
 	public String PartnerDelete(String partner_id,String user_id) {
@@ -86,7 +86,7 @@ public class PartnerController {
 		}
 		return "redirect:/";
 	}
-	
+
 	//레포츠 등록
 	@RequestMapping("/LeportsAdd")
 	public String ProductAdd(@ModelAttribute("LeportsForm")LeportsDTO dto,HttpSession session,RedirectAttributes attr) {
@@ -110,7 +110,7 @@ public class PartnerController {
 		}
 		return mesg;
 	}
-	
+
 	//레포츠 아이디찾기
 	@RequestMapping("/LeportsIdSelect")
 	public String LeportsIdSelect(@ModelAttribute("LeportsForm")LeportsDTO dto,RedirectAttributes attr) {
@@ -120,7 +120,7 @@ public class PartnerController {
 		attr.addFlashAttribute("dto", ldto);
 		return "redirect:/productRegistrationForm_item";
 	}
-	
+
 	//레포츠 아이템 등록
 	@RequestMapping("/ItemAdd")
 	public String ItemAdd(LeportsItemDTO dto,String[] leports_item_title, String[] leports_summary,
@@ -136,7 +136,7 @@ public class PartnerController {
 		attr.addFlashAttribute("partnermesg", "상품이 등록되었습니다.");
 		return "redirect:/MainPartner";
 	}
-	
+
 	//레포츠 등록 리스트
 	@RequestMapping("/partnerCheck/LeportsAddList")
 	public ModelAndView LeportsAddList(HttpSession session) {
@@ -149,7 +149,7 @@ public class PartnerController {
 		System.out.println(list);
 		return mav;
 	}
-	
+
 	//상품 상세페이지
 	@RequestMapping("/ProductDetail")
 	public ModelAndView ProductDetail(String leports_id) {
@@ -161,7 +161,7 @@ public class PartnerController {
 		mav.setViewName("partner/productDetailControl");
 		return mav;
 	}
-	
+
 	//상품 페이지 수정
 	@RequestMapping("/ProductUpdate")
 	public String ProductUpdate(LeportsDTO ldto,LeportsItemDTO idto,RedirectAttributes attr) {
@@ -173,11 +173,11 @@ public class PartnerController {
 	//상품 삭제
 	@RequestMapping("/ProductDelete")
 	public String ProductDelete(String leports_id,RedirectAttributes attr){
-		pservice.leportsDelete(leports_id);	
+		pservice.leportsDelete(leports_id);
 		attr.addFlashAttribute("partnermesg", "상품이 삭제되었습니다.");
 		return "redirect:/MainPartner";
 	}
-	
+
 	//예약관리
 	@RequestMapping("/partnerCheck/ProductResevation")
 	public ModelAndView ProductResevation(HttpSession session) {
