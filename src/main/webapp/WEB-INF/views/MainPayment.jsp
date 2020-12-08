@@ -6,10 +6,19 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" href="../css/bootstrap.css" /><!-- 부트스트랩 -->
+	<script type="text/javascript" src="../js/jquery-3.5.1.min.js"></script>
+	<script type="text/javascript" src="../js/bootstrap.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>결제 페이지</title>
   </head>
   <body>
+  	<div id="desktop">
+		<jsp:include page="common/header_desktop.jsp" flush="true"></jsp:include>
+		<jsp:include page="common/loginForm_desktop.jsp" flush="true"></jsp:include>
+		<jsp:include page="common/signUpForm_desktop.jsp" flush="true"></jsp:include>
+	</div>
     <h1>결제하기</h1>
     <div class="payment_form_wrap">
       <form action="kakaoPay" method="post">
@@ -74,5 +83,7 @@
       </form>
     </div>
     <script type="text/javascript" src="../js/payment.js"></script>
+	<script type="text/javascript" src="../js/modal.js"></script>
+	<script type="text/javascript" src="../js/signUpForm.js"></script>
   </body>
 </html>
