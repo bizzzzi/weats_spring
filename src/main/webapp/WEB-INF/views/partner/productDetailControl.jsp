@@ -99,6 +99,7 @@
         <div class="title">레포츠 아이템 이름</div>
         <div class="sub_box">
           <div>
+          	<input type="hidden" name="leports_item_id" value="${idto.leports_item_id}">
             <input type="text" name="leports_item_title" class="leports_item_title" value="${idto.leports_item_title}">
           </div>
         </div>
