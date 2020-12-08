@@ -18,6 +18,13 @@
 #myPageWrap {
 	display:flex;
 }
+/*계정관리*/
+.account{
+	justify-content: center;
+	text-align: center;
+	align-items:center;
+	background-color: red;
+}
 
 /* 나의예약내역	 */
 .reservationCancellation {
