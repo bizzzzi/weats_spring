@@ -19,4 +19,5 @@ public class LeportsReviewDTO {
 	private String leports_main_img;
 	private String user_email;
 	private int review_star;
+	private int review_verify;
 }
