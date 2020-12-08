@@ -13,7 +13,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Insert title here</title>
-  <link rel="stylesheet" href="css/partner.css">
+  <link rel="stylesheet" href="../css/partner.css">
 </head>
 <body>
   <header class="header">
