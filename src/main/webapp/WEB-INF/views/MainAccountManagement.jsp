@@ -14,6 +14,7 @@
 <script src="https://kit.fontawesome.com/400289e08c.js" crossorigin="anonymous"></script>
 </head>
 <body>
+<div id="wrap">
 	<div id="desktop">
 		<jsp:include page="common/header_desktop.jsp" flush="true"></jsp:include>
 	</div>
@@ -25,6 +26,8 @@
 			<jsp:include page="member/accountManagement.jsp" flush="true"></jsp:include>
 		</div>
 	</div>
+	<jsp:include page="common/footer.jsp" flush="true"></jsp:include>
+</div>
 <script type="text/javascript" src="js/modal.js"></script>
 <script type="text/javascript" src="js/signUpForm.js"></script>
 </body>
