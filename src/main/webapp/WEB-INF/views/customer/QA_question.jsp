@@ -9,12 +9,12 @@
                         <ul>
                             <li><strong>문의 유형</strong></li>
                             <li>
-                                <select>
-                                    <option>이용방법</option>
-                                    <option>자주 묻는 질문</option>
-                                    <option>파트너 등록 문의</option>
-                                    <option>결제 취소 문의</option>
-                                    <option>기타문의</option>
+                                <select name="q_type">
+                                    <option value="이용방법">이용방법</option>
+                                    <option value="자주 묻는 질문">자주 묻는 질문</option>
+                                    <option value="파트너 등록 문의">파트너 등록 문의</option>
+                                    <option value="결제 취소 문의">결제 취소 문의</option>
+                                    <option value="기타문의">기타문의</option>
                                 </select>
                             </li>
                         </ul>
