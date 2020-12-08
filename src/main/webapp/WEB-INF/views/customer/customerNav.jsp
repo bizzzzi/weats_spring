@@ -14,6 +14,6 @@
             <li><a href="QA_answer"><span>파트너 등록 / 문의</span></a></li>
             <li><a href="#"><span>결제 / 취소 문의</span></a></li>
             <li><a href="#"><span>기타문의</span></a></li>
-            <li><a href="loginCheck/QA_questionList"><span>나의 문의 내역</span></a></li>
+            <li><a href="loginCheck/userQuestionList"><span>나의 문의 내역</span></a></li>
         </ul>
     </div>

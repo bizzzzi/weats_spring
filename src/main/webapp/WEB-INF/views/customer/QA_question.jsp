@@ -3,21 +3,29 @@
     <section>
         <h2>1:1 문의하기</h2>
         <div class="questionForm">
-            <form action="questionWrite" method="post">
+            <form action="loginCheck/questionWrite" method="post">
                 <ul>
                     <li>
-                        <strong>문의유형</strong>
-                        <select name="q_type">
-                            <option>이용방법</option>
-                            <option>자주묻는질문</option>
-                            <option>파트너등록문의</option>
-                            <option>결제취소문의</option>
-                            <option>기타문의</option>
-                        </select>
+                        <ul>
+                            <li><strong>문의 유형</strong></li>
+                            <li>
+                                <select name="q_type">
+                                    <option value="이용방법">이용방법</option>
+                                    <option value="자주 묻는 질문">자주 묻는 질문</option>
+                                    <option value="파트너 등록 문의">파트너 등록 문의</option>
+                                    <option value="결제 취소 문의">결제 취소 문의</option>
+                                    <option value="기타문의">기타문의</option>
+                                </select>
+                            </li>
+                        </ul>
                     </li>
                     <li>
                         <strong>이메일 주소</strong>
                         <input type="text" name="user_email"/>
+                    </li>
+                    <li>
+                        <strong>이름</strong>
+                        <input type="text" name="user_name"/>
                     </li>
                     <li>
                         <strong>제목</strong>
