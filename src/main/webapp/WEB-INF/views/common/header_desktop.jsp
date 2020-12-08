@@ -21,7 +21,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="RecommendServlet">추천</a>
+            <a class="nav-link" href="Recommend">추천</a>
           </li>
           <c:set var="path" value="${pageContext.request.contextPath}" />
           <li class="nav-item dropdown">
