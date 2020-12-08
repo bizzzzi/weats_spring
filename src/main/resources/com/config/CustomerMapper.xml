@@ -8,7 +8,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			, #{q_reservation_id}, #{q_phone}, sysdate, 0, #{user_email}, #{user_name}, 'Q'||customer_question_seq.currval)
 	</insert>
 
-	<select id="userQuestionList" parameterType="string">
+	<select id="userQuestionList" parameterType="string" resultType="CustomerQnADTO">
 		select * from customer_question where user_id = #{user_id}
 	</select>
 

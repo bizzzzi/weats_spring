@@ -2,8 +2,8 @@
     pageEncoding="UTF-8"%>
     <section>
         <h2>1:1 문의하기</h2>
-        <div>
-            <form action="questionWrite" method="post">
+        <div class="questionForm">
+            <form action="loginCheck/questionWrite" method="post">
                 <ul>
                     <li>
                         <ul>
@@ -22,6 +22,10 @@
                     <li>
                         <strong>이메일 주소</strong>
                         <input type="text" name="user_email"/>
+                    </li>
+                    <li>
+                        <strong>이름</strong>
+                        <input type="text" name="user_name"/>
                     </li>
                     <li>
                         <strong>제목</strong>

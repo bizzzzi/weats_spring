@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -44,12 +45,18 @@ public class CustomerController {
         return "redirect:/MainCustomer";
     }
 
-    @GetMapping("/userQuestionList")
-    public String userQuestionList(HttpSession session) {
+    @RequestMapping("/loginCheck/QA_question")
+    public String MainQuestion(){
+        return "redirect:/MainQuestion";
+    }
+
+    @GetMapping("/loginCheck/userQuestionList")
+    public String userQuestionList(HttpSession session, Model model) {
         MemberDTO login = (MemberDTO) session.getAttribute("login");
         List<CustomerQnADTO> customerQnADTOList = customerService.userQuestionList(login.getUser_id());
         logger.debug("나의 문의내역 리스트 : {}", customerQnADTOList);
-        return null; //나의 문의내역 테이블로 리턴
+        model.addAttribute("list", customerQnADTOList);
+        return "MainQuestionList"; //나의 문의내역 테이블로 리턴
     }
 
 }
