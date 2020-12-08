@@ -64,9 +64,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 레포츠 아이템 등록 -->
  	<insert id="leportsItemInsert" parameterType="LeportsItemDTO">
-		insert into leports_item (leports_id,leports_item_title,leports_summary,
+		insert into leports_item (leports_id,leports_item_id,leports_item_title,leports_summary,
 		leports_price,leports_max_capacity)
-		values(#{leports_id},#{leports_item_title},#{leports_summary},
+		values(#{leports_id},'I'||leports_item_seq.nextval,#{leports_item_title},#{leports_summary},
 		#{leports_price},#{leports_max_capacity})
 	</insert>
 	
@@ -97,7 +97,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 상품 상세 페이지 레포츠 아이템 -->
 	<select id="ProductDetailItem" parameterType="String" resultType="leportsItemDTO">
-		select leports_id,leports_item_title,leports_summary,leports_price,leports_max_capacity
+		select leports_id,leports_item_title,leports_summary,leports_price,leports_max_capacity,
+		leports_item_id
 		from leports_item
 		where leports_id=#{leports_id}
 	</select>
@@ -111,22 +112,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where leports_id=#{leports_id}
 	</update>
 	<!-- 레포츠 아이템 수정 -->
-	<update id="ProductUpdateItem" parameterType="leportsItemDTO">
-		update leports_item set leports_item_title=#{leports_item_title},
-		leports_summary=#{leports_summary},leports_price=#{leports_price},
-		leports_max_capacity=#{leports_max_capacity}
-		where leports_id=#{leports_id}
+	<update id="ProductUpdateItem" parameterType="java.util.List">
+		<foreach collection="list" item="item" index="index" open="DECLARE BEGIN" close="; END;">
+			update leports_item set leports_item_title=#{leports_item_title},
+			leports_summary=#{leports_summary},leports_price=#{leports_price},
+			leports_max_capacity=#{leports_max_capacity}
+			where leports_item_id= #{leports_item_id}
+		</foreach>
 	</update>
-	
-	<!-- 예약관리 -->
-<!-- 	<select id="Reservationleports" parameterType="leportsDTO" resultType="String">
-		select leports_main_img,leports_title 
-		from leports 
-		where partner_id=#{partner_id}
-	</select> -->
-	
 
-	
+	<!-- 예약관리 -->
 	<resultMap type="LeportsDTO" id="leports">
 		<result column="leports_id" property="leports_id"></result>
 		<result column="leports_title" property="leports_title"></result>

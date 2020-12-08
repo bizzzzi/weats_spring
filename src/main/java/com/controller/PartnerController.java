@@ -1,5 +1,6 @@
 package com.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -157,6 +158,7 @@ public class PartnerController {
 		List<LeportsItemDTO> idto=pservice.ProductDetailItem(leports_id);
 		mav.addObject("ldto",ldto);
 		mav.addObject("idto",idto);
+		System.out.println(idto);
 		mav.setViewName("partner/productDetailControl");
 		return mav;
 	}
@@ -165,7 +167,12 @@ public class PartnerController {
 	@RequestMapping("/ProductUpdate")
 	public String ProductUpdate(LeportsDTO ldto,LeportsItemDTO idto,RedirectAttributes attr) {
 		pservice.ProductUpdateLeports(ldto);
-		pservice.ProductUpdateItem(idto);
+		List<LeportsItemDTO> list=new ArrayList<LeportsItemDTO>(); 
+		list.add(idto);
+		System.out.println(list);
+		//int n=pservice.ProductUpdateItem(list);
+		System.out.println(idto);
+		//System.out.println(n);
 		attr.addFlashAttribute("partnermesg","상품정보가 수정되었습니다.");
 		return "redirect:/MainPartner";
 	}
@@ -176,7 +183,7 @@ public class PartnerController {
 		attr.addFlashAttribute("partnermesg", "상품이 삭제되었습니다.");
 		return "redirect:/MainPartner";
 	}
-	
+
 	//예약관리
 	@RequestMapping("/partnerCheck/ProductResevation")
 	public ModelAndView ProductResevation(HttpSession session) {

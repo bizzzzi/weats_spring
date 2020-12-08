@@ -95,7 +95,7 @@ public class PartnerService {
 			return n;
 		}
 		//레포츠 아이템 수정
-		public int ProductUpdateItem(LeportsItemDTO dto) {			 
+		public int ProductUpdateItem(List<LeportsItemDTO> dto) {			 
 			int n=dao.ProductUpdateItem(dto);
 			return n;
 		}
