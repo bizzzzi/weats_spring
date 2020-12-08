@@ -19,6 +19,6 @@ public class LeportsItemDTO {
 	private String leports_summary;
 	private int leports_price;
 	private int leports_max_capacity;
-	
+	private String leports_item_id;
 	
 }
