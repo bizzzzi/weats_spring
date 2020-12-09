@@ -2,7 +2,9 @@ package com.controller;
 
 import com.dto.CustomerQnADTO;
 import com.dto.MemberDTO;
+import com.service.AdminService;
 import com.service.CustomerService;
+import com.service.MemberService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,9 @@ public class CustomerController {
     @Autowired
     CustomerService customerService;
 
+    @Autowired
+    MemberService memberService;
+
     private static final Logger logger = LoggerFactory.getLogger(CustomerController.class.getSimpleName());
 
     @RequestMapping("/MainCustomer")
@@ -37,7 +42,7 @@ public class CustomerController {
     public String MainQuestion(){
         return "redirect:/MainQuestion";
     }
-//  1대1 문의하기
+//  1대1 문의하기 (글쓰기)
     @PostMapping(value = {"/loginCheck/questionWrite", "/adminCheck/questionWrite"})
     public String questionWrite(CustomerQnADTO customerQnADTO, HttpSession session, HttpServletRequest request) {
         logger.debug("해당 uri : {} ", request.getRequestURI());
@@ -45,15 +50,22 @@ public class CustomerController {
         MemberDTO login = (MemberDTO) session.getAttribute("login");
         customerQnADTO.setUser_id(login.getUser_id());
         customerQnADTO.setUser_email(login.getUser_email());
-        customerQnADTO.setUser_name(login.getUser_name());
 
-        int n = customerService.questionWrite(customerQnADTO);
-        logger.debug("{} insert 갯수 ", n);
-        if(request.getRequestURI().contains("adminCheck")) {
+
+        if(request.getRequestURI().contains("adminCheck")) { //관리자 답변 시
+            customerQnADTO.setUser_name("관리자");
+            customerService.questionWrite(customerQnADTO);
             customerService.answerSuccess(customerQnADTO.getQuestion_group());
             return "redirect:../adminCheck/AllQuestionList";
         } else {
-            return "redirect:/MainCustomer";
+            customerQnADTO.setUser_name(login.getUser_name());
+            customerService.questionWrite(customerQnADTO);
+            if(customerQnADTO.getQuestion_group() != null) { //사용자 재 문의 시
+                customerService.reQuestion(customerQnADTO.getQuestion_group());
+                return "redirect:/MainCustomer";
+            } else {
+                return "redirect:/MainCustomer";
+            }
         }
     }
 
@@ -74,7 +86,7 @@ public class CustomerController {
         logger.debug("모든 1대1 문의 리스트 : {} ",customerQnADTOList);
         List<CustomerQnADTO> qnaList = new ArrayList<CustomerQnADTO>();
         for(CustomerQnADTO dto: customerQnADTOList) {
-            if(dto.getQuestion_id() == dto.getQuestion_group()) {
+            if(dto.getQuestion_id().equals(dto.getQuestion_group())) {
                 qnaList.add(dto);
             }
         }
@@ -86,13 +98,12 @@ public class CustomerController {
     @PostMapping("/adminCheck/queationDetail")
     public String AdminQuestionDetail(String question_group, Model model, HttpServletRequest request) {
 
-        logger.debug("해당 uri : {} ", request.getRequestURI());
         List<CustomerQnADTO> customerQnADTOList = customerService.questionDetail(question_group);
-//        logger.debug("해당 문의 내용 {} ", customerQnADTO);
         CustomerQnADTO customerQnADTO = customerQnADTOList.get(0); //원 게시글
         customerQnADTOList.remove(0); //리스트에서 원 게시글 삭제
+
         model.addAttribute("dto", customerQnADTO); //원 게시글
-        model.addAttribute("list", customerQnADTOList); //아래 달린 답변 또는 문의
+        model.addAttribute("list", customerQnADTOList);
         return "AdminQuestionDetail";
     }
 

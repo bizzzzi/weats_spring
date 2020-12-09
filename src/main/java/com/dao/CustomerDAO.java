@@ -33,4 +33,8 @@ public class CustomerDAO {
     public void answerSuccess(String question_group) {
         template.update("answerSuccess", question_group);
     }
+
+    public void reQuestion(String question_group) {
+        template.update("reQuestion", question_group);
+    }
 }
