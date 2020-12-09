@@ -35,4 +35,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update customer_question set answer_verify = 1 where question_id = #{question_group}
 	</update>
 
+	<update id="reQuestion" parameterType="string">
+		update customer_question set answer_verify = 0 where question_id = #{question_group}
+	</update>
+
 </mapper>
