@@ -22,11 +22,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from customer_question where user_id = #{user_id}
 	</select>
 
-	<!--	관리자 페이지에서 보여줄 1대1 문의 리스트-->
+	<!--문의 리스트-->
 	<select id="AllQuestionList" resultType="CustomerQnADTO">
-		select * from customer_question
+		select * from customer_question order by answer_verify, q_regidate
 	</select>
-<!--	관리자 페이지 question detail-->
+<!--  question detail-->
 	<select id="questionDetail" parameterType="string" resultType="CustomerQnADTO">
 		select * from customer_question where question_group = #{question_group} order by q_regidate
 	</select>

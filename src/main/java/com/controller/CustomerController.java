@@ -75,8 +75,14 @@ public class CustomerController {
         MemberDTO login = (MemberDTO) session.getAttribute("login");
         List<CustomerQnADTO> customerQnADTOList = customerService.userQuestionList(login.getUser_id());
         logger.debug("나의 문의내역 리스트 : {}", customerQnADTOList);
-        model.addAttribute("myQnalist", customerQnADTOList);
-        return "MainQuestionList"; //나의 문의내역 테이블로 리턴
+        List<CustomerQnADTO> myQnalist = new ArrayList<CustomerQnADTO>();
+        for(CustomerQnADTO dto: customerQnADTOList) {
+            if(dto.getQuestion_id().equals(dto.getQuestion_group())) {
+                myQnalist.add(dto);
+            }
+        }
+        model.addAttribute("myQnalist", myQnalist);
+        return "MainQuestionList";
     }
 
     //  관리자 페이지에서 보여줄 1대1 문의 리스트
@@ -95,9 +101,9 @@ public class CustomerController {
     }
 
     //문의 상세 페이지
-    @PostMapping("/adminCheck/queationDetail")
-    public String AdminQuestionDetail(String question_group, Model model, HttpServletRequest request) {
-
+    @RequestMapping(value = {"/adminCheck/questionDetail", "/loginCheck/questionDetail"})
+    public String AdminQuestionDetail(@RequestParam("q_group") String question_group, Model model, HttpServletRequest request) {
+        System.out.println("넘어옴");
         List<CustomerQnADTO> customerQnADTOList = customerService.questionDetail(question_group);
         CustomerQnADTO customerQnADTO = customerQnADTOList.get(0); //원 게시글
         customerQnADTOList.remove(0); //리스트에서 원 게시글 삭제
