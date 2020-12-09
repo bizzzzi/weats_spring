@@ -6,14 +6,16 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" href="../css/bootstrap.css" /><!-- 부트스트랩 -->
 	<script type="text/javascript" src="../js/jquery-3.5.1.min.js"></script>
 	<script type="text/javascript" src="../js/bootstrap.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <script src="https://kit.fontawesome.com/400289e08c.js" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>결제 페이지</title>
   </head>
   <body>
+  	<div id="wrap">
   	<div id="desktop">
 		<jsp:include page="common/header_desktop.jsp" flush="true"></jsp:include>
 		<jsp:include page="common/loginForm_desktop.jsp" flush="true"></jsp:include>
@@ -81,6 +83,8 @@
           <button class="paymentBtn" type="submit">${totalPrice}원 확인 및 결제</button>
         </div>
       </form>
+    </div>
+    <jsp:include page="common/footer.jsp" flush="true"></jsp:include>
     </div>
     <script type="text/javascript" src="../js/payment.js"></script>
 	<script type="text/javascript" src="../js/modal.js"></script>

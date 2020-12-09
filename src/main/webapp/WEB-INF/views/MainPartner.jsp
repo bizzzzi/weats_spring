@@ -22,7 +22,7 @@
 <script src="https://kit.fontawesome.com/400289e08c.js" crossorigin="anonymous"></script>
 </head>
 <body>
-
+<div id="wrap">
 	<div id="desktop">
 		<jsp:include page="common/header_desktop.jsp" flush="true"></jsp:include>
 		<jsp:include page="common/loginForm_desktop.jsp" flush="true"></jsp:include>
@@ -38,7 +38,8 @@
 			<li><a href="partnerCheck/ProductResevation">예약 관리</a></li>
 		</ul>
 	</div>
-	
+	<jsp:include page="common/footer.jsp" flush="true"></jsp:include>
+</div>
 <script type="text/javascript" src="js/modal.js"></script>
 <script type="text/javascript" src="js/signUpForm.js"></script>
 <script type="text/javascript" src="js/thumbnail.js"></script>

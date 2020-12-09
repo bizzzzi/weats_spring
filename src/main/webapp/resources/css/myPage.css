@@ -2,7 +2,7 @@
 
 #mypageSideMenu {
 	width: 20%;
-	height: 100vh;
+	height: 100%;
 	background-color: grey;
 	display: flex;
 	flex-direction: column;
@@ -11,8 +11,8 @@
 
 #mypageContent {
 	width: 80%;
-	height: 100vh;
-
+	height: 100%;
+	background-color: darkgrey;
 }
 
 #myPageWrap {
