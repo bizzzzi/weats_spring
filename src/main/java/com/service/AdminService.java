@@ -1,6 +1,7 @@
 package com.service;
 
 import com.dao.AdminDAO;
+import com.dto.CustomerQnADTO;
 import com.dto.MemberDTO;
 import com.dto.PartnerDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,4 +41,7 @@ public class AdminService {
     public void PartnerDel(String user_id){
         dao.PartnerDel(user_id);
     }
+
+
+
 }
