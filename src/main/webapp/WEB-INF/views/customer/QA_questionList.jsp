@@ -10,18 +10,27 @@
                 <li>문의제목</li>
                 <li>문의내용</li>
                 <li>등록날짜</li>
+                <li>답변여부</li>
             </ul>
         </div>
         <div class="qList">
             <c:forEach var="dto" items="${myQnalist}" varStatus="status">
-                <ul>
-                    <a href="MyQuestionList?qID=${dto.question_id}">
+                    <a href="questionDetail?q_group=${dto.question_group}">
+                    <ul>
                         <li>${dto.question_id}</li>
                         <li>${dto.q_title}</li>
                         <li>${dto.q_content}</li>
                         <li>${dto.q_regidate}</li>
+                        <c:choose>
+                            <c:when test="${dto.answer_verify == 0}">
+                                <li>답변 대기</li>
+                            </c:when>
+                            <c:otherwise>
+                                <li>답변 완료</li>
+                            </c:otherwise>
+                        </c:choose>
+                    </ul>
                     </a>
-                </ul>
             </c:forEach>
         </div>
     </section>

@@ -23,7 +23,7 @@
 		<hr>
 			<div class="subject">
 				<ul>
-					<li>질문ID</li>
+					<li>문의ID</li>
 					<li>사용자ID</li>
 					<li>제목</li>
 					<li>유형</li>
@@ -33,8 +33,7 @@
 			
 			<div class="list">
 			<c:forEach var="dto" items="${qnaList}" varStatus="status">
-					<form class="form${status.index}" action="queationDetail" method="post">
-						<a href="javascript:document.querySelector('.form${status.index}').submit();">
+						<a href="questionDetail?q_group=${dto.question_group}">
 						<ul>
 							<li>${dto.question_id}</li>
 							<li>${dto.user_id}</li>
@@ -50,7 +49,6 @@
 							</c:choose>
 						</ul>
 						</a>
-						<input type="hidden" name="question_group" value="${dto.question_group}"/>
 					</form>
 			</c:forEach>
 			</div>

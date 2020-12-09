@@ -1,11 +1,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<c:set var="path" value="${pageContext.request.contextPath}" />
     <div class="customer_btn">
         <form>
             <strong>여기에 물어보세요.</strong>
             <input type="text" name="search">
             <input type="submit" value="검색">
         </form>
-        <a href="loginCheck/QA_question">1:1 문의하기</a>
+        <a href="${path}/loginCheck/QA_question">1:1 문의하기</a>
     </div>
     <div class="customer_nav">
         <ul>

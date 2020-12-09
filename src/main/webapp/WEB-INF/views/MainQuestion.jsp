@@ -12,6 +12,7 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/customer.css">
 	<link rel="stylesheet" type="text/css" href="css/customer_nav2.css">
+	<link rel="stylesheet" type="text/css" href="../css/admin.css">
 	<script src="https://kit.fontawesome.com/400289e08c.js" crossorigin="anonymous"></script>
 </head>
 <body>
