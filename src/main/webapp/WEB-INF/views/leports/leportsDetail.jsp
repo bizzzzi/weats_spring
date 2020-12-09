@@ -2,6 +2,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 		 pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<input class="js_pTotalCount" type="number" name="totalPersonnelConut" style="display: none" value="0">
+<b>${leportsDetail[0].leports_title}</b>
+<%-- <div class="imgWrap">
+	<div class="leports_items main">
+		<img class="img-responsive" style="width: 100%; height: 100%" src="images/${leportsDetail[0].leports_main_img}">
+	</div>
+</div> --%>
 <div class="leports_detail_wrap">
 	<div class="contents">
 		<form action="loginCheck/leportsReserve" method="post">
@@ -9,17 +16,6 @@
 			<input type="text" name="leports_title" style="display: none" value="${leportsDetail[0].leports_title}">
 			<input type="text" name="c_address" style="display: none" value="${leportsDetail[0].c_address}">
 			<input type="text" name="c_detail_address" style="display: none" value="${leportsDetail[0].c_detail_address}">
-			<input class="js_pTotalCount" type="number" name="totalPersonnelConut" style="display: none" value="0">
-			<b>${leportsDetail[0].leports_title}</b>
-			<div class="leports_items main">
-				<img class="img-responsive" style="width: 80%; height: 250px;" src="images/${leportsDetail[0].leports_main_img}">
-			</div>
-			<div class="leports_items sub">
-				<img class="img-responsive" style="width: 20%; height: 250px;" src="images/${leportsDetail[0].leports_sub_img1}">
-				<img class="img-responsive" style="width: 20%; height: 250px;" src="images/${leportsDetail[0].leports_sub_img2}">
-				<img class="img-responsive" style="width: 20%; height: 250px;" src="images/${leportsDetail[0].leports_sub_img3}">
-				<img class="img-responsive" style="width: 20%; height: 250px;" src="images/${leportsDetail[0].leports_sub_img4}">
-			</div>
 			<div>
 				<table class="scriptCalendar">
 					<thead>
@@ -91,7 +87,21 @@
 				<input class="paymentBtn" type="submit" value="결제하기 버튼" />
 			</div>
 		</form>
-		<div>상품 상세 설명(사진 가능) : ${leportsDetail[0].leports_content}</div>
+		<div class="leports_items_img">
+			<div class="row">
+				<img class="col-sm-12" src="images/${leportsDetail[0].leports_sub_img1}">
+			</div>
+			<div class="row">
+				<img class="col-sm-12" src="images/${leportsDetail[0].leports_sub_img2}">
+			</div>
+			<div class="row">
+				<img class="col-sm-12" src="images/${leportsDetail[0].leports_sub_img3}">
+			</div>
+			<div class="row">
+				<img class="col-sm-12" src="images/${leportsDetail[0].leports_sub_img4}">
+			</div>
+		</div>
+		<div>상품 상세 설명 : ${leportsDetail[0].leports_content}</div>
 	</div>
 	<div class="side_nav">
 		<span class="js_total_amount2">0</span>원<br>
