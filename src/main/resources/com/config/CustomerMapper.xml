@@ -7,7 +7,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into customer_question values
 			<choose>
 				<when test="question_group == null">
-					('Q'||customer_question_seq.nextval, #{user_id}, 'asdasd', #{q_type}, #{q_content}
+					('Q'||customer_question_seq.nextval, #{user_id}, #{q_title}, #{q_type}, #{q_content}
 					, #{q_reservation_id}, #{q_phone}, sysdate, 0, #{user_email}, #{user_name}, 'Q'||customer_question_seq.currval)
 				</when>
 				<otherwise>
