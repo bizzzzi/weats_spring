@@ -7,8 +7,8 @@
                 <ul>
                     <li>
                         <ul>
-                            <li><strong>문의 유형</strong></li>
                             <li>
+                                <strong>문의 유형</strong>
                                 <select name="q_type">
                                     <option value="이용방법">이용방법</option>
                                     <option value="자주 묻는 질문">자주 묻는 질문</option>
