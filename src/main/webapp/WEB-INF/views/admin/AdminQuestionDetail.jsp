@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-     <link rel="stylesheet" href="../css/admin.css">
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,33 +13,55 @@
 	<ul>
 		<li><a href="memberList">회원관리</a></li>
 		<li><a href="partnerList">파트너 관리</a></li>
+		<li><a href="#">문의 답변</a></li>
 	</ul>
 </div>	
 	<div class="content">
-		<div class="question">
-			<span class="q_subject">문의 번호</span>
-			<span class="q_content">${dto.question_id}</span>
-			<span class="q_subject">USER ID</span>
-			<span class="q_content">${dto.user_id}</span>
-			<span class="q_subject">제목</span>
-			<span class="q_content">${dto.q_title}</span>
-			<span class="q_subject">글 유형</span>
-			<span class="q_content">${dto.q_type}</span>
-			<span class="q_subject">내용</span>
-			<span class="q_content">${dto.q_content}</span>
-			<span class="q_subject">예약번호</span>
-			<span class="q_content">${dto.q_reservation_id}</span>
-			<span class="q_subject">전화번호</span>
-			<span class="q_content">${dto.q_phone}</span>
-			<span class="q_subject">등록일</span>
-			<span class="q_content">${dto.q_regidate}</span>
-		</div>
+		<ul class="qnaList q">
+			<li>
+				<strong>문의번호</strong>
+				<span>${dto.question_id}</span>
+			</li>
+			<li>
+				<strong>USER ID</strong>
+				<span>${dto.user_id}</span>
+			</li>
+			<li>
+				<strong>제목</strong>
+				<span>${dto.q_title}</span>
+			</li>
+			<li>
+				<strong>글 유형</strong>
+				<span>${dto.q_type}</span>
+			</li>
+			<li>
+				<strong>내용</strong>
+				<span>${dto.q_content}</span>
+			</li>
+			<li>
+				<strong>예약번호</strong>
+				<span>${dto.q_reservation_id}</span>
+			</li>
+			<li>
+				<strong>전화번호</strong>
+				<span>${dto.q_phone}</span>
+			</li>
+			<li>
+				<strong>등록일</strong>
+				<span>${dto.q_regidate}</span>
+			</li>
+		</ul>
 		<c:if test="${fn:length(list) != 0}">
 			<c:forEach var="qna" items="${list}" varStatus="status">
-				<li>${qna.user_name}</li>
-				<li>${qna.user_email}</li>
-				<li>${qna.q_content}</li>
-				<li>${qna.q_regidate}</li>
+				<ul class="qnaList a">
+					<li>
+						<strong>${qna.user_name}</strong>
+						<span class="regidate">${qna.q_regidate}</span>
+					</li>
+					<li>
+						<span>${qna.q_content}</span>
+					</li>
+				</ul>
 			</c:forEach>
 		</c:if>
 			<!-- 답변등록 -->

@@ -6,9 +6,10 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../css/bootstrap.css" /><!-- 부트스트랩 -->
+	<script type="text/javascript" src="../js/jquery-3.5.1.min.js"></script>
+	<script type="text/javascript" src="../js/bootstrap.js"></script>
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
-	<script src="https://kit.fontawesome.com/400289e08c.js" crossorigin="anonymous"></script>
-	<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 	<style type="text/css">
 		a {
 			color: black; /* 임시값 나중에 Css 공통수정 */
