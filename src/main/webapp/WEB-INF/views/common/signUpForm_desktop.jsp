@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 ​
-<div class="modal2 hidden">
+<div class="signUpModal hidden">
 	<div class="modalOverlay2"></div>
 	<div id="signUpForm">
 		<form id="userJoin" action="mailCheck" method="POST">
