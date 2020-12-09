@@ -4,12 +4,35 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="CustomerMapper">
 	<insert id="questionWrite" parameterType="CustomerQnADTO">
-		insert into customer_question values('Q'||customer_question_seq.nextval, #{user_id}, #{q_title}, #{q_type}, #{q_content}
-			, #{q_reservation_id}, #{q_phone}, sysdate, 0, #{user_email}, #{user_name}, 'Q'||customer_question_seq.currval)
+		insert into customer_question values
+			<choose>
+				<when test="question_group == null">
+					('Q'||customer_question_seq.nextval, #{user_id}, 'asdasd', #{q_type}, #{q_content}
+					, #{q_reservation_id}, #{q_phone}, sysdate, 0, #{user_email}, #{user_name}, 'Q'||customer_question_seq.currval)
+				</when>
+				<otherwise>
+					('Q'||customer_question_seq.nextval, #{user_id}, null, null, #{q_content}
+					, null, null, sysdate, 0, #{user_email}, #{user_name}, #{question_group})
+				</otherwise>
+			</choose>
+
 	</insert>
 
 	<select id="userQuestionList" parameterType="string" resultType="CustomerQnADTO">
 		select * from customer_question where user_id = #{user_id}
 	</select>
+
+	<!--	관리자 페이지에서 보여줄 1대1 문의 리스트-->
+	<select id="AllQuestionList" resultType="CustomerQnADTO">
+		select * from customer_question
+	</select>
+<!--	관리자 페이지 question detail-->
+	<select id="questionDetail" parameterType="string" resultType="CustomerQnADTO">
+		select * from customer_question where question_group = #{question_group} order by q_regidate
+	</select>
+	
+	<update id="answerSuccess" parameterType="string">
+		update customer_question set answer_verify = 1 where question_id = #{question_group}
+	</update>
 
 </mapper>

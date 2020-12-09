@@ -1,7 +1,7 @@
 // 로그인 모달
 	
 	const loginOpenBtn = document.querySelector(".loginOpenBtn");
-	const modal = document.querySelector(".modal");
+	const modal = document.querySelector(".loginModal");
 	const overlay = document.querySelector(".modalOverlay");
 	const closeBtn = document.querySelector(".closeBtn");
 	
@@ -21,7 +21,7 @@
 // 회원가입 모달
 	
 	const signUpOpenBtn = document.querySelector(".signUpOpenBtn");
-	const modal2 = document.querySelector(".modal2");
+	const modal2 = document.querySelector(".signUpModal");
 	const overlay2 = document.querySelector(".modalOverlay2");
 	const closeBtn2 = document.querySelector(".closeBtn2");
 	
