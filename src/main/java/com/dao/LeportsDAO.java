@@ -27,7 +27,7 @@ public class LeportsDAO {
 	public List<LeportsDetailDTO> leportsDetail(String leports_id) {
 		// TODO Auto-generated method stub
 		System.out.println("DAO : "+leports_id);
-		List<LeportsDetailDTO> list = template.selectList("leportsDetailSelect", leports_id); 
+		List<LeportsDetailDTO> list = template.selectList("leportsDetailSelect", leports_id);
 		return list;
 	}
 	
@@ -35,9 +35,16 @@ public class LeportsDAO {
 	public List<LeportsReviewDTO> reviewAll(String leports_id) {
 		// TODO Auto-generated method stub
 		List<LeportsReviewDTO> list = template.selectList("reviewAll", leports_id);
-		System.out.println("DAO reviewAll() -> "+ list);
 		return list;
 	}
 
+	//리뷰 작성 시 리뷰 cnt 증가
+	public void reviewCountUp(String leports_id) {
+		template.update("reviewCountUp", leports_id);
+	}
 
+
+	public void reviewCountDown(String leports_id) {
+		template.update("reviewCountDown", leports_id);
+	}
 }

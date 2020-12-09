@@ -1,0 +1,273 @@
+@charset "UTF-8";
+
+@import
+	url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap')
+	;
+
+@import
+	url('https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@600&display=swap')
+	;
+
+@import
+url('https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css')
+
+
+/* 상단 배너 */
+/*GLOBALS*/
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.recommend-wrap{
+	padding-left:8%; 
+	padding-right:8%;
+}
+
+#slider-wrap {
+  width: 100%;
+  height: 400px;
+  position: relative;
+  overflow: hidden;
+}
+
+#slider-wrap ul#slider {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#slider-wrap ul#slider li {
+  float: left;
+  position: relative;
+  width: 600px;
+  height: 400px;
+}
+
+#slider-wrap ul#slider li>div {
+  position: absolute;
+  top: 20px;
+  left: 35px;
+}
+
+#slider-wrap ul#slider li>div h3 {
+  font-size: 36px;
+  text-transform: uppercase;
+}
+
+#slider-wrap ul#slider li>div span {
+  font-size: 21px;
+}
+
+#slider-wrap ul#slider li img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/*btns*/
+
+.slider-btns {
+  position: absolute;
+  width: 50px;
+  height: 60px;
+  top: 50%;
+  margin-top: -25px;
+  line-height: 57px;
+  text-align: center;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -ms-user-select: none;
+  -webkit-transition: all 0.1s ease;
+  -o-transition: all 0.1s ease;
+  transition: all 0.1s ease;
+}
+
+.slider-btns:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+#next {
+  right: -50px;
+  border-radius: 7px 0px 0px 7px;
+  color: #eee;
+}
+
+#previous {
+  left: -50px;
+  border-radius: 0px 7px 7px 7px;
+  color: #eee;
+}
+
+#slider-wrap.active #next {
+  right: 0px;
+}
+
+#slider-wrap.active #previous {
+  left: 0px;
+}
+
+/*bar*/
+
+#slider-pagination-wrap {
+  min-width: 20px;
+  margin-top: 350px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 15px;
+  position: relative;
+  text-align: center;
+}
+
+#slider-pagination-wrap ul {
+  width: 100%;
+}
+
+#slider-pagination-wrap ul li {
+  margin: 0 4px;
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #fff;
+  opacity: 0.5;
+  position: relative;
+  top: 0;
+}
+
+#slider-pagination-wrap ul li.active {
+  width: 12px;
+  height: 12px;
+  top: 3px;
+  opacity: 1;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 0px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 0px;
+}
+
+/*ANIMATION*/
+
+#slider-wrap ul, #slider-pagination-wrap ul li {
+  -webkit-transition: all 0.3s cubic-bezier(1, .01, .32, 1);
+  -o-transition: all 0.3s cubic-bezier(1, .01, .32, 1);
+  transition: all 0.3s cubic-bezier(1, .01, .32, 1);
+}
+
+
+
+/* 아이템 추천 슬라이드  */
+
+.swiper-container {
+      width: 100%;
+      height: 300px;
+    }
+
+.swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: grey;
+
+      /* Center slide text vertically */
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+    }
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+      color: black;
+    }
+
+.swiper-pagination-bullet-active {
+      background-color: black;
+    }
+
+
+
+/* 스크롤 페이지 */
+
+html {
+	font-family: 'Noto Sans KR', sans-serif;
+}
+body {
+	margin: 0;
+}
+div, section, header, footer, p, h1, h2 {
+	box-sizing: border-box;
+}
+a {
+	color: royalblue;
+}
+img {
+	max-width: 100%;
+	height: auto;
+}
+.global-width {
+	max-width: 620px;
+	margin: 0 auto;
+	padding: 0 1rem;
+}
+.scroll-image {
+	overflow-x: hidden;
+	position: sticky;
+	top: 0;
+	height: 100vh;
+}
+.image-item {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	transition: 0.5s;
+	will-change: opacity;
+}
+.visible {
+	opacity: 1;
+}
+.scene-img {
+	max-height: 100vh;
+}
+.scroll-text {
+	position: relative;
+	padding-bottom: 1px;
+}
+.step {
+	margin-bottom: 60vh;
+	padding: 0.5rem 1rem;
+	border-radius: 10px;
+	background: rgba(255, 255, 255, 0.8);
+	box-shadow: rgba(0, 0, 0, 0.3) 0 0 3px;
+}
+
+[data-index="5"] .bird {
+	left: 30%;
+	bottom: 30%;
+}
+.footer {
+	padding: 2rem 0;
+	text-align: center;
+}
+.strikethrough {
+	text-decoration: line-through;
+}
+
