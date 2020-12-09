@@ -37,11 +37,12 @@
 		</div>
 		<c:if test="${fn:length(list) != 0}">
 			<c:forEach var="qna" items="${list}" varStatus="status">
+				<li>${qna.user_name}</li>
+				<li>${qna.user_email}</li>
 				<li>${qna.q_content}</li>
 				<li>${qna.q_regidate}</li>
 			</c:forEach>
 		</c:if>
-		<c:if test="${dto.answer_verify == 0}">
 			<!-- 답변등록 -->
 			<div class="answer">
 				<form action="questionWrite" method="post">
@@ -50,8 +51,6 @@
 					<input type="submit" value="답변등록">
 				</form>
 			</div>
-		</c:if>
-
 	</div>
 </body>
 </html>

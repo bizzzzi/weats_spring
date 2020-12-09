@@ -33,4 +33,8 @@ public class CustomerService {
     public void answerSuccess(String question_group) {
         dao.answerSuccess(question_group);
     }
+
+    public void reQuestion(String question_group) {
+        dao.reQuestion(question_group);
+    }
 }
