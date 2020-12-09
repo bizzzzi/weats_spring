@@ -11,30 +11,30 @@
 <c:if test="${category != null}">
 <c:choose>
 <c:when test="${category eq 'byType'}">
-<div class="leports_category_selector_wrap">
-	<ul class="leports_category_selector">
-		<li><a href="leportsList?category=byType&type=all">전체</a></li>
-		<li><a href="leportsList?category=byType&type=지상">지상</a></li>
-		<li><a href="leportsList?category=byType&type=수상">수상</a></li>
-		<li><a href="leportsList?category=byType&type=항공">항공</a></li>
-		<li><a href="leportsList?category=byType&type=실내">실내</a></li>
+<div class="leports_list_menu">
+	<ul class="nav justify-content-center">
+		<li class="nav-item"><a class="nav-link" href="leportsList?category=byType&type=all">전체</a></li>
+		<li class="nav-item"><a class="nav-link" href="leportsList?category=byType&type=지상">지상</a></li>
+		<li class="nav-item"><a class="nav-link" href="leportsList?category=byType&type=수상">수상</a></li>
+		<li class="nav-item"><a class="nav-link" href="leportsList?category=byType&type=항공">항공</a></li>
+		<li class="nav-item"><a class="nav-link" href="leportsList?category=byType&type=실내">실내</a></li>
 	</ul>
 </div>
 </c:when>
 <c:otherwise>
-<div class="leports_category_selector_wrap">
-	<ul class="leports_category_selector">
-		<li><a href="leportsList?category=byLoc&loc=all">전체</a></li>
-		<li><a href="leportsList?category=byLoc&loc=서울">서울</a></li>
-		<li><a href="leportsList?category=byLoc&loc=인천">인천</a></li>
-		<li><a href="leportsList?category=byLoc&loc=경기">경기</a></li>
-		<li><a href="leportsList?category=byLoc&loc=강원">강원</a></li>
-		<li><a href="leportsList?category=byLoc&loc=충청">충청</a></li>
-		<li><a href="leportsList?category=byLoc&loc=경상">경상</a></li>
-		<li><a href="leportsList?category=byLoc&loc=부산">부산</a></li>
-		<li><a href="leportsList?category=byLoc&loc=전라">전라</a></li>
-		<li><a href="leportsList?category=byLoc&loc=제주">제주</a></li>
-		<li><a href="leportsList?category=byLoc&loc=기타">기타</a></li>
+<div class="leports_list_menu">
+	<ul class="nav justify-content-center">
+		<li class="nav-item"><a class="nav-link" href="leportsList?category=byLoc&loc=all">전체</a></li>
+		<li class="nav-item"><a class="nav-link" href="leportsList?category=byLoc&loc=서울">서울</a></li>
+		<li class="nav-item"><a class="nav-link" href="leportsList?category=byLoc&loc=인천">인천</a></li>
+		<li class="nav-item"><a class="nav-link" href="leportsList?category=byLoc&loc=경기">경기</a></li>
+		<li class="nav-item"><a class="nav-link" href="leportsList?category=byLoc&loc=강원">강원</a></li>
+		<li class="nav-item"><a class="nav-link" href="leportsList?category=byLoc&loc=충청">충청</a></li>
+		<li class="nav-item"><a class="nav-link" href="leportsList?category=byLoc&loc=경상">경상</a></li>
+		<li class="nav-item"><a class="nav-link" href="leportsList?category=byLoc&loc=부산">부산</a></li>
+		<li class="nav-item"><a class="nav-link" href="leportsList?category=byLoc&loc=전라">전라</a></li>
+		<li class="nav-item"><a class="nav-link" href="leportsList?category=byLoc&loc=제주">제주</a></li>
+		<li class="nav-item"><a class="nav-link" href="leportsList?category=byLoc&loc=기타">기타</a></li>
 	</ul>
 </div>
 </c:otherwise>
@@ -52,7 +52,7 @@
 			<input type="hidden" value="${loc}" name="loc">
 		</c:when>
 	</c:choose>
- 		<select class="leports_list_sort" name="selectAlign">
+ 		<select class="custom-select-sm mr-5 leports_list_sort" name="selectAlign">
 			<option value="defalut" <c:if test="${align eq 'defalut'}"> selected </c:if>>기본순</option>
 			<option value="minPrice"<c:if test="${align eq 'minPrice'}"> selected </c:if>>가격 낮은 순</option>
 			<option value="maxPrice"<c:if test="${align eq 'maxPrice'}"> selected </c:if>>가격 높은 순</option>
@@ -67,16 +67,16 @@
 	<div class="leports_item">
 		<a href="leportsDetail?leports_id=${dto.leports_id}">
 			<div>
-				<img src="images/${dto.leports_main_img}">
+				<img class="leports_item_images" src="images/${dto.leports_main_img}">
 			</div>
 			<div>
-				<ul>
+				<ul class="leports_item_info">
 					<li style="display: none">상품 아이디: ${dto.leports_id}</li>
-					<li>상품 이름: ${dto.leports_title}</li>
-					<li>한줄 설명: ${dto.leports_summary}</li>
-					<li>지역: ${dto.leports_loc}</li>
-					<li>가격: ${dto.leports_price}</li>
-					<li>리뷰: ${dto.review_cnt}개</li>
+					<li class="leports_item_loc">${dto.leports_loc}</li>
+					<li class="leports_item_title">${dto.leports_title}</li>
+					<li class="leports_item_summary">${dto.leports_summary}</li>
+					<li class="leports_item_review">리뷰 : ${dto.review_cnt}개</li>
+					<li class="leports_item_price">${dto.leports_price}원 / 1인</li>
 				</ul>
 			</div>
 		</a>
