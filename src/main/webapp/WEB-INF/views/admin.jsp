@@ -19,7 +19,7 @@
 		<ul>
 			<li><a href="memberList">회원관리</a></li>
 			<li><a href="partnerList">파트너 관리</a></li>
-			<li><a href="AdminQuestion">문의 관리</a></li>
+			<li><a href="adminCheck/AllQuestionList">문의 관리</a></li>
 		</ul>
 	</div>
 	<script type="text/javascript" src="js/modal.js"></script>

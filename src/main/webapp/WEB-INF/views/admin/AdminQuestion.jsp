@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
- <link rel="stylesheet" href="css/admin.css">
+ <link rel="stylesheet" href="../css/admin.css">
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,17 +27,31 @@
 					<li>사용자ID</li>
 					<li>제목</li>
 					<li>유형</li>
+					<li>답변 여부</li>
 				</ul>	
 			</div>
 			
 			<div class="list">
-			<c:forEach var="dto" items="" varStatus="status">
-				<ul>
-					<li>${dto.question_id}</li>
-					<li><a href="">${dto.user_id}</a></li>
-					<li>${dto.q_title}</li>
-					<li>${dto.q_type}</li>
-				</ul>	
+			<c:forEach var="dto" items="${qnaList}" varStatus="status">
+					<form class="form${status.index}" action="queationDetail" method="post">
+						<a href="javascript:document.querySelector('.form${status.index}').submit();">
+						<ul>
+							<li>${dto.question_id}</li>
+							<li>${dto.user_id}</li>
+							<li>${dto.q_title}</li>
+							<li>${dto.q_type}</li>
+							<c:choose>
+								<c:when test="${dto.answer_verify == 0}">
+									<li>답변 대기</li>
+								</c:when>
+								<c:otherwise>
+									<li>답변 완료</li>
+								</c:otherwise>
+							</c:choose>
+						</ul>
+						</a>
+						<input type="hidden" name="question_group" value="${dto.question_group}"/>
+					</form>
 			</c:forEach>
 			</div>
 	</div>

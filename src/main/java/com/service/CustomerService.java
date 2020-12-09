@@ -21,4 +21,20 @@ public class CustomerService {
 
         return dao.userQuestionList(user_id);
     }
+    //  관리자 페이지에서 보여줄 1대1 문의 리스트
+    public List<CustomerQnADTO> AllQuestionList() {
+        return dao.AllQuestionList();
+    }
+
+    public List<CustomerQnADTO> questionDetail(String question_group) {
+        return dao.questionDetail(question_group);
+    }
+
+    public void answerSuccess(String question_group) {
+        dao.answerSuccess(question_group);
+    }
+
+    public void reQuestion(String question_group) {
+        dao.reQuestion(question_group);
+    }
 }

@@ -6,9 +6,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="css/style.css">
-<link rel="stylesheet" type="text/css" href="css/customer.css">
-	<link rel="stylesheet" type="text/css" href="css/customer_nav2.css">
+<link rel="stylesheet" type="text/css" href="../css/style.css">
+<link rel="stylesheet" type="text/css" href="../css/customer.css">
+	<link rel="stylesheet" type="text/css" href="../css/customer_nav2.css">
 <script src="https://kit.fontawesome.com/400289e08c.js" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 <style type="text/css">
@@ -22,10 +22,6 @@
 		<jsp:include page="common/header_desktop.jsp" flush="true"></jsp:include>
 		<jsp:include page="common/loginForm_desktop.jsp" flush="true"></jsp:include>
 		<jsp:include page="common/signUpForm_desktop.jsp" flush="true"></jsp:include>
-	</div>
-	<div id="mobile">
-		<jsp:include page="common/header_mobile.jsp" flush="true"></jsp:include>
-		<jsp:include page="common/navbar_mobile.jsp" flush="true"></jsp:include>
 	</div>
 	<div id="container">
 		<jsp:include page="customer/customerNav.jsp" flush="true"></jsp:include>
