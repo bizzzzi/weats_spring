@@ -6,18 +6,14 @@
             <form action="loginCheck/questionWrite" method="post">
                 <ul>
                     <li>
-                        <ul>
-                            <li><strong>문의 유형</strong></li>
-                            <li>
-                                <select name="q_type">
-                                    <option value="이용방법">이용방법</option>
-                                    <option value="자주 묻는 질문">자주 묻는 질문</option>
-                                    <option value="파트너 등록 문의">파트너 등록 문의</option>
-                                    <option value="결제 취소 문의">결제 취소 문의</option>
-                                    <option value="기타문의">기타문의</option>
-                                </select>
-                            </li>
-                        </ul>
+                        <strong>문의 유형</strong>
+                        <select name="q_type">
+                            <option value="이용방법">이용방법</option>
+                            <option value="자주 묻는 질문">자주 묻는 질문</option>
+                            <option value="파트너 등록 문의">파트너 등록 문의</option>
+                            <option value="결제 취소 문의">결제 취소 문의</option>
+                            <option value="기타문의">기타문의</option>
+                        </select>
                     </li>
                     <li>
                         <strong>이메일 주소</strong>
@@ -51,4 +47,3 @@
             </form>
         </div>
     </section>
-</div>

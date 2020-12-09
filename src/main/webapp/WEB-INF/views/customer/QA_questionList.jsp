@@ -13,22 +13,15 @@
             </ul>
         </div>
         <div class="qList">
-            <%--foreach문 만들어놨다--%>
-<%--            <c:forEach var="dto" items="${QuestionList}" varStatus="status">--%>
-<%--                <ul>--%>
-<%--                    <a href="MyQuestionList?qID=${dto.question_id}">--%>
-<%--                        <li>${dto.question_id}</li>--%>
-<%--                        <li>${dto.q_title}</li>--%>
-<%--                        <li>${dto.q_content}</li>--%>
-<%--                        <li>${dto.q_regidate}</li>--%>
-<%--                    </a>--%>
-<%--                </ul>--%>
-<%--            </c:forEach>--%>
-            <ul>
-                <li>qID</li>
-                <li>답변 부탁드려요.</li>
-                <li>결제 취소하고 싶습니다.</li>
-                <li>2020.11.20</li>
-            </ul>
+            <c:forEach var="dto" items="${myQnalist}" varStatus="status">
+                <ul>
+                    <a href="MyQuestionList?qID=${dto.question_id}">
+                        <li>${dto.question_id}</li>
+                        <li>${dto.q_title}</li>
+                        <li>${dto.q_content}</li>
+                        <li>${dto.q_regidate}</li>
+                    </a>
+                </ul>
+            </c:forEach>
         </div>
     </section>
