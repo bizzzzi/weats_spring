@@ -379,14 +379,6 @@ footer{
 
 
 video {
-	/* position: absolute;
-	top: 0;
-	left: 0;
-	min-width: 100%;
-	min-height: 100%;
-	*/
-	/* background-size: cover;
-	background-position: center; */
 	position: absolute;
   	top: 50%; 
   	left: 50%;
@@ -483,40 +475,24 @@ video {
 	display: flex;
 	justify-content: center;
 } /* 레포츠 리스트 */
-#leports_list .leports_category_selector_wrap {
-	margin: 0 10%;
-	background-color: grey;
-}
 
-#leports_list .leports_category_selector_wrap .leports_category_selector
-	{
-	display: flex;
+#leports_list .leports_item img{
 	width: 100%;
-	/* justify-content: space-between; */
+	object-fit: cover;
+	height: 200px;
+	border: 1px solid #D6D6D6;
+	border-radius: 4px;
 }
 
-#leports_list .leports_category_selector_wrap .leports_category_selector>li
-	{
-	width: 100%;
-	padding: 0 10px;
-	text-align: center;
-	border: 1px solid black;
+#leports_list .leports_list_menu a {
+	border: 1px solid #F2F3F5;
+	border-radius: 8px;
+	margin: 0 2px;
 }
 
-#leports_list .leports_category_selector_wrap .leports_category_selector a{
-	color: black;
-}
-
-#leports_list .leports_list_sort_wrap {
-	width: 100%;
-	height: 30px;
-	margin: 10px 0;
-	background-color: red;
-}
-
-#leports_list .leports_list_sort_wrap .leports_list_sort {
-	position: absolute;
-	right: 45px;
+#leports_list .leports_list_sort {
+	float: right;
+	margin: 5px 0;
 }
 
 #leports_list .leports_items {
@@ -527,10 +503,50 @@ video {
 }
 
 #leports_list .leports_items .leports_item {
-	border: 1px solid black;
+	border-radius: 4px;
+	box-shadow: inset 0 0 0 1px rgba(0,0,0,.16);
 	width: 300px;
 	height: 350px;
 	margin: 10px;
+}
+
+#leports_list .leports_item_info {
+	padding: 10px 16px 16px 16px;
+}
+
+#leports_list .leports_item_info li {
+	margin-top: 3px;
+}
+
+#leports_list .leports_item_loc {
+	font-size: 13px;
+	color: #A8AEB3;
+}
+
+#leports_list .leports_item_title {
+	font-weight: bold;
+}
+
+#leports_list .leports_item_summary {
+	font-size: 14px;
+	color: #656E74;
+}
+
+#leports_list .leports_item_review {
+	font-size: 13px;
+	color: #A8AEB3;
+}
+
+#leports_list .leports_item_price {
+	font-size: 16px;
+	color: #565C61;
+}
+
+/* 레포츠 리스트 nav*/
+#leports_Detail_Nav .leports_detail_menu a {
+	border: 1px solid #F2F3F5;
+	border-radius: 8px;
+	margin: 0 2px;
 }
 
 /* 달력 */
@@ -631,27 +647,7 @@ video {
 .comment_cont{
 	border-bottom: 2px solid #dae1e6;
 }
-.leports_item img{
-	width: 100%;
-	object-fit: cover;
-	height: 150px;
-}
 
-.leports_items.main > img{
-	width:500px;
-}
-.leports_items.sub {
-	display: flex;
-	justify-content: space-around;
-}
-.leports_items.sub > img{
-	width:25%;
-}
-
-#leports_Detail_Nav .leports_nav {
-	display: flex;
-	justify-content: space-around;
-}
 
 #leports_Detail .leports_detail_wrap {
 	display: flex;
@@ -667,8 +663,8 @@ video {
     border: 1px solid black;
 }
 
-.test1 {
-	padding: 0 100px;
+.contentsWrap {
+	margin: 0 100px;
 }
 
 /* 리뷰 별점 */
