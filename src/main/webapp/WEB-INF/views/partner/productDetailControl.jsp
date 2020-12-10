@@ -30,14 +30,6 @@
         </div>
       </div>
       <div class="box">
-        <div class="title">한줄 요약</div>
-        <div class="sub_box">
-          <div>
-            <input type="text" name="leports_summary" class="leports_summary" value="${idto.leports_summary}">
-          </div>
-        </div>
-      </div>
-      <div class="box">
         <div class="title">상품 소개</div>
         <div class="sub_box">
           <div>
@@ -102,11 +94,21 @@
           </div>
         </div>
       </div>
+      <c:forEach var="idto" items="${idto}">
       <div class="box">
         <div class="title">레포츠 아이템 이름</div>
         <div class="sub_box">
           <div>
+          	<input type="hidden" name="leports_item_id" value="${idto.leports_item_id}">
             <input type="text" name="leports_item_title" class="leports_item_title" value="${idto.leports_item_title}">
+          </div>
+        </div>
+      </div>
+      <div class="box">
+        <div class="title">한줄 요약</div>
+        <div class="sub_box">
+          <div>
+            <input type="text" name="leports_summary" class="leports_summary" value="${idto.leports_summary}">
           </div>
         </div>
       </div>
@@ -127,6 +129,7 @@
           </div>
         </div>
       </div>
+      </c:forEach>
       <div class="Btn">
         <button class="submitBtn" type="submit" formaction="ProductUpdate">수정</button>
         <button class="cancleBtn" type="reset">취소</button>
