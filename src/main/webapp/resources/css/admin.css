@@ -1,9 +1,9 @@
 @charset "UTF-8";
-
-.sideMenu ul{
+.sideMenu{
 	width: 20%;
-	position: absolute;
-	height: 100%;
+}
+.sideMenu ul{
+	padding-left:20px;
 }
 .sideMenu ul li a{
 	display: block;

@@ -13,6 +13,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	<link rel="stylesheet" type="text/css" href="../css/admin.css">
+	<link rel="stylesheet" type="text/css" href="../css/customer_nav2.css">
+	<link rel="stylesheet" type="text/css" href="../css/customer.css">
 	<style type="text/css">
 		a {
 			color: black; /* 임시값 나중에 Css 공통수정 */
@@ -26,7 +28,10 @@
 		<jsp:include page="common/signUpForm_desktop.jsp" flush="true"></jsp:include>
 	</div>
 	<c:set var="path" value="${requestScope['javax.servlet.forward.request_uri']}"></c:set>
-	<div>
+	<c:if test="${fn:contains(path,'loginCheck')}">
+		<jsp:include page="customer/customerNav.jsp" flush="true"></jsp:include>
+	</c:if>
+	<div id="customer_cont">
 		<c:if test="${fn:contains(path,'adminCheck')}">
 		<jsp:include page="admin/adminNav.jsp" flush="true"></jsp:include>
 		</c:if>

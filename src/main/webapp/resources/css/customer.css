@@ -7,23 +7,58 @@
 .customer_btn form{
     width: 80%;
 }
+#customer_cont{
+    display: flex;
+}
 section{
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
 }
 section h2{
     text-align: center;
 }
+
+/*이용방법*/
+
+#banner{
+    width: 100%;
+    text-align: center;
+    background: aquamarine;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .howList{
-    width: 80%;
-    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    margin-top: 30px;
+}
+.howList img{
+    width: 50%;
+}
+.howList ul{
+    width: 100%;
+    padding-left: 35px;
 }
 .howList li{
     display: flex;
 }
-.howImg {
-    width: 81%;
+.how_footer{
+    text-align: center;
+    padding-top: 35px;
+    border-top: #0c5460;
+    margin-top: 35px;
 }
+.how_footer a{
+    background-color: #0c5460;
+    color: #fff;
+    padding: 10px;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+
 /*1:1 문의*/
 .questionForm ul li{
     display: flex;

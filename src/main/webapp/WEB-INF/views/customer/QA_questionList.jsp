@@ -3,13 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <c:set var="path" value="${requestScope['javax.servlet.forward.request_uri']}"></c:set>
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Insert title here</title>
-</head>
-<body>
     <section>
         <c:choose>
             <c:when test="${fn:contains(path,'adminCheck')}">
@@ -63,5 +56,3 @@
             </c:forEach>
         </div>
     </section>
-</body>
-</html>
