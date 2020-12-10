@@ -2,7 +2,6 @@ package com.controller;
 
 import com.dto.CustomerQnADTO;
 import com.dto.MemberDTO;
-import com.service.AdminService;
 import com.service.CustomerService;
 import com.service.MemberService;
 import org.slf4j.Logger;
@@ -16,7 +15,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 @Controller
 public class CustomerController {
@@ -28,20 +26,21 @@ public class CustomerController {
 
     private static final Logger logger = LoggerFactory.getLogger(CustomerController.class.getSimpleName());
 
-    @RequestMapping("/MainCustomer")
-    public String mainCustomer(){
-        return "MainCustomer";
-    }
+//    @RequestMapping("/MainCustomer")
+//    public String mainCustomer(){
+//        return "MainCustomer";
+//    }
+//
+//    @RequestMapping("/QA_howToUse")
+//    public String mainHowToUse(){
+//        return "MainHowToUse";
+//    }
 
-    @RequestMapping("/QA_howToUse")
-    public String mainHowToUse(){
-        return "MainHowToUse";
-    }
+//    @RequestMapping("/loginCheck/QA_question")
+//    public String MainQuestion(){
+//        return "redirect:/MainQuestion";
+//    }
 
-    @RequestMapping("/loginCheck/QA_question")
-    public String MainQuestion(){
-        return "redirect:/MainQuestion";
-    }
 //  1대1 문의하기 (글쓰기)
     @PostMapping(value = {"/loginCheck/questionWrite", "/adminCheck/questionWrite"})
     public String questionWrite(CustomerQnADTO customerQnADTO, HttpSession session, HttpServletRequest request) {
@@ -51,44 +50,33 @@ public class CustomerController {
         customerQnADTO.setUser_id(login.getUser_id());
         customerQnADTO.setUser_email(login.getUser_email());
 
-
         if(request.getRequestURI().contains("adminCheck")) { //관리자 답변 시
             customerQnADTO.setUser_name("관리자");
             customerService.questionWrite(customerQnADTO);
             customerService.answerSuccess(customerQnADTO.getQuestion_group());
-            return "redirect:../adminCheck/AllQuestionList";
+            return "redirect:AllQuestionList";
         } else {
             customerQnADTO.setUser_name(login.getUser_name());
             customerService.questionWrite(customerQnADTO);
             if(customerQnADTO.getQuestion_group() != null) { //사용자 재 문의 시
                 customerService.reQuestion(customerQnADTO.getQuestion_group());
-                return "redirect:/MainCustomer";
-            } else {
-                return "redirect:/MainCustomer";
+                return "redirect:userQuestionList";
+            } else { //문의글 작성 시
+                return "redirect:userQuestionList";
             }
         }
     }
 
-//  나의 문의내역
-    @GetMapping("/loginCheck/userQuestionList")
-    public String userQuestionList(HttpSession session, Model model) {
-        MemberDTO login = (MemberDTO) session.getAttribute("login");
-        List<CustomerQnADTO> customerQnADTOList = customerService.userQuestionList(login.getUser_id());
-        logger.debug("나의 문의내역 리스트 : {}", customerQnADTOList);
-        List<CustomerQnADTO> myQnalist = new ArrayList<CustomerQnADTO>();
-        for(CustomerQnADTO dto: customerQnADTOList) {
-            if(dto.getQuestion_id().equals(dto.getQuestion_group())) {
-                myQnalist.add(dto);
-            }
+    // 문의 내역 리스트
+    @GetMapping(value = {"/adminCheck/AllQuestionList", "/loginCheck/userQuestionList"})
+    public String AllQuestionList(Model model, HttpServletRequest request, HttpSession session) {
+        List<CustomerQnADTO> customerQnADTOList = new ArrayList<CustomerQnADTO>();
+        if(request.getRequestURI().contains("adminCheck")) {
+            customerQnADTOList = customerService.AllQuestionList();
+        } else {
+            MemberDTO login = (MemberDTO) session.getAttribute("login");
+            customerQnADTOList = customerService.userQuestionList(login.getUser_id());
         }
-        model.addAttribute("myQnalist", myQnalist);
-        return "MainQuestionList_user";
-    }
-
-    //  관리자 페이지에서 보여줄 1대1 문의 리스트
-    @GetMapping("/adminCheck/AllQuestionList")
-    public String AllQuestionList(Model model) {
-        List<CustomerQnADTO> customerQnADTOList = customerService.AllQuestionList();
         logger.debug("모든 1대1 문의 리스트 : {} ",customerQnADTOList);
         List<CustomerQnADTO> qnaList = new ArrayList<CustomerQnADTO>();
         for(CustomerQnADTO dto: customerQnADTOList) {
@@ -97,7 +85,7 @@ public class CustomerController {
             }
         }
         model.addAttribute("qnaList", qnaList);
-        return "/AdminQuestion";
+        return "MainQuestionList";
     }
 
     //문의 상세 페이지
@@ -110,8 +98,7 @@ public class CustomerController {
 
         model.addAttribute("dto", customerQnADTO); //원 게시글
         model.addAttribute("list", customerQnADTOList);
-        return "AdminQuestionDetail";
-        //고객센터 > 나의문의내역 > 리스트 상세 페이지 : QuestionDetail_user.jsp
+        return "MainQuestionDetail";
     }
 
 

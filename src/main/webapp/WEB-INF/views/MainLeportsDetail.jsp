@@ -19,7 +19,7 @@
 		<jsp:include page="common/loginForm_desktop.jsp" flush="true"></jsp:include>
 		<jsp:include page="common/signUpForm_desktop.jsp" flush="true"></jsp:include>
 	</div>
-	<div class="test1">
+	<div class="contentsWrap">
 	<div id="leports_Detail_Nav">
 		<jsp:include page="leports/leportsDetailNav.jsp" flush="true"></jsp:include>
 	</div>
