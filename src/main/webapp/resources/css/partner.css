@@ -33,20 +33,21 @@ body {
   display: flex;
   flex-direction: column;
   background-color: rgb(255, 255, 255);
+  padding: 20px;
 }
 
 
 .title {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  text-align:left;
+  justify-content:center;
   width: 30%;
-  background-color: cornflowerblue; 
   box-sizing: border-box;
   border-radius: 1%;
 }
 .partnerAddForm input[type="text"]{
-	padding: .8em 10em;
+	padding: .8em 8em;
+	margin:0 60px;
 }
 
 
