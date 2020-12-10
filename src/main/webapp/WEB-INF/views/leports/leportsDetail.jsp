@@ -12,13 +12,13 @@
 			<input class="js_pTotalCount" type="number" name="totalPersonnelConut" style="display: none" value="0">
 			<b>${leportsDetail[0].leports_title}</b>
 			<div class="leports_items main">
-				<img src="images/${leportsDetail[0].leports_main_img}">
+				<img class="img-responsive" style="width: 80%; height: 250px;" src="images/${leportsDetail[0].leports_main_img}">
 			</div>
 			<div class="leports_items sub">
-				<img src="images/${leportsDetail[0].leports_sub_img1}">
-				<img src="images/${leportsDetail[0].leports_sub_img2}">
-				<img src="images/${leportsDetail[0].leports_sub_img3}">
-				<img src="images/${leportsDetail[0].leports_sub_img4}">
+				<img class="img-responsive" style="width: 20%; height: 250px;" src="images/${leportsDetail[0].leports_sub_img1}">
+				<img class="img-responsive" style="width: 20%; height: 250px;" src="images/${leportsDetail[0].leports_sub_img2}">
+				<img class="img-responsive" style="width: 20%; height: 250px;" src="images/${leportsDetail[0].leports_sub_img3}">
+				<img class="img-responsive" style="width: 20%; height: 250px;" src="images/${leportsDetail[0].leports_sub_img4}">
 			</div>
 			<div>
 				<table class="scriptCalendar">
@@ -94,8 +94,8 @@
 		<div>상품 상세 설명(사진 가능) : ${leportsDetail[0].leports_content}</div>
 	</div>
 	<div class="side_nav">
+		<span class="js_total_amount2">0</span>원<br>
 		<button>티켓 선택</button>
-		<div class="js_total_amount2"></div>
 	</div>
 
 
