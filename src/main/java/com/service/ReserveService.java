@@ -4,6 +4,7 @@ import com.dao.ReserveDAO;
 import com.dto.LeportsReviewDTO;
 import com.dto.MyReserveDTO;
 import com.dto.ReservationDTO;
+import com.dto.ReservationItemDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -54,5 +55,13 @@ public class ReserveService {
 
     public void reviewDelete(Map<String, String> map) {
         dao.reviewDelete(map);
+    }
+
+    public void reserveItemAdd(ReservationItemDTO itemDTO) {
+        dao.reserveItemAdd(itemDTO);
+    }
+
+    public void deleteReserveItem(String reservation_id) {
+        dao.deleteReserveItem(reservation_id);
     }
 }

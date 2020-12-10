@@ -75,7 +75,7 @@
 							<input class="js_itemPrice" type="text" name="item_price" value="${dto.leports_price}" style="display: none">
 							<div class="qty">
 								<button type="button" class="js_dwBtn btn"><span class="minus">-</span></button>
-								<input class="js_pCount count" type="text" name="personnelConut" value="0" readonly>
+								<input class="js_pCount count" type="text" name="totalPersonnelConut" value="0" readonly>
 								<button type="button" class="js_upBtn btn"><span class="plus">+</span></button>
 							</div>
 						</div>

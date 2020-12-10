@@ -12,6 +12,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			, to_date(#{rs_date}, 'yy-mm-dd'), sysdate, #{rs_price}, #{rs_item_name}, null, 0)
 	</insert>
 
+	<insert id="reserveItemAdd" parameterType="ReservationItemDTO">
+		insert into reservation_item values('RS_I'||rs_item_seq.nextval, #{rs_item_title}, #{rs_item_person}, #{rs_item_price}, #{reservation_id}, #{leports_item_id})
+	</insert>
+
 	<!--tid 추가-->
 	<update id="reserveTidAdd" parameterType="hashmap">
 		update reservation set tid = #{tid} where reservation_id = #{reservation_id}
@@ -26,6 +30,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<delete id="deleteReserve" parameterType="hashmap">
 		delete from reservation where reservation_id = #{reservation_id} and user_id = #{user_id}
 	</delete>
+
+<!--	<delete id="deleteReserveItem" parameterType="string">-->
+<!--		delete from reservation_item where reservation_id = #{reservation_id};-->
+<!--	</delete>-->
 
 	<!--예약 내역 리스트-->
 	<select id="reserveList" parameterType="string" resultType="MyReserveDTO">
