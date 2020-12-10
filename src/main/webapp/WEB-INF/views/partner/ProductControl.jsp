@@ -26,9 +26,9 @@
     <c:forEach var="ldto" items="${leportsAddList}" varStatus="status">
       <input type="hidden" name="leports_id" value="${ldto.leports_id}" />
       <ul class="tbody content">
-        <li class="product_img product"><a href="ProductDetail?leports_id=${ldto.leports_id}">
+        <li class="product_img product"><a href="../ProductDetail?leports_id=${ldto.leports_id}">
             <img src="images/${ldto.leports_main_img}" alt="상품 대표 이미지" style="width:400px"></a></li>
-        <li class="product_name product"><a href="ProductDetail?leports_id=${ldto.leports_id}">${ldto.leports_title} </a>
+        <li class="product_name product"><a href="../ProductDetail?leports_id=${ldto.leports_id}">${ldto.leports_title} </a>
         </li>
       </ul>
   </div>

@@ -85,8 +85,8 @@ public class PartnerDAO {
 		return dto;
 	}
 	//상품 상세 페이지 아이템
-	public LeportsItemDTO ProductDetailItem(String leports_id) {
-		LeportsItemDTO dto=template.selectOne("ProductDetailItem",leports_id);
+	public List<LeportsItemDTO> ProductDetailItem(String leports_id) {
+		List<LeportsItemDTO> dto=template.selectList("ProductDetailItem",leports_id);
 		return dto;
 	}
 	

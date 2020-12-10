@@ -64,9 +64,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 레포츠 아이템 등록 -->
  	<insert id="leportsItemInsert" parameterType="LeportsItemDTO">
-		insert into leports_item (leports_id,leports_item_title,leports_summary,
+		insert into leports_item (leports_id,leports_item_id,leports_item_title,leports_summary,
 		leports_price,leports_max_capacity)
-		values(#{leports_id},#{leports_item_title},#{leports_summary},
+		values(#{leports_id},'I'||leports_item_seq.nextval,#{leports_item_title},#{leports_summary},
 		#{leports_price},#{leports_max_capacity})
 	</insert>
 	
@@ -97,7 +97,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 상품 상세 페이지 레포츠 아이템 -->
 	<select id="ProductDetailItem" parameterType="String" resultType="leportsItemDTO">
-		select leports_id,leports_item_title,leports_summary,leports_price,leports_max_capacity
+		select leports_id,leports_item_title,leports_summary,leports_price,leports_max_capacity,leports_item_id
 		from leports_item
 		where leports_id=#{leports_id}
 	</select>
@@ -115,7 +115,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update leports_item set leports_item_title=#{leports_item_title},
 		leports_summary=#{leports_summary},leports_price=#{leports_price},
 		leports_max_capacity=#{leports_max_capacity}
-		where leports_id=#{leports_id}
+		where leports_item_id=#{leports_item_id}
 	</update>
 	
 	<!-- 예약관리 -->
