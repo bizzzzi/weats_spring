@@ -1,21 +1,41 @@
 .customer_btn{
-    width: 80%;
-    display: flex;
+    width: 100%;
     margin: 0 auto;
     text-align: center;
+    height: 250px;
+    background-color: aquamarine;
+    display: flex;
+    align-content: center;
+    margin-bottom: 30px;
 }
 .customer_btn form{
-    width: 80%;
+    width: 100%;
 }
+.customer_btn .search{
+    margin: 10px 0px;
+}
+.customer_btn .search input{
+    height: 45px;
+}
+.customer_btn .search input:first-child{
+    width: 30%;
+}
+.customer_btn .search input:last-child{
+    width: 7%;
+}
+.customer_con{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+
 #customer_cont{
     display: flex;
 }
 section{
     width: 100%;
     margin: 0 auto;
-}
-section h2{
-    text-align: center;
 }
 
 /*이용방법*/
@@ -90,4 +110,21 @@ section h2{
     display: flex;
     justify-content: space-around;
     width: 100%;
+}
+
+/*support*/
+.supportList{
+    width: 55%;
+    margin: 0 auto;
+}
+.support_cont{
+    margin-top: 10px;
+    border: 1px solid #e9ecef;
+    padding: 20px;
+}
+.support_cont h2{
+    padding-bottom: 15px;
+}
+.support_cont li{
+    margin: 5px 0px;
 }

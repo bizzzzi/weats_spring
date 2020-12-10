@@ -1,0 +1,32 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <section>
+        <h2>고객센터 Support</h2>
+        <div class="questionForm">
+            <form action="supportWrite" method="post">
+                <ul>
+                    <li>
+                        <strong>문의 유형</strong>
+                        <select name="s_type">
+                            <option value="자주 묻는 질문">자주 묻는 질문</option>
+                            <option value="파트너 등록 문의">파트너 등록 문의</option>
+                            <option value="결제 취소 문의">결제 취소 문의</option>
+                            <option value="기타문의">기타문의</option>
+                        </select>
+                    </li>
+                    <li>
+                        <strong>질문 제목</strong>
+                        <input type="text" name="s_title"/>
+                    </li>
+                    <li>
+                        <strong>답변 내용</strong>
+                        <input type="text" name="s_detail"/>
+                    </li>
+                </ul>
+                <div class="qa_submit">
+                    <input type="submit" value="등록하기">
+                    <input type="reset" value="취소하기">
+                </div>
+            </form>
+        </div>
+    </section>

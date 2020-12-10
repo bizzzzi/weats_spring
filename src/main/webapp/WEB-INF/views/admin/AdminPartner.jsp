@@ -2,10 +2,10 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-	<div class="content">
+<section>
 		<h1>파트너 관리</h1>
 		<hr>
-			<div class="subject">
+			<div class="qList">
 				<ul>	
 					<li>멤버ID</li>
 					<li>파트너ID</li>
@@ -14,7 +14,7 @@
 					<li>파트너 승인여부</li>
 				</ul>
 			</div>
-			<div class="list">
+			<div class="qList">
 				<c:forEach var="dto" items="${PartnerList}" varStatus="status">
 					<ul>
 						<li>${dto.user_id}</li>
@@ -31,3 +31,4 @@
 				</c:forEach>
 			</div>	
 	</div>
+</section>
