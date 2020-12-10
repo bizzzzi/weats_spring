@@ -2,6 +2,7 @@ package com.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,7 @@ import com.dto.MemberDTO;
 import com.dto.PartnerDTO;
 import com.dto.ReservationControlDTO;
 import com.service.PartnerService;
+import com.sun.jna.platform.linux.LibC.Sysinfo;
 
 @Controller
 public class PartnerController {
@@ -121,9 +123,16 @@ public class PartnerController {
 
 	//레포츠 아이템 등록
 	@RequestMapping("/ItemAdd")
-	public String ItemAdd(LeportsItemDTO dto,String leports_id,RedirectAttributes attr) {
-		dto.setLeports_id(leports_id);
-		pservice.leportsItemInsert(dto);
+	public String ItemAdd(LeportsItemDTO dto,String[] leports_item_title, String[] leports_summary,
+			int[] leports_price, int[] leports_max_capacity,String leports_id,RedirectAttributes attr) {
+		
+		for(int i=0; i<leports_item_title.length; i++) {
+			dto.setLeports_item_title(leports_item_title[i]);
+			dto.setLeports_summary(leports_summary[i]);
+			dto.setLeports_price(leports_price[i]);
+			dto.setLeports_max_capacity(leports_max_capacity[i]);
+			pservice.leportsItemInsert(dto);
+		}
 		attr.addFlashAttribute("partnermesg", "상품이 등록되었습니다.");
 		return "redirect:/MainPartner";
 	}
@@ -136,7 +145,8 @@ public class PartnerController {
 		List<LeportsDTO> list=pservice.ProductControl(partner_id);
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("leportsAddList",list);
-		mav.setViewName("redirect:../ProductControl");
+		mav.setViewName("partner/ProductControl");
+		System.out.println(list);
 		return mav;
 	}
 
@@ -145,7 +155,7 @@ public class PartnerController {
 	public ModelAndView ProductDetail(String leports_id) {
 		ModelAndView mav=new ModelAndView();
 		LeportsDTO ldto=pservice.ProductDetailLeports(leports_id);
-		LeportsItemDTO idto=pservice.ProductDetailItem(leports_id);
+		List<LeportsItemDTO> idto=pservice.ProductDetailItem(leports_id);
 		mav.addObject("ldto",ldto);
 		mav.addObject("idto",idto);
 		mav.setViewName("partner/productDetailControl");
@@ -154,9 +164,18 @@ public class PartnerController {
 
 	//상품 페이지 수정
 	@RequestMapping("/ProductUpdate")
-	public String ProductUpdate(LeportsDTO ldto,LeportsItemDTO idto,RedirectAttributes attr) {
+	public String ProductUpdate(LeportsDTO ldto,LeportsItemDTO idto,String[] leports_item_title,
+			String[] leports_summary,int[] leports_price, int[] leports_max_capacity,
+			String[] leports_item_id,RedirectAttributes attr) {
 		pservice.ProductUpdateLeports(ldto);
-		pservice.ProductUpdateItem(idto);
+		for(int i=0; i<leports_item_id.length; i++) {
+			idto.setLeports_item_id(leports_item_id[i]);
+			idto.setLeports_item_title(leports_item_title[i]);
+			idto.setLeports_max_capacity(leports_max_capacity[i]);
+			idto.setLeports_price(leports_price[i]);
+			idto.setLeports_summary(leports_summary[i]);
+			int n=pservice.ProductUpdateItem(idto);
+		}
 		attr.addFlashAttribute("partnermesg","상품정보가 수정되었습니다.");
 		return "redirect:/MainPartner";
 	}
