@@ -68,4 +68,8 @@ public class ReserveService {
     public List<String> reserveIdByDate(Map<String, String> map) {
         return dao.reserveIdByDate(map);
     }
+
+    public List<ReservationItemDTO> personCount(List<String> list) {
+        return dao.personCount(list);
+    }
 }

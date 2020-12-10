@@ -8,6 +8,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
+import com.dto.ReservationItemDTO;
 import com.service.ReserveService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -85,12 +86,16 @@ public class LeportsController {
 	}
 
 	@PostMapping("/personCount")
-	public String personCount(String leports_id, String rs_date) {
+	public String personCount(String leports_id, String rs_date, Model model) {
+		System.out.println("레포츠 아이디: " +leports_id);
+		System.out.println("예약 날짜 : " +rs_date);
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("leports_id", leports_id);
 		map.put("rs_date", rs_date);
-		List<String> reservation_id = reserveService.reserveIdByDate(map);
-		System.out.println(reservation_id);
-		return null;
+		List<String> list = reserveService.reserveIdByDate(map);
+		System.out.println(list);
+		List<ReservationItemDTO> itemList = reserveService.personCount(list);
+		model.addAttribute("itemList", itemList);
+		return "main";
 	}
 }

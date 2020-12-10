@@ -61,4 +61,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update leports set review_cnt = review_cnt -1 where leports_id = #{leports_id}
 	</update>
 
+	<!-- 에약 번호 select-->
+	<select id="reserveIdByDate" parameterType="hashmap" resultType="string">
+		select reservation_id from reservation where rs_date = #{rs_date} and leports_id = #{leports_id}
+	</select>
+
+<!--	레포츠 예약 가능 인원-->
+	<select id="personCount" parameterType="list" resultType="ReservationItemDTO">
+		select rs_item_person, leports_item_id from reservation_item
+		where reservation_id in
+		<foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</select>
+
+
 </mapper>

@@ -159,7 +159,7 @@ $('table').on("click", "td", function() {
 		url : "personCount", // 서버 주소
 		data : {
 			leports_id : $("#leports_id").val(), // 전송 데이터
-			reserveDay : $("#reserveDay").val(), // 전송 데이터
+			rs_date : $("#rs_date").val(), // 전송 데이터
 		},
 		dataType : "text", // 응답 데이터 타입
 		success : function(data, status, xhr) {
