@@ -20,6 +20,7 @@ import com.dto.LeportsDetailDTO;
 import com.dto.LeportsReviewDTO;
 import com.dto.LeportsThumbnailDTO;
 import com.service.LeportsService;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class LeportsController {
@@ -86,7 +87,8 @@ public class LeportsController {
 	}
 
 	@PostMapping("/personCount")
-	public String personCount(String leports_id, String rs_date, Model model) {
+	@ResponseBody
+	public HashMap<String, Integer> personCount(String leports_id, String rs_date, Model model) {
 		System.out.println("레포츠 아이디: " +leports_id);
 		System.out.println("예약 날짜 : " +rs_date);
 		Map<String, String> map = new HashMap<String, String>();
@@ -95,7 +97,18 @@ public class LeportsController {
 		List<String> list = reserveService.reserveIdByDate(map);
 		System.out.println(list);
 		List<ReservationItemDTO> itemList = reserveService.personCount(list);
-		model.addAttribute("itemList", itemList);
-		return "main";
+		HashMap<String, Integer> hashMap = new HashMap<>();
+
+		for(ReservationItemDTO xxx: itemList){
+			int person = 0;
+			for(ReservationItemDTO yyy: itemList){
+				if(xxx.getLeports_item_id().equals(yyy.getLeports_item_id())){
+					person += yyy.getRs_item_person();
+				}
+			}
+			hashMap.put(xxx.getLeports_item_id(),person);
+		}
+		System.out.println(hashMap);
+		return hashMap;
 	}
 }

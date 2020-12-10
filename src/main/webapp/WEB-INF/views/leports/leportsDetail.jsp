@@ -70,6 +70,7 @@
 							<span class="leports_item_price">${dto.leports_price}원</span><span class="person"> 1인</span>
 						</div>
 						<div class="list_item">
+
 							<input class="js_itemId" type="text" name="item_id" value="${dto.leports_item_id}" style="display: none">
 							<input class="js_itemName" type="text" name="item_title" value="${dto.leports_item_title}" style="display: none">
 							<input class="js_maxPerson" type="text" value="${dto.leports_max_capacity}" style="display: none">

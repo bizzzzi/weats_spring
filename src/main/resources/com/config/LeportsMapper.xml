@@ -63,7 +63,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!-- 에약 번호 select-->
 	<select id="reserveIdByDate" parameterType="hashmap" resultType="string">
-		select reservation_id from reservation where rs_date = #{rs_date} and leports_id = #{leports_id}
+		select reservation_id from reservation where rs_date = to_date(#{rs_date}, 'yymmdd') and leports_id = #{leports_id}
 	</select>
 
 <!--	레포츠 예약 가능 인원-->
