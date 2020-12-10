@@ -32,9 +32,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		delete from reservation where reservation_id = #{reservation_id} and user_id = #{user_id}
 	</delete>
 
-<!--	<delete id="deleteReserveItem" parameterType="string">-->
-<!--		delete from reservation_item where reservation_id = #{reservation_id};-->
-<!--	</delete>-->
 
 	<!--예약 내역 리스트-->
 	<select id="reserveList" parameterType="string" resultType="MyReserveDTO">

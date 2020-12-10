@@ -73,4 +73,8 @@ public class ReserveDAO {
     public List<String> reserveIdByDate(Map<String, String> map) {
         return template.selectList("reserveIdByDate", map);
     }
+
+    public List<ReservationItemDTO> personCount(List<String> list) {
+        return template.selectList("personCount", list);
+    }
 }
