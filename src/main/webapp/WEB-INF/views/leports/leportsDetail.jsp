@@ -2,13 +2,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 		 pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<div style="height: 30px;"></div>
 <input class="js_pTotalCount" type="number" name="totalPersonnelConut" style="display: none" value="0">
-<b>${leportsDetail[0].leports_title}</b>
-<%-- <div class="imgWrap">
-	<div class="leports_items main">
-		<img class="img-responsive" style="width: 100%; height: 100%" src="images/${leportsDetail[0].leports_main_img}">
-	</div>
-</div> --%>
 <div class="leports_detail_wrap">
 	<div class="contents">
 		<form action="loginCheck/leportsReserve" method="post">
@@ -16,7 +11,24 @@
 			<input type="text" name="leports_title" style="display: none" value="${leportsDetail[0].leports_title}">
 			<input type="text" name="c_address" style="display: none" value="${leportsDetail[0].c_address}">
 			<input type="text" name="c_detail_address" style="display: none" value="${leportsDetail[0].c_detail_address}">
-			<div>
+			<div class="leports_main_title">${leportsDetail[0].leports_title}</div>
+			<hr>
+			<div class="leports_img_wrap">
+				<div class="leports_items_img mainImg">
+					<img src="images/${leportsDetail[0].leports_main_img}">
+				</div>
+				<div class="leports_items_img">
+					<img src="images/${leportsDetail[0].leports_sub_img1}">
+					<img src="images/${leportsDetail[0].leports_sub_img2}">
+				</div>
+				<div class="leports_items_img">
+					<img src="images/${leportsDetail[0].leports_sub_img3}">
+					<img src="images/${leportsDetail[0].leports_sub_img4}">
+				</div>
+			</div>
+			<hr>
+			<div class="leports_ticket">티켓 선택</div>
+			<div class="calendar_wrap">
 				<table class="scriptCalendar">
 					<thead>
 					<tr>
@@ -43,25 +55,28 @@
 					   style="display: none">
 				<!-- <div class="choiceDay_data"></div> -->
 			</div>
-			<div>
-				<div>선택날짜</div>
-				<div class="userSelectDay"></div>
+			<div class="leports_item_list">
+				<div class="string_day">선택날짜 : <span class="userSelectDay"></span></div>
 				<!-- for문 돌려서 반복 출력 -->
 				<c:forEach var="dto" items="${leportsDetail}">
-					<div>
-						<ul>
-							<li>예약 가능 인원 : ${dto.leports_max_capacity}</li>
-							<li>아이템 이름 : ${dto.leports_item_title}</li>
-							<li>아이템 설명 : ${dto.leports_summary}</li>
-							<li>1명 <b>${dto.leports_price}</b></li>
-						</ul>
+					<div class="list_item_info">
+						<div>
+							<div class="leports_item_title">${dto.leports_item_title}</div>
+							<div class="leports_item_summary">${dto.leports_summary}</div>
+							<div class="leports_item_mc">예약 가능 인원 : ${dto.leports_max_capacity}</div>
+						</div>
+						<div>
+							<span class="leports_item_price">${dto.leports_price}원</span><span class="person"> 1인</span>
+						</div>
 						<div class="list_item">
 							<input class="js_itemName" type="text" name="item_title" value="${dto.leports_item_title}" style="display: none">
 							<input class="js_maxPerson" type="text" value="${dto.leports_max_capacity}" style="display: none">
 							<input class="js_itemPrice" type="text" name="item_price" value="${dto.leports_price}" style="display: none">
-							<button type="button" class="js_dwBtn"><img src="#">마이너스 버튼</button>
-							<input class="js_pCount" type="text" name="personnelConut" value="0" readonly>
-							<button type="button" class="js_upBtn"><img src="#">플러스 버튼</button>
+							<div class="qty">
+								<button type="button" class="js_dwBtn btn"><span class="minus">-</span></button>
+								<input class="js_pCount count" type="text" name="personnelConut" value="0" readonly>
+								<button type="button" class="js_upBtn btn"><span class="plus">+</span></button>
+							</div>
 						</div>
 					</div>
 				</c:forEach>
@@ -80,32 +95,26 @@
 					<div class="js_selectItem"></div>
 				</div>
 				<!-- 여기 까지 -->
-				<div class="js_total_amount"></div>
+				<div class="total_price_css">
+					총 금액 : <span class="js_total_amount">0</span>원
+				</div>
 				<input type="text" style="display: none" name="totalPrice" />
 			</div>
-			<div>
-				<input class="paymentBtn" type="submit" value="결제하기 버튼" />
+			<div style="height: 100px;">
+				<input class="paymentBtn btn btn-primary" type="submit" value="결제하기" />
 			</div>
 		</form>
-		<div class="leports_items_img">
-			<div class="row">
-				<img class="col-sm-12" src="images/${leportsDetail[0].leports_sub_img1}">
-			</div>
-			<div class="row">
-				<img class="col-sm-12" src="images/${leportsDetail[0].leports_sub_img2}">
-			</div>
-			<div class="row">
-				<img class="col-sm-12" src="images/${leportsDetail[0].leports_sub_img3}">
-			</div>
-			<div class="row">
-				<img class="col-sm-12" src="images/${leportsDetail[0].leports_sub_img4}">
-			</div>
+		<hr>
+		<div>
+			상품 상세 설명 : ${leportsDetail[0].leports_content}
 		</div>
-		<div>상품 상세 설명 : ${leportsDetail[0].leports_content}</div>
 	</div>
 	<div class="side_nav">
-		<span class="js_total_amount2">0</span>원<br>
-		<button>티켓 선택</button>
+		<div class="side_nav_contents">
+			<div class="current_amount">현재 금액</div>
+			<span class="js_total_amount2">0</span>원<br>
+		</div>
+		<button type="button" class="btn btn-lg btn-primary" style="width: 280px;">티켓 선택</button>
 	</div>
 
 
