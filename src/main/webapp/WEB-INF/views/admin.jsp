@@ -7,6 +7,7 @@
 	<script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/admin.css">
 </head>
 <body>
 	<div id="desktop">
@@ -14,12 +15,8 @@
 		<jsp:include page="common/loginForm_desktop.jsp" flush="true"></jsp:include>
 		<jsp:include page="common/signUpForm_desktop.jsp" flush="true"></jsp:include>
 	</div>
-	<div id="admin_main">
-		<ul>
-			<li><a href="memberList">회원관리</a></li>
-			<li><a href="partnerList">파트너 관리</a></li>
-			<li><a href="adminCheck/AllQuestionList">문의 관리</a></li>
-		</ul>
+	<div>
+		<jsp:include page="admin/adminNav.jsp" flush="true"></jsp:include>
 	</div>
 	<script type="text/javascript" src="js/modal.js"></script>
 	<script type="text/javascript" src="js/signUpForm.js"></script>
