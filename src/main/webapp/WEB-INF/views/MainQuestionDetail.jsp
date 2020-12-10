@@ -26,9 +26,10 @@
 		<jsp:include page="common/signUpForm_desktop.jsp" flush="true"></jsp:include>
 	</div>
 	<c:set var="path" value="${requestScope['javax.servlet.forward.request_uri']}"></c:set>
-	${path}
 	<div>
-		<jsp:include page="admin/AdminSideMenu.jsp" flush="true"></jsp:include>
+		<c:if test="${fn:contains(path,'adminCheck')}">
+		<jsp:include page="admin/adminNav.jsp" flush="true"></jsp:include>
+		</c:if>
 		<jsp:include page="customer/QA_questionDetail.jsp" flush="true"></jsp:include>
 	</div>
 	<script type="text/javascript" src="js/main.js"></script>

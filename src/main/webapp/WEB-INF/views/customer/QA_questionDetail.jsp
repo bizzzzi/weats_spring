@@ -9,7 +9,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
 	<div class="content">
 		<ul class="qnaList q">
 			<li>
@@ -47,7 +46,14 @@
 		</ul>
 		<c:if test="${fn:length(list) != 0}">
 			<c:forEach var="qna" items="${list}" varStatus="status">
-				<ul class="qnaList a">
+				<c:choose>
+					<c:when test="${qna.user_name eq '관리자'}">
+						<ul class="qnaList admin_a">
+					</c:when>
+					<c:otherwise>
+						<ul class="qnaList">
+					</c:otherwise>
+				</c:choose>
 					<li>
 						<strong>${qna.user_name}</strong>
 						<span class="regidate">${qna.q_regidate}</span>
@@ -69,3 +75,4 @@
 	</div>
 </body>
 </html>
+
