@@ -21,10 +21,6 @@
 		<jsp:include page="common/loginForm_desktop.jsp" flush="true"></jsp:include>
 		<jsp:include page="common/signUpForm_desktop.jsp" flush="true"></jsp:include>
 	</div>
-	<div id="mobile">
-		<jsp:include page="common/header_mobile.jsp" flush="true"></jsp:include>
-		<jsp:include page="common/navbar_mobile.jsp" flush="true"></jsp:include>
-	</div>
 	<div>
 		<jsp:include page="admin/AdminQuestionDetail.jsp" flush="true"></jsp:include>
 	</div>
