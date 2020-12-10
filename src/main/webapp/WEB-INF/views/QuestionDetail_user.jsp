@@ -24,7 +24,6 @@
 		<jsp:include page="common/signUpForm_desktop.jsp" flush="true"></jsp:include>
 	</div>
 	<div>
-		<jsp:include page="admin/adminNav.jsp" flush="true"></jsp:include>
 		<jsp:include page="admin/QuestionDetail.jsp" flush="true"></jsp:include>
 	</div>
 	<script type="text/javascript" src="js/main.js"></script>

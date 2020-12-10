@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
- <link rel="stylesheet" href="../css/admin.css">
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,14 +9,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div class="sideMenu">
-	<ul>
-		<li><a href="memberList">회원관리</a></li>
-		<li><a href="partnerList">파트너 관리</a></li>
-		<li><a href="#">문의 답변</a></li>
-	</ul>
-</div>	
-
 	<div class="content">
 		<h1>사용자 문의</h1>
 		<hr>

@@ -10,6 +10,7 @@
 	<script type="text/javascript" src="../js/jquery-3.5.1.min.js"></script>
 	<script type="text/javascript" src="../js/bootstrap.js"></script>
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" href="../css/admin.css">
 	<style type="text/css">
 		a {
 			color: black; /* 임시값 나중에 Css 공통수정 */
@@ -23,7 +24,8 @@
 	<jsp:include page="common/signUpForm_desktop.jsp" flush="true"></jsp:include>
 </div>
 <div>
-	<jsp:include page="admin/AdminQuestion.jsp" flush="true"></jsp:include>
+	<jsp:include page="admin/adminNav.jsp" flush="true"></jsp:include>
+	<jsp:include page="admin/Quesion.jsp" flush="true"></jsp:include>
 </div>
 <script type="text/javascript" src="js/main.js"></script>
 <script type="text/javascript" src="js/modal.js"></script>

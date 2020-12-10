@@ -82,7 +82,7 @@ public class CustomerController {
             }
         }
         model.addAttribute("myQnalist", myQnalist);
-        return "MainQuestionList";
+        return "MainQuestionList_user";
     }
 
     //  관리자 페이지에서 보여줄 1대1 문의 리스트
@@ -111,6 +111,7 @@ public class CustomerController {
         model.addAttribute("dto", customerQnADTO); //원 게시글
         model.addAttribute("list", customerQnADTOList);
         return "AdminQuestionDetail";
+        //고객센터 > 나의문의내역 > 리스트 상세 페이지 : QuestionDetail_user.jsp
     }
 
 
