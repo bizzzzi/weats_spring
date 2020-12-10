@@ -42,8 +42,11 @@
           </ul>
         </div>
         <!-- 데이터 넘기는 항목들 -->        
+        <input type="text" name="rs_item_id" style="display:none;" value="${itemId}">
         <input type="text" name="reserveDay" style="display:none;" value="${reserveDay}">
         <input type="text" name="item_title" style="display:none;" value="${item_title}">
+        <input type="text" name="rs_item_person" style="display:none;" value="${reserve_count}">
+        <input type="text" name="rs_item_price" style="display:none;" value="${item_price}">
         <input type="text" name="totalPersonnelConut" style="display:none;" value="${totalPersonnelConut}">
         <input type="text" name="totalPrice" style="display:none;" value="${totalPrice}">
         <!-- 끝 -->
