@@ -161,8 +161,9 @@ $('table').on("click", "td", function() {
 			leports_id : $("#leports_id").val(), // 전송 데이터
 			rs_date : $("#rs_date").val(), // 전송 데이터
 		},
-		dataType : "text", // 응답 데이터 타입
+		dataType : "json", // 응답 데이터 타입
 		success : function(data, status, xhr) {
+			console.log(data);
 			console.log("success");
 		},
 		error : function(xhr, status, error) {
