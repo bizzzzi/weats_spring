@@ -18,6 +18,7 @@
 <c:if test="${!empty mesg }">
 	<script>alert("${mesg}")</script>
 </c:if>
+<div id="wrap">
 	<div id="desktop">
 		<jsp:include page="common/header_desktop.jsp" flush="true"></jsp:include>
 	</div>
@@ -29,6 +30,8 @@
 			<jsp:include page="member/userReservation.jsp" flush="true"></jsp:include>
 		</div>
 	</div>
+	<jsp:include page="common/footer.jsp" flush="true"></jsp:include>
+</div>
 <script type="text/javascript" src="../js/modal.js"></script>
 <script type="text/javascript" src="../js/userReservation.js"></script>
 </body>
