@@ -153,4 +153,21 @@ for(let i = 0; i < review_email.length; i++) {
 	review_email[i].innerText = originStr.toString().replace(new RegExp('.(?=.{0,' + strLength + '}@)', 'g'), '*');
 }
 
-
+$('table').on("click", "td", function() {
+	$.ajax({
+		type : "POST",
+		url : "personCount", // 서버 주소
+		data : {
+			leports_id : $("#leports_id").val(), // 전송 데이터
+			reserveDay : $("#reserveDay").val(), // 전송 데이터
+		},
+		dataType : "text", // 응답 데이터 타입
+		success : function(data, status, xhr) {
+			console.log("success");
+		},
+		error : function(xhr, status, error) {
+			console.log("error");
+		}
+	});
+	
+});

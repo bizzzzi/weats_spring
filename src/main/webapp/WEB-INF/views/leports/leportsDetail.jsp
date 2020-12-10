@@ -51,7 +51,8 @@
 					</thead>
 					<tbody></tbody>
 				</table>
-				<input class="choiceDay_data" name="reserveDay" type="text" value=""
+				<input type="text" id="leports_id" name="leports_id" style="display: none" value="${leports_id}">
+				<input id="reserveDay" class="choiceDay_data" name="reserveDay" type="text" value=""
 					   style="display: none">
 				<!-- <div class="choiceDay_data"></div> -->
 			</div>
