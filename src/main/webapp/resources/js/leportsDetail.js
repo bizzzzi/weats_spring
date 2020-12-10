@@ -7,7 +7,8 @@ let totalAmount = document.querySelector(".js_total_amount");
 let totalAmount2 = document.querySelector(".js_total_amount2");
 let totalPrice = document.querySelector("input[name='totalPrice']");
 let price = 0;
-
+// 아이템 아이디
+let itemId = document.querySelectorAll('.js_itemId');
 // 아이템 이름
 let itemName = document.querySelectorAll('.js_itemName');
 // 최대 인원
@@ -36,6 +37,7 @@ let down = (i, x) => {
 				<div class="select_item_price">${pCount[i].value * itemPrice[i].value}원</div>
 				<input type="text" style="display:none" value="${pCount[i].value * itemPrice[i].value}" name="items_price" />
 				<input type="text" style="display:none" value="${pCount[i].value}" name="reserve_count"/>
+				<input type="text" style="display:none" value="${itemId[i].value}" name="itemId"/>
 			</div>
 		   </div>`;
 		selectItemPrice = document.querySelectorAll('.select_item_price');
@@ -74,6 +76,7 @@ let up = (i, x) => {
 										<div class="select_item_price">${pCount[i].value * itemPrice[i].value}원</div>
 										<input type="text" style="display:none" value="${pCount[i].value * itemPrice[i].value}" name="items_price" />
 										<input type="text" style="display:none" value="${pCount[i].value}" name="reserve_count"/>
+										<input type="text" style="display:none" value="${itemId[i].value}" name="itemId"/>
 									</div>
 								   </div>`;
 		selectItemPrice = document.querySelectorAll('.select_item_price');
