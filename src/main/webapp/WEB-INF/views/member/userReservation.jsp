@@ -6,7 +6,7 @@
 <!-- 예약갯수만큼 반복 출력 -->
 <c:forEach var="item" items="${myReserve}" varStatus="status">
 <form class="reservationCancellation" action="passwdCheck" method="get">
-   <div class="leportsImg"><!-- 메인이미지 넣을공간 -->
+   <div class="leportsImg"><!-- 메인이미지 넣을공간 ../images/ -->
       <img src="${item.leports_main_img}" />
    </div>
    <%--예약 취소--%>

@@ -26,12 +26,14 @@ let down = (i, x) => {
 	if (Number(pCount[i].value) > 1) {
 		pCount[i].value -= x;
 		pTotalCount.value -= x;
-		selectItem[i].innerHTML = `<div class="select_items_option${[i]}">
+		selectItem[i].innerHTML = `<div class="select_items_option${[i]} select_item_info">
 		   	<div>${itemName[i].value}</div>
 			<input type="text" style="display:none" value="${itemName[i].value}" name="item_name" />
 		   	<div>
-		   		<div>${pCount[i].value} X ${itemPrice[i].value}원</div>
-				<div class="select_item_price">${pCount[i].value * itemPrice[i].value}</div>
+		   		<div class="item_multi">${pCount[i].value} X ${itemPrice[i].value}원</div>
+			</div>
+			<div>
+				<div class="select_item_price">${pCount[i].value * itemPrice[i].value}원</div>
 				<input type="text" style="display:none" value="${pCount[i].value * itemPrice[i].value}" name="items_price" />
 				<input type="text" style="display:none" value="${pCount[i].value}" name="reserve_count"/>
 			</div>
@@ -62,12 +64,14 @@ let up = (i, x) => {
 		pCountValue += x;
 		pCount[i].value = pCountValue;
 		pTotalCount.value++;
-		selectItem[i].innerHTML = `<div class="select_items_option${[i]}">
+		selectItem[i].innerHTML = `<div class="select_items_option${[i]} select_item_info">
 		   							<div>${itemName[i].value}</div>
 									<input type="text" style="display:none" value="${itemName[i].value}" name="item_name" />
 		   							<div>
-		   								<div>${pCount[i].value} X ${itemPrice[i].value}원</div>
-										<div class="select_item_price">${pCount[i].value * itemPrice[i].value}</div>
+		   								<div class="item_multi">${pCount[i].value} X ${itemPrice[i].value}원</div>
+									</div>
+									<div>
+										<div class="select_item_price">${pCount[i].value * itemPrice[i].value}원</div>
 										<input type="text" style="display:none" value="${pCount[i].value * itemPrice[i].value}" name="items_price" />
 										<input type="text" style="display:none" value="${pCount[i].value}" name="reserve_count"/>
 									</div>
