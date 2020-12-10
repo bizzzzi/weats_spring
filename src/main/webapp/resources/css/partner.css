@@ -10,14 +10,17 @@
 body {
   background-color: rgb(255, 255, 255);
 }
-
+#partnerContent {
+	width: 100%;
+	height: 100%;
+}
 .partner_form {
-  width: 60%;
-  height: 60%;
+  width: 100%;
+  height: 100%;
   position: relative;
   padding: 3% 20%;
+  background-color: pink;
 }
-
 .main_title {
   /* font-size: 20pt; */
   display: flex;
@@ -26,41 +29,26 @@ body {
   padding-bottom: 20px;
 }
 
-.partner_form form {
+.partnerAddForm {
   display: flex;
   flex-direction: column;
   background-color: rgb(255, 255, 255);
 }
 
-.box {
-  display: flex;
-  height: 150px;
-}
 
 .title {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 30%;
-  /* background-color: cornflowerblue; */
+  background-color: cornflowerblue; 
   box-sizing: border-box;
-  border: 1px solid;
   border-radius: 1%;
+}
+.partnerAddForm input[type="text"]{
+	padding: .8em 10em;
 }
 
-.sub_box {
-  float: left;
-  /* background-color: rgb(119, 250, 119); */
-  width: 80%;
-  border-radius: 1%;
-  box-sizing: border-box;
-  border: 1px solid;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  line-height: 1.2;
-}
 
 .partner_form img {
   background-color: green;
@@ -72,7 +60,7 @@ body {
   padding-top: 2%;
 }
 
-.Btn {
+.partnerBtn {
   background-color: rgb(255, 255, 255);
   position: relative;
 }
@@ -81,23 +69,23 @@ body {
   background-color: rgb(187, 221, 248);
 }
 
-.Btn p {
+.partnerBtn p {
   display: flex;
   justify-content: center;
 }
 
-.submitBtn {
-  display: block;
+.partnerBtn .submitBtn {
+  display:block;
   width: 200px;
   height: 40px;
   line-height: 40px;
   border: 1px rgb(12, 11, 11) solid;
- /*  margin: 15px auto; */
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(255, 255, 255); 
   text-align: center;
   cursor: pointer;
   color: #333;
   transition: all 0.9s, color 0.3;
+  margin:auto;
 }
 
 .partner_mypage {
