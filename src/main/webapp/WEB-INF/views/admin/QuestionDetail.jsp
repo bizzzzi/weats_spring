@@ -2,20 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-<div class="sideMenu">
-	<ul>
-		<li><a href="memberList">회원관리</a></li>
-		<li><a href="partnerList">파트너 관리</a></li>
-		<li><a href="#">문의 답변</a></li>
-	</ul>
-</div>	
 	<div class="content">
 		<ul class="qnaList q">
 			<li>
@@ -53,7 +39,14 @@
 		</ul>
 		<c:if test="${fn:length(list) != 0}">
 			<c:forEach var="qna" items="${list}" varStatus="status">
-				<ul class="qnaList a">
+				<c:choose>
+					<c:when test="${qna.user_name eq '관리자'}">
+						<ul class="qnaList admin_a">
+					</c:when>
+					<c:otherwise>
+						<ul class="qnaList">
+					</c:otherwise>
+				</c:choose>
 					<li>
 						<strong>${qna.user_name}</strong>
 						<span class="regidate">${qna.q_regidate}</span>
@@ -72,6 +65,5 @@
 					<input type="submit" value="답변등록">
 				</form>
 			</div>
+
 	</div>
-</body>
-</html>
