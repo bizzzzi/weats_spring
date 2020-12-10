@@ -554,7 +554,72 @@ video {
 	margin: 0 2px;
 }
 
+/* 레포츠 디테일 */
+#leports_Detail .leports_detail_wrap {
+	display: flex;
+    justify-content: space-between;
+}
+
+#leports_Detail .side_nav {
+    width: 320px;
+    height: 255px;
+    line-height: 70px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    border: 1px solid #E9ECEF;
+    border-radius: 4px;
+    text-align: center;
+    background-color: #F5F6F7;
+    box-shadow: 0 4px 8px 0 rgba(33,37,41,.1), 0 0 0 1px #e9ecef;
+}
+
+.side_nav_contents {
+	margin: 10px;
+	border: 1px solid #E9ECEF;
+	border-radius: 4px;
+	background-color: #FFFFFF;
+}
+
+.current_amount {
+	font-size: 22px;
+	font-weight: bold;
+}
+
+.js_total_amount2 {
+	font-size: 20px;
+	font-weight: bold;
+	color: #343B3F;
+}
+
+.contentsWrap {
+	margin: 0 10%;
+}
+
+#leports_Detail .contents {
+	width: 70%;
+}
+
+#leports_Detail .leports_main_title {
+	font-size: 32px;
+	font-weight: bold;
+	margin-bottom: 15px;
+}
+
+#leports_Detail .leports_ticket {
+	font-size: 22px;
+	font-weight: bold;
+	margin-top: 32px;
+	margin-bottom: 16px;
+}
+
+
 /* 달력 */
+.calendar_wrap {
+	border: 1px solid #E9ECEF;
+	display:flex;
+	justify-content: center;
+}
 .scriptCalendar a {
 	color: #000000;
 	text-decoration: none;
@@ -565,8 +630,8 @@ video {
 }
 
 .scriptCalendar>thead>tr>td {
-	width: 60px;
-	height: 60px;
+	width: 70px;
+	height: 70px;
 }
 
 .scriptCalendar>thead>tr:first-child>td {
@@ -578,9 +643,189 @@ video {
 }
 
 .scriptCalendar>tbody>tr>td {
-	width: 60px;
-	height: 60px;
+	width: 70px;
+	height: 70px;
 }
+/* 레포츠 아이템 목록 */
+#leports_Detail .leports_item_list {
+	border: 1px solid #E9ECEF;
+	background-color: #F5F6F7;
+}
+
+#leports_Detail .list_item_info {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border: 1px solid #E9ECEF;
+	border-radius: 4px;
+	box-shadow: 0 4px 8px 0 rgba(33,37,41,.1), 0 0 0 1px #e9ecef;
+	background-color: #FFFFFF;
+	margin: 10px;
+	padding: 12px;
+}
+#leports_Detail .string_day {
+	margin: 15px 11px;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+#leports_Detail .leports_item_title {
+	font-size: 18px;
+	font-weight: bold;
+}
+
+#leports_Detail .leports_item_summary {
+	color: #656E74;
+}
+
+#leports_Detail .leports_item_mc {
+	font-size: 13px;
+    color: #A8AEB3;
+}
+
+#leports_Detail .leports_item_price {
+	font-size: 18px;
+	font-weight: bold;
+}
+
+#leports_Detail .person {
+	font-size: 13px;
+	color: #656E74;
+}
+
+.qty {
+	width: 160px;
+}
+
+.qty .count {
+    color: #000;
+    display: inline-block;
+    vertical-align: top;
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 30px;
+    padding: 0 2px;
+    min-width: 35px;
+    text-align: center;
+}
+
+.qty .plus {
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: top;
+    width: 30px;
+    height: 30px;
+    font: 30px/1 Arial,sans-serif;
+    text-align: center;
+    border-radius: 50%;
+    }
+    
+.qty .minus {
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: top;
+    width: 30px;
+    height: 30px;
+    font: 30px/1 Arial,sans-serif;
+    text-align: center;
+    border-radius: 50%;
+    background-clip: padding-box;
+}
+
+.qty div {
+    text-align: center;
+}
+.qty input{  
+    border: 0;
+    width: 2%;
+}
+
+#leports_Detail .leports_img_wrap {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 4px;
+}
+
+#leports_Detail .leports_items_img {
+  flex: 25%;
+  max-width: 25%;
+  padding: 0 4px;
+}
+#leports_Detail .mainImg {
+  flex: 50%;
+  max-width: 50%;
+  padding: 0 4px;
+}
+
+#leports_Detail .leports_items_img img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+  border-radius: 2px;
+  
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+  #leports_Detail .leports_items_img {
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  #leports_Detail .leports_items_img {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+
+#leports_Detail .select_item_price {
+	color: #485155;
+}
+#leports_Detail .select_item_info {
+	display: flex;
+	justify-content: space-between;
+	margin: 18px 25px;
+	font-size: 14px;
+	color: #848c94;
+}
+
+#leports_Detail .total_price_css {
+	text-align: right;
+	margin: 18px 25px;
+	font-weight: bold;
+}
+
+#leports_Detail .paymentBtn {
+	margin-top: 18px;
+	margin-bottom: 50px;
+	float: right;
+}
+
+.review_title {
+	font-size: 22px;
+	font-weight: bold;
+	margin-top: 32px;
+	margin-bottom: 16px;
+}
+
+.review_list {
+	margin: 12px 0;
+}
+
+.review_regidate {
+	font-size: 14px;
+	color: #656E74;
+}
+
+.review_btn_wrap {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 16px;
+}
+
 
 #Resale_list .trade_nav>ul>li {
 	padding: 10px;
@@ -654,23 +899,6 @@ video {
 }
 
 
-#leports_Detail .leports_detail_wrap {
-	display: flex;
-    justify-content: space-between;
-}
-
-#leports_Detail .side_nav {
-	width: 25%;
-    height: 50vh;
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-    border: 1px solid black;
-}
-
-.contentsWrap {
-	margin: 0 100px;
-}
 
 /* 리뷰 별점 */
 	/* 레이아웃 외곽 너비 400px 제한*/
