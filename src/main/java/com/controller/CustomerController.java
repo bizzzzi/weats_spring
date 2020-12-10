@@ -40,6 +40,25 @@ public class CustomerController {
 //    public String MainQuestion(){
 //        return "redirect:/MainQuestion";
 //    }
+    @RequestMapping("/QA_Support")
+    public String MainCustomerSupport(){
+        return "MainSupport";
+    }
+
+    @RequestMapping("/supportDetail")
+    public String SupportDetail(){
+        return "MainSupportDetail";
+    }
+
+    @RequestMapping("/adminCheck/SupportWrite")
+    public String SupportWrite(){
+        return "MainSupportWrite";
+    }
+
+    @RequestMapping("/adminCheck/SupportList")
+    public String SupportList(){
+        return "MainSupportList_admin";
+    }
 
 //  1대1 문의하기 (글쓰기)
     @PostMapping(value = {"/loginCheck/questionWrite", "/adminCheck/questionWrite"})
