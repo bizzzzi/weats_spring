@@ -3,7 +3,7 @@
     <section>
         <h2>1:1 문의하기</h2>
         <div class="questionForm">
-            <form action="loginCheck/questionWrite" method="post">
+            <form action="questionWrite" method="post">
                 <ul>
                     <li>
                         <strong>문의 유형</strong>

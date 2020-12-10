@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,8 +27,14 @@
 		<jsp:include page="common/loginForm_desktop.jsp" flush="true"></jsp:include>
 		<jsp:include page="common/signUpForm_desktop.jsp" flush="true"></jsp:include>
 	</div>
+	<c:set var="path" value="${requestScope['javax.servlet.forward.request_uri']}"></c:set>
 	<div id="container">
-		<jsp:include page="customer/customerNav.jsp" flush="true"></jsp:include>
+		<c:if test="${fn:contains(path,'adminCheck')}">
+			<jsp:include page="admin/adminNav.jsp" flush="true"></jsp:include>
+		</c:if>
+		<c:if test="${fn:contains(path,'loginCheck')}">
+			<jsp:include page="customer/customerNav.jsp" flush="true"></jsp:include>
+		</c:if>
 		<jsp:include page="customer/QA_questionList.jsp" flush="true"></jsp:include>
 	</div>
 <script type="text/javascript" src="js/modal.js"></script>
