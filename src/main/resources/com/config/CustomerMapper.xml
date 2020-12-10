@@ -19,7 +19,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 
 	<select id="userQuestionList" parameterType="string" resultType="CustomerQnADTO">
-		select * from customer_question where user_id = #{user_id}
+		select * from customer_question where user_id = #{user_id} order by answer_verify, q_regidate
 	</select>
 
 	<!--문의 리스트-->

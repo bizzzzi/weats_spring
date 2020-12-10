@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +12,7 @@
 	<script type="text/javascript" src="../js/bootstrap.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
-	<link rel="stylesheet" href="../css/admin.css">
+	<link rel="stylesheet" type="text/css" href="../css/admin.css">
 	<style type="text/css">
 		a {
 			color: black; /* 임시값 나중에 Css 공통수정 */
@@ -23,8 +25,11 @@
 		<jsp:include page="common/loginForm_desktop.jsp" flush="true"></jsp:include>
 		<jsp:include page="common/signUpForm_desktop.jsp" flush="true"></jsp:include>
 	</div>
+	<c:set var="path" value="${requestScope['javax.servlet.forward.request_uri']}"></c:set>
+	${path}
 	<div>
-		<jsp:include page="admin/AdminQuestionDetail.jsp" flush="true"></jsp:include>
+		<jsp:include page="admin/AdminSideMenu.jsp" flush="true"></jsp:include>
+		<jsp:include page="customer/QA_questionDetail.jsp" flush="true"></jsp:include>
 	</div>
 	<script type="text/javascript" src="js/main.js"></script>
 	<script type="text/javascript" src="js/modal.js"></script>
