@@ -61,6 +61,7 @@
 				<c:forEach var="dto" items="${leportsDetail}">
 					<div class="list_item_info">
 						<div>
+							<div class="leports_item_id">${dto.leports_item_id}</div>
 							<div class="leports_item_title">${dto.leports_item_title}</div>
 							<div class="leports_item_summary">${dto.leports_summary}</div>
 							<div class="leports_item_mc">예약 가능 인원 : ${dto.leports_max_capacity}</div>
@@ -69,6 +70,7 @@
 							<span class="leports_item_price">${dto.leports_price}원</span><span class="person"> 1인</span>
 						</div>
 						<div class="list_item">
+							<input class="js_itemId" type="text" name="item_id" value="${dto.leports_item_id}" style="display: none">
 							<input class="js_itemName" type="text" name="item_title" value="${dto.leports_item_title}" style="display: none">
 							<input class="js_maxPerson" type="text" value="${dto.leports_max_capacity}" style="display: none">
 							<input class="js_itemPrice" type="text" name="item_price" value="${dto.leports_price}" style="display: none">
