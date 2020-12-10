@@ -35,6 +35,7 @@
             <li class="rs_date">${reserveDay}</li>
             <c:forEach var="item" items="${item_title}" varStatus="status">
             	<li class="leports_item_title">${item}</li>
+            	<li class="itemId">${itemId[status.index]}</li>
             	<li class="persons">${reserve_count[status.index]}</li>
             	<li class="rs_price">${item_price[status.index]}</li>
             </c:forEach>

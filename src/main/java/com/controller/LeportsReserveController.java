@@ -19,9 +19,11 @@ public class LeportsReserveController {
 						  @ModelAttribute("totalPersonnelConut") String totalPersonnelConut,
 						  @RequestParam(value="item_name") List<String> item_title,
 						  @RequestParam(value="items_price") List<String> item_price,
+						  @RequestParam(value="itemId") List<String> itemId,
 						  @RequestParam(value="reserve_count") List<String> reserve_count) {
 		model.addAttribute("item_title", item_title);
 		model.addAttribute("item_price", item_price);
+		model.addAttribute("itemId", itemId);
 		model.addAttribute("reserve_count", reserve_count);
 		return "MainPayment";
 	}
