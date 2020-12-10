@@ -10,7 +10,7 @@
   </header>
 
   <div class="partner_form" id="partner">
-    <form action="PartnerAdd" method="post" class="partnerAddForm">
+    <form action="PartnerAdd" method="post" class="partnerAllForm">
     	
     	<div class="formBox">
 	        <div class="title">상호 이름*</div>

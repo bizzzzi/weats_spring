@@ -1,5 +1,5 @@
 @charset "UTF-8";
-
+                                              
 @import
 	url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap')
 	;
@@ -9,11 +9,44 @@
 	;
 body {
   background-color: rgb(255, 255, 255);
+  font-size: 0.8em;
+}
+#SideMenu {
+	width: 20%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	background: #B2D0EB;
+	padding: 30px 0;
+}
+#SideMenu h2{
+	margin-bottom: 30px;
+}
+#SideMenu ul li{
+  padding: 15px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+#SideMenu ul li a{
+	font-size: 1.2em;
+}
+#SideMenu ul li:hover{
+	background: #C3D9F0;
 }
 #partnerContent {
+	width: 80%;
+	height: 100%;
+}
+#partnerFormContent{
 	width: 100%;
 	height: 100%;
 }
+#partnerPageWrap {
+	display:flex;
+}
+
+/*파트너 등록폼*/
 .partner_form {
   width: 100%;
   height: 100%;
@@ -28,7 +61,7 @@ body {
   padding-bottom: 20px;
 }
 
-.partnerAddForm {
+.partnerAllForm {
   display: flex;
   flex-direction: column;
   background-color: rgb(255, 255, 255);
@@ -40,15 +73,17 @@ body {
   text-align:left;
   margin-left:10%;
 }
-.partnerAddForm input[type="text"]{
+.partnerAllForm input[type="text"]{
 	padding: .8em 0.5em;
     margin-left:10%;
+    margin-bottom:5px;
     width: 50%;
     font-size: 1em;
 }
 
 .formBox .comment{
     margin-left:10%;
+    margin-bottom:5px;
 }
 .formBox input[type='file']{
     margin-left:10%;
@@ -57,8 +92,7 @@ body {
 	display: flex;
 }
 .partner_form img {
-  background-color: green;
-  height: 200px;
+  max-width: 100%;
 }
 
 .comment {
@@ -94,23 +128,11 @@ body {
   transition: all 0.9s, color 0.3;
   margin:auto;
 }
+/*파트너 마이페이지*/
 
-.partner_mypage {
-  width: 60%;
-  height: 60%;
-  position: relative;
-  padding: 3% 20%;
-}
-
-.partner_mypage form {
-  display: flex;
-  flex-direction: column;
-  background-color: rgb(255, 255, 255);
-}
-
-.partner_mypage img {
-  background-color: green;
-  height: 70px;
+.guide_img .before_img {
+  background-color: red;
+  height: 200px;
 }
 
 .Btn, .addBtn{
@@ -135,16 +157,7 @@ body {
   display: flex;
 }
 
-.image_container {
-  display: flex;
-  padding-left: 30%;
-}
 
-body {
-  font-size: 13px;
-  color: rgba(33, 33, 33, 0.89);
-  background-color: rgb(255, 255, 255);
-}
 
 .main_title {
   display: flex;
