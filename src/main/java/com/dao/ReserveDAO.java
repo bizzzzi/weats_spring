@@ -69,4 +69,8 @@ public class ReserveDAO {
     public void deleteReserveItem(String reservation_id) {
         template.delete("deleteReserveItem",reservation_id);
     }
+
+    public List<String> reserveIdByDate(Map<String, String> map) {
+        return template.selectList("reserveIdByDate", map);
+    }
 }

@@ -6,13 +6,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.lang.model.type.ArrayType;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import com.service.ReserveService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dto.LeportsDetailDTO;
@@ -25,6 +25,9 @@ public class LeportsController {
 	 
 	@Autowired
 	LeportsService service;
+
+	@Autowired
+	ReserveService reserveService;
 	
 	@RequestMapping("/leportsList")
 	public String leportsList(String category, String type, String loc, String selectAlign
@@ -79,5 +82,15 @@ public class LeportsController {
 
 		session.setAttribute("leports_id", leports_id);
 		return "/MainLeportsDetail";
+	}
+
+	@PostMapping("/personCount")
+	public String personCount(String leports_id, String rs_date) {
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("leports_id", leports_id);
+		map.put("rs_date", rs_date);
+		List<String> reservation_id = reserveService.reserveIdByDate(map);
+		System.out.println(reservation_id);
+		return null;
 	}
 }

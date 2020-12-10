@@ -64,4 +64,8 @@ public class ReserveService {
     public void deleteReserveItem(String reservation_id) {
         dao.deleteReserveItem(reservation_id);
     }
+
+    public List<String> reserveIdByDate(Map<String, String> map) {
+        return dao.reserveIdByDate(map);
+    }
 }
