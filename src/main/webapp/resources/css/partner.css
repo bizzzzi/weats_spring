@@ -19,7 +19,6 @@ body {
   height: 100%;
   position: relative;
   padding: 3% 20%;
-  background-color: pink;
 }
 .main_title {
   /* font-size: 20pt; */
@@ -34,26 +33,32 @@ body {
   flex-direction: column;
   background-color: rgb(255, 255, 255);
   padding: 20px;
+  border: 1px solid black;
 }
-
-
 .title {
   display: flex;
   text-align:left;
-  justify-content:center;
-  width: 30%;
-  box-sizing: border-box;
-  border-radius: 1%;
+  margin-left:10%;
 }
 .partnerAddForm input[type="text"]{
-	padding: .8em 8em;
-	margin:0 60px;
+	padding: .8em 0.5em;
+    margin-left:10%;
+    width: 50%;
+    font-size: 1em;
 }
 
-
+.formBox .comment{
+    margin-left:10%;
+}
+.formBox input[type='file']{
+    margin-left:10%;
+}
+.formBox .guide_img{
+	display: flex;
+}
 .partner_form img {
   background-color: green;
-  height: 70px;
+  height: 200px;
 }
 
 .comment {
@@ -66,13 +71,14 @@ body {
   position: relative;
 }
 
-.submitBtn:hover {
+.partnerBtn .submitBtn:hover {
   background-color: rgb(187, 221, 248);
 }
 
 .partnerBtn p {
   display: flex;
   justify-content: center;
+  margin: 30px 0px;
 }
 
 .partnerBtn .submitBtn {

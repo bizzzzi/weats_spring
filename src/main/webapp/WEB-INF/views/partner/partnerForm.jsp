@@ -18,15 +18,15 @@
         </div>
         <div class="formBox">
 	        <div class="title">연락처*</div>
+	        <div class="comment">상시 가능한 연락처를 입력해주세요.</div>
 			<input type="text" name="c_phone" class="c_phone" size="23" maxlength="11" placeholder="하이픈(-)은 빼고 입력해주세요.">
-			<div class="comment">상시 가능한 연락처를 입력해주세요.</div>
  		</div>
 		<div class="formBox">
 	        <div class="title">주소*</div>
 	          <div>
 	            <input type="text" name="c_postnum" id="sample4_postcode" placeholder="우편번호">
-	            <input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
-	            <input type="text" name="c_address" id="sample4_roadAddress" placeholder="도로명주소"><br>
+	            <input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기">
+	            <input type="text" name="c_address" id="sample4_roadAddress" placeholder="도로명주소">
 	            <input type="text" name="c_detail_address" id="sample4_jibunAddress" placeholder="상세주소 입력">
 	   		  </div>
 	   		  <div id="wrap" style="display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:relative">
@@ -43,14 +43,14 @@
 		</div>
     	<div class="formBox">
 	        <div class="title">사업자 등록증*</div>     
-	          <div class="guide_img">
+	        <div class="guide_img">
 	            <input type="file" id="image_upload" class="image_inputType_file" name="partner_license_docs" accept="img/*"
 	              onchange="thumbnail(this);" />
 	            <div id="image_container">
 	              <!-- 사진을 미리 보여줄 영역 -->
 	              <img src="#" alt="" />
 	            </div>
-	          </div>
+	         </div>
 	          <div class="comment">
 	            <small>사업자 등록증 사진을 업로드해주세요.</small><br> <small>이미지 규격은 '*'을 권장합니다.</small>
 	          </div>
