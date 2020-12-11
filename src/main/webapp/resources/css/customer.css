@@ -1,0 +1,130 @@
+.customer_btn{
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    height: 250px;
+    background-color: aquamarine;
+    display: flex;
+    align-content: center;
+    margin-bottom: 30px;
+}
+.customer_btn form{
+    width: 100%;
+}
+.customer_btn .search{
+    margin: 10px 0px;
+}
+.customer_btn .search input{
+    height: 45px;
+}
+.customer_btn .search input:first-child{
+    width: 30%;
+}
+.customer_btn .search input:last-child{
+    width: 7%;
+}
+.customer_con{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+
+#customer_cont{
+    display: flex;
+}
+section{
+    width: 100%;
+    margin: 0 auto;
+}
+
+/*이용방법*/
+
+#banner{
+    width: 100%;
+    text-align: center;
+    background: aquamarine;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.howList{
+    width: 100%;
+    display: flex;
+    margin-top: 30px;
+}
+.howList img{
+    width: 50%;
+}
+.howList ul{
+    width: 100%;
+    padding-left: 35px;
+}
+.howList li{
+    display: flex;
+}
+.how_footer{
+    text-align: center;
+    padding-top: 35px;
+    border-top: #0c5460;
+    margin-top: 35px;
+}
+.how_footer a{
+    background-color: #0c5460;
+    color: #fff;
+    padding: 10px;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+
+/*1:1 문의*/
+.questionForm ul li{
+    display: flex;
+    margin: 10px 0px;
+}
+.questionForm ul li strong{
+    width: 20%;
+}
+.questionForm ul li input,select{
+    width: 100%;
+}
+.qa_submit{
+    display: flex;
+    justify-content: center;
+}
+.qa_submit input{
+    margin: 0px 5px;
+}
+
+.qList ul{
+    display: flex;
+    justify-content: space-around;
+}
+.qList li{
+    width: 100%;
+    text-align: center;
+}
+.qList ul a{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+/*support*/
+.supportList{
+    width: 55%;
+    margin: 0 auto;
+}
+.support_cont{
+    margin-top: 10px;
+    border: 1px solid #e9ecef;
+    padding: 20px;
+}
+.support_cont h2{
+    padding-bottom: 15px;
+}
+.support_cont li{
+    margin: 5px 0px;
+}
