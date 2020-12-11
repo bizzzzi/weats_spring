@@ -8,6 +8,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -66,15 +67,19 @@ public class ReserveDAO {
         template.insert("reserveItemAdd", itemDTO);
     }
 
-    public void deleteReserveItem(String reservation_id) {
-        template.delete("deleteReserveItem",reservation_id);
-    }
+//    public void deleteReserveItem(String reservation_id) {
+//        template.delete("deleteReserveItem",reservation_id);
+//    }
+//
+//    public List<String> reserveIdByDate(Map<String, String> map) {
+//        return template.selectList("reserveIdByDate", map);
+//    }
+//
+//    public List<ReservationItemDTO> personCount(List<String> list) {
+//        return template.selectList("personCount", list);
+//    }
 
-    public List<String> reserveIdByDate(Map<String, String> map) {
-        return template.selectList("reserveIdByDate", map);
-    }
-
-    public List<ReservationItemDTO> personCount(List<String> list) {
-        return template.selectList("personCount", list);
+    public List<HashMap<String,?>> reservePerson(Map<String, String> map) {
+        return template.selectList("reservePerson", map);
     }
 }
