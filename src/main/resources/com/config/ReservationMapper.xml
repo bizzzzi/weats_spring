@@ -12,6 +12,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			, to_date(#{rs_date}, 'yy-mm-dd'), sysdate, #{rs_price}, #{rs_item_name}, null, 0)
 	</insert>
 
+	<insert id="reserveItemAdd" parameterType="ReservationItemDTO">
+		insert into reservation_item values('RS_I'||rs_item_seq.nextval, #{rs_item_title}, #{rs_item_person}, #{rs_item_price}, #{reservation_id}, #{leports_item_id})
+	</insert>
+
 	<!--tid 추가-->
 	<update id="reserveTidAdd" parameterType="hashmap">
 		update reservation set tid = #{tid} where reservation_id = #{reservation_id}
@@ -20,12 +24,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 에약 번호 select-->
 	<select id="reserveId" parameterType="hashmap" resultType="string">
 		select reservation_id from reservation where user_id = #{user_id} and leports_id = #{leports_id}
+		order by rs_payment_date desc
 	</select>
 
 	<!--결제가 제대로 완료되지 않으면  delete 또는 결제 취소-->
 	<delete id="deleteReserve" parameterType="hashmap">
 		delete from reservation where reservation_id = #{reservation_id} and user_id = #{user_id}
 	</delete>
+
 
 	<!--예약 내역 리스트-->
 	<select id="reserveList" parameterType="string" resultType="MyReserveDTO">
@@ -37,7 +43,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		join partner p
 		on l.partner_id = p.partner_id
 		where r.user_id = #{user_id}
-		order by r.reservation_id desc
+		order by r.rs_payment_date desc
 	</select>
 
 	<!--tid 찾기(예약 취소)-->
@@ -78,11 +84,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where r.user_id = #{user_id}
 		order by r.review_regidate desc
 	</select>
-	<!--리뷰 수정-->
-<!--	<update id="reviewUpdate" parameterType="hashmap">-->
-<!--		update reservation_review set review_comments = #{review_comments} and review_star = #{review_star}-->
-<!--		where review_id = #{review_id} and user_id = #{user_id}-->
-<!--	</update>-->
+
 	<!--리뷰 삭제-->
 	<delete id="reviewDelete" parameterType="hashmap">
 		delete from reservation_review where review_id = #{review_id} and user_id = #{user_id}

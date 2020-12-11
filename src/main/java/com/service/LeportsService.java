@@ -52,4 +52,19 @@ public class LeportsService {
 		dao.reviewCountDown(leports_id);
 	}
 
+	public List<LeportsThumbnailDTO> ratingTopLeports() {
+		return dao.ratingTopLeports();
+	}
+
+	public List<LeportsThumbnailDTO> reserveTopLeports() {
+		return dao.reserveTopLeports();
+	}
+
+	public void reserveCountUp(String leports_id) {
+		dao.reserveCountUp(leports_id);
+	}
+
+	public void reserveCountDown(String leports_id) {
+		dao.reserveCountDown(leports_id);
+	}
 }
