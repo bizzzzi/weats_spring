@@ -23,7 +23,7 @@ public class LeportsThumbnailDTO implements Comparable<LeportsThumbnailDTO> {
     private String leports_summary;
     private int leports_price;
     private int review_cnt;
-    private int review_star;
+    private double review_star;
     private int reserve_cnt;
     private String leports_regidate;
 
