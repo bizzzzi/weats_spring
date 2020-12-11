@@ -1,9 +1,9 @@
 @charset "UTF-8";
-
-.sideMenu ul{
+.sideMenu{
 	width: 20%;
-	position: absolute;
-	height: 100%;
+}
+.sideMenu ul{
+	padding-left:20px;
 }
 .sideMenu ul li a{
 	display: block;
@@ -11,7 +11,7 @@
 .content{
 	width:80%;
 	margin-left: 20%;
-
+	padding-right: 3%;
 }
 .content .subject{
 	justify-content: center;
@@ -46,7 +46,7 @@
 
 .content .detail{
 	justify-content: center;
-	width: :100%;
+	width:100%;
 	padding: 50px 0px;
 }
 .content .detail .detail_title{
@@ -67,4 +67,41 @@
 }
 .content .emailBtn input{
 	padding: 10px 60px;
+}
+
+/*문의 답변 페이지*/
+ul.qnaList{
+	padding: 0 10px;
+}
+ul.qnaList li{
+	display: flex;
+	justify-content: space-between;
+	padding: 5px 0px;
+}
+ul.qnaList strong{
+	width: 20%;
+}
+ul.qnaList span{
+	width:100%
+}
+ul.qnaList span.regidate{
+	width: 100%;
+	text-align: right;
+	opacity: 0.3;
+}
+.answer form{
+	display: flex;
+	height: 120px;
+}
+.answer textarea{
+	width: 90%;
+}
+.answer input{
+	width: 10%;
+}
+.qnaList.admin_a{
+	background-color: #f8f9fa;
+}
+.qnaList.q{
+	margin-bottom: 20px;
 }

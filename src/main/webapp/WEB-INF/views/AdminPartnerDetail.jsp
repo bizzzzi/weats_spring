@@ -10,6 +10,8 @@
 	<script type="text/javascript" src="js/bootstrap.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" href="css/admin.css">
+	<link rel="stylesheet" href="css/customer.css">
 	<script src="https://kit.fontawesome.com/400289e08c.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -18,7 +20,8 @@
 		<jsp:include page="common/loginForm_desktop.jsp" flush="true"></jsp:include>
 		<jsp:include page="common/signUpForm_desktop.jsp" flush="true"></jsp:include>
 	</div>
-	<div>
+	<div id="customer_cont">
+		<jsp:include page="admin/adminNav.jsp" flush="true"></jsp:include>
 		<jsp:include page="admin/AdminPartnerDetail.jsp" flush="true"></jsp:include>
 	</div>
 	<script type="text/javascript" src="js/modal.js"></script>
