@@ -1,6 +1,7 @@
 package com.dao;
 
 
+import com.dto.CustomerQnADTO;
 import com.dto.MemberDTO;
 import com.dto.PartnerDTO;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -41,5 +42,7 @@ public class AdminDAO {
     public void PartnerDel(String user_id){
         template.delete("PartnerDel",user_id);
     }
+
+
 
 }

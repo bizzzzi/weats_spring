@@ -1,14 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>    
- <link rel="stylesheet" href="css/admin.css">
-	<div class="sideMenu">
-		<ul>
-			<li><a href="memberList">회원관리</a></li>
-			<li><a href="partnerList">파트너 관리</a></li>
-		</ul>
-	</div>	
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 	<div class="content">
 	<div class="borderLine">
 		<div class="detail">

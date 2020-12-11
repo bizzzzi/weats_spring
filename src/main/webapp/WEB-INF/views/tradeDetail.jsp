@@ -11,7 +11,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <script src="https://kit.fontawesome.com/400289e08c.js" crossorigin="anonymous"></script>
-<script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
 </head>
 <body>
 	<div id="wrap">
@@ -23,7 +22,9 @@
 	<div id="Resale_list">
 		<jsp:include page="trade/tradeDetail.jsp" flush="true"></jsp:include>
 	</div>
+	<div>
 		<jsp:include page="common/footer.jsp" flush="true"></jsp:include>
+	</div>
 	</div>
 <script type="text/javascript" src="js/modal.js"></script>
 <script type="text/javascript" src="js/signUpForm.js"></script>
