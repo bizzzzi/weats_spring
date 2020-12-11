@@ -27,7 +27,7 @@ public class LeportsDTO {
 	private String leports_sub_img4;
 	private String leports_content;
 	private int review_cnt;
-	private int review_star;
+	private double review_star;
 	private int reserve_cnt;
 	
 }
