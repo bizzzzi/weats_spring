@@ -81,20 +81,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update leports set reserve_cnt = reserve_cnt - 1 where leports_id = #{leports_id}
 	</update>
 
-<!--	&lt;!&ndash; 에약 번호 select&ndash;&gt;-->
-<!--	<select id="reserveIdByDate" parameterType="hashmap" resultType="string">-->
-<!--		select reservation_id from reservation where rs_date = to_date(#{rs_date}, 'yymmdd') and leports_id = #{leports_id}-->
-<!--	</select>-->
-
-<!--&lt;!&ndash;	레포츠 예약 가능 인원&ndash;&gt;-->
-<!--	<select id="personCount" parameterType="list" resultType="ReservationItemDTO">-->
-<!--		select rs_item_person, leports_item_id from reservation_item-->
-<!--		where reservation_id in-->
-<!--		<foreach item="item" index="index" collection="list" open="(" separator="," close=")">-->
-<!--			#{item}-->
-<!--		</foreach>-->
-<!--	</select>-->
-
 <!--	아이템 별 예약 인원 수 -->
 	<select id="reservePerson" parameterType="hashmap" resultType="hashmap">
 		select sum(rs_item_person) rs_item_person, leports_item_id from reservation_item

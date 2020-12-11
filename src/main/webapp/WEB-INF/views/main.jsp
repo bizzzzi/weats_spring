@@ -41,12 +41,6 @@
       		<a href="https://github.com/bizzzzi/weats_spring"><i class="fab fa-github"></i></a>
 		</footer>
 	</div>
-	<form action="personCount" method="post">
-		<input type="hidden" name="leports_id" value="L3">
-		<input type="hidden" name="rs_date" value="20/12/24">
-		<input type="submit" value="테스트버튼">
-	</form>
-		
 <script type="text/javascript" src="js/modal.js"></script>
 <script type="text/javascript" src="js/signUpForm.js"></script>
 </body>

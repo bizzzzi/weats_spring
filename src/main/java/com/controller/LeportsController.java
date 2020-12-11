@@ -8,7 +8,6 @@ import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
-import com.dto.ReservationItemDTO;
 import com.service.ReserveService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -93,21 +92,7 @@ public class LeportsController {
 		map.put("rs_date", rs_date);
 		List<HashMap<String, ?>> reservePerson = reserveService.reservePerson(map);
 		System.out.println(reservePerson);
-//		List<String> list = reserveService.reserveIdByDate(map);
-//		System.out.println(list);
-//		List<ReservationItemDTO> itemList = reserveService.personCount(list);
-//		HashMap<String, Integer> hashMap = new HashMap<>();
-//
-//		for(ReservationItemDTO xxx: itemList){
-//			int person = 0;
-//			for(ReservationItemDTO yyy: itemList){
-//				if(xxx.getLeports_item_id().equals(yyy.getLeports_item_id())){
-//					person += yyy.getRs_item_person();
-//				}
-//			}
-//			hashMap.put(xxx.getLeports_item_id(),person);
-//		}
-//		System.out.println(hashMap);
+
 		return reservePerson;
 	}
 }

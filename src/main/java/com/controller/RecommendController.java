@@ -50,6 +50,9 @@ public class RecommendController {
 			model.addAttribute("ratingList", topRatingList);
 			model.addAttribute("reserveList", topReserveList);
 
+			System.out.println("평점순 리스트 갯수 : " + topRatingList.size() );
+			System.out.println("예약순 리스트 갯수 : " + topReserveList.size() );
+
 		}
 		return "MainRecommend"; //MainRecommend.jsp
 	}
