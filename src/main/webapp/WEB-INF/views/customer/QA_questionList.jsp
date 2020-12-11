@@ -12,7 +12,6 @@
                         <li>문의ID</li>
                         <li>사용자ID</li>
                         <li>문의제목</li>
-                        <li>문의내용</li>
                         <li>등록날짜</li>
                         <li>답변여부</li>
                     </ul>
@@ -24,7 +23,6 @@
                     <ul>
                         <li>문의ID</li>
                         <li>문의제목</li>
-                        <li>문의내용</li>
                         <li>등록날짜</li>
                         <li>답변여부</li>
                     </ul>
@@ -41,7 +39,6 @@
                         <li>${dto.user_id}</li>
                     </c:if>
                         <li>${dto.q_title}</li>
-                        <li>${dto.q_content}</li>
                         <li>${dto.q_regidate}</li>
                         <c:choose>
                             <c:when test="${dto.answer_verify == 0}">
