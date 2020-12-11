@@ -51,4 +51,6 @@ public class MemberService {
 		int n = dao.emailCheck(user_email);
 		return n;
 	}
+
+
 }

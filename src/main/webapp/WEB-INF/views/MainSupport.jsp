@@ -5,13 +5,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" type="text/css" href="css/customer.css">
-	<link rel="stylesheet" type="text/css" href="css/customer_nav2.css">
-	<link rel="stylesheet" href="css/bootstrap.css" /><!-- 부트스트랩 -->
-	<script type="text/javascript" src="js/bootstrap.js"></script>
-	<script src="https://kit.fontawesome.com/400289e08c.js" crossorigin="anonymous"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="css/style.css"><link rel="stylesheet" type="text/css" href="css/customer.css">
+<link rel="stylesheet" type="text/css" href="css/customer_nav2.css">
+<link rel="stylesheet" href="css/bootstrap.css" /><!-- 부트스트랩 -->
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script src="https://kit.fontawesome.com/400289e08c.js" crossorigin="anonymous"></script>
 <style type="text/css">
 	a {
 		color: black; /* 임시값 나중에 Css 공통수정 */
