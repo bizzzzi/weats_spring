@@ -3,7 +3,7 @@
 		 pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <div style="height: 30px;"></div>
-<input class="js_pTotalCount" type="number" name="totalPersonnelConut" style="display: none" value="0">
+
 <div class="leports_detail_wrap">
 	<div class="contents">
 		<form action="loginCheck/leportsReserve" method="post">
@@ -77,7 +77,7 @@
 							<input class="js_itemPrice" type="text" name="item_price" value="${dto.leports_price}" style="display: none">
 							<div class="qty">
 								<button type="button" class="js_dwBtn btn"><span class="minus">-</span></button>
-								<input class="js_pCount count" type="text" name="totalPersonnelConut" value="0" readonly>
+								<input class="js_pCount count" type="text" name="personnelConut" value="0" readonly>
 								<button type="button" class="js_upBtn btn"><span class="plus">+</span></button>
 							</div>
 						</div>
@@ -102,6 +102,7 @@
 					총 금액 : <span class="js_total_amount">0</span>원
 				</div>
 				<input type="text" style="display: none" name="totalPrice" />
+				<input class="js_pTotalCount" type="number" name="totalPersonnelConut" style="display: none" value="0">
 			</div>
 			<div style="height: 100px;">
 				<input class="paymentBtn btn btn-primary" type="submit" value="결제하기" />

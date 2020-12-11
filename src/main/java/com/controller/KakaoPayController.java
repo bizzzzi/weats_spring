@@ -40,6 +40,7 @@ public class KakaoPayController {
         String rs_name  = map.get("rs_name");
         String rs_phone  = map.get("rs_phone");
         int quantity  = Integer.parseInt(map.get("totalPersonnelConut"));
+        System.out.println("예약 인원 수 : "+ quantity);
         String rs_date = map.get("reserveDay");
         int total_price = Integer.parseInt(map.get("totalPrice"));
         String item_name = "";
