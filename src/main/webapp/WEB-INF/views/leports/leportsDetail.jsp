@@ -12,6 +12,8 @@
 			<input type="text" name="c_address" style="display: none" value="${leportsDetail[0].c_address}">
 			<input type="text" name="c_detail_address" style="display: none" value="${leportsDetail[0].c_detail_address}">
 			<div class="leports_main_title">${leportsDetail[0].leports_title}</div>
+			<div class="leports_review_cnt">리뷰 개수: ${leportsDetail[0].review_cnt}</div>
+			<div class="leports_review_star">평점 : ${leportsDetail[0].review_star}</div>
 			<hr>
 			<div class="leports_img_wrap">
 				<div class="leports_items_img mainImg">

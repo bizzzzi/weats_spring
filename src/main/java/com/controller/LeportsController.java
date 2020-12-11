@@ -45,20 +45,17 @@ public class LeportsController {
 		map.put("loc", loc);
 		
 		List<LeportsThumbnailDTO> xxx = service.leportsList(map); //레포츠 전체 출력(레포츠 아이디 중복 포함)
-		
 		List<LeportsThumbnailDTO> list = new ArrayList<LeportsThumbnailDTO>(); //중복 제거해서 담을 리스트
 		if(xxx.size() != 0) {
 			LeportsThumbnailDTO dto = xxx.get(0); //전체 받아온 리스트에서 0번째 리스트를 dto객체에 주입
 			list.add(dto);//주입받은 객체를 중복 제거 할 리스트에 주입
 			for(LeportsThumbnailDTO x: xxx) { //전체 리스트 사이즈만큼 반복
-				if(x.getLeports_id().equals(dto.getLeports_id())) { //전체 리스트의 첫번 째 객체랑 주입받은 객체랑 비교
-				} else {
+				if(!x.getLeports_id().equals(dto.getLeports_id())) { //전체 리스트의 첫번 째 객체랑 주입받은 객체랑 비교
 					dto = x; //다르면 list에 있는 객체를 ddd에 대입
 					list.add(dto); //바뀐 ddd객체를 중복 제거 리스트에 주입
 				}
 			}
 		}
-		List<String> aaa = new ArrayList<>();
 
 		if(selectAlign == null || selectAlign.equals("defalut")) {
 			Collections.sort(list);
