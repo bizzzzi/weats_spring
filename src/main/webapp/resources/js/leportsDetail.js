@@ -153,6 +153,23 @@ for(let i = 0; i < review_email.length; i++) {
 	review_email[i].innerText = originStr.toString().replace(new RegExp('.(?=.{0,' + strLength + '}@)', 'g'), '*');
 }
 
+// 예약 가능 인원 비동기
+
+let leports_item_mc = document.querySelectorAll('.leports_item_mc');
+let ajax_maxPerson = document.querySelectorAll('.ajax_maxPerson');
+
+let listArr = [];
+function ajaxList(arr) {
+	for(let i = 0; i < itemId.length; i++) {
+		for(let k = 0; k < arr.length; k++) {
+			if(itemId[i].value == arr[k]["LEPORTS_ITEM_ID"]){
+				leports_item_mc[i].innerText = "예약 가능 인원 : " + (Number(maxPerson[i].value) - arr[k]["RS_ITEM_PERSON"]);
+				maxPerson[i].value = (Number(maxPerson[i].value) - arr[k]["RS_ITEM_PERSON"]);
+			}
+		}
+	}
+}
+
 $('table').on("click", "td", function() {
 	$.ajax({
 		type : "POST",
@@ -163,8 +180,17 @@ $('table').on("click", "td", function() {
 		},
 		dataType : "json", // 응답 데이터 타입
 		success : function(data, status, xhr) {
-			console.log(data);
-			console.log("success");
+			totalAmount.innerText = 0;
+			totalAmount2.innerText = 0;
+			price = 0;
+			for(var i = 0; i < ajax_maxPerson.length; i++) {
+				pCount[i].value = 0;
+				maxPerson[i].value = ajax_maxPerson[i].value;
+				leports_item_mc[i].innerText = "예약 가능 인원 : " + ajax_maxPerson[i].value;
+				selectItem[i].innerHTML = "";
+			}
+			listArr = data;
+			ajaxList(listArr);
 		},
 		error : function(xhr, status, error) {
 			console.log("error");

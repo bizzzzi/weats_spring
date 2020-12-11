@@ -76,6 +76,7 @@
 							<input class="js_itemId" type="text" name="item_id" value="${dto.leports_item_id}" style="display: none">
 							<input class="js_itemName" type="text" name="item_title" value="${dto.leports_item_title}" style="display: none">
 							<input class="js_maxPerson" type="text" value="${dto.leports_max_capacity}" style="display: none">
+							<input class="ajax_maxPerson" type="text" value="${dto.leports_max_capacity}" style="display: none">
 							<input class="js_itemPrice" type="text" name="item_price" value="${dto.leports_price}" style="display: none">
 							<div class="qty">
 								<button type="button" class="js_dwBtn btn"><span class="minus">-</span></button>
