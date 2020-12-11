@@ -49,6 +49,7 @@
 				<value>com.dto.KakaoPayCancelDTO</value>
 				<value>com.dto.KakaoPayCancelDTO</value>
 				<value>com.dto.MyReserveDTO</value>
+				<value>com.dto.CustomerQnADTO</value>
 				<value>com.dto.ReservationItemDTO</value>
 			</list>
 		</property>
