@@ -537,6 +537,11 @@ video {
 	color: #656E74;
 }
 
+#leports_list .leports_item_review_star {
+	font-size: 15px;
+	color: #51ABF3;
+}
+
 #leports_list .leports_item_review {
 	font-size: 13px;
 	color: #A8AEB3;
@@ -598,6 +603,14 @@ video {
 
 #leports_Detail .contents {
 	width: 70%;
+}
+
+#leports_Detail .leports_review_star {
+	color: #51ABF3;
+}
+
+#leports_Detail .leports_review_cnt {
+	color: #838C94;
 }
 
 #leports_Detail .leports_main_title {

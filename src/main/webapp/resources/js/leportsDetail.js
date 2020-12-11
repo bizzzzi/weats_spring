@@ -7,7 +7,8 @@ let totalAmount = document.querySelector(".js_total_amount");
 let totalAmount2 = document.querySelector(".js_total_amount2");
 let totalPrice = document.querySelector("input[name='totalPrice']");
 let price = 0;
-
+// 아이템 아이디
+let itemId = document.querySelectorAll('.js_itemId');
 // 아이템 이름
 let itemName = document.querySelectorAll('.js_itemName');
 // 최대 인원
@@ -36,6 +37,7 @@ let down = (i, x) => {
 				<div class="select_item_price">${pCount[i].value * itemPrice[i].value}원</div>
 				<input type="text" style="display:none" value="${pCount[i].value * itemPrice[i].value}" name="items_price" />
 				<input type="text" style="display:none" value="${pCount[i].value}" name="reserve_count"/>
+				<input type="text" style="display:none" value="${itemId[i].value}" name="itemId"/>
 			</div>
 		   </div>`;
 		selectItemPrice = document.querySelectorAll('.select_item_price');
@@ -74,6 +76,7 @@ let up = (i, x) => {
 										<div class="select_item_price">${pCount[i].value * itemPrice[i].value}원</div>
 										<input type="text" style="display:none" value="${pCount[i].value * itemPrice[i].value}" name="items_price" />
 										<input type="text" style="display:none" value="${pCount[i].value}" name="reserve_count"/>
+										<input type="text" style="display:none" value="${itemId[i].value}" name="itemId"/>
 									</div>
 								   </div>`;
 		selectItemPrice = document.querySelectorAll('.select_item_price');
@@ -150,4 +153,48 @@ for(let i = 0; i < review_email.length; i++) {
 	review_email[i].innerText = originStr.toString().replace(new RegExp('.(?=.{0,' + strLength + '}@)', 'g'), '*');
 }
 
+// 예약 가능 인원 비동기
 
+let leports_item_mc = document.querySelectorAll('.leports_item_mc');
+let ajax_maxPerson = document.querySelectorAll('.ajax_maxPerson');
+
+let listArr = [];
+function ajaxList(arr) {
+	for(let i = 0; i < itemId.length; i++) {
+		for(let k = 0; k < arr.length; k++) {
+			if(itemId[i].value == arr[k]["LEPORTS_ITEM_ID"]){
+				leports_item_mc[i].innerText = "예약 가능 인원 : " + (Number(maxPerson[i].value) - arr[k]["RS_ITEM_PERSON"]);
+				maxPerson[i].value = (Number(maxPerson[i].value) - arr[k]["RS_ITEM_PERSON"]);
+			}
+		}
+	}
+}
+
+$('table').on("click", "td", function() {
+	$.ajax({
+		type : "POST",
+		url : "personCount", // 서버 주소
+		data : {
+			leports_id : $("#leports_id").val(), // 전송 데이터
+			rs_date : $("#rs_date").val(), // 전송 데이터
+		},
+		dataType : "json", // 응답 데이터 타입
+		success : function(data, status, xhr) {
+			totalAmount.innerText = 0;
+			totalAmount2.innerText = 0;
+			price = 0;
+			for(var i = 0; i < ajax_maxPerson.length; i++) {
+				pCount[i].value = 0;
+				maxPerson[i].value = ajax_maxPerson[i].value;
+				leports_item_mc[i].innerText = "예약 가능 인원 : " + ajax_maxPerson[i].value;
+				selectItem[i].innerHTML = "";
+			}
+			listArr = data;
+			ajaxList(listArr);
+		},
+		error : function(xhr, status, error) {
+			console.log("error");
+		}
+	});
+	
+});

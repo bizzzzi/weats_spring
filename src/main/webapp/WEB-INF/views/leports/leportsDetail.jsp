@@ -3,7 +3,7 @@
 		 pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <div style="height: 30px;"></div>
-<input class="js_pTotalCount" type="number" name="totalPersonnelConut" style="display: none" value="0">
+
 <div class="leports_detail_wrap">
 	<div class="contents">
 		<form action="loginCheck/leportsReserve" method="post">
@@ -12,6 +12,7 @@
 			<input type="text" name="c_address" style="display: none" value="${leportsDetail[0].c_address}">
 			<input type="text" name="c_detail_address" style="display: none" value="${leportsDetail[0].c_detail_address}">
 			<div class="leports_main_title">${leportsDetail[0].leports_title}</div>
+			<div class="leports_review_star">★${leportsDetail[0].review_star} <span class="leports_review_cnt">(${leportsDetail[0].review_cnt})</span></div>
 			<hr>
 			<div class="leports_img_wrap">
 				<div class="leports_items_img mainImg">
@@ -51,7 +52,8 @@
 					</thead>
 					<tbody></tbody>
 				</table>
-				<input class="choiceDay_data" name="reserveDay" type="text" value=""
+				<input type="text" id="leports_id" name="leports_id" style="display: none" value="${leports_id}">
+				<input id="rs_date" class="choiceDay_data" name="reserveDay" type="text" value=""
 					   style="display: none">
 				<!-- <div class="choiceDay_data"></div> -->
 			</div>
@@ -69,8 +71,11 @@
 							<span class="leports_item_price">${dto.leports_price}원</span><span class="person"> 1인</span>
 						</div>
 						<div class="list_item">
+
+							<input class="js_itemId" type="text" name="item_id" value="${dto.leports_item_id}" style="display: none">
 							<input class="js_itemName" type="text" name="item_title" value="${dto.leports_item_title}" style="display: none">
 							<input class="js_maxPerson" type="text" value="${dto.leports_max_capacity}" style="display: none">
+							<input class="ajax_maxPerson" type="text" value="${dto.leports_max_capacity}" style="display: none">
 							<input class="js_itemPrice" type="text" name="item_price" value="${dto.leports_price}" style="display: none">
 							<div class="qty">
 								<button type="button" class="js_dwBtn btn"><span class="minus">-</span></button>
@@ -99,6 +104,7 @@
 					총 금액 : <span class="js_total_amount">0</span>원
 				</div>
 				<input type="text" style="display: none" name="totalPrice" />
+				<input class="js_pTotalCount" type="number" name="totalPersonnelConut" style="display: none" value="0">
 			</div>
 			<div style="height: 100px;">
 				<input class="paymentBtn btn btn-primary" type="submit" value="결제하기" />
