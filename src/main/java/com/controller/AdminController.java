@@ -1,11 +1,17 @@
 package com.controller;
 
+import com.dto.CustomerQnADTO;
 import com.dto.MemberDTO;
 import com.dto.PartnerDTO;
 import com.encrypt.SHA256;
 import com.service.AdminService;
+import com.service.CustomerService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -84,4 +90,6 @@ public class AdminController {
         }
         return "redirect:/partnerList";
     }
+
+
 }

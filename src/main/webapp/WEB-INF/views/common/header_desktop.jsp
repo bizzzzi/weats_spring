@@ -17,7 +17,6 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
@@ -34,14 +33,14 @@
             </div>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="TradeList" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 중고거래 </a>
+            <a class="nav-link dropdown-toggle" href="${path}/TradeList" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 중고거래 </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="TradeList?trade_type=판매">판매</a>
-              <a class="dropdown-item" href="TradeList?trade_type=대여">대여</a>
+              <a class="dropdown-item" href="${path}/TradeList?trade_type=판매">판매</a>
+              <a class="dropdown-item" href="${path}/TradeList?trade_type=대여">대여</a>
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">고객센터</a>
+            <a class="nav-link" href="${path}/MainCustomer">고객센터</a>
           </li>
         </ul>
         <% MemberDTO dto = (MemberDTO)session.getAttribute("login"); if(dto != null){ String username = dto.getUser_name(); int partner_verify = dto.getPartner_verify(); int
@@ -51,7 +50,7 @@
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 관리자 </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="admin">관리자 페이지</a>
-              <a class="dropdown-item" href="logout">로그아웃</a>
+              <a class="dropdown-item" href="${path}/logout">로그아웃</a>
             </div>
           </li>
         </ul>
@@ -62,7 +61,7 @@
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="${path}/MainMemberMyPage">마이페이지</a>
               <a class="dropdown-item" href="partnerForm">파트너등록</a>
-              <a class="dropdown-item" href="logout">로그아웃</a>
+              <a class="dropdown-item" href="${path}/logout">로그아웃</a>
             </div>
           </li>
         </ul>
@@ -75,9 +74,9 @@
               <% if(partner_verify==1){ %>
               <a class="dropdown-item" href="#">파트너 승인 대기</a>
               <% } else if(partner_verify==2){%>
-              <a class="dropdown-item" href="partnerCheck/MainPartner">파트너 페이지</a>
+              <a class="dropdown-item" href="${path}/partnerCheck/MainPartner">파트너 페이지</a>
               <%}%>
-              <a class="dropdown-item" href="logout">로그아웃</a>
+              <a class="dropdown-item" href="${path}/logout">로그아웃</a>
             </div>
           </li>
         </ul>
