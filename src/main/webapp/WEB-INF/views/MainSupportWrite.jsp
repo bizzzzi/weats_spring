@@ -20,17 +20,20 @@
 </style>
 </head>
 <body>
+<div id="wrap">
 	<div id="desktop">
 		<jsp:include page="common/header_desktop.jsp" flush="true"></jsp:include>
-		<jsp:include page="common/loginForm_desktop.jsp" flush="true"></jsp:include>
-		<jsp:include page="common/signUpForm_desktop.jsp" flush="true"></jsp:include>
 	</div>
-	<div id="customer_cont">
-		<jsp:include page="admin/adminNav.jsp" flush="true"></jsp:include>
-		<jsp:include page="admin/AdminSupportForm.jsp" flush="true"></jsp:include>
+	<div id="adminPageWrap">
+		<div id="SideMenu">
+			<jsp:include page="admin/adminNav.jsp" flush="true"></jsp:include>
+		</div>
+		<div id="adminContent">	
+			<jsp:include page="admin/AdminSupportForm.jsp" flush="true"></jsp:include>
+		</div>	
 	</div>
-<script type="text/javascript" src="js/main.js"></script>
+		<jsp:include page="common/footer.jsp" flush="true"></jsp:include>
+</div>	
 <script type="text/javascript" src="js/modal.js"></script>
-<script type="text/javascript" src="js/signUpForm.js"></script>
 </body>
 </html>

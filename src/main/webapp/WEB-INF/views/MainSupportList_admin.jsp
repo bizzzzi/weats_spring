@@ -13,24 +13,22 @@
 <link rel="stylesheet" href="../css/bootstrap.css" /><!-- 부트스트랩 -->
 <script type="text/javascript" src="../js/bootstrap.js"></script>
 <script src="https://kit.fontawesome.com/400289e08c.js" crossorigin="anonymous"></script>
-<style type="text/css">
-	a {
-		color: black; /* 임시값 나중에 Css 공통수정 */
-	}
-</style>
 </head>
 <body>
+<div id="wrap">
 	<div id="desktop">
 		<jsp:include page="common/header_desktop.jsp" flush="true"></jsp:include>
-		<jsp:include page="common/loginForm_desktop.jsp" flush="true"></jsp:include>
-		<jsp:include page="common/signUpForm_desktop.jsp" flush="true"></jsp:include>
 	</div>
-	<div id="customer_cont">
-		<jsp:include page="admin/adminNav.jsp" flush="true"></jsp:include>
-		<jsp:include page="admin/AdminSupportList.jsp" flush="true"></jsp:include>
+	<div id="adminPageWrap">
+		<div id="SideMenu">
+			<jsp:include page="admin/adminNav.jsp" flush="true"></jsp:include>
+		</div>
+		<div id="adminContent">	
+			<jsp:include page="admin/AdminSupportList.jsp" flush="true"></jsp:include>
+		</div>	
 	</div>
-<script type="text/javascript" src="js/main.js"></script>
+		<jsp:include page="common/footer.jsp" flush="true"></jsp:include>
+</div>	
 <script type="text/javascript" src="js/modal.js"></script>
-<script type="text/javascript" src="js/signUpForm.js"></script>
 </body>
 </html>

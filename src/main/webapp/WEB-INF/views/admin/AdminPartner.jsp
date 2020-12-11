@@ -30,5 +30,4 @@
 					</ul>
 				</c:forEach>
 			</div>	
-	</div>
 </section>

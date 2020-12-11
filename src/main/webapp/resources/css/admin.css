@@ -1,18 +1,35 @@
 @charset "UTF-8";
-.sideMenu{
+#SideMenu {
 	width: 20%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	background: #B2D0EB;
+	padding: 30px 0;
 }
-.sideMenu ul{
-	padding-left:20px;
+#SideMenu h2{
+	margin-bottom: 30px;
 }
-.sideMenu ul li a{
-	display: block;
+#SideMenu ul li{
+  padding: 15px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
-.content{
-	width:80%;
-	margin-left: 20%;
-	padding-right: 3%;
+#SideMenu ul li a{
+	font-size: 1.2em;
 }
+#SideMenu ul li:hover{
+	background: #C3D9F0;
+}
+#adminContent {
+	width: 80%;
+	height: 100%;
+}
+#adminPageWrap {
+	display:flex;
+}
+/**/
 .content .subject{
 	justify-content: center;
 	align-items: center;
