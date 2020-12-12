@@ -5,29 +5,28 @@
 <!-- div class="Resale_list" -->
 
 <div class="trade_nav">
-	<ul>
-		<li><a href="TradeList?trade_type=판매">판매</a></li>
-		<li><a href="TradeList?trade_type=대여">대여</a></li>
+	<ul class="nav justify-content-center">
+		<li class="nav-item"><a class="nav-link" href="TradeList?trade_type=판매">판매</a></li>
+		<li class="nav-item"><a class="nav-link" href="TradeList?trade_type=대여">대여</a></li>
+		<li class="nav-item"><a class="nav-link" href="loginCheck/TradeList">내가 등록한 제품</a></li>
+		<li class="nav-item"><a class="nav-link" href="loginCheck/TradeWrite">판매/대여 등록</a></li>
 	</ul>
-	<div class="option_btn">
-<%--		<a href="TradeList?trade_type=self&user_id=M3">내가 등록한 제품</a>--%>
-		<a href="loginCheck/TradeList">내가 등록한 제품</a>
-		<a href="loginCheck/TradeWrite">판매/대여 등록</a>
-	</div>
 </div>
 
 <div class="products">
 	<div class="productsList">
 		<c:forEach var="x" items="${tradeList}" varStatus="status">
-		<ul class="trade_list">
+		<div class="trade_list">
 			<a href="TradeDetail?trade_id=${x.trade_id}">
-				<li class="trade_main_img" >
-					<img src="images/${x.trade_main_img}" >
-				</li>
-				<li><span class="trade_title">${x.trade_title}</span></li>
-				<li><span class="trade_price">${x.trade_price}</span></li>
+				<div class="trade_main_img">
+					<img src="images/${x.trade_main_img}" />
+				</div>
+				<ul class="trade_item_info">
+					<li class="trade_item_title">${x.trade_title}</li>
+					<li class="trade_item_price">${x.trade_price}원</li>
+				</ul>
 			</a>
-		</ul>
+		</div>
 		</c:forEach>
 	</div>
 </div>
