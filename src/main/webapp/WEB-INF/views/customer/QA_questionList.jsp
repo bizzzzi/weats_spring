@@ -7,7 +7,7 @@
         <c:choose>
             <c:when test="${fn:contains(path,'adminCheck')}">
                 <h2>사용자 문의 내역</h2>
-                <div class="qList">
+                <div class="qList subject">
                     <ul>
                         <li>문의ID</li>
                         <li>사용자ID</li>

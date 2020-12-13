@@ -4,7 +4,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <section>
 	<h2>회원관리</h2>
-		<div class="qList">
+		<div class="qList subject">
 			<ul>
 				<li>ID</li>
 				<li>회원이름</li>

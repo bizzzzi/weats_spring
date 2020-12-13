@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
     <section>
         <h2>고객센터 Support</h2>
-        <div class="qList">
+        <div class="qList subject">
             <ul>
                 <li>문의 유형</li>
                 <li>질문 제목</li>

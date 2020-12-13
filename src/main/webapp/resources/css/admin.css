@@ -5,8 +5,9 @@
 	display: flex;
 	flex-direction: column;
 	text-align: center;
-	background: #B2D0EB;
+	background: #95CEF7;
 	padding: 30px 0;
+	font-size: 1em;
 }
 #SideMenu h2{
 	margin-bottom: 30px;
@@ -20,7 +21,7 @@
 	font-size: 1.2em;
 }
 #SideMenu ul li:hover{
-	background: #C3D9F0;
+	background: #ABDEFB;
 }
 #adminContent {
 	width: 80%;
@@ -29,72 +30,59 @@
 #adminPageWrap {
 	display:flex;
 }
+
 /**/
-.content .subject{
-	justify-content: center;
-	align-items: center;
-	display: flex;
-}
-.content .subject ul{
-	display: flex;
-	text-align:center;
-	width: 100%;
-	background-color: #DEEAEE;
-	margin:0px 5px 5px 5px;
-	font-weight: 600;
-}
-.content .subject ul li{
-	text-align:center;
-	width:100%;
-	margin: 10px;
+h2{
+	padding: 20px;
 }
 
-.content .list{
-	justify-content:center;
-	align-items: center;
+.qList.subject ul{
+	background-color: #E3F7FE;
+	padding: 10px 0px;
+	margin: 10px 10px;
 }
-.content .list ul{
-	display: flex;
-	justify-content:center;
-}
-.content .list ul li{
-	text-align:center;
-	width:100%;
-	margin: 10px;
-}
-.content .list ul li a{
-	color:#C94C4C;
-}
+
 /* 파트너관리 상세 */
-
-.content .detail{
-	justify-content: center;
-	width:100%;
-	padding: 50px 0px;
+.content{
+    width: 100%;
+    display: block;
+    justify-content: center;
+    text-align: left;
+    padding-top: 30px;
 }
+.content .detail{
+    justify-content: center;
+    width: 100%;
+    display: flex;
+    padding: 20px;
+}
+
+
 .content .detail .detail_title{
-	position:absolute;
-	left:35%;
-	text-align:left;
-	padding-right: 30px;
+    width: 100%;
+    display: flex;
+    text-align: left;
+    justify-content: center;
 }
 .content .detail .detail_content{
-	position: relative;
-	width:100%;
-	left: 55%;
-	text-align: center;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    text-align: left;
 }
 .content .emailBtn{
-	margin:30px 0px;
-	text-align: center;
+    margin: 100px 0px 10px 0px;
+    text-align: center;
 }
 .content .emailBtn input{
-	padding: 10px 60px;
+    margin: 0px 30px;
+    padding: 10px 60px;
 }
 
 /*문의 답변 페이지*/
 ul.qnaList{
 	padding: 0 10px;
+
 }
 ul.qnaList li{
 	display: flex;

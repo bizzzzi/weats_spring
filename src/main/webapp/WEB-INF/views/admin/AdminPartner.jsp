@@ -3,9 +3,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <section>
-		<h1>파트너 관리</h1>
-		<hr>
-			<div class="qList">
+		<h2>파트너 관리</h2>
+			<div class="qList subject">
 				<ul>	
 					<li>멤버ID</li>
 					<li>파트너ID</li>
