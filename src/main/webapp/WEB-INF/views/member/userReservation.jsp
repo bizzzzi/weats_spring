@@ -19,7 +19,7 @@
    주소 : ${item.c_address}<br>
    상세주소 : ${item.c_detail_address}<br>
    파트너 연락처 : ${item.c_phone}<br>
-   예약인원 : ${item.rs_persons}명<br>
+   총 예약 티켓 : ${item.rs_persons}개<br>
    가격 : ${item.rs_price}원<br>
 	</div>
    <input type="hidden" class="review_verify" value="${item.review_verify}"/>

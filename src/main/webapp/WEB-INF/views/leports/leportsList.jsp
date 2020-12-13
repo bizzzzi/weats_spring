@@ -75,7 +75,7 @@
 					<li class="leports_item_loc">${dto.leports_loc}</li>
 					<li class="leports_item_title">${dto.leports_title}</li>
 					<li class="leports_item_summary">${dto.leports_summary}</li>
-					<li class="leports_item_review">리뷰 : ${dto.review_cnt}개</li>
+					<li class="leports_item_review"><span class="leports_item_review_star">★${dto.review_star}</span> ${dto.review_cnt}개</li>
 					<li class="leports_item_price">${dto.leports_price}원 / 1인</li>
 				</ul>
 			</div>

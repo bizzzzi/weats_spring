@@ -3,7 +3,9 @@ package com.controller;
 import com.dto.KakaoPayCancelDTO;
 import com.dto.MemberDTO;
 import com.dto.ReservationDTO;
+import com.dto.ReservationItemDTO;
 import com.service.KakaoPay;
+import com.service.LeportsService;
 import com.service.ReserveService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,10 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Controller
 public class KakaoPayController {
@@ -29,8 +28,13 @@ public class KakaoPayController {
     @Autowired
     private ReserveService service;
 
+    @Autowired
+    LeportsService leportsService;
+
     @PostMapping("loginCheck/kakaoPay")
-    public String kakaoPay(@RequestParam Map<String, String> map, @RequestParam(value="item_title") List<String> item_title, HttpSession session) {
+    public String kakaoPay(@RequestParam Map<String, String> map, @RequestParam(value="item_title") List<String> item_title
+            , @RequestParam(value="rs_item_id") List<String> item_id, @RequestParam(value="rs_item_person") List<String> item_person
+            , @RequestParam(value="rs_item_price") List<String> item_price, HttpSession session) {
         System.out.println("Controller kakaoPay()");
 
         MemberDTO mDTO = (MemberDTO) session.getAttribute("login");
@@ -40,13 +44,14 @@ public class KakaoPayController {
         String rs_name  = map.get("rs_name");
         String rs_phone  = map.get("rs_phone");
         int quantity  = Integer.parseInt(map.get("totalPersonnelConut"));
+        System.out.println("예약 인원 수 : "+ quantity);
         String rs_date = map.get("reserveDay");
         int total_price = Integer.parseInt(map.get("totalPrice"));
         String item_name = "";
         if(item_title.size() > 1) {
-            item_name = item_title.get(0) +" 외 "+ (item_title.size()-1);
+            item_name = item_title.get(0).replaceAll("[\\[\\]]", "") +" 외 "+ (item_title.size()-1);
         } else {
-            item_name = item_title.get(0);
+            item_name = item_title.get(0).replaceAll("[\\[\\]]", "");
         }
 
         //카카오 페이 결제 버튼 클릭 시 db에 insert (결제가 제대로 완료되지 않으면 delete, 예약 번호 때문)
@@ -63,6 +68,23 @@ public class KakaoPayController {
             Collections.sort(list, Collections.reverseOrder());
             String reservation_id = list.get(0);
             map.put("reservation_id", reservation_id);
+            ReservationItemDTO itemDTO = null;
+            List<ReservationItemDTO> itemList = new ArrayList<ReservationItemDTO>();
+            for(int i=0; i<item_title.size(); i++) {
+                itemDTO = new ReservationItemDTO(null, item_title.get(i).replaceAll("[\\[\\]]", "")
+                        , Integer.parseInt(item_person.get(i).replaceAll("[\\[\\]]", "")), Integer.parseInt(item_price.get(i).replaceAll("[\\[\\]]", "")
+                ), reservation_id, item_id.get(i).replaceAll("[\\[\\]]", ""));
+                service.reserveItemAdd(itemDTO);
+                leportsService.reserveCountUp(leports_id);
+
+                //list로 넘겨서 insert하는거 수정해야되는데 막혔음
+//                itemDTO = new ReservationItemDTO(null, item_title.get(i).replaceAll("[\\[\\]]", "")
+//                        , Integer.parseInt(item_person.get(i).replaceAll("[\\[\\]]", "")), Integer.parseInt(item_price.get(i).replaceAll("[\\[\\]]", "")
+//                ), reservation_id, item_id.get(i).replaceAll("[\\[\\]]", ""));
+//                itemList.add(itemDTO);
+//                service.reserveItemAdd(itemList);
+
+            }
         }
 
         session.setAttribute("user_info", map);
@@ -89,18 +111,23 @@ public class KakaoPayController {
         //결제가 제대로 완료되지 않았을 때
         Map<String, String> map = (Map<String, String>) session.getAttribute("user_info");
         MemberDTO memberDTO = (MemberDTO) session.getAttribute("login");
+        String leports_id = (String)session.getAttribute("leports_id");
         String user_id = memberDTO.getUser_id();
         String reservation_id = map.get("reservation_id");
 
         map.put("user_id", user_id);
         map.put("reservation_id", reservation_id);
         service.deleteReserve(map);
+
+
+        leportsService.reserveCountDown(leports_id);
+        rttr.addAttribute("leports_id", leports_id);
+//        service.deleteReserveItem(reservation_id);
         session.removeAttribute("user_info");
         session.removeAttribute("item_title");
         
         //상품 상세페이지로 이동
-        String leports_id = (String)session.getAttribute("leports_id");
-        rttr.addAttribute("leports_id", leports_id);
+
         return "redirect:leportsDetail";
     }
 
@@ -111,16 +138,19 @@ public class KakaoPayController {
         MemberDTO memberDTO = (MemberDTO) session.getAttribute("login");
         String rs_price = (String) session.getAttribute("rs_price");
         String reservation_id = (String) session.getAttribute("reservation_id");
+        String leports_id = (String)session.getAttribute("leports_id");
 
         Map<String,String> map = new HashMap<String,String>();
         map.put("user_id", memberDTO.getUser_id());
         map.put("reservation_id", reservation_id);
         String tid = service.tidSearch(map); //tid 검색
-        model.addAttribute("cancel_info", kakaopay.kakaopayCancel(tid, rs_price));
-        service.deleteReserve(map);
-        session.removeAttribute("reservation_id");
-        session.removeAttribute("rs_price");
-
+        if(tid != null) {
+            model.addAttribute("cancel_info", kakaopay.kakaopayCancel(tid, rs_price));
+            service.deleteReserve(map);
+            leportsService.reserveCountDown(leports_id);
+            session.removeAttribute("reservation_id");
+            session.removeAttribute("rs_price");
+        }
         return "payment/kakaoPayCancel";
     }
 }

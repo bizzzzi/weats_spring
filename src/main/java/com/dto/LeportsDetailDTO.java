@@ -24,6 +24,7 @@ public class LeportsDetailDTO {
 	private String leports_sub_img3;
 	private String leports_sub_img4;
 	private String leports_regidate;
+	private String leports_item_id;
 	private String leports_item_title;
 	private String leports_summary;
 	private String leports_price;
@@ -32,4 +33,6 @@ public class LeportsDetailDTO {
 	private String c_detail_address;
 	private String c_phone;
 	private String leports_content;
+	private int review_cnt;
+	private double review_star;
 }
