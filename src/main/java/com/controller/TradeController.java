@@ -4,24 +4,26 @@ import com.dto.MemberDTO;
 import com.dto.TradeCommentsDTO;
 import com.dto.TradeDTO;
 import com.service.TradeService;
+import lombok.extern.log4j.Log4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.reflect.Member;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Controller
 public class TradeController {
@@ -56,12 +58,35 @@ public class TradeController {
     //중고거래 상품 등록
     @RequestMapping(value="/loginCheck/TradeWrite")
     public String TradeWrite(){
+        final Logger logger = LoggerFactory.getLogger(TradeController.class);
+        logger.info("uploadForm");
         return "redirect:../tradeWrite";
     }
 
     //중고거래 상품 등록
     @RequestMapping(value="/TradeWrite")
-    public String TradeWriteForm(HttpSession session,TradeDTO dto){
+    public String TradeWriteForm(MultipartFile[] uploadFile, HttpSession session, TradeDTO dto){
+        String uploadFolder = "/Users/hhhhbbbb/upload";
+
+        final Logger logger = LoggerFactory.getLogger(TradeController.class);
+        System.out.println("trade_main_img: "+uploadFile);
+        System.out.println("중고거래 파일 목록:"+dto);
+        for (MultipartFile multipartFile : uploadFile){
+            logger.info("originalNmae: "+multipartFile.getOriginalFilename());
+            logger.info("origianl File Size: "+ multipartFile.getSize());
+            String uploadFileName = multipartFile.getOriginalFilename();
+            System.out.println("uploadFileName: "+uploadFileName);
+            uploadFileName = uploadFileName.substring(uploadFileName.lastIndexOf("\\")+1);
+            System.out.println("uploadFileName2: "+uploadFileName);
+            UUID uuid = UUID.randomUUID();
+            uploadFileName = uuid.toString()+"_"+uploadFileName;
+            File savaFile = new File(uploadFolder, uploadFileName);
+            try{
+                multipartFile.transferTo(savaFile);
+            }catch (Exception e){
+                logger.error(e.getMessage());
+            }
+        }
         MemberDTO member = (MemberDTO)session.getAttribute("login");
         dto.setUser_id(member.getUser_id());
         int result = service.TradeWrite(dto);
