@@ -21,7 +21,7 @@
 	<mvc:view-controller path="/productRegistrationForm_leports" view-name="productRegistrationForm_leports"/>
 	<mvc:view-controller path="/partnerMypage" view-name="partnerMypage"/>
 	<mvc:view-controller path="/productRegistrationForm_item" view-name="productRegistrationForm_item"/>
-	<mvc:view-controller path="/ProductControl" view-name="partner/ProductControl"/>
+	<mvc:view-controller path="/ProductControl" view-name="ProductControl"/>
 	<mvc:view-controller path="/MainMemberMyPage" view-name="MainMemberMyPage"/>
 	<mvc:view-controller path="/MainAccountManagement" view-name="MainAccountManagement"/>
 	<mvc:view-controller path="/passwdChange" view-name="passwdCheck/passwdChange"/>

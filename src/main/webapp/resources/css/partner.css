@@ -155,7 +155,38 @@ body {
   color: #212121;
   line-height: inherit;
 }
-
+/*등록상품 리스트*/
+.leportsProducts{
+	padding: 10px;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    flex-flow: wrap;
+    justify-content: space-around;
+}
+.partner_list{
+	padding: 10px;
+    display: flex;
+    margin: 10px;
+    border-radius: 5%;
+    border: 1px solid darkred;
+}
+.partner_main_img{
+	width: 100%;
+	height: 70%;
+	border: 1px solid black;
+}
+.partner_main_img img{
+	width: 300px;
+	height: 200px;
+}
+.partner_item_info{
+	width: 100%;
+	height:30%;
+	text-align: center;
+	margin: 10% 0%;
+}
+/* 
 .wrap ul {
   list-style: none;
   display: flex;
@@ -171,7 +202,7 @@ body {
   height: 60%;
   position: relative;
   padding: 3% 20%;
-  /* text-align: right; */
+  text-align: right;
 }
 
 .thead {
@@ -194,7 +225,7 @@ body {
   border-color: inherit;
 }
 
-/* 상품 출력될 테이블 라인 */
+상품 출력될 테이블 라인
 .thead, .tbody {
   border-bottom: 1px solid #e5e5e5;
   border-top: 0;
@@ -207,4 +238,4 @@ body {
 .partner_registration_form p{
 	display: flex;
     justify-content: center;
-}
+} */

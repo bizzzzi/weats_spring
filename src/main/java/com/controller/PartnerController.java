@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -136,16 +137,13 @@ public class PartnerController {
 	}
 
 	//레포츠 등록 리스트
-	@RequestMapping("/partnerCheck/LeportsAddList")
-	public ModelAndView LeportsAddList(HttpSession session) {
+	@GetMapping("/partnerCheck/LeportsAddList")
+	public String LeportsAddList(HttpSession session,Model model) {
 		PartnerDTO pdto=(PartnerDTO)session.getAttribute("partner");
 		String partner_id=pdto.getPartner_id();
 		List<LeportsDTO> list=pservice.ProductControl(partner_id);
-		ModelAndView mav=new ModelAndView();
-		mav.addObject("leportsAddList",list);
-		mav.setViewName("partner/ProductControl");
-		System.out.println(list);
-		return mav;
+		model.addAttribute("leportsAddList",list);
+		return "ProductControl";
 	}
 
 	//상품 상세페이지
