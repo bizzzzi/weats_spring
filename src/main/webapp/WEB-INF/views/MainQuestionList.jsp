@@ -29,9 +29,9 @@
 		<jsp:include page="common/signUpForm_desktop.jsp" flush="true"></jsp:include>
 	</div>
 	<c:set var="path" value="${requestScope['javax.servlet.forward.request_uri']}"></c:set>
-	<c:if test="${fn:contains(path,'loginCheck')}">
-		<jsp:include page="customer/customerNav.jsp" flush="true"></jsp:include>
-	</c:if>
+		<c:if test="${fn:contains(path,'loginCheck')}">
+			<jsp:include page="customer/customerNav.jsp" flush="true"></jsp:include>
+		</c:if>
 	<div id="customer_cont">
 		<c:if test="${fn:contains(path,'adminCheck')}">
 			<jsp:include page="admin/adminNav.jsp" flush="true"></jsp:include>

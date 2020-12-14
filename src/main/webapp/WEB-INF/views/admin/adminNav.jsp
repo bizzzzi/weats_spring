@@ -7,7 +7,7 @@
         <li><a href="${path}/memberList">회원관리</a></li>
         <li><a href="${path}/partnerList">파트너 관리</a></li>
         <li><a href="${path}/adminCheck/AllQuestionList">문의 관리</a></li>
-        <li><a href="${path}/adminCheck/SupportList">Support 리스트</a></li>
-        <li><a href="${path}/adminCheck/SupportWrite">Support 등록</a></li>
+        <li><a href="${path}/adminCheck/supportList">Support 리스트</a></li>
+        <li><a href="${path}/adminCheck/supportWriteForm">Support 등록</a></li>
     </ul>
 </div>

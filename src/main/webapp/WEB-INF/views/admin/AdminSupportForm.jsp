@@ -11,16 +11,16 @@
                             <option value="자주 묻는 질문">자주 묻는 질문</option>
                             <option value="파트너 등록 문의">파트너 등록 문의</option>
                             <option value="결제 취소 문의">결제 취소 문의</option>
-                            <option value="기타문의">기타문의</option>
+                            <option value="기타 문의">기타문의</option>
                         </select>
                     </li>
                     <li>
                         <strong>질문 제목</strong>
-                        <input type="text" name="s_title"/>
+                        <input type="text" name="s_question"/>
                     </li>
                     <li>
                         <strong>답변 내용</strong>
-                        <input type="text" name="s_detail"/>
+                        <input type="text" name="s_answer"/>
                     </li>
                 </ul>
                 <div class="qa_submit">

@@ -47,4 +47,20 @@ public class LeportsDAO {
 	public void reviewCountDown(String leports_id) {
 		template.update("reviewCountDown", leports_id);
 	}
+
+    public List<LeportsThumbnailDTO> ratingTopLeports() {
+		return template.selectList("ratingTopLeports");
+    }
+
+	public List<LeportsThumbnailDTO> reserveTopLeports() {
+		return template.selectList("reserveTopLeports");
+	}
+
+	public void reserveCountUp(String leports_id) {
+		template.update("reserveCountUp",leports_id);
+	}
+
+	public void reserveCountDown(String leports_id) {
+		template.update("reserveCountDown", leports_id);
+	}
 }
