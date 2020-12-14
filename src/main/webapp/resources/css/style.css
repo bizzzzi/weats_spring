@@ -475,11 +475,8 @@ video {
 	padding: 100px 0;
 }
 
-/* Resale 중고거래 - 혜빈*/
-#Resale_list .trade_nav>ul {
-	display: flex;
-	justify-content: center;
-} /* 레포츠 리스트 */
+
+/* 레포츠 리스트 */
 
 #leports_list .leports_item img{
 	width: 100%;
@@ -535,6 +532,11 @@ video {
 #leports_list .leports_item_summary {
 	font-size: 14px;
 	color: #656E74;
+}
+
+#leports_list .leports_item_review_star {
+	font-size: 15px;
+	color: #51ABF3;
 }
 
 #leports_list .leports_item_review {
@@ -598,6 +600,14 @@ video {
 
 #leports_Detail .contents {
 	width: 70%;
+}
+
+#leports_Detail .leports_review_star {
+	color: #51ABF3;
+}
+
+#leports_Detail .leports_review_cnt {
+	color: #838C94;
 }
 
 #leports_Detail .leports_main_title {
@@ -827,23 +837,58 @@ video {
 }
 
 
-#Resale_list .trade_nav>ul>li {
-	padding: 10px;
+
+
+/* 중고거래 */
+
+#Resale_list .trade_nav {
+	padding-bottom: 30px;
+}
+
+#Resale_list .trade_nav a {
+	border: 1px solid #F2F3F5;
+	border-radius: 8px;
+	margin: 0 2px;
 }
 
 
-/* 중고거래 - 혜빈 */
-.trade_nav .option_btn {
+#Resale_list .productsList {
+	width: 100%;
 	display: flex;
 	justify-content: center;
+	flex-wrap: wrap;
 }
 
-.trade_nav .option_btn a {
-	padding: 10px;
-	background: gray;
+#Resale_list .trade_list {
+	border-radius: 4px;
+	box-shadow: inset 0 0 0 1px rgba(0,0,0,.16);
+	width: 300px;
+	height: 300px;
+	margin: 10px;
 }
 
-.productsList {
+#Resale_list .trade_list img{
+	width: 100%;
+	object-fit: cover;
+	height: 200px;
+	border: 1px solid #D6D6D6;
+	border-radius: 4px;
+}
+
+#Resale_list .trade_item_info {
+	padding: 10px 16px 16px 16px;
+}
+
+#Resale_list .trade_item_info li {
+	margin-top: 8px;
+}
+
+#Resale_list .trade_item_price {
+	font-size: 16px;
+	color: #565C61;
+}
+
+/* .productsList {
 	width: 100%;
 	display: flex;
 	flex-wrap: wrap;
@@ -852,7 +897,7 @@ video {
 .trade_list {
 	width: 25%;
 	padding: 30px;
-}
+} */
 
 
 /* trade_recomments 대댓글 기능 - 혜빈 */
