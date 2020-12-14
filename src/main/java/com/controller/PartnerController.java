@@ -91,9 +91,8 @@ public class PartnerController {
 	@RequestMapping("/LeportsAdd")
 	public String ProductAdd(@ModelAttribute("LeportsForm")LeportsDTO dto,HttpSession session,RedirectAttributes attr) {
 		PartnerDTO pdto=(PartnerDTO) session.getAttribute("partner");
-		System.out.println("등록"+pdto);
 		String partner_id=pdto.getPartner_id();
-		dto.setPartner_id(partner_id);//session저장후 수정
+		dto.setPartner_id(partner_id);
 		pservice.leportsInsert(dto);
 		session.setAttribute("leports",dto);
 		attr.addFlashAttribute("LeportsForm",dto);
@@ -116,7 +115,6 @@ public class PartnerController {
 	public String LeportsIdSelect(@ModelAttribute("LeportsForm")LeportsDTO dto,RedirectAttributes attr) {
 		String leports_title=dto.getLeports_title();
 		LeportsDTO ldto=pservice.leportsIdSelect(leports_title);
-		//session.setAttribute("leports", ldto);
 		attr.addFlashAttribute("dto", ldto);
 		return "redirect:/productRegistrationForm_item";
 	}

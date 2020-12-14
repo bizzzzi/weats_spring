@@ -17,10 +17,11 @@ body {
 	display: flex;
 	flex-direction: column;
 	text-align: center;
-	background: #B2D0EB;
+	background: #95CEF7;
 	padding: 30px 0;
+	font-size: 1em;
 }
-#SideMenu h2{
+#SideMenu h3{
 	margin-bottom: 30px;
 }
 #SideMenu ul li{
@@ -32,14 +33,10 @@ body {
 	font-size: 1.2em;
 }
 #SideMenu ul li:hover{
-	background: #C3D9F0;
+	background: #ABDEFB;
 }
 #partnerContent {
 	width: 80%;
-	height: 100%;
-}
-#partnerFormContent{
-	width: 100%;
 	height: 100%;
 }
 #partnerPageWrap {
@@ -48,13 +45,11 @@ body {
 
 /*파트너 등록폼*/
 .partner_form {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  padding: 3% 20%;
+    width: 100%;
+    height: 100%;
+    padding: 0 15%;
 }
 .main_title {
-  /* font-size: 20pt; */
   display: flex;
   justify-content: center;
   padding-top: 20px;
@@ -62,71 +57,87 @@ body {
 }
 
 .partnerAllForm {
-  display: flex;
-  flex-direction: column;
-  background-color: rgb(255, 255, 255);
-  padding: 20px;
-  border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 100px;
+    width: 100%;
 }
-.title {
-  display: flex;
-  text-align:left;
-  margin-left:10%;
-}
-.partnerAllForm input[type="text"]{
-	padding: .8em 0.5em;
-    margin-left:10%;
-    margin-bottom:5px;
+.formBox input[type="text"]{
+	overflow: visible;
+    padding: 0.8em 0.5em;
+    margin-bottom: 5px;
     width: 50%;
-    font-size: 1em;
+}
+.formBox .postBtn{
+	display: block;
+    margin-bottom: 20px;
+    padding: 5px 15px;
 }
 
-.formBox .comment{
-    margin-left:10%;
-    margin-bottom:5px;
+.partner_form .partnerBtn{
+	width:100%;
+    justify-content: center;
+    display: flex;
+    margin-top: 40px;
 }
-.formBox input[type='file']{
-    margin-left:10%;
+.partner_form .partnerBtn.form{
+
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	text-align: center;
 }
-.formBox .guide_img{
+.partnerBtn input{
+	margin: auto;
+    padding: 10px 10%;
+}
+.partner_form img{
+	width: 100%;
+	
+}
+.partner_form .comment {
+  font-size: 9pt;
+}
+/* 상품등록 */
+.formBox textarea{
+	width: 100%;
+    resize: none;
+}
+.formBox #result{
+	color: red;
+}
+.item_wrap{
+	width: 100%;
 	display: flex;
 }
-.partner_form img {
-  max-width: 100%;
+.partner_form .item_wrap input{
+	width: 70%;
+	padding: 0.8em 0.5em;
 }
-
-.comment {
-  font-size: 9pt;
-  padding-top: 2%;
+.partnerAllForm.item{
+	display: flex;
+    flex-direction: column;
+    padding:0px;
+    width: 100%;
 }
-
-.partnerBtn {
-  background-color: rgb(255, 255, 255);
-  position: relative;
+.formBox.item{
+	width: 100%;
 }
-
-.partnerBtn .submitBtn:hover {
-  background-color: rgb(187, 221, 248);
+.addBtn{
+	width: 20%;
+    padding: 10px 40px;
+    margin: auto;
 }
-
-.partnerBtn p {
-  display: flex;
-  justify-content: center;
-  margin: 30px 0px;
+.partner_form .addItemList{
+    width: 100%;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
 }
-
-.partnerBtn .submitBtn {
-  display:block;
-  width: 200px;
-  height: 40px;
-  line-height: 40px;
-  border: 1px rgb(12, 11, 11) solid;
-  background-color: rgb(255, 255, 255); 
-  text-align: center;
-  cursor: pointer;
-  color: #333;
-  transition: all 0.9s, color 0.3;
-  margin:auto;
+.partner_form .addItemList input{
+    padding: 0.8em 0.5em;
+    margin: 5px;
+    width: 70%;
 }
 /*파트너 마이페이지*/
 
@@ -134,30 +145,6 @@ body {
   background-color: red;
   height: 200px;
 }
-
-.Btn, .addBtn{
-  display: block;
-  width: 200px;
-  height: 40px;
-  line-height: 40px;
-  border: 1px rgb(12, 11, 11) solid;
-  margin: 15px auto;
-  background-color: rgb(255, 255, 255);
-  text-align: center;
-  cursor: pointer;
-  color: #333;
-  transition: all 0.9s, color 0.3;
-}
-
-.Btn:hover {
-  background-color: rgb(187, 221, 248);
-}
-
-.btn_wrap {
-  display: flex;
-}
-
-
 
 .main_title {
   display: flex;
@@ -171,7 +158,6 @@ body {
 
 .wrap ul {
   list-style: none;
-  /* padding: inherit; */
   display: flex;
   background-color: rgb(255, 255, 255);
 }

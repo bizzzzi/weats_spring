@@ -10,7 +10,7 @@
   </header>
 
   <div class="partner_form" id="partner">
-    <form action="PartnerAdd" method="post" class="partnerAllForm">
+    <form action="PartnerAdd" method="post" class="partnerAllForm my">
     	
     	<div class="formBox">
 	        <div class="title">상호 이름*</div>
@@ -23,9 +23,9 @@
  		</div>
 		<div class="formBox">
 	        <div class="title">주소*</div>
-	          <div>
+	          <div class="post">
+	          	<input type="button" class="postBtn" onclick="sample4_execDaumPostcode()" value="우편번호 찾기">
 	            <input type="text" name="c_postnum" id="sample4_postcode" placeholder="우편번호">
-	            <input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기">
 	            <input type="text" name="c_address" id="sample4_roadAddress" placeholder="도로명주소">
 	            <input type="text" name="c_detail_address" id="sample4_jibunAddress" placeholder="상세주소 입력">
 	   		  </div>
@@ -56,9 +56,9 @@
 	          </div>
       	</div>
 
-      <div class="partnerBtn">
-        <p>아래 버튼을 선택하면 개인정보 동의 및 파트너 약관에 동의하는 것입니다.</p>
-        <button class="submitBtn" type="submit">확인 및 제출</button>
+      <div class="partnerBtn form">
+        <p>아래 버튼을 선택하면 개인정보 동의 및 파트너 약관에 동의하는 것입니다.</p><br>
+        <input type="submit" value="확인 및 제출">
       </div>
       
     </form>

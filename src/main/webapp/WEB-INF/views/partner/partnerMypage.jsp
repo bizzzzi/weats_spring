@@ -31,10 +31,10 @@
  		</div>
  		<div class="formBox">
 	        <div class="title">주소</div>
-	          <div>
-	            <input type="text" name="c_postnum" id="sample4_postcode" value="${pdto.c_postnum}">
-	            <input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
-	            <input type="text" name="c_address" id="sample4_roadAddress" value="${pdto.c_address}"><br>
+	          <div class="post">
+	          	<input type="button" class="postBtn" onclick="sample4_execDaumPostcode()" value="우편번호 찾기">
+	            <input type="text" name="c_postnum" id="sample4_postcode" value="${pdto.c_postnum}">            
+	            <input type="text" name="c_address" id="sample4_roadAddress" value="${pdto.c_address}">
 	            <input type="text" name="c_detail_address" id="c_detail_address" value="${pdto.c_detail_address}">
 	          </div>
 	    </div>      
@@ -58,12 +58,12 @@
 	          	사업자 등록증 사진을 업로드해주세요. 이미지 규격은 '*'을 권장합니다.
 	  	      </div>
 	  	</div>  
-      <div class="btn_wrap">
-        <button class="submitBtn Btn" type="submit" formaction="PartnerUpdate">정보 수정</button>
+      <div class="partnerBtn">
+        <input class="submitBtn Btn" type="submit" formaction="PartnerUpdate" value="정보 수정">
         <!-- 비밀번호 인증 후 파트너 정보 수정 -->
-        <button class="cancleBtn Btn" type="reset">취소</button>
+        <input class="cancleBtn Btn" type="reset" value="작성취소">
         <!-- 정보 초기화 버튼 -->
-        <button class="withdrawBtn Btn" type="submit" formaction="PartnerDelete">파트너 탈퇴</button>
+        <input class="withdrawBtn Btn" type="submit" formaction="PartnerDelete" value="파트너 탈퇴">
         <!-- 비밀번호 인증 후 파트너 탈퇴 -->
       </div>
     </form>
