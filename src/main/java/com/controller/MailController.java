@@ -41,6 +41,7 @@ public class MailController {
 		if(redirectMap != null) {
 			System.out.println("test2");
 			tomail = (String)session.getAttribute("tomail");
+			System.out.println("tomail : "+tomail);
 			title = (String) redirectMap.get("title");
 			content = (String) redirectMap.get("content");
 			System.out.println("mainSending");
@@ -55,7 +56,6 @@ public class MailController {
 			messageHelper.setTo(tomail); // 받는사람 이메일
 			messageHelper.setSubject(title); // 메일제목은 생략이 가능하다
 			messageHelper.setText(content, true); // 메일 내용
-
 			mailSender.send(message);
 		} catch (Exception e) {
 			System.out.println("test4");
@@ -63,23 +63,29 @@ public class MailController {
 		}
 	}
 	
-	@RequestMapping("/checkEmail")
-	public String mailCheck(HttpSession session, RedirectAttributes rttr) {
+	@RequestMapping(value = {"/join/checkEmail", "/password/checkEmail"})
+	public String mailCheck(HttpServletRequest request, HttpSession session, RedirectAttributes rttr) {
 		String user_email = (String) session.getAttribute("tomail");
 		String code = (String) session.getAttribute("code");
-		
+		System.out.println();
 		boolean rightCode = SHA256.getEncrypt(user_email, "cos").equals(code) ? true : false;
 		String next = "";
 		if(rightCode) {
-			System.out.println(user_email);
-			service.user_verifyUpdate(user_email);
-			rttr.addFlashAttribute("mesg", "회원가입 성공");
-			session.removeAttribute("tomail");
-			session.removeAttribute("code");
-			next = "redirect:/";
+			if(request.getRequestURI().equals("join")) {
+				System.out.println(user_email);
+				service.user_verifyUpdate(user_email);
+				rttr.addFlashAttribute("mesg", "회원가입 성공");
+				next = "redirect:/";
+			} else {
+				rttr.addFlashAttribute("user_email", user_email);
+				next = "redirect:../passwdChangeForm";
+			}
+
 		} else {
 			next = "mailSending";
 		}
+		session.removeAttribute("tomail");
+		session.removeAttribute("code");
 		return next;
 	}
 

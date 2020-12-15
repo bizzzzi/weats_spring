@@ -20,9 +20,9 @@ public class MemberService {
 	}
 	
 	//이메일 인증 검증
-	public int user_verifyUpdate(String user_email) {
+	public void user_verifyUpdate(String user_email) {
 		// TODO Auto-generated method stub
-		return dao.user_verifyUpdate(user_email);
+		dao.user_verifyUpdate(user_email);
 	}
 	
 	//회원의 salt키 추출

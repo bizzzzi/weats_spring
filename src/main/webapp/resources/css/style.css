@@ -59,7 +59,8 @@ footer{
 
 /* 모달 */
 .loginModal,
-.signUpModal {
+.signUpModal,
+.findPwModal {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -73,7 +74,8 @@ footer{
 }
 
 .modalOverlay,
-.modalOverlay2 {
+.modalOverlay2,
+.modalOverlay3 {
 	background-color: rgba(0, 0, 0, 0.6);
 	width: 100%;
 	height: 100%;
@@ -129,6 +131,10 @@ footer{
 	cursor: pointer;
 }
 
+#loginForm .findPw {
+	cursor: pointer;
+}
+
 #find a {
 	color: #6d6d6d;
 }
@@ -137,7 +143,7 @@ footer{
 	color: #1b1b1b;
 }
 
-/* 회원가입 폼 test */
+/* 회원가입 폼 */
 #signUpForm {
 	position: fixed;
 	left: 50%;
@@ -191,6 +197,50 @@ footer{
 	width: 300px;
 	height: 45px;
 	margin-top: 8px;
+	font-size: 16px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+/* 비밀번호찾기폼 */
+
+#findPwForm {
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	width: 500px;
+	height: 500px;
+	background-color: #fafafa;
+	border-radius: 10px;
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px
+		rgba(0, 0, 0, 0.23);
+	text-align: center;
+}
+
+#findPwForm .closeBtn3 {
+	position: absolute;
+	font-size: 18px;
+	right: 15px;
+	top: 15px;
+	cursor: pointer;
+}
+
+#findPwForm .findPw_info {
+	margin: 45px 0;
+}
+
+#findPwForm .findPw_info .signRow input {
+	width: 300px;
+	height: 47px;
+	margin: 20px 0;
+	font-size: 16px;
+}
+
+#findPwForm .findPw_info .findPwBtn {
+	width: 300px;
+	height: 45px;
+	margin: 30px 0;
 	font-size: 16px;
 	font-weight: bold;
 	cursor: pointer;

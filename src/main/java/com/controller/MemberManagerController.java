@@ -68,7 +68,7 @@ public class MemberManagerController {
                 session.removeAttribute("login");
                 next = "redirect:/";
             } else if(page.equals("pwchange")) { //비밀번호 변경 버튼 클릭 시
-                next = "redirect:/passwdChange";
+                next = "redirect:/passwdChangeForm";
             } else if(page.equals("reserveCancel")){
                 next = "redirect:/kakaopayCancel";
             }
@@ -79,10 +79,15 @@ public class MemberManagerController {
         return next;
     }
 
-    @PostMapping("/loginCheck/passwdChange")
-    public String passwdChacge(HttpSession session, @RequestParam("new_pw") String pw) {
+    @PostMapping("/passwdChange")
+    public String passwdChacge(HttpSession session, @RequestParam("new_pw") String pw, String user_email) {
         MemberDTO login = (MemberDTO) session.getAttribute("login");
-        String user_email = login.getUser_email();
+        String next = "redirect:/";
+        if(login != null) {
+            user_email = login.getUser_email();
+            next = "redirect:/MainAccountManagement";
+        }
+        System.out.println(user_email);
         String salt = memberService.getSaltMember(user_email);
         System.out.println(user_email);
         System.out.println(salt);
@@ -92,7 +97,7 @@ public class MemberManagerController {
         map.put("user_pw",new_pw);
         memberService.pwUpdate(map);
 
-        return "redirect:/MainAccountManagement";
+        return next;
     }
 
     @GetMapping("/loginCheck/myReservePage")
