@@ -120,11 +120,17 @@ public class CustomerController {
     }
 //    FAQ Detail
     @GetMapping(value = {"/adminCheck/supportDetail", "/supportDetail"})
-    public String SupportDetail(Model model, String support_id){
+    public String SupportDetail(HttpServletRequest request, Model model, String support_id){
         logger.debug("질문 ID ===> {} ", support_id);
         CustomerSupportDTO supportDTO = customerService.supportDetail(support_id);
         model.addAttribute("support", supportDTO);
-        return "MainSupportDetail";
+        if(request.getRequestURI().contains("adminCheck")){
+            return "MainSupportDetail";
+        } else{
+            return null;
+        }
+
+
     }
 
     //    FAQ Update
@@ -133,6 +139,7 @@ public class CustomerController {
         customerService.supportUpdate(supportDTO);
         return "redirect:supportList";
     }
+
     //    FAQ Delete
     @PostMapping("/adminCheck/supportDelete")
     public String SupportDelete(String support_id) {
