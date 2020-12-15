@@ -181,9 +181,9 @@ body {
     border: 1px solid darkred;
 }
 .partner_main_img{
-	width: 100%;
-	height: 70%;
-	border: 1px solid black;
+    width: 300px;
+    height: 70%;
+    border: 1px solid black;
 }
 .partner_main_img img{
 	width: 300px;
@@ -195,56 +195,40 @@ body {
 	text-align: center;
 	margin: 10% 0%;
 }
-/* 
-.wrap ul {
-  list-style: none;
-  display: flex;
-  background-color: rgb(255, 255, 255);
-}
-
-.wrap li {
-  padding: inherit;
-}
-
-.wrap {
-  width: 60%;
-  height: 60%;
-  position: relative;
-  padding: 3% 20%;
-  text-align: right;
-}
-
-.thead {
-  vertical-align: middle;
-  border-color: inherit;
-  box-sizing: border-box;
-  letter-spacing: 0px;
-}
-
-.thead li{
-  padding-right: 4rem;
-}
-
-.tbody {
-  color: rgba(33, 33, 33, 0.89);
-  font-size: 13px;
-  letter-spacing: 0px;
-  display: flex;
-  vertical-align: middle;
-  border-color: inherit;
-}
-
-상품 출력될 테이블 라인
-.thead, .tbody {
-  border-bottom: 1px solid #e5e5e5;
-  border-top: 0;
-  padding: 15px 8px;
-  vertical-align: middle;
-  font-weight: normal;
-  line-height: 1.42857143;
-}
-
-.partner_registration_form p{
+/* 예약관리 */
+.reservationControl{
 	display: flex;
     justify-content: center;
-} */
+    flex-wrap: wrap;
+}
+.rs_content{
+	display: flex;
+    padding: 10px;
+    margin: 10px;
+    width: 45%;
+    border: 1px solid black;
+}
+.rs_content .leports_main_img{
+    display: flex;
+    width: 50%;
+    margin-right: 3%;
+}
+.rs_content .leports_main_img img{
+	width: 200px;
+	height: 200px;
+	overflow: auto;
+}
+.rs_content .rs_info{
+	padding: 10px;
+    width: 100%;
+}
+.rs_content .rs_info .leports_title{
+    font-size: 1.4em;
+    margin-bottom: 5px;
+}
+.rs_content .rs_info ul{
+	padding: 10px;
+}
+.rs_content .rs_info ul li{
+    font-size: 1.2em;
+}
