@@ -88,6 +88,25 @@
 			findUserEmail.value = null;
 			findUserEmail.focus();
 			e.preventDefault();
+		} else {
+
 		}
 	})
+$("#ajax_findPw").on("submit", function() {
+	$.ajax({
+		type : "POST",
+		url : "findPasswd", // 서버 주소
+		data : {
+			user_email : $(".userEmail").val(), // 전송 데이터
+		},
+		dataType : "text", // 응답 데이터 타입
+		success : function(data, status, xhr) {
+			console.log("success");
+		},
+		error : function(xhr, status, error) {
+			console.log("error");
+		}
+	});
+
+});
 	

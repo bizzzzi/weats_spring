@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div id="passwdChangeContainer">
-		<form id="passwdChangeForm" action="loginCheck/passwdChange" method="post">
+		<form id="passwdChangeForm" action="passwdChange" method="post">
 			<div class="logo">로고</div>
 			<div class="title">비밀번호 변경</div>
 			<div class="comment">변경할 비밀번호를 입력하세요</div>
@@ -25,6 +25,7 @@
 			<div class="buttonWrap">
 				<button type="submit">확인</button>
 			</div>
+			<input type="hidden" name="user_email" value="${user_email}">
 		</form>
 	</div>
 	<script>

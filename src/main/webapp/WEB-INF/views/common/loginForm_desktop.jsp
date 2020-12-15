@@ -33,7 +33,7 @@
 <div class="findPwModal hidden">
 	<div class="modalOverlay3"></div>
 	<div id="findPwForm">
-		<form id="ajax_findPw" action="#" method="post">
+		<form id="ajax_findPw" action="mailCheck" method="post">
 			<div class="title">비밀번호찾기</div>
 			<div class="closeBtn3">❌</div>
 			<hr>
@@ -50,3 +50,4 @@
 		</form>
 	</div>
 </div>
+<script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
