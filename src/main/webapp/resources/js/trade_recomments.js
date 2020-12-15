@@ -78,11 +78,11 @@ function update(e){
 
 	if($("#"+trade_comment_id+">"+".re_comment_btn")){
 		$("#"+trade_comment_id+">"+".commentUpdate").replaceWith(`<textarea name="trade_recomment" rows="5" cols="100">${comment}</textarea>`);
-		$("#"+trade_comment_id+">"+".updateBtn").replaceWith(`<button class="updateBtn origin" data-commentid="${trade_comment_id}" onclick="updateFin(event)">저장</button>`);
+		$("#"+trade_comment_id+">"+".updateBtn").replaceWith(`<button class="updateBtn origin btn btn-secondary" data-commentid="${trade_comment_id}" onclick="updateFin(event)" style="margin-left:4px;">저장</button>`);
 		$("#"+trade_comment_id+">"+".re_comment_btn").replaceWith(`<div class="re_comment_btn" value="${trade_comment_id}"></div>`);
 	}else{
 		$("#"+trade_comment_id+">"+".commentUpdate").replaceWith(`<textarea name="trade_recomment" rows="5" cols="100">${comment}</textarea>`);
-		$("#"+trade_comment_id+">"+".updateBtn").replaceWith(`<button class="updateBtn" data-commentid="${trade_comment_id}" onclick="updateFin(event)">저장</button>`);
+		$("#"+trade_comment_id+">"+".updateBtn").replaceWith(`<button class="updateBtn btn btn-secondary" data-commentid="${trade_comment_id}" onclick="updateFin(event)" style="margin-left:4px;">저장</button>`);
 	}
 }
 function updateFin(e){
@@ -101,7 +101,7 @@ function updateFin(e){
 		success:function(data){
 			$("#"+trade_comment_id+"> .comment_regidate").replaceWith(`<p class="comment_regidate">${data}</p>`);
 			$("#"+trade_comment_id+">"+"textarea").replaceWith(`<span class="commentUpdate">${trade_comment}</span>`);
-			$("#"+trade_comment_id+">"+".updateBtn").replaceWith(`<button class="updateBtn" data-commentid="${trade_comment_id}" onclick="update(event)">수정</button>`);
+			$("#"+trade_comment_id+">"+".updateBtn").replaceWith(`<button class="updateBtn btn btn-secondary" data-commentid="${trade_comment_id}" onclick="update(event)" style="margin-left:4px;">수정</button>`);
 			if($(".updateBtn.origin")){
 				$("#"+trade_comment_id+">"+".re_comment_btn").replaceWith(`<button class="re_comment_btn" value="${trade_comment_id}" onclick="cowrite(event)" >댓글달기</button>`);
 
@@ -191,7 +191,7 @@ function getHtml(trade_id,comment_id,user_id){
 	        		"<input type='hidden' name='re_trade_comment_id' value='"+comment_id+"'>"+
 	        		"<input type='hidden' name='re_user_id' value='"+user_id+"'>"+
 	        		"<textarea name='trade_recomment' rows='5' cols='100'></textarea>"+
-	        		"<button type='button' class='re_comment_submit' onclick='reply(event)'>답글2</button>"+
+	        		"<br><button type='button' class='re_comment_submit btn btn-secondary' onclick='reply(event)'>답글</button>"+
 	        	"</form>";
  return result;
 }
@@ -201,11 +201,11 @@ function getHtml2(comment_id,trade_comment,comment_regidate,user_id){
   var result = '';
   result += "<div class='comment_cont re' id='"+comment_id+"'>"+
 	        		"<input type='hidden' name='trade_comment_id' value='"+comment_id+"'/>"+
-	  				"<strong style='color: #ff0000'>"+user_id+"</strong><br>"+
-	        		"<span class='commentUpdate'>"+trade_comment+"</span>"+
-	  				"<p class='comment_regidate'>"+comment_regidate+"</p>"+
-	  				"<button class='delBtn' data-commentid='"+comment_id+"' onclick='del(event)'>삭제</button>"+
-	  				"<button class='updateBtn' data-commentid='"+comment_id+"' onclick='update(event)'>수정</button>";
+	  				"<strong>"+user_id+"</strong><br>"+
+	        		"<div class='commentUpdate'>"+trade_comment+"</div>"+
+	  				"<div class='comment_regidate'>"+comment_regidate+"</div>"+
+	  				"<button class='delBtn btn btn-secondary' data-commentid='"+comment_id+"' onclick='del(event)'>삭제</button>"+
+	  				"<button class='updateBtn btn btn-secondary' data-commentid='"+comment_id+"' onclick='update(event)' style='margin-left:4px;'>수정</button>";
  return result;
 }
 
