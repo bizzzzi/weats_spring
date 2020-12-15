@@ -147,15 +147,13 @@ public class PartnerController {
 	}
 
 	//상품 상세페이지
-	@RequestMapping("/ProductDetail")
-	public ModelAndView ProductDetail(String leports_id) {
-		ModelAndView mav=new ModelAndView();
+	@GetMapping("/ProductDetail")
+	public String ProductDetail(String leports_id,Model model) {
 		LeportsDTO ldto=pservice.ProductDetailLeports(leports_id);
 		List<LeportsItemDTO> idto=pservice.ProductDetailItem(leports_id);
-		mav.addObject("ldto",ldto);
-		mav.addObject("idto",idto);
-		mav.setViewName("partner/productDetailControl");
-		return mav;
+		model.addAttribute("ldto",ldto);
+		model.addAttribute("idto",idto);
+		return "productDetailControl";
 	}
 
 	//상품 페이지 수정
@@ -185,13 +183,11 @@ public class PartnerController {
 
 	//예약관리
 	@RequestMapping("/partnerCheck/ProductResevation")
-	public ModelAndView ProductResevation(HttpSession session) {
-		ModelAndView mav=new ModelAndView();
+	public String ProductResevation(HttpSession session,Model model) {
 		MemberDTO mdto=(MemberDTO)session.getAttribute("login");
 		String user_id=mdto.getUser_id();
 		List<ReservationControlDTO>list=pservice.ReservationControl(user_id);
-		mav.addObject("leportsList",list);
-		mav.setViewName("partner/reservationControl");
-		return mav;
+		model.addAttribute("leportsList", list);
+		return "reservationControl";
 	}
 }

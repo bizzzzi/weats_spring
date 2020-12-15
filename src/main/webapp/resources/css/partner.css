@@ -59,10 +59,10 @@ body {
 .partnerAllForm {
     display: flex;
     flex-direction: column;
-    padding: 10px 100px;
+/*     padding: 10px 100px; */
     width: 100%;
 }
-.formBox input[type="text"]{
+.formBox input[type="text"], input[type="number"], select{
 	overflow: visible;
     padding: 0.8em 0.5em;
     margin-bottom: 5px;
@@ -122,6 +122,9 @@ body {
 }
 .formBox.item{
 	width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .addBtn{
 	width: 20%;
@@ -130,14 +133,20 @@ body {
 }
 .partner_form .addItemList{
     width: 100%;
-    margin-top: 40px;
     display: flex;
     flex-direction: column;
+    padding: 10px;
 }
 .partner_form .addItemList input{
     padding: 0.8em 0.5em;
     margin: 5px;
-    width: 70%;
+    width: 50%;
+}
+.partner_form .addForm{
+    margin: 20px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 /*파트너 마이페이지*/
 

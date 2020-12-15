@@ -7,8 +7,9 @@ addItem.addEventListener('click', function(event) {
 	let summary=document.createElement("input");
 	let price=document.createElement("input");
 	let capacity=document.createElement("input");
-	let br=document.createElement("br");
+	let div=document.createElement("div");
 	
+	div.setAttribute('class','addForm');
 	
 	title.setAttribute('type','text');
 	title.setAttribute('class','leports_item_title');
@@ -30,10 +31,10 @@ addItem.addEventListener('click', function(event) {
 	capacity.setAttribute('placeholder','최대 수용 인원');
 	capacity.setAttribute('name','leports_max_capacity');
 	
-	addItemList.appendChild(title);
-	addItemList.appendChild(summary);
-	addItemList.appendChild(price);
-	addItemList.appendChild(capacity);
-	addItemList.appendChild(br);
+	addItemList.appendChild(div);
+	div.appendChild(title);
+	div.appendChild(summary);
+	div.appendChild(price);
+	div.appendChild(capacity);
 	
 });

@@ -17,9 +17,7 @@
 </head>
 <body>
   <header class="header">
-    <a href="MainPartner">메인으로 이동</a>
     <h1 class="main_title">예약 관리</h1>
-    <hr>
   </header>
   <div class="reservation_control_table wrap">
     <ul class="thead subject">
