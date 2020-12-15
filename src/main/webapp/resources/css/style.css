@@ -776,6 +776,16 @@ video {
 }
 
 /* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 1000px) {
+  #leports_Detail .contents {
+    width: 100%;
+  }
+  
+  #leports_Detail .side_nav {
+  	display: none;
+  }
+}
+
 @media screen and (max-width: 800px) {
   #leports_Detail .leports_items_img {
     flex: 50%;
