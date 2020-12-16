@@ -41,6 +41,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update customer_question set answer_verify = 0 where question_id = #{question_group}
 	</update>
 
+	<select id="questionUseremail" parameterType="string" resultType="string">
+		select user_email from customer_question question_id = #{question_group}
+	</select>
+
 <!--	관리자가 FAQ 등록-->
 	<insert id="supportWrite" parameterType="CustomerSupportDTO">
 		insert into customer_support values('S'||support_seq.nextval, #{s_type}, #{s_question}, #{s_answer})
