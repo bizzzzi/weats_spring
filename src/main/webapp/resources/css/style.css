@@ -21,8 +21,8 @@
 }
 
 html, body {
-  width: 100%; 
-  height:100%;
+	width: 100%;
+	height: 100%;
 }
 
 body {
@@ -33,12 +33,12 @@ a {
 	text-decoration: none;
 	color: black;
 }
-ol,
-ul,
-dl {
+
+ol, ul, dl {
 	margin-top: 0;
 	margin-bottom: 0;
 }
+
 li {
 	list-style: none;
 	color: black;
@@ -50,17 +50,14 @@ li {
 	padding-bottom: 233px; /* footer height */
 }
 
-footer{
+footer {
 	width: 100%;
-	position:absolute;
-   	bottom:0;
+	position: absolute;
+	bottom: 0;
 }
 
-
 /* 모달 */
-.loginModal,
-.signUpModal,
-.findPwModal {
+.loginModal, .signUpModal, .findPwModal {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -73,9 +70,7 @@ footer{
 	display: none;
 }
 
-.modalOverlay,
-.modalOverlay2,
-.modalOverlay3 {
+.modalOverlay, .modalOverlay2, .modalOverlay3 {
 	background-color: rgba(0, 0, 0, 0.6);
 	width: 100%;
 	height: 100%;
@@ -203,7 +198,6 @@ footer{
 }
 
 /* 비밀번호찾기폼 */
-
 #findPwForm {
 	position: fixed;
 	left: 50%;
@@ -431,20 +425,18 @@ footer{
 	font-size: 12px;
 }
 
-
-
 video {
 	position: absolute;
-  	top: 50%; 
-  	left: 50%;
- 	-webkit-transform: translateX(-50%) translateY(-50%);
-  	transform: translateX(-50%) translateY(-50%);
-  	min-width: 100%; 
-  	min-height: 100%; 
-  	width: auto; 
-  	height: auto;
-  	z-index: -1000; 
-  	overflow: hidden;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	transform: translateX(-50%) translateY(-50%);
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	z-index: -1000;
+	overflow: hidden;
 }
 
 /* recommend */
@@ -525,10 +517,8 @@ video {
 	padding: 100px 0;
 }
 
-
 /* 레포츠 리스트 */
-
-#leports_list .leports_item img{
+#leports_list .leports_item img {
 	width: 100%;
 	object-fit: cover;
 	height: 200px;
@@ -556,7 +546,7 @@ video {
 
 #leports_list .leports_items .leports_item {
 	border-radius: 4px;
-	box-shadow: inset 0 0 0 1px rgba(0,0,0,.16);
+	box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .16);
 	width: 300px;
 	height: 350px;
 	margin: 10px;
@@ -609,21 +599,21 @@ video {
 /* 레포츠 디테일 */
 #leports_Detail .leports_detail_wrap {
 	display: flex;
-    justify-content: space-between;
+	justify-content: space-between;
 }
 
 #leports_Detail .side_nav {
-    width: 320px;
-    height: 255px;
-    line-height: 70px;
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-    border: 1px solid #E9ECEF;
-    border-radius: 4px;
-    text-align: center;
-    background-color: #F5F6F7;
-    box-shadow: 0 4px 8px 0 rgba(33,37,41,.1), 0 0 0 1px #e9ecef;
+	width: 320px;
+	height: 255px;
+	line-height: 70px;
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+	border: 1px solid #E9ECEF;
+	border-radius: 4px;
+	text-align: center;
+	background-color: #F5F6F7;
+	box-shadow: 0 4px 8px 0 rgba(33, 37, 41, .1), 0 0 0 1px #e9ecef;
 }
 
 .side_nav_contents {
@@ -673,13 +663,13 @@ video {
 	margin-bottom: 16px;
 }
 
-
 /* 달력 */
 .calendar_wrap {
 	border: 1px solid #E9ECEF;
-	display:flex;
+	display: flex;
 	justify-content: center;
 }
+
 .scriptCalendar a {
 	color: #000000;
 	text-decoration: none;
@@ -718,11 +708,12 @@ video {
 	justify-content: space-between;
 	border: 1px solid #E9ECEF;
 	border-radius: 4px;
-	box-shadow: 0 4px 8px 0 rgba(33,37,41,.1), 0 0 0 1px #e9ecef;
+	box-shadow: 0 4px 8px 0 rgba(33, 37, 41, .1), 0 0 0 1px #e9ecef;
 	background-color: #FFFFFF;
 	margin: 10px;
 	padding: 12px;
 }
+
 #leports_Detail .string_day {
 	margin: 15px 11px;
 	font-size: 18px;
@@ -740,7 +731,7 @@ video {
 
 #leports_Detail .leports_item_mc {
 	font-size: 13px;
-    color: #A8AEB3;
+	color: #A8AEB3;
 }
 
 #leports_Detail .leports_item_price {
@@ -758,46 +749,47 @@ video {
 }
 
 .qty .count {
-    color: #000;
-    display: inline-block;
-    vertical-align: top;
-    font-size: 25px;
-    font-weight: 700;
-    line-height: 30px;
-    padding: 0 2px;
-    min-width: 35px;
-    text-align: center;
+	color: #000;
+	display: inline-block;
+	vertical-align: top;
+	font-size: 25px;
+	font-weight: 700;
+	line-height: 30px;
+	padding: 0 2px;
+	min-width: 35px;
+	text-align: center;
 }
 
 .qty .plus {
-    cursor: pointer;
-    display: inline-block;
-    vertical-align: top;
-    width: 30px;
-    height: 30px;
-    font: 30px/1 Arial,sans-serif;
-    text-align: center;
-    border-radius: 50%;
-    }
-    
+	cursor: pointer;
+	display: inline-block;
+	vertical-align: top;
+	width: 30px;
+	height: 30px;
+	font: 30px/1 Arial, sans-serif;
+	text-align: center;
+	border-radius: 50%;
+}
+
 .qty .minus {
-    cursor: pointer;
-    display: inline-block;
-    vertical-align: top;
-    width: 30px;
-    height: 30px;
-    font: 30px/1 Arial,sans-serif;
-    text-align: center;
-    border-radius: 50%;
-    background-clip: padding-box;
+	cursor: pointer;
+	display: inline-block;
+	vertical-align: top;
+	width: 30px;
+	height: 30px;
+	font: 30px/1 Arial, sans-serif;
+	text-align: center;
+	border-radius: 50%;
+	background-clip: padding-box;
 }
 
 .qty div {
-    text-align: center;
+	text-align: center;
 }
-.qty input{  
-    border: 0;
-    width: 2%;
+
+.qty input {
+	border: 0;
+	width: 2%;
 }
 
 #leports_Detail .leports_img_wrap {
@@ -807,53 +799,53 @@ video {
 }
 
 #leports_Detail .leports_items_img {
-  flex: 25%;
-  max-width: 25%;
-  padding: 0 4px;
+	flex: 25%;
+	max-width: 25%;
+	padding: 0 4px;
 }
+
 #leports_Detail .mainImg {
-  flex: 50%;
-  max-width: 50%;
-  padding: 0 4px;
+	flex: 50%;
+	max-width: 50%;
+	padding: 0 4px;
 }
 
 #leports_Detail .leports_items_img img {
-  margin-top: 8px;
-  vertical-align: middle;
-  width: 100%;
-  border-radius: 2px;
-  
+	margin-top: 8px;
+	vertical-align: middle;
+	width: 100%;
+	border-radius: 2px;
 }
 
 /* Responsive layout - makes a two column-layout instead of four columns */
 @media screen and (max-width: 1000px) {
-  #leports_Detail .contents {
-    width: 100%;
-  }
-  
-  #leports_Detail .side_nav {
-  	display: none;
-  }
+	#leports_Detail .contents {
+		width: 100%;
+	}
+	#leports_Detail .side_nav {
+		display: none;
+	}
 }
 
 @media screen and (max-width: 800px) {
-  #leports_Detail .leports_items_img {
-    flex: 50%;
-    max-width: 50%;
-  }
+	#leports_Detail .leports_items_img {
+		flex: 50%;
+		max-width: 50%;
+	}
 }
 
 /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
-  #leports_Detail .leports_items_img {
-    flex: 100%;
-    max-width: 100%;
-  }
+	#leports_Detail .leports_items_img {
+		flex: 100%;
+		max-width: 100%;
+	}
 }
 
 #leports_Detail .select_item_price {
 	color: #485155;
 }
+
 #leports_Detail .select_item_info {
 	display: flex;
 	justify-content: space-between;
@@ -896,11 +888,7 @@ video {
 	margin-bottom: 16px;
 }
 
-
-
-
 /* 중고거래 */
-
 #Resale_list .trade_nav {
 	padding-bottom: 30px;
 }
@@ -911,7 +899,6 @@ video {
 	margin: 0 2px;
 }
 
-
 #Resale_list .productsList {
 	width: 100%;
 	display: flex;
@@ -921,13 +908,13 @@ video {
 
 #Resale_list .trade_list {
 	border-radius: 4px;
-	box-shadow: inset 0 0 0 1px rgba(0,0,0,.16);
+	box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .16);
 	width: 300px;
 	height: 300px;
 	margin: 10px;
 }
 
-#Resale_list .trade_list img{
+#Resale_list .trade_list img {
 	width: 100%;
 	object-fit: cover;
 	height: 200px;
@@ -949,82 +936,88 @@ video {
 }
 
 /* trade_recomments 대댓글 기능 - 혜빈 */
-.comment_cont.re{
-	background:#f7f9fa;
-	margin:15px;
+.comment_cont.re {
+	background: #f7f9fa;
+	margin: 15px;
 }
 
-.trade_main_img{
-	width:100%;
+.trade_main_img {
+	width: 100%;
 }
-.trade_main_img > img{
+
+.trade_main_img>img {
 	width: 100%;
 	object-fit: cover;
 	height: 135px;
 }
-.trade_main_img2{
-	width:60%;
+
+.trade_main_img2 {
+	width: 60%;
 }
-.trade_img li{
+
+.trade_img li {
 	display: flex;
 	justify-content: center;
 	border: 1px solid #D6D6D6;
 	border-radius: 4px;
 }
-.trade_img div{
+
+.trade_img div {
 	display: flex;
 }
-.trade_img div img{
-	width:100%;
+
+.trade_img div img {
+	width: 100%;
 }
-.trade_title{
-	color:red
+
+.trade_title {
+	color: red
 }
-#Resale_list section{
-	width:70%;
+
+#Resale_list section {
+	width: 70%;
 }
 
 .text_info .item_info_title {
 	margin-top: 4px;
-    font-size: 22px;
-    font-weight: 600;
-    line-height: 1.76;
-    letter-spacing: -0.6px;
+	font-size: 22px;
+	font-weight: 600;
+	line-height: 1.76;
+	letter-spacing: -0.6px;
 }
 
 .text_info .item_info_regidate {
 	margin-top: 4px;
-    font-size: 13px;
-    line-height: 1.46;
-    letter-spacing: -0.6px;
-    color: #868e96;
+	font-size: 13px;
+	line-height: 1.46;
+	letter-spacing: -0.6px;
+	color: #868e96;
 }
 
 .text_info .item_info_user {
 	margin-top: 12px;
-    font-size: 17px;
-    line-height: 1.76;
-    letter-spacing: -0.6px;
+	font-size: 17px;
+	line-height: 1.76;
+	letter-spacing: -0.6px;
 }
 
 .text_info .item_info_price {
 	margin-top: 4px;
-    font-size: 17px;
-    font-weight: 600;
-    line-height: 1.76;
-    letter-spacing: -0.6px;
+	font-size: 17px;
+	font-weight: 600;
+	line-height: 1.76;
+	letter-spacing: -0.6px;
 }
 
 .text_info .item_info_phone {
 	margin-top: 4px;
-    font-size: 15px;
-    line-height: 1.76;
-    letter-spacing: -0.6px;
+	font-size: 15px;
+	line-height: 1.76;
+	letter-spacing: -0.6px;
 }
 
-#Resale_list .products_info .text_info li,
-.trade_contents {
-	padding:5px;
+#Resale_list .products_info .text_info li, .trade_contents {
+	padding: 5px;
 }
 
 #Resale_list .commentBtn {
@@ -1036,62 +1029,210 @@ video {
 	font-size: 12px;
 }
 
-
-
 /* 리뷰 별점 */
-	/* 레이아웃 외곽 너비 400px 제한*/
-#reviewWrite .wrap{
-    max-width: 480px;
-    /* margin: 0 auto; 화면 가운데로 */
-    background-color: #fff;
-    height: 100%;
-    padding: 20px;
-    box-sizing: border-box;
+/* 레이아웃 외곽 너비 400px 제한*/
+#reviewWrite .wrap {
+	max-width: 480px;
+	/* margin: 0 auto; 화면 가운데로 */
+	background-color: #fff;
+	height: 100%;
+	padding: 20px;
+	box-sizing: border-box;
+}
 
+#reviewWrite .reviewform textarea {
+	width: 100%;
+	padding: 10px;
+	box-sizing: border-box;
 }
-#reviewWrite .reviewform textarea{
-    width: 100%;
-    padding: 10px;
-    box-sizing: border-box;
-}
+
 #reviewWrite .rating .rate_radio {
-    position: relative;
-    display: inline-block;
-    z-index: 20;
-    opacity: 0.001;
-    width: 60px;
-    height: 60px;
-    background-color: #fff;
-    cursor: pointer;
-    vertical-align: top;
-    display: none;
+	position: relative;
+	display: inline-block;
+	z-index: 20;
+	opacity: 0.001;
+	width: 60px;
+	height: 60px;
+	background-color: #fff;
+	cursor: pointer;
+	vertical-align: top;
+	display: none;
 }
-#reviewWrite .rating .rate_radio + label {
-    position: relative;
-    display: inline-block;
-    margin-left: -4px;
-    z-index: 10;
-    width: 30px;
-    height: 30px;
-    background-image: url('../images/starrate.png');
-    background-repeat: no-repeat;
-    background-size: 30px 30px;
-    cursor: pointer;
-    background-color: #f0f0f0;
+
+#reviewWrite .rating .rate_radio+label {
+	position: relative;
+	display: inline-block;
+	margin-left: -4px;
+	z-index: 10;
+	width: 30px;
+	height: 30px;
+	background-image: url('../images/starrate.png');
+	background-repeat: no-repeat;
+	background-size: 30px 30px;
+	cursor: pointer;
+	background-color: #f0f0f0;
 }
-#reviewWrite .rating .rate_radio:checked + label {
-    background-color: red;
+
+#reviewWrite .rating .rate_radio:checked+label {
+	background-color: red;
 }
 
 #reviewWrite .warning_msg {
-    display: none;
-    position: relative;
-    text-align: center;
-    background: #ffffff;
-    line-height: 26px;
-    width: 100%;
-    color: #ff0000;
-    padding: 10px;
-    box-sizing: border-box;
-    border: 1px solid #e0e0e0;
+	display: none;
+	position: relative;
+	text-align: center;
+	background: #ffffff;
+	line-height: 26px;
+	width: 100%;
+	color: #ff0000;
+	padding: 10px;
+	box-sizing: border-box;
+	border: 1px solid #e0e0e0;
+}
+
+/* 결제페이지 */
+.payment_form_wrap {
+	background-color: #f5f6f7;
+}
+
+.payment_form {
+	margin: 0 10%;
+}
+
+.payment_contents_wrap {
+	display: flex;
+	justify-content: space-between;
+	padding-bottom: 100px;
+}
+
+.PRODUCT_INFORMATION, .payment_contents {
+	background-color: #FFFFFF;
+	padding: 24px;
+	border: 1px solid rgb(221, 221, 221);
+	border-radius: 12px;
+}
+
+.PRODUCT_INFORMATION {
+	width: 35%;
+}
+
+.payment_contents {
+	width: 55%;
+	display: flex; flex-direction : column;
+	justify-content: space-between;
+	flex-direction: column;
+}
+
+.payment_header_title {
+	padding-top: 56px;
+	margin-bottom: 24px;
+	font-size: 30px;
+	font-weight: 700;
+	line-height: 1.07;
+	letter-spacing: -0.42px;
+	color: #343a40;
+}
+
+.payment_leports_item_info img {
+	border-radius: 4px;
+}
+
+.payment_leports_item_info .leports_title {
+	font-size: 17px;
+	font-weight: 600;
+	line-height: 1.41;
+	color: #343a40;
+	margin: 10px 0;
+}
+
+.payment_leports_item_info .rs_date {
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 1;
+	color: #495056;
+}
+
+.payment_leports_item_info .leports_item_title {
+	font-size: 14px;
+	color: #495056;
+	line-height: 1.43;
+	margin-bottom: 6px;
+}
+
+.payment_leports_item_info .rs_price {
+	display: flex;
+	justify-content: space-between;
+	color: #848c94;
+	line-height: 1.14;
+	font-size: 14px;
+}
+
+.payment_leports_item_info .rs_price .item_total_price {
+	color: #495056;
+	line-height: 1.14;
+	font-size: 16px;
+}
+
+.payment_leports_total_price {
+	display: flex;
+	justify-content: space-between;
+}
+
+@media screen and (max-width: 800px) {
+	.payment_contents_wrap {
+		display: block;
+	}
+	.PRODUCT_INFORMATION {
+		width: 100%;
+	}
+	.payment_contents {
+		width: 100%;
+	}
+}
+
+.TRAVELER_INFORMATION {
+	margin-top: 15px;
+	margin-bottom: 50px;
+}
+
+.RETURN_POLICY {
+	width: 100%;
+	padding: 5px;
+	border: 1px solid rgb(221, 221, 221);
+	border-radius: 12px;
+	margin-top: 15px;
+	margin-bottom: 50px;
+}
+
+/* 예약성공 */
+#kakaoPaySuccess {
+	display: flex;
+	flex-direction: column;
+	width: 50%;
+	height: 50%;
+	text-align: center;
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	background-color: white;
+	border-radius: 15px;
+	box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px
+		rgba(0, 0, 0, 0.08);
+}
+
+.kakaoPayTitle {
+	margin-top: 50px;
+	font-size: 40px;
+	font-weight: bold;
+}
+
+.kakaoPayName, .kakaoPayItemName, .kakaoPayQuantity, .kakaoPayTotal {
+	margin: 10px;
+}
+
+#kakaoPaySuccess button {
+	margin-top: 40px;
+    width: 300px;
+    margin: auto;
 }
