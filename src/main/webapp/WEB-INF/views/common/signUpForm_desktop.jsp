@@ -4,6 +4,7 @@
 <div class="signUpModal hidden">
 	<div class="modalOverlay2"></div>
 	<div id="signUpForm">
+		<%--비밀번호 찾기 메일 전송 jsp 만들어야 함--%>
 		<form id="userJoin" action="mailCheck" method="POST">
 			<div id="signUp">
 				<div class="title">회원가입</div>

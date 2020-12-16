@@ -29,7 +29,7 @@
 			인증 메일이 <span class="mailCheckFormEmail"><%=tomail%></span> (으)로
 			전송되었습니다.
 		</p>
-		<p>받으신 이메일을 열어 버튼을 클릭하면 가입이 완료됩니다.</p>
+		<p>메일을 확인해주세요.</p>
 		<button onclick="location.href='/weats/'">확인</button>
 	</div>
 </body>

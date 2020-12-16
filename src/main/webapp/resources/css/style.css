@@ -59,7 +59,8 @@ footer{
 
 /* 모달 */
 .loginModal,
-.signUpModal {
+.signUpModal,
+.findPwModal {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -73,7 +74,8 @@ footer{
 }
 
 .modalOverlay,
-.modalOverlay2 {
+.modalOverlay2,
+.modalOverlay3 {
 	background-color: rgba(0, 0, 0, 0.6);
 	width: 100%;
 	height: 100%;
@@ -129,6 +131,10 @@ footer{
 	cursor: pointer;
 }
 
+#loginForm .findPw {
+	cursor: pointer;
+}
+
 #find a {
 	color: #6d6d6d;
 }
@@ -137,7 +143,7 @@ footer{
 	color: #1b1b1b;
 }
 
-/* 회원가입 폼 test */
+/* 회원가입 폼 */
 #signUpForm {
 	position: fixed;
 	left: 50%;
@@ -191,6 +197,50 @@ footer{
 	width: 300px;
 	height: 45px;
 	margin-top: 8px;
+	font-size: 16px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+/* 비밀번호찾기폼 */
+
+#findPwForm {
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	width: 500px;
+	height: 500px;
+	background-color: #fafafa;
+	border-radius: 10px;
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px
+		rgba(0, 0, 0, 0.23);
+	text-align: center;
+}
+
+#findPwForm .closeBtn3 {
+	position: absolute;
+	font-size: 18px;
+	right: 15px;
+	top: 15px;
+	cursor: pointer;
+}
+
+#findPwForm .findPw_info {
+	margin: 45px 0;
+}
+
+#findPwForm .findPw_info .signRow input {
+	width: 300px;
+	height: 47px;
+	margin: 20px 0;
+	font-size: 16px;
+}
+
+#findPwForm .findPw_info .findPwBtn {
+	width: 300px;
+	height: 45px;
+	margin: 30px 0;
 	font-size: 16px;
 	font-weight: bold;
 	cursor: pointer;
@@ -776,6 +826,16 @@ video {
 }
 
 /* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 1000px) {
+  #leports_Detail .contents {
+    width: 100%;
+  }
+  
+  #leports_Detail .side_nav {
+  	display: none;
+  }
+}
+
 @media screen and (max-width: 800px) {
   #leports_Detail .leports_items_img {
     flex: 50%;
@@ -888,25 +948,10 @@ video {
 	color: #565C61;
 }
 
-/* .productsList {
-	width: 100%;
-	display: flex;
-	flex-wrap: wrap;
-}
-
-.trade_list {
-	width: 25%;
-	padding: 30px;
-} */
-
-
 /* trade_recomments 대댓글 기능 - 혜빈 */
 .comment_cont.re{
 	background:#f7f9fa;
-	border-bottom:2px solid #dae1e6;
-}
-.comment_cont.re:last-child{
-	border-bottom: none;
+	margin:15px;
 }
 
 .trade_main_img{
@@ -920,9 +965,11 @@ video {
 .trade_main_img2{
 	width:60%;
 }
-.trade_img > li{
+.trade_img li{
 	display: flex;
 	justify-content: center;
+	border: 1px solid #D6D6D6;
+	border-radius: 4px;
 }
 .trade_img div{
 	display: flex;
@@ -936,11 +983,57 @@ video {
 #Resale_list section{
 	width:70%;
 }
-#Resale_list .products_info .text_info li{
-	padding:15px 5px;
+
+.text_info .item_info_title {
+	margin-top: 4px;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.76;
+    letter-spacing: -0.6px;
 }
-.comment_cont{
-	border-bottom: 2px solid #dae1e6;
+
+.text_info .item_info_regidate {
+	margin-top: 4px;
+    font-size: 13px;
+    line-height: 1.46;
+    letter-spacing: -0.6px;
+    color: #868e96;
+}
+
+.text_info .item_info_user {
+	margin-top: 12px;
+    font-size: 17px;
+    line-height: 1.76;
+    letter-spacing: -0.6px;
+}
+
+.text_info .item_info_price {
+	margin-top: 4px;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.76;
+    letter-spacing: -0.6px;
+}
+
+.text_info .item_info_phone {
+	margin-top: 4px;
+    font-size: 15px;
+    line-height: 1.76;
+    letter-spacing: -0.6px;
+}
+
+#Resale_list .products_info .text_info li,
+.trade_contents {
+	padding:5px;
+}
+
+#Resale_list .commentBtn {
+	margin-top: 5px;
+	float: right;
+}
+
+#Resale_list .comment_regidate {
+	font-size: 12px;
 }
 
 

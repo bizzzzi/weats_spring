@@ -34,5 +34,6 @@ public class LeportsDetailDTO {
 	private String c_phone;
 	private String leports_content;
 	private int review_cnt;
+
 	private double review_star;
 }
