@@ -1095,3 +1095,120 @@ video {
     box-sizing: border-box;
     border: 1px solid #e0e0e0;
 }
+
+/* 결제페이지 */
+.payment_form_wrap {
+	background-color: #f5f6f7;
+}
+
+.payment_form {
+	margin: 0 10%;
+}
+
+.payment_contents_wrap {
+	display:flex;
+	justify-content: space-between;
+	padding-bottom: 100px;
+}
+
+.PRODUCT_INFORMATION,
+.payment_contents {
+	background-color: #FFFFFF;
+	padding: 24px;
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 12px;
+}
+
+.PRODUCT_INFORMATION {
+	width: 35%;
+}
+
+.payment_contents {
+    width: 55%;
+    display: flex;
+	flex-direction: column;
+    justify-content: space-between;
+}
+
+.payment_header_title {
+	padding-top: 56px;
+    margin-bottom: 24px;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.07;
+    letter-spacing: -0.42px;
+    color: #343a40;
+}
+
+.payment_leports_item_info img {
+	border-radius: 4px;
+}
+
+.payment_leports_item_info .leports_title {
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.41;
+    color: #343a40;
+    margin: 10px 0;
+}
+
+.payment_leports_item_info .rs_date {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+    color: #495056;
+}
+
+.payment_leports_item_info .leports_item_title {
+    font-size: 14px;
+    color: #495056;
+    line-height: 1.43;
+    margin-bottom: 6px;
+}
+
+.payment_leports_item_info .rs_price {
+    display:flex;
+    justify-content: space-between;
+    color: #848c94;
+    line-height: 1.14;
+    font-size: 14px;
+}
+
+.payment_leports_item_info .rs_price .item_total_price{
+    color: #495056;
+    line-height: 1.14;
+    font-size: 16px;
+}
+
+.payment_leports_total_price {
+	display:flex;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 800px) {
+    .payment_contents_wrap {
+		display:block;
+	}
+	
+	.PRODUCT_INFORMATION {
+		width: 100%;
+	}
+
+	.payment_contents {
+		width: 100%;
+	}
+}
+
+.TRAVELER_INFORMATION{
+	margin-top: 15px;
+	margin-bottom: 50px;
+}
+
+.RETURN_POLICY {
+	width: 100%;
+	padding: 5px;
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 12px;
+    margin-top: 15px;
+    margin-bottom: 50px;
+}
