@@ -12,7 +12,6 @@
 #mypageContent, #reviewWrite {
 	width: 80%;
 	height: 100%;
-	background-color: darkgrey;
 }
 
 #myPageWrap {
@@ -20,40 +19,31 @@
 }
 /*계정관리*/
 .accountContent {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 100%;
-	width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 55vh;
+    width: 100%;
 }
 .account{
-	margin:10px auto;
-	height: 50vh;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width:100%;
+ 	margin:10px auto;
+    padding: 5%;
+    border-radius: 10px;
+    box-shadow: 0 10px 10px rgba(0,0,0,.1);
 }
-
-.account .userName span{
-	justify-content: center;
-	text-align: center;
-	font-size: 20px;
-}
-.account .userEmail span{
-	justify-content: center;
-	text-align: center;
-	font-size: 20px;
+.account .userInfo{
+	font-size: 1.2em;
+    margin: 10px;
 }
 .account .accountMenu{
-	margin-top: 40px;
-	justify-content: center;
-	text-align: center;
+    margin-top: 40px;
+    justify-content: center;
+    display: flex;
 }
 .account .accountMenu a{
-	border: 1px solid black;
-	padding: 10px 40px;
-	background-color: skyblue;
+    border: 1px solid black;
+    padding: 10px 40px;
+    margin: 0px 20px;
 }
 
 /* 나의예약내역	 */
@@ -70,7 +60,7 @@
 	font-size: 25px;
 }
 .itemInfo .reserve_top .top_date{
-	font-size: 15px;
+	font-size: 1.1em;
 }
 .itemInfo .myreserve span{
 	display: block;
@@ -79,16 +69,24 @@
 
 .reservationCancellation {
 	display:flex;
-	border: 1px solid black;
-	margin: 40px;
-	padding:20px;
+	border: 1px solid #999999;
+	border-radius:10px;
+	box-shadow: 0 10px 10px rgba(0,0,0,.1);
+    margin: 3% 10%;
+	padding:15px;
+	align-items: center;
 }
 
 .reservationCancellation .leportsImg {
 	width: 25%;
+	height: 200px;
+	margin-right: 5%;
+	padding: 5px;
+}
+.reservationCancellation .leportsImg img{
+	width: 100%;
 	height: 100%;
 }
-
 .reservationCancellation .itemInfo {
 	width: 50%;
 	height: 100%;
@@ -97,16 +95,9 @@
 .reservationCancellation .btn {
 	width: 20%;
 	height: 100%;
-	margin: auto;
 }
-.reservationCancellation .btn .reserveBtn{
-	cursor: pointer;
-	display:flex;
-	justify-content:center;
-	align-items:center;
-	text-align:center;
-}
-.reservationCancellation .btn .reserveBtn input{
+.reservationCancellation .btn input{
+	width: 100%;
 	padding: 10px 40px;
 	margin: 5px;
 }
@@ -139,43 +130,50 @@
 	padding: 10px 40px;
 }
 /* 나의 리뷰 내역 */
-.myReviewForm {
-	display:flex;
-	border: 1px solid black;
-	margin: 25px;
-	
+.myReviewAll{
+	display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
-
-.myReviewForm .leportsImg {
-	width: 20%;
-	height: 100%;
+.myReviewForm{
+    border: 1px solid #999999;
+    display: flex;
+    width: max-content;
+    flex-direction: column;
+    padding: 10px;
+    margin: 10px;
+    width: 30%;
+    border-radius:10px; 
 }
-
-.myReviewForm .itemInfo {
-	width: 60%;
-	height: 100%;
+.myReviewForm .itemTop{
 	padding: 10px;
+    display: flex;
 }
-.myReviewForm .itemInfo .top_title{
-	font-size:20px;
-	margin-right: 20px;
+.itemTop .leportsImg{
+    width: 50%;
+    height: 100px;
+    margin-right: 5%;
 }
-.myReviewForm .itemInfo .myreview_bottom{
-
-	padding:20px 10px;
-}
-.myReviewForm .itemInfo .myreview_bottom .review_content{
-	margin-bottom: 10px;
-	display: block;
-}
-.myReviewForm .btn {
-	width: 20%;
+.itemTop .leportsImg img{
+	width: 100%;
 	height: 100%;
-	margin: auto;
-	margin-right: 30px;
 }
-.myReviewForm .btn input{
-	padding: 10px 40px;
-	margin: 5px;
-	
+.myReviewForm .itemInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+.myReviewForm .itemContent{
+    margin: 10px 0px;
+}
+.myReviewForm .itemContent .date{
+    font-size: 0.8em;
+    color: #999999;
+}    
+.myReviewForm .itemContent .comments{
+    margin-top: 10px;
+}
+.myReviewForm .btn{
+    margin-top: auto;
 }
