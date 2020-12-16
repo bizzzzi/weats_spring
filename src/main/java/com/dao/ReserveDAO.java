@@ -8,6 +8,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -62,9 +63,9 @@ public class ReserveDAO {
         template.delete("reviewDelete", map);
     }
 
-    public void reserveItemAdd(ReservationItemDTO itemDTO) {
-        System.out.println(itemDTO);
-        template.insert("reserveItemAdd", itemDTO);
+    public void reserveItemAdd(ArrayList<ReservationItemDTO> itemDTOList) {
+        System.out.println(itemDTOList);
+        template.insert("reserveItemAdd", itemDTOList);
     }
 
 //    public void deleteReserveItem(String reservation_id) {

@@ -39,6 +39,9 @@ public class CustomerDAO {
         template.update("reQuestion", question_group);
     }
 
+    public String questionUseremail(String question_group) {
+        return template.selectOne("questionUseremail", question_group);
+    }
     public void supportWrite(CustomerSupportDTO supportDTO) {
         template.insert("supportWrite", supportDTO);
     }

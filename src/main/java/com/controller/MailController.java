@@ -57,6 +57,7 @@ public class MailController {
 			messageHelper.setSubject(title); // 메일제목은 생략이 가능하다
 			messageHelper.setText(content, true); // 메일 내용
 			mailSender.send(message);
+
 		} catch (Exception e) {
 			System.out.println("test4");
 			e.printStackTrace();
@@ -82,7 +83,8 @@ public class MailController {
 			}
 
 		} else {
-			next = "mailSending";
+			rttr.addFlashAttribute("mesg", "만료된 작업입니다.");
+			next = "redirect:/";
 		}
 		session.removeAttribute("tomail");
 		session.removeAttribute("code");
