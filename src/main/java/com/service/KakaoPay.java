@@ -45,6 +45,7 @@ public class KakaoPay {
 
         // 서버로 요청할 Header
         HttpHeaders headers = new HttpHeaders();
+//        headers.add("Authorization", "KakaoAK " + "2205cce01014f20ea162e302d60d1d14");
         headers.add("Authorization", "KakaoAK " + "9878cbbff3c62606cc0c687926f0f79a");
         headers.add("Accept", MediaType.APPLICATION_JSON_UTF8_VALUE);
         headers.add("Content-Type", MediaType.APPLICATION_FORM_URLENCODED_VALUE + ";charset=UTF-8");
@@ -58,6 +59,9 @@ public class KakaoPay {
         params.add("quantity", quantity);
         params.add("total_amount", totalPrice);
         params.add("tax_free_amount", "0");
+//        params.add("approval_url", "http://localhost:8900/weats/kakaoPaySuccess");
+//        params.add("cancel_url", "http://localhost:8900/weats/kakaoPayReadyCancel");
+//        params.add("fail_url", "http://localhost:8900/weats/kakaoPaySuccessFail");
         params.add("approval_url", "http://localhost:8080/weats/kakaoPaySuccess");
         params.add("cancel_url", "http://localhost:8080/weats/kakaoPayReadyCancel");
         params.add("fail_url", "http://localhost:8080/weats/kakaoPaySuccessFail");
@@ -92,6 +96,7 @@ public class KakaoPay {
 
         // 서버로 요청할 Header
         HttpHeaders headers = new HttpHeaders();
+//        headers.add("Authorization", "KakaoAK " + "2205cce01014f20ea162e302d60d1d14");
         headers.add("Authorization", "KakaoAK " + "9878cbbff3c62606cc0c687926f0f79a");
         headers.add("Accept", MediaType.APPLICATION_JSON_UTF8_VALUE);
         headers.add("Content-Type", MediaType.APPLICATION_FORM_URLENCODED_VALUE + ";charset=UTF-8");
@@ -131,6 +136,7 @@ public class KakaoPay {
         RestTemplate restTemplate = new RestTemplate();
 
         HttpHeaders headers = new HttpHeaders();
+//        headers.add("Authorization", "KakaoAK " + "2205cce01014f20ea162e302d60d1d14");
         headers.add("Authorization", "KakaoAK " + "9878cbbff3c62606cc0c687926f0f79a");
         headers.add("Accept", MediaType.APPLICATION_JSON_UTF8_VALUE);
         headers.add("Content-Type", MediaType.APPLICATION_FORM_URLENCODED_VALUE + ";charset=UTF-8");
