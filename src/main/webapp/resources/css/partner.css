@@ -24,15 +24,13 @@ body {
 #SideMenu h3{
 	margin-bottom: 30px;
 }
-#SideMenu ul li{
-  padding: 15px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-#SideMenu ul li a{
+#SideMenu a{
 	font-size: 1.2em;
+	padding: 15px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
-#SideMenu ul li:hover{
+#SideMenu a:hover{
 	background: #ABDEFB;
 }
 #partnerContent {

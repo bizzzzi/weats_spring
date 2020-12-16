@@ -32,7 +32,7 @@
 		            <li>예약일 : ${dto.rs_date}</li>
 		            <li>인원수 : ${dto.rs_persons}</li>
 		            <li>예약자 : ${dto.rs_name}</li>
-		            <li>잔화번호 : ${dto.rs_phone}</li>
+		            <li>전화번호 : ${dto.rs_phone}</li>
 		            <li>가격 : ${dto.rs_price}</li>
 		        </ul>
 		     </div> 
