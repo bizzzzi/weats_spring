@@ -3,24 +3,38 @@
 #mypageSideMenu {
 	width: 20%;
 	height: 100%;
-	background-color: grey;
 	display: flex;
 	flex-direction: column;
 	text-align: center;
+	background: #95CEF7;
+	padding: 30px 0;
+	font-size: 1em;
 }
 
 #mypageContent, #reviewWrite {
 	width: 80%;
 	height: 100%;
 }
+#mypageSideMenu h3{
+	margin-bottom: 30px;
+}
+#mypageSideMenu a{
+	font-size: 1.2em;
+	  padding: 15px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+#mypageSideMenu a:hover{
+	background: #ABDEFB;
+}
+#myPageWrap {
+	display:flex;
+}
 .myPageTitle{
 	border-bottom: 5px solid #2F98ED;
     width: fit-content;
     margin: 1%;
     padding: 10px;
-}
-#myPageWrap {
-	display:flex;
 }
 /*계정관리*/
 .accountContent {
@@ -45,10 +59,14 @@
     justify-content: center;
     display: flex;
 }
-.account .accountMenu a{
-    border: 1px solid black;
+/*버튼*/
+.account .accountMenu a, .btn input{
     padding: 10px 40px;
     margin: 0px 20px;
+    background: #51ABF3;
+    color: #fff;
+    border: 1px solid #51ABF3;
+    border-radius: 4px;
 }
 
 /* 나의예약내역	 */
@@ -93,7 +111,7 @@
 	height: 100%;
 }
 .reservationCancellation .itemInfo {
-	width: 50%;
+	width: 55%;
 	height: 100%;
 }
 
@@ -103,7 +121,7 @@
 }
 .reservationCancellation .btn input{
 	width: 100%;
-	padding: 10px 40px;
+	padding: 5% 10%;
 	margin: 5px;
 }
 /* 리뷰작성 */
