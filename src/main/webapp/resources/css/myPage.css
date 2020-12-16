@@ -13,7 +13,12 @@
 	width: 80%;
 	height: 100%;
 }
-
+.myPageTitle{
+	border-bottom: 5px solid #2F98ED;
+    width: fit-content;
+    margin: 1%;
+    padding: 10px;
+}
 #myPageWrap {
 	display:flex;
 }
@@ -29,7 +34,7 @@
  	margin:10px auto;
     padding: 5%;
     border-radius: 10px;
-    box-shadow: 0 10px 10px rgba(0,0,0,.1);
+    box-shadow: 0 8px 16px 0 rgba(33,37,41,.15);
 }
 .account .userInfo{
 	font-size: 1.2em;
@@ -69,9 +74,9 @@
 
 .reservationCancellation {
 	display:flex;
-	border: 1px solid #999999;
+	border: 1px solid #e9ecef;;
 	border-radius:10px;
-	box-shadow: 0 10px 10px rgba(0,0,0,.1);
+	box-shadow: 0 8px 16px 0 rgba(33,37,41,.15);
     margin: 3% 10%;
 	padding:15px;
 	align-items: center;

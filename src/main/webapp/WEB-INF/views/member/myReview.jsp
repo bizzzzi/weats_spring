@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<h2>나의 리뷰 내역</h2>
+<h2 class="myPageTitle">나의 리뷰 내역</h2>
 <div class="myReviewAll">
 	<c:forEach var="review" items="${reviewList}" varStatus="status">
 		<form class="myReviewForm" action="reviewDelete" method="post">

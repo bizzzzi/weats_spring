@@ -2,7 +2,7 @@
        pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<h1>나의예약내역</h1>
+<h2 class="myPageTitle">나의예약내역</h2>
 <!-- 예약갯수만큼 반복 출력 -->
 <c:forEach var="item" items="${myReserve}" varStatus="status">
 <form class="reservationCancellation" action="passwdCheck" method="get">
