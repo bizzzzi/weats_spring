@@ -39,6 +39,10 @@ public class CustomerService {
         dao.reQuestion(question_group);
     }
 
+    public String questionUseremail(String question_group) {
+        return dao.questionUseremail(question_group);
+    }
+
     public void supportWrite(CustomerSupportDTO supportDTO) {
         dao.supportWrite(supportDTO);
     }

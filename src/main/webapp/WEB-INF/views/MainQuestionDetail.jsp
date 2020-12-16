@@ -33,12 +33,14 @@
 		</c:if>
 	<div id="customer_cont">
 		<c:if test="${fn:contains(path,'adminCheck')}">
-		<jsp:include page="admin/adminNav.jsp" flush="true"></jsp:include>
+			<jsp:include page="admin/adminNav.jsp" flush="true"></jsp:include>
+
 		</c:if>
 		<jsp:include page="customer/QA_questionDetail.jsp" flush="true"></jsp:include>
 	</div>
-	<script type="text/javascript" src="js/main.js"></script>
-	<script type="text/javascript" src="js/modal.js"></script>
-	<script type="text/javascript" src="js/signUpForm.js"></script>
+	<script type="text/javascript" src="../js/main.js"></script>
+	<script type="text/javascript" src="../js/modal.js"></script>
+	<script type="text/javascript" src="../js/signUpForm.js"></script>
+	<script type="text/javascript" src="../js/answerMail.js"></script>
 </body>
 </html>
