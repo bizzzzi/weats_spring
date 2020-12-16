@@ -69,20 +69,20 @@ public class KakaoPayController {
             String reservation_id = list.get(0);
             map.put("reservation_id", reservation_id);
             ReservationItemDTO itemDTO = null;
-            List<ReservationItemDTO> itemList = new ArrayList<ReservationItemDTO>();
+            ArrayList<ReservationItemDTO> itemList = new ArrayList<ReservationItemDTO>();
             for(int i=0; i<item_title.size(); i++) {
-                itemDTO = new ReservationItemDTO(null, item_title.get(i).replaceAll("[\\[\\]]", "")
-                        , Integer.parseInt(item_person.get(i).replaceAll("[\\[\\]]", "")), Integer.parseInt(item_price.get(i).replaceAll("[\\[\\]]", "")
-                ), reservation_id, item_id.get(i).replaceAll("[\\[\\]]", ""));
-                service.reserveItemAdd(itemDTO);
-                leportsService.reserveCountUp(leports_id);
-
-                //list로 넘겨서 insert하는거 수정해야되는데 막혔음
 //                itemDTO = new ReservationItemDTO(null, item_title.get(i).replaceAll("[\\[\\]]", "")
 //                        , Integer.parseInt(item_person.get(i).replaceAll("[\\[\\]]", "")), Integer.parseInt(item_price.get(i).replaceAll("[\\[\\]]", "")
 //                ), reservation_id, item_id.get(i).replaceAll("[\\[\\]]", ""));
-//                itemList.add(itemDTO);
-//                service.reserveItemAdd(itemList);
+//                service.reserveItemAdd(itemDTO);
+//                leportsService.reserveCountUp(leports_id);
+
+                //list로 넘겨서 insert하는거 수정해야되는데 막혔음
+                itemDTO = new ReservationItemDTO(null, item_title.get(i).replaceAll("[\\[\\]]", "")
+                        , Integer.parseInt(item_person.get(i).replaceAll("[\\[\\]]", "")), Integer.parseInt(item_price.get(i).replaceAll("[\\[\\]]", "")
+                ), reservation_id, item_id.get(i).replaceAll("[\\[\\]]", ""));
+                itemList.add(itemDTO);
+                service.reserveItemAdd(itemList);
 
             }
         }

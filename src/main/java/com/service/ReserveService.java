@@ -8,6 +8,7 @@ import com.dto.ReservationItemDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -58,8 +59,8 @@ public class ReserveService {
         dao.reviewDelete(map);
     }
 
-    public void reserveItemAdd(ReservationItemDTO itemDTO) {
-        dao.reserveItemAdd(itemDTO);
+    public void reserveItemAdd(ArrayList<ReservationItemDTO> itemDTOList) {
+        dao.reserveItemAdd(itemDTOList);
     }
 
 //    public void deleteReserveItem(String reservation_id) {
