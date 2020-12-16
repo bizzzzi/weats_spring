@@ -26,10 +26,6 @@
 		<c:if test="${fn:contains(path,'loginCheck')}">
 			<jsp:include page="customer/customerNav.jsp" flush="true"></jsp:include>
 		</c:if>
-	<div id="customer_cont">
-		<c:if test="${fn:contains(path,'adminCheck')}">
-			<jsp:include page="admin/adminNav.jsp" flush="true"></jsp:include>
-		</c:if>
 		<div id="adminPageWrap">
 			<c:if test="${fn:contains(path,'adminCheck')}">
 				<div id="SideMenu">
@@ -42,7 +38,6 @@
 		</div>	
 			<jsp:include page="common/footer.jsp" flush="true"></jsp:include>	
 </div>	
-</div>
 <script type="text/javascript" src="js/modal.js"></script>
 </body>
 </html>
