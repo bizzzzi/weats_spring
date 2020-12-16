@@ -11,8 +11,7 @@
    </div>
    <%--예약 취소--%>
    <input type="text" name="page" style="display: none" value="reserveCancel"/>
-   <div class="itemInfo">
-	  
+   <div class="itemInfo">	  
 	   <div class="reserve_top"> 
 	   		<span class="top_title">${item.leports_title}</span>
 	   		<span class="top_date">예약일: ${item.rs_date}</span>

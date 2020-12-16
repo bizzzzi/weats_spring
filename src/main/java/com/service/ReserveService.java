@@ -4,9 +4,11 @@ import com.dao.ReserveDAO;
 import com.dto.LeportsReviewDTO;
 import com.dto.MyReserveDTO;
 import com.dto.ReservationDTO;
+import com.dto.ReservationItemDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -55,4 +57,26 @@ public class ReserveService {
     public void reviewDelete(Map<String, String> map) {
         dao.reviewDelete(map);
     }
+
+    public void reserveItemAdd(ReservationItemDTO itemDTO) {
+        dao.reserveItemAdd(itemDTO);
+    }
+
+//    public void deleteReserveItem(String reservation_id) {
+//        dao.deleteReserveItem(reservation_id);
+//    }
+
+//    public List<String> reserveIdByDate(Map<String, String> map) {
+//        return dao.reserveIdByDate(map);
+//    }
+//
+//    public List<ReservationItemDTO> personCount(List<String> list) {
+//        return dao.personCount(list);
+//    }
+
+    public List<HashMap<String,?>> reservePerson(Map<String, String> map) {
+        return dao.reservePerson(map);
+    }
+
+
 }

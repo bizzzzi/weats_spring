@@ -11,7 +11,7 @@
 			<ul class="trade_img">
 				<li><img class="trade_main_img2" src="images/${dto.trade_main_img}"></li>
 				<div>
-					<li><img class="trade_sub_img1" src="images/${dto.trade_sub_img2}"></li>
+					<li><img class="trade_sub_img1" src="images/${dto.trade_sub_img1}"></li>
 					<li><img class="trade_sub_img2" src="images/${dto.trade_sub_img2}"></li>
 					<li><img class="trade_sub_img3" src="images/${dto.trade_sub_img3}"></li>
 					<li><img class="trade_sub_img4" src="images/${dto.trade_sub_img4}"></li>
@@ -20,21 +20,21 @@
 		</div>
 		<div class="text_info">
 			<ul>
-				<li><b>등록날짜</b> ${dto.trade_regidate}</li>
-				<li><h4>${dto.trade_title}</h4></li>
-				<li><b>가격</b><strong>${dto.trade_price}</strong></li>
-				<li><b>연락처</b>${dto.trade_phone}</li>
-				<li><b>작성자</b>${dto.trade_user_name}</li>
+				<li class="item_info_user"><b>판매자 </b>${dto.trade_user_name}</li>
+				<hr>
+				<li class="item_info_title">${dto.trade_title}</li>
+				<li class="item_info_regidate">등록날짜 ${dto.trade_regidate}</li>
+				<li class="item_info_price">${dto.trade_price}원</li>
+				<li class="item_info_phone"><b>연락처&nbsp;</b>${dto.trade_phone}</li>
 			</ul>
 		</div>
 	</div>
 	<div class="contentsdiv">
-		<h2>상품설명</h2>
-		<br>
 		<p class="trade_contents">
 			${dto.trade_contents}
 		</p>
 	</div>
+	<hr>
 	<!-- 댓글 -->
 	<form action="loginCheck/TradeReply" method="POST">
 		<strong>Comments</strong>
@@ -42,40 +42,42 @@
 		<input type="hidden"  name="trade_depth" value=0>
 		<input type="hidden" name="trade_id" value="${dto.trade_id}"/>
 		<input type="hidden" name="user_id" value="user_id" />
-		<textarea name="trade_comment" rows="5" cols="100"></textarea>
-		<input type="submit" value="댓글 달기" />
+		<textarea name="trade_comment" rows="5" cols="100" style="width: 100%;"></textarea>
+		<div style="height: 40px;">
+			<input type="submit" value="댓글 달기" class="commentBtn btn btn-secondary"/>
+		</div>
 	</form>
 	<div class="trade_comment_list">
+		<hr>
 		<input type="hidden" name="re_user_id" value="user_id">
 		<c:forEach var="dto" items="${commentsList}" varStatus="status">
 			<c:if test="${dto.trade_depth eq 0}" >
 				<div class="comment_cont" id="${dto.trade_comment_id}">
-					<strong style="color:#ff0000">${dto.user_id}</strong>
+					<strong>${dto.user_id}</strong>
 					<br>
-					<span class="commentUpdate">${dto.trade_comment}</span>
-					<p class="comment_regidate">${dto.comment_regidate}</p>
-					<p>depth: ${dto.trade_depth}</p>
+					<div class="commentUpdate">${dto.trade_comment}</div>
+					<div class="comment_regidate">${fn:substring(dto.comment_regidate,0,10)}</div>
 					<c:if test="${dto.user_id eq login.user_id}">
-						<button class="delBtn2" data-commentlevel="${dto.trade_comment_level}">삭제</button>
-						<button class="updateBtn" data-commentid="${dto.trade_comment_id}" onclick="update(event)" >수정</button>
+						<button class="delBtn2 btn btn-secondary" data-commentlevel="${dto.trade_comment_level}">삭제</button>
+						<button class="updateBtn btn btn-secondary" data-commentid="${dto.trade_comment_id}" onclick="update(event)" >수정</button>
 					</c:if>
-					<button class="re_comment_btn" value="${dto.trade_comment_id}" onclick="cowrite(event)" >댓글달기</button>
+					<button class="re_comment_btn btn btn-secondary" value="${dto.trade_comment_id}" onclick="cowrite(event)" >댓글달기</button>
 					<c:forEach var="dto2" items="${recommentsList}" varStatus="status">
 						<c:if test="${dto2.trade_comment_level eq dto.trade_comment_id}">
 							<div class="comment_cont re" id="${dto2.trade_comment_id}">
-								<strong style="color:#ff0000">${dto2.user_id}</strong>
+								<strong>${dto2.user_id}</strong>
 								<br>
-								<span class="commentUpdate">${dto2.trade_comment}</span>
-								<p class="comment_regidate">${dto2.comment_regidate}</p>
-								<p>depth: ${dto2.trade_depth}</p>
+								<div class="commentUpdate">${dto2.trade_comment}</div>
+								<div class="comment_regidate">${fn:substring(dto2.comment_regidate,0,10)}</div>
 								<c:if test="${dto2.user_id eq login.user_id}">
-									<button class="delBtn" data-commentid="${dto2.trade_comment_id}" onclick="del(event)">삭제</button>
-									<button class="updateBtn" data-commentid="${dto2.trade_comment_id}" onclick="update(event)">수정</button>
+									<button class="delBtn btn btn-secondary" data-commentid="${dto2.trade_comment_id}" onclick="del(event)">삭제</button>
+									<button class="updateBtn btn btn-secondary" data-commentid="${dto2.trade_comment_id}" onclick="update(event)">수정</button>
 								</c:if>
 							</div>
 						</c:if>
 					</c:forEach>
 				</div>
+				<hr>
 			</c:if>
 		</c:forEach>
 	</div>

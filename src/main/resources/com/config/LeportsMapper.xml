@@ -8,7 +8,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="leportsList" parameterType="hashmap" resultType="LeportsThumbnailDTO">
 		select l.leports_id, l.leports_title, l.leports_main_img,
 		l.leports_loc,
-		litem.leports_summary, litem.leports_price, l.review_cnt, to_char(l.leports_regidate, 'yyyy-mm-dd') leports_regidate
+		litem.leports_summary, litem.leports_price, l.review_cnt, l.review_star, to_char(l.leports_regidate, 'yyyy-mm-dd') leports_regidate
 		from leports l
 		join leports_item litem
 		on l.leports_id = litem.leports_id
@@ -29,9 +29,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 <!--	레포츠 상세 페이지-->
 	<select id="leportsDetailSelect" parameterType="String" resultType="LeportsDetailDTO">
-		select l.leports_id, l.leports_title, l.leports_main_img, l.leports_sub_img1, l.leports_sub_img2, l.leports_sub_img3, l.leports_sub_img4,
+		select l.leports_id, l.leports_title, l.leports_main_img, l.leports_sub_img1, l.leports_sub_img2, l.leports_sub_img3, l.leports_sub_img4, l.review_cnt, l.review_star,
 			to_char(l.leports_regidate, 'yyyy-mm-dd') leports_regidate,
-			litem.leports_item_title, litem.leports_summary, litem.leports_price, litem.leports_max_capacity,
+			litem.leports_item_id, litem.leports_item_title, litem.leports_summary, litem.leports_price, litem.leports_max_capacity,
 			p.c_address, p.c_detail_address, p.c_phone, l.leports_content
 		from partner p
 		join leports l
@@ -53,12 +53,66 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <!--	리뷰 작성 시 리뷰 count 1씩 증가-->
 	<update id="reviewCountUp" parameterType="string">
- 		update leports set review_cnt = review_cnt +1 where leports_id = #{leports_id}
+ 		update leports set review_cnt = review_cnt +1,
+ 		    review_star =
+				(select trunc(avg(review_star),1) review_star from reservation_review
+				 where leports_id = #{leports_id}
+				 group by leports_id)
+ 		where leports_id = #{leports_id}
  	</update>
 
 	<!--	리뷰 삭제 시 리뷰 count 1씩 감소-->
 	<update id="reviewCountDown" parameterType="string">
-		update leports set review_cnt = review_cnt -1 where leports_id = #{leports_id}
+		update leports set review_cnt = review_cnt -1,
+			review_star =
+			   (select trunc(avg(review_star),1) review_star from reservation_review
+				where leports_id = #{leports_id}
+				group by leports_id)
+		where leports_id = #{leports_id}
 	</update>
+
+<!--	해당 레포츠 예약 시 reserve_cnt 증가-->
+	<update id="reserveCountUp" parameterType="string">
+		update leports set reserve_cnt = reserve_cnt + 1 where leports_id = #{leports_id}
+	</update>
+
+	<!--	해당 레포츠 예약 취소 시 reserve_cnt 감소-->
+	<update id="reserveCountDown" parameterType="string">
+		update leports set reserve_cnt = reserve_cnt - 1 where leports_id = #{leports_id}
+	</update>
+
+<!--	아이템 별 예약 인원 수 -->
+	<select id="reservePerson" parameterType="hashmap" resultType="hashmap">
+		select sum(rs_item_person) rs_item_person, leports_item_id from reservation_item
+		where reservation_id in (
+			select reservation_id
+			from reservation
+			where leports_id = #{leports_id} and rs_date = to_date(#{rs_date}, 'yymmdd')
+		)
+		group by leports_item_id
+	</select>
+
+	<select id="ratingTopLeports" resultType="LeportsThumbnailDTO">
+		select l.leports_id, l.leports_title, l.leports_main_img,
+		l.leports_loc,
+		litem.leports_summary, litem.leports_price, l.review_cnt, l.review_star, l.reserve_cnt, to_char(l.leports_regidate, 'yyyy-mm-dd') leports_regidate
+		from leports l
+		join leports_item litem
+		on l.leports_id = litem.leports_id
+		order by l.review_star desc, litem.leports_price
+	</select>
+
+	<select id="reserveTopLeports" resultType="LeportsThumbnailDTO">
+		select l.leports_id, l.leports_title, l.leports_main_img,
+			   l.leports_loc,
+			   litem.leports_summary, litem.leports_price, l.review_cnt, l.review_star, l.reserve_cnt, to_char(l.leports_regidate, 'yyyy-mm-dd') leports_regidate
+		from leports l
+				 join leports_item litem
+					  on l.leports_id = litem.leports_id
+		order by l.reserve_cnt desc, litem.leports_price
+	</select>
+
+
+
 
 </mapper>

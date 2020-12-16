@@ -24,15 +24,16 @@
 	<mvc:view-controller path="/ProductControl" view-name="partner/ProductControl"/>
 	<mvc:view-controller path="/MainMemberMyPage" view-name="MainMemberMyPage"/>
 	<mvc:view-controller path="/MainAccountManagement" view-name="MainAccountManagement"/>
-	<mvc:view-controller path="/passwdChange" view-name="passwdCheck/passwdChange"/>
+	<mvc:view-controller path="/passwdChangeForm" view-name="passwdCheck/passwdChange"/>
 	<mvc:view-controller path="/AdminMember" view-name="AdminMember"/>
 	<mvc:view-controller path="/AdminPartner" view-name="AdminPartner"/>
-	<mvc:view-controller path="/loginCheck/qa_question" view-name="customer/QA_question"/>
+<!--	<mvc:view-controller path="/loginCheck/qa_question" view-name="customer/QA_question"/>-->
 	<mvc:view-controller path="/Recommend" view-name="MainRecommend"/>
 	<mvc:view-controller path="/MainCustomer" view-name="MainCustomer"/>
 	<mvc:view-controller path="/QA_howToUse" view-name="MainHowToUse"/>
 	<mvc:view-controller path="/loginCheck/QA_question" view-name="MainQuestion"/>
-	<mvc:view-controller path="/MainQuestionList" view-name="MainQuestionList"/>
+<!--	<mvc:view-controller path="/MainQuestionList" view-name="MainQuestionList"/>-->
+	<mvc:view-controller path="/adminCheck/supportWriteForm" view-name="MainSupportWrite"/>
 	<!--<mvc:view-controller path="/kakaoPaySuccess" view-name="payment/KakaoPaySuccess"/>-->
 
 	<mvc:resources location="/resources/" mapping="/**"/>
