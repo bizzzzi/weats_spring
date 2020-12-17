@@ -57,11 +57,11 @@
 		<input type="text" name="trade_price" placeholder="가격"/><br>
 		<div class="uploadBox">
 			<input type="text" name="trade_main_img"><br>
+			<input type="text" name="trade_sub_img1"><br>
+			<input type="text" name="trade_sub_img2"><br>
+			<input type="text" name="trade_sub_img3"><br>
+			<input type="text" name="trade_sub_img4"><br>
 		</div>
-<%--		<input type="text" name="trade_sub_img1"><br>--%>
-<%--		<input type="text" name="trade_sub_img2"><br>--%>
-<%--		<input type="text" name="trade_sub_img3"><br>--%>
-<%--		<input type="text" name="trade_sub_img4"><br>--%>
 		<input type="submit" value="글쓰기" class="uploadBtn">
 		<input type="reset" value="취소하기">
 	</form>

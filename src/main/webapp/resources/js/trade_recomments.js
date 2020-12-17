@@ -237,6 +237,7 @@ $('.file').change(function(e){                            //업로드할 파일�
 		}
 		formData.append("uploadFile",files[i]);
 	}
+
 	$.ajax({
 		url: 'fileUploadAjax',
 		processData: false,
@@ -252,7 +253,9 @@ $('.file').change(function(e){                            //업로드할 파일�
 		}
 	});
 });
-let inputArr = [];
+
+
+
 function showUploadedFile(uploadResultArr){
 	let str = "";
 	let fileImg="";
@@ -262,40 +265,17 @@ function showUploadedFile(uploadResultArr){
 			str+= "<li><img src='/resources/images/attach.png'"+obj.fileName+"</li>";
 		}else{
 			console.log(`fileCallPath: ${fileCallPath}, uploadPath: ${obj.uploadPath}, uuid: ${obj.uuid}, fileName: ${obj.fileName}`);
-			if(inputArr.length !== uploadResultArr.length){//사진 추가
-				console.log("if문 시작1",inputArr.length);
-				$(".uploadBox").empty();//서버 삭제
-				for(let j=0; j<inputArr.length; j++){
-					if(j===0){
-						console.log("if문 시작2",inputArr.length);
-						$(".uploadBox").append(`<input type='text' name='trade_main_img' value="${inputArr[j]}">`);
-					}else{
-						console.log("if문 시작3", inputArr.length);
-						$(".uploadBox").append(`<input type='text' name='trade_sub_img${j}' value="${inputArr[j]}">`);
-					}
-				}
-				//새로 들어온거 i = 0
-				$(".uploadBox").append(`<input type='text' name='trade_sub_img${i}' value="${fileCallPath}">`);
+			if(i===0){
+				$("input[name='trade_main_img']").val(`'${fileCallPath}'`);
+				str += `<li><img src="/weats/display?fileName=${fileCallPath}"><span data-name="trade_main_img" data-file=\'${fileCallPath}\' data-type="image">X</span></li>`;
+			}else if(i>0 && i<5){
+				$("input[name='trade_sub_img"+i+"']").val(fileCallPath);
+				//$("input[name='trade_sub_img"+i+"'").val(`'${fileCallPath}'`);
 				str += `<li><img src="/weats/display?fileName=${fileCallPath}"><span data-name="trade_sub_img${i}" data-file=\'${fileCallPath}\' data-type="image">X</span></li>`;
-			}else{
-				console.log("if문 시작4",inputArr.length);
-				if(i===0){
-					console.log("if문 시작5");
-					$("input[name='trade_main_img']").val(`'${fileCallPath}'`);
-					str += `<li><img src="/weats/display?fileName=${fileCallPath}"><span data-name="trade_main_img" data-file=\'${fileCallPath}\' data-type="image">X</span></li>`;
-				}else if(i>0 && i<5){
-					console.log("if문 시작6",inputArr.length);
-					$(".uploadBox").append(`<input type='text' name='trade_sub_img${i}' value="${fileCallPath}">`);
-					//$("input[name='trade_sub_img"+i+"'").val(`'${fileCallPath}'`);
-					str += `<li><img src="/weats/display?fileName=${fileCallPath}"><span data-name="trade_sub_img${i}" data-file=\'${fileCallPath}\' data-type="image">X</span></li>`;
-				}
 			}
-			console.log("index:"+i);
 		}
-		inputArr.push(fileCallPath);
-		console.log("inputArr: 	"+inputArr);
+		console.log("index:"+i);
 	});
-	console.log("inputArr2: 	"+inputArr);
 	uploadResult.append(str);
 }
 uploadResult.on("click","span",function(e){
