@@ -4,10 +4,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<c:set var="category" value="${category}" />
-<c:set var="type" value="${type}" />
-<c:set var="loc" value="${loc}" />
-<c:set var="align" value="${align}" />
 <c:if test="${category != null}">
 <c:choose>
 <c:when test="${category eq 'byType'}">
@@ -41,6 +37,7 @@
 </c:choose>
 </c:if>
 <!-- 정렬  -->
+
 <div class="leports_list_sort_wrap">
 	<form class="form" action="leportsList">
 	<input type="hidden" value="${category}" name="category">
