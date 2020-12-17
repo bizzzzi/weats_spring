@@ -7,10 +7,6 @@
 @import
 	url('https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@600&display=swap')
 	;
-body {
-  background-color: rgb(255, 255, 255);
-  font-size: 0.8em;
-}
 #SideMenu {
 	width: 20%;
 	height: 100%;
@@ -46,6 +42,7 @@ body {
     width: 100%;
     height: 100%;
     padding: 0 15%;
+    margin-bottom: 20px;
 }
 .main_title {
   display: flex;
@@ -57,7 +54,6 @@ body {
 .partnerAllForm {
     display: flex;
     flex-direction: column;
-/*     padding: 10px 100px; */
     width: 100%;
 }
 .formBox input[type="text"], input[type="number"], select{
@@ -194,16 +190,19 @@ body {
 }
 /* 예약관리 */
 .reservationControl{
-	display: flex;
-    justify-content: center;
+    display: flex;
     flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-around;
+    flex-direction: row;
 }
 .rs_content{
 	display: flex;
     padding: 10px;
     margin: 10px;
-    width: 45%;
-    border: 1px solid black;
+    border-radius: 4px;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .16);
+    width: 500px;
 }
 .rs_content .leports_main_img{
     display: flex;
@@ -213,7 +212,7 @@ body {
 .rs_content .leports_main_img img{
 	width: 200px;
 	height: 200px;
-	overflow: auto;
+    margin: auto;
 }
 .rs_content .rs_info{
 	padding: 10px;
@@ -225,7 +224,4 @@ body {
 }
 .rs_content .rs_info ul{
 	padding: 10px;
-}
-.rs_content .rs_info ul li{
-    font-size: 1.2em;
 }

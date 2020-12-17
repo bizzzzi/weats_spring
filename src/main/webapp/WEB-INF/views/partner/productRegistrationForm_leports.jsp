@@ -24,7 +24,7 @@
 	    </div>
 		<div class="formBox">
         <div class="title">상품 소개 *</div>      
-            <textarea name="leports_content" class="leports_content" cols="30" rows="10"></textarea>
+            <textarea name="leports_content" class="leports_content" cols="30" rows="7"></textarea>
         </div>    
         <div class="formBox">
 	        <div class="title">대표 사진 *</div>     
