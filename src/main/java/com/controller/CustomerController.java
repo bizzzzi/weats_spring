@@ -33,6 +33,11 @@ public class CustomerController {
         return "MainSupport";
     }
 
+    @RequestMapping("/QA_Search")
+    public String MainSupportSearch(){
+        return "MainSupportSearch";
+    }
+
 
 //  1대1 문의하기 (글쓰기)
     @PostMapping(value = {"/loginCheck/questionWrite", "/adminCheck/questionWrite"})
