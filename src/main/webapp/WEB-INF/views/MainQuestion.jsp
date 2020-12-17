@@ -33,7 +33,7 @@
 		<jsp:include page="customer/QA_question.jsp" flush="true"></jsp:include>
 	</div>
 </div>
-<script type="text/javascript" src="js/modal.js"></script>
-<script type="text/javascript" src="js/signUpForm.js"></script>
+<script type="text/javascript" src="../js/modal.js"></script>
+<script type="text/javascript" src="../js/signUpForm.js"></script>
 </body>
 </html>
