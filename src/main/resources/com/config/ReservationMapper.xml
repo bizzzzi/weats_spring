@@ -12,8 +12,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			, to_date(#{rs_date}, 'yy-mm-dd'), sysdate, #{rs_price}, #{rs_item_name}, null, 0)
 	</insert>
 
-	<insert id="reserveItemAdd" parameterType="ReservationItemDTO">
-		insert into reservation_item values('RS_I'||rs_item_seq.nextval, #{rs_item_title}, #{rs_item_person}, #{rs_item_price}, #{reservation_id}, #{leports_item_id})
+	<insert id="reserveItemAdd" parameterType="arraylist">
+		insert all 
+		<foreach collection="list" item="item" index="index">
+			into reservation_item values
+			('RS_I'||rsitemseq(), #{item.rs_item_title}, #{item.rs_item_person}, #{item.rs_item_price}
+			, #{item.reservation_id}, #{item.leports_item_id})
+		</foreach>
+		select * from dual
 	</insert>
 
 	<!--tid 추가-->

@@ -4,6 +4,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -40,7 +41,7 @@ public class MemberController {
 		if(n != 0) {
 			String code = SHA256.getEncrypt(user_email, "cos");
 			String localhost = "http://localhost:8080/weats/";
-			String content = "다음 링크에 접속하여 이메일 인증  <a href='"+localhost+"checkEmail?code="+code+"'>이메일 인증하기</a>" ;
+			String content = "다음 링크에 접속하여 이메일 인증  <a href='"+localhost+"join/checkEmail?code="+code+"'>이메일 인증하기</a>" ;
 			
 			String title = "weats 이메일 인증";
 			session.setAttribute("tomail", user_email);
@@ -55,6 +56,20 @@ public class MemberController {
 		}
 		System.out.println(next);
 		return next;
+	}
+
+	@PostMapping("/findPasswd")
+	public String findPasswd(String user_email, HttpSession session, RedirectAttributes rttr) {
+		String code = SHA256.getEncrypt(user_email, "cos");
+		String localhost = "http://localhost:8080/weats/";
+		String content = "비밀번호를 변경하시려면 링크를 클릭해주세요.  <a href='"+localhost+"password/checkEmail?code="+code+"'>비밀번호 변경하기</a>" ;
+		String title = "weats 비밀번호 찾기 이메일 인증";
+		System.out.println("비밀번호 찾을 이메일 : "+user_email);
+		session.setAttribute("tomail", user_email);
+		session.setAttribute("code", code);
+		rttr.addFlashAttribute("content", content);
+		rttr.addFlashAttribute("title", title);
+		return "redirect:/mailSending";
 	}
 	
 	//이메일 전송 완료후 페이지

@@ -2,7 +2,11 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<c:set var="path" value="${requestScope['javax.servlet.forward.request_uri']}"/>
+
 	<section>
+		<input type="hidden" class="path" value="${path}">
+		<input type="hidden" class="tomail" value="${dto.user_email}">
 		<ul class="qnaList q">
 			<li>
 				<strong>문의번호</strong>
@@ -37,6 +41,7 @@
 				<span>${dto.q_regidate}</span>
 			</li>
 		</ul>
+
 		<c:if test="${fn:length(list) != 0}">
 			<c:forEach var="qna" items="${list}" varStatus="status">
 				<c:choose>
@@ -59,7 +64,7 @@
 		</c:if>
 			<!-- 답변등록 -->
 			<div class="answer">
-				<form action="questionWrite" method="post">
+				<form class="answerForm" action="questionWrite" method="post">
 					<input type="hidden" name="question_group" value="${dto.question_group}">
 					<textarea name="q_content" class="answer_content" cols="100" rows="10" placeholder="답변입력"></textarea>
 					<input type="submit" value="답변등록">

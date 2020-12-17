@@ -22,9 +22,32 @@
 					<button type="submit" class="loginBtn">로그인</button>
 				</div>
 				<div id="find">
-					<a href="#">아이디 찾기</a>&nbsp; <a href="#">비밀번호 찾기</a>
+					<span id="findPw">비밀번호 찾기</span>
 				</div>
 			</div>
 		</form>
 	</div>
 </div>
+
+<!-- 비밀번호 찾기 모달 -->
+<div class="findPwModal hidden">
+	<div class="modalOverlay3"></div>
+	<div id="findPwForm">
+		<form id="ajax_findPw" action="mailCheck" method="post">
+			<div class="title">비밀번호찾기</div>
+			<div class="closeBtn3">❌</div>
+			<hr>
+			<div class="findPw_info">
+				<div class="signRow">
+					<input type="email" name="user_email" class="userEmail"
+						placeholder="이메일 주소" />
+						<span id="findEmailResult" style="display:none"></span>
+				</div>
+				<div>
+					<button type="submit" class="findPwBtn">비밀번호 재설정 링크 보내기</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+<script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>

@@ -27,18 +27,20 @@
 		<jsp:include page="common/loginForm_desktop.jsp" flush="true"></jsp:include>
 		<jsp:include page="common/signUpForm_desktop.jsp" flush="true"></jsp:include>
 	</div>
-	<c:set var="path" value="${requestScope['javax.servlet.forward.request_uri']}"></c:set>
-	<c:if test="${fn:contains(path,'loginCheck')}">
-		<jsp:include page="customer/customerNav.jsp" flush="true"></jsp:include>
-	</c:if>
+	<c:set var="path" value="${requestScope['javax.servlet.forward.request_uri']}"/>
+		<c:if test="${fn:contains(path,'loginCheck')}">
+			<jsp:include page="customer/customerNav.jsp" flush="true"></jsp:include>
+		</c:if>
 	<div id="customer_cont">
 		<c:if test="${fn:contains(path,'adminCheck')}">
-		<jsp:include page="admin/adminNav.jsp" flush="true"></jsp:include>
+			<jsp:include page="admin/adminNav.jsp" flush="true"></jsp:include>
+
 		</c:if>
 		<jsp:include page="customer/QA_questionDetail.jsp" flush="true"></jsp:include>
 	</div>
-	<script type="text/javascript" src="js/main.js"></script>
-	<script type="text/javascript" src="js/modal.js"></script>
-	<script type="text/javascript" src="js/signUpForm.js"></script>
+	<script type="text/javascript" src="../js/main.js"></script>
+	<script type="text/javascript" src="../js/modal.js"></script>
+	<script type="text/javascript" src="../js/signUpForm.js"></script>
+	<script type="text/javascript" src="../js/answerMail.js"></script>
 </body>
 </html>

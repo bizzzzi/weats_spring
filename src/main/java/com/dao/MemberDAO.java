@@ -18,9 +18,9 @@ public class MemberDAO {
 		return template.insert("userJoin", dto);
 	}
 	
-	public int user_verifyUpdate(String user_email) {
+	public void user_verifyUpdate(String user_email) {
 		// TODO Auto-generated method stub
-		return template.update("user_verifyUpdate", user_email);
+		template.update("user_verifyUpdate", user_email);
 	}
 
 	public String getSaltMember(String user_email) {
