@@ -68,4 +68,8 @@ public class CustomerDAO {
     public void supportDelete(String support_id) {
         template.delete("supportDelete", support_id);
     }
+
+    public List<CustomerSupportDTO> supportSearch(String search) {
+        return template.selectList("supportSearch", search);
+    }
 }
