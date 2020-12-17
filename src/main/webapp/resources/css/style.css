@@ -1236,3 +1236,29 @@ video {
     width: 300px;
     margin: auto;
 }
+
+#trade_write_div {
+	background-color: #f5f6f7;
+}
+
+#trade_write_div form {
+	margin: 0 20%;
+}
+
+.trade_write_info {
+	display:flex;
+}
+
+.trade_write_info .trade_first_row_info {
+	width: 30%;
+	margin-right: 10px;
+}
+
+.trade_btns {
+	text-align: right;
+	margin: 10px 0;
+}
+
+.trade_btns input {
+	margin-left: 4px;
+}

@@ -16,7 +16,7 @@
     <title>결제 페이지</title>
   </head>
   <body>
-  	<div id="wrap">
+  	<div id="wrap" style="background-color: #f5f6f7;">
   	<div id="desktop" style="height: 56px;">
 		<jsp:include page="common/header_desktop.jsp" flush="true"></jsp:include>
 		<jsp:include page="common/loginForm_desktop.jsp" flush="true"></jsp:include>
