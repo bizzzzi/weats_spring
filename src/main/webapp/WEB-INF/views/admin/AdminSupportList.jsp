@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <section>
-        <h2>고객센터 Support</h2>
+        <h2 class="admin_title">고객센터 Support</h2>
         <div class="qList subject">
             <ul>
                 <li>순번</li>

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <section>
-        <h2>고객센터 Support</h2>
+        <h2 class="admin_title">고객센터 Support</h2>
         <div class="questionForm">
             <form action="supportWrite" method="post">
                 <ul>
@@ -23,7 +23,7 @@
                         <input type="text" name="s_answer"/>
                     </li>
                 </ul>
-                <div class="qa_submit">
+                <div class="qa_submit adminBtn">
                     <input type="submit" value="등록하기">
                     <input type="reset" value="취소하기">
                 </div>

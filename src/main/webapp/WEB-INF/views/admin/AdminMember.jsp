@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <section>
-	<h2>회원관리</h2>
+	<h2 class="admin_title">회원관리</h2>
 		<div class="qList subject">
 			<ul>
 				<li>ID</li>

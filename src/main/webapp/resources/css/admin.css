@@ -12,15 +12,13 @@
 #SideMenu h2{
 	margin-bottom: 30px;
 }
-#SideMenu ul li{
-  padding: 15px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-#SideMenu ul li a{
+#SideMenu a{
 	font-size: 1.2em;
+	padding: 15px;
+  	border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+ 	 border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
-#SideMenu ul li:hover{
+#SideMenu a:hover{
 	background: #ABDEFB;
 }
 #adminContent {
@@ -31,52 +29,73 @@
 	display:flex;
 }
 
-/**/
-h2{
-	padding: 20px;
-}
-
 .qList.subject ul{
 	background-color: #E3F7FE;
 	padding: 10px 0px;
 	margin: 10px 10px;
 }
-
+.admin_title{
+	border-bottom: 5px solid #2F98ED;
+    width: fit-content;
+    margin: 1%;
+    margin-bottom:4%;
+    padding: 10px;
+}
 /* 파트너관리 상세 */
 .content{
-    width: 100%;
-    display: block;
-    justify-content: center;
-    text-align: left;
     padding-top: 30px;
+	margin: 0 10%;
 }
-.content .detail{
-    justify-content: center;
-    width: 100%;
+.content .detail_info{
+    background-color: #F5F5F5;
+    padding: 2% 1%;
+    border-radius: 10px;
+}
+.content .detail_info .detail{
+    align-items: center;
     display: flex;
-    padding: 20px;
+    padding: 2% 3%;
+    margin: 2% 3%;
+    border-radius: 4px;
+    background: #B0E7FC;
 }
 
 
-.content .detail .detail_title{
+.detail_info .detail .detail_title{
     width: 100%;
     display: flex;
     text-align: left;
     justify-content: center;
 }
-.content .detail .detail_content{
+.detail_info .detail .detail_content{
     display: flex;
     width: 100%;
     justify-content: center;
-    text-align: left;
 }
-.content .emailBtn{
-    margin: 100px 0px 10px 0px;
+.detail_info .detail .detail_content img{
+	width: 200px;
+	height: 200px;
+}
+.content .adminBtn{
+    margin: 50px 0px 20px 0px;
     text-align: center;
 }
-.content .emailBtn input{
-    margin: 0px 30px;
-    padding: 10px 60px;
+.adminBtn input {
+	padding: 10px 40px;
+    margin: 0px 20px;
+    background: #51ABF3;
+    color: #fff;
+    border: 1px solid #51ABF3;
+    border-radius: 4px;
+}
+@media screen and (max-width: 768px){
+	.adminBtn{
+	    display: flex;
+    	flex-direction: column;
+	}
+	.adminBtn input{
+	margin-bottom: 10px;
+	}
 }
 
 /*문의 답변 페이지*/
@@ -115,4 +134,15 @@ ul.qnaList span.regidate{
 }
 .qnaList.q{
 	margin-bottom: 20px;
+}
+/*support 등록*/
+.questionForm{
+    margin: 3% 5%;
+    padding: 2%;
+	border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 8px 16px 0 rgba(33,37,41,.15)
+}
+.questionForm{
+
 }

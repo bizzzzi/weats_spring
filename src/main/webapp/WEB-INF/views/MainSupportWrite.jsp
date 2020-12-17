@@ -13,11 +13,7 @@
 <link rel="stylesheet" href="../css/bootstrap.css" /><!-- 부트스트랩 -->
 <script type="text/javascript" src="../js/bootstrap.js"></script>
 <script src="https://kit.fontawesome.com/400289e08c.js" crossorigin="anonymous"></script>
-<style type="text/css">
-	a {
-		color: black; /* 임시값 나중에 Css 공통수정 */
-	}
-</style>
+
 </head>
 <body>
 <div id="wrap">
