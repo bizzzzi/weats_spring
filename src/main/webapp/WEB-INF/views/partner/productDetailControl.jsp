@@ -16,8 +16,7 @@
   </header>
   <div class="partner_form" id="partner">
     <form method="post" class="partnerAllForm">
-      <input type="hidden" name="leports_id" value="${ldto.leports_id}">
-     
+      <input type="hidden" name="leports_id" value="${ldto.leports_id}"> 
 		<div class="formBox">
 	        <div class="title">상품 이름</div>        
 	        <input type="text" name="leports_title" class="leports_title" value="${ldto.leports_title}">
@@ -66,7 +65,6 @@
 	            </select>
 	          </div>
 		</div>
-		
       <c:forEach var="idto" items="${idto}">
       <div class="addForm">
 	      <div class="item_wrap">
