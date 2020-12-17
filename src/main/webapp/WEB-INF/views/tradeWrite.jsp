@@ -13,14 +13,16 @@
 <script src="https://kit.fontawesome.com/400289e08c.js" crossorigin="anonymous"></script>
 </head>
 <body>
-
+	<div id="wrap" style="background-color:#f5f6f7;">
 	<div id="desktop">
 		<jsp:include page="common/header_desktop.jsp" flush="true"></jsp:include>
 		<jsp:include page="common/loginForm_desktop.jsp" flush="true"></jsp:include>
 		<jsp:include page="common/signUpForm_desktop.jsp" flush="true"></jsp:include>
 	</div>
-	<div id="Resale_list">
+	<div id="trade_write_div">
 		<jsp:include page="trade/tradeWrite.jsp" flush="true"></jsp:include>
+	</div>
+		<jsp:include page="common/footer.jsp" flush="true"></jsp:include>
 	</div>
 <script type="text/javascript" src="js/modal.js"></script>
 <script type="text/javascript" src="js/signUpForm.js"></script>
