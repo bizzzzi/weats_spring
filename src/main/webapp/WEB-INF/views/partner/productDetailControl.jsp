@@ -74,8 +74,8 @@
               <option value="경기">경기</option>
               <option value="강원">강원</option>
               <option value="충청">충청</option>
-              <option value="전라도">전라도</option>
-              <option value="경상도">경상도</option>
+              <option value="전라">전라도</option>
+              <option value="경상">경상도</option>
               <option value="기타">기타</option>
             </select>
           </div>
@@ -86,10 +86,10 @@
         <div class="sub_box">
           <div>
             <select name="leports_type" class="leports_type">
-              <option value="지상 레포츠">지상 레포츠</option>
-              <option value="수상 레포츠">수상 레포츠</option>
-              <option value="항공 레포츠">항공 레포츠</option>
-              <option value="실내 레포츠">실내 레포츠</option>
+              <option value="지상">지상 레포츠</option>
+              <option value="수상">수상 레포츠</option>
+              <option value="항공">항공 레포츠</option>
+              <option value="실내">실내 레포츠</option>
             </select>
           </div>
         </div>
