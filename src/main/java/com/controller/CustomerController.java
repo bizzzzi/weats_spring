@@ -47,15 +47,19 @@ public class CustomerController {
             customerQnADTO.setUser_name("관리자");
             customerService.questionWrite(customerQnADTO); //답변 db등록
             customerService.answerSuccess(customerQnADTO.getQuestion_group()); //원 게시글 answer_verify = 1
-            return "redirect:AllQuestionList";
+            rttr.addAttribute("q_group",customerQnADTO.getQuestion_group() );
+
         } else {
             customerQnADTO.setUser_name(login.getUser_name());
             customerService.questionWrite(customerQnADTO);
             if(customerQnADTO.getQuestion_group() != null) { //사용자 재 문의 시
                 customerService.reQuestion(customerQnADTO.getQuestion_group()); //원 게시글 answer_verify = 0
-            }
+            } else {
                 return "redirect:userQuestionList";
+            }
         }
+                rttr.addAttribute("q_group",customerQnADTO.getQuestion_group() );
+        return "redirect:questionDetail";
     }
 
     @PostMapping("/adminCheck/answerMail")
