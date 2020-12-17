@@ -9,12 +9,14 @@
             <div class="supportList">
                 <div class="support_cont">
                     <form class="supportForm" action="" method="post">
-                        <h2><input type="text" name="s_question" value="${support.s_question}"/> </h2>
+                        <span><input type="text" name="s_question" value="${support.s_question}"/> </span>
                         <span><input type="text" name="s_answer" value="${support.s_answer}"/></span>
 
                         <input type="hidden" name="support_id" value="${support.support_id}"/>
-                        <input class="supportUpdate" type="button" value="수정"/>
-                        <input class="supportDelete" type="button" value="삭제"/>
+                        <div class="qa_submit adminBtn">
+	                        <input class="supportUpdate" type="button" value="수정"/>
+	                        <input class="supportDelete" type="button" value="삭제"/>
+	                    </div>    
 
                     </form>
                 </div>

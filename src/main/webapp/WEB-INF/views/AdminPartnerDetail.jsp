@@ -30,7 +30,6 @@
 	<jsp:include page="common/footer.jsp" flush="true"></jsp:include>
 	</div>
 </div>	
-		<script type="text/javascript" src="js/modal.js"></script>
 </body>
 </html>
 

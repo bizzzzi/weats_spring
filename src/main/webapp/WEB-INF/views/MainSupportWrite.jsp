@@ -5,15 +5,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script type="text/javascript" src="../js/jquery-3.5.1.min.js"></script>
+	<script type="text/javascript" src="../js/bootstrap.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	<link rel="stylesheet" type="text/css" href="../css/customer.css">
-<link rel="stylesheet" type="text/css" href="../css/customer_nav2.css">
-<link rel="stylesheet" type="text/css" href="../css/admin.css">
-<link rel="stylesheet" href="../css/bootstrap.css" /><!-- 부트스트랩 -->
-<script type="text/javascript" src="../js/bootstrap.js"></script>
-<script src="https://kit.fontawesome.com/400289e08c.js" crossorigin="anonymous"></script>
-
+	<link rel="stylesheet" type="text/css" href="../css/admin.css">
+	<link rel="stylesheet" type="text/css" href="../css/customer_nav2.css">
+	<link rel="stylesheet" href="../css/bootstrap.css" /><!-- 부트스트랩 -->
+	<script src="https://kit.fontawesome.com/400289e08c.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <div id="wrap">
@@ -30,8 +30,5 @@
 	</div>
 		<jsp:include page="common/footer.jsp" flush="true"></jsp:include>
 </div>	
-<script type="text/javascript" src="../js/main.js"></script>
-<script type="text/javascript" src="../js/modal.js"></script>
-<script type="text/javascript" src="../js/signUpForm.js"></script>
 </body>
 </html>
