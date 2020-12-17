@@ -73,4 +73,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<delete id="supportDelete" parameterType="string">
 		delete from customer_support where support_id = #{support_id}
 	</delete>
+
+<!--	검색어 -->
+	<select id="supportSearch" parameterType="string" resultType="CustomerSupportDTO">
+		select * from customer_support
+		where s_type like '%' || #{search} ||'%' or s_question like '%' || #{search} ||'%' or s_answer like '%' || #{search} ||'%'
+	</select>
+
 </mapper>
