@@ -4,7 +4,7 @@
 <c:set var="path" value="${pageContext.request.contextPath}" />
     <div class="customer_btn">
         <div class="customer_con">
-            <form>
+            <form action="${path}/supportSearch">
                 <h3>여기에 물어보세요.</h3>
                 <div class="search">
                     <input type="text" name="search">

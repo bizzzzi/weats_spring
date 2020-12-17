@@ -67,4 +67,8 @@ public class CustomerService {
     public void supportDelete(String support_id) {
         dao.supportDelete(support_id);
     }
+
+    public List<CustomerSupportDTO> supportSearch(String search) {
+        return dao.supportSearch(search);
+    }
 }

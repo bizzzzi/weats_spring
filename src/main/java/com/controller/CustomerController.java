@@ -163,5 +163,15 @@ public class CustomerController {
         return "redirect:supportList";
     }
 
+
+    // FAQ Search
+    @GetMapping("/supportSearch")
+    public String supportSearch(String search, Model model) {
+        List<CustomerSupportDTO> supportDTOList = customerService.supportSearch(search);
+        logger.debug("검색 리스트 : {}", supportDTOList);
+        model.addAttribute("supportList", supportDTOList);
+        return null;
+    }
+
 }
 
