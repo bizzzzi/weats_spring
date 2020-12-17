@@ -33,7 +33,6 @@ public class CustomerController {
         return "MainSupport";
     }
 
-
 //  1대1 문의하기 (글쓰기)
     @PostMapping(value = {"/loginCheck/questionWrite", "/adminCheck/questionWrite"})
     public String questionWrite(CustomerQnADTO customerQnADTO, HttpSession session, HttpServletRequest request, RedirectAttributes rttr) {
@@ -140,10 +139,10 @@ public class CustomerController {
         logger.debug("질문 ID ===> {} ", support_id);
         CustomerSupportDTO supportDTO = customerService.supportDetail(support_id);
         model.addAttribute("support", supportDTO);
-        if(request.getRequestURI().contains("adminCheck")){
+        if(request.getRequestURI().contains("adminCheck")){ //관리자
             return "MainSupportDetail";
         } else{
-            return null;
+            return "MainSupportDetail"; //사용자 detail 페이지 경로로 수정 예정
         }
 
 
@@ -166,11 +165,11 @@ public class CustomerController {
 
     // FAQ Search
     @GetMapping("/supportSearch")
-    public String supportSearch(String search, Model model) {
+    public String supportSearch(@ModelAttribute("search") String search, Model model) {
         List<CustomerSupportDTO> supportDTOList = customerService.supportSearch(search);
         logger.debug("검색 리스트 : {}", supportDTOList);
         model.addAttribute("supportList", supportDTOList);
-        return null;
+        return "MainSupportSearch";
     }
 
 }

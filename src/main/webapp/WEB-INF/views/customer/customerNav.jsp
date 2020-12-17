@@ -7,8 +7,8 @@
             <form action="${path}/supportSearch">
                 <h3>여기에 물어보세요.</h3>
                 <div class="search">
-                    <input type="text" name="search">
-                    <input type="submit" value="검색">
+                        <input type="text" name="search">
+                        <input type="submit" value="검색">
                 </div>
                 <a href="${path}/loginCheck/QA_question">1:1 문의하기</a>
             </form>
