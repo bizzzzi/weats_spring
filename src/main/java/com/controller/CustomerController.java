@@ -60,7 +60,6 @@ public class CustomerController {
 
     @PostMapping("/adminCheck/answerMail")
     public String answerMail(String user_email, HttpSession session, RedirectAttributes rttr) {
-        logger.debug("제발 들어와라 제발!!!!!!!!!!!!!!!!!!!!!!!!!!");
         String localhost = "http://localhost:8080/weats/";
         String title = "weats 1대1 문의 답변";
         String content = "1대1 문의에 답변이 달렸습니다. 확인 바랍니다. <a href='"+localhost+"'>weats로 이동</a>" ;
