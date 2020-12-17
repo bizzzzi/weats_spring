@@ -51,10 +51,19 @@
 
 		<jsp:include page="customer/QA_SupportDetail.jsp" flush="true"></jsp:include>
 	</div>
-<script type="text/javascript" src="js/main.js"></script>
-<script type="text/javascript" src="js/modal.js"></script>
-<script type="text/javascript" src="js/signUpForm.js"></script>
-<script type="text/javascript" src="../js/supportDetail.js"></script>
-
+<c:choose>
+	<c:when test="${fn:contains(path,'adminCheck')}">
+		<script type="text/javascript" src="../js/main.js"></script>
+		<script type="text/javascript" src="../js/modal.js"></script>
+		<script type="text/javascript" src="../js/signUpForm.js"></script>
+		<script type="text/javascript" src="../js/supportDetail.js"></script>
+	</c:when>
+	<c:otherwise>
+		<script type="text/javascript" src="js/main.js"></script>
+		<script type="text/javascript" src="js/modal.js"></script>
+		<script type="text/javascript" src="js/signUpForm.js"></script>
+		<script type="text/javascript" src="js/supportDetail.js"></script>
+	</c:otherwise>
+</c:choose>
 </body>
 </html>

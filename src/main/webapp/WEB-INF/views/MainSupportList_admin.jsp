@@ -29,6 +29,9 @@
 	</div>
 		<jsp:include page="common/footer.jsp" flush="true"></jsp:include>
 </div>	
-<script type="text/javascript" src="js/modal.js"></script>
+<script type="text/javascript" src="../js/main.js"></script>
+<script type="text/javascript" src="../js/modal.js"></script>
+<script type="text/javascript" src="../js/signUpForm.js"></script>
+
 </body>
 </html>
