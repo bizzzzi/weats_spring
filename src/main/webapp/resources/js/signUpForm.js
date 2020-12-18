@@ -5,6 +5,21 @@ let userpasswd2 = document.querySelector("#signUp .userPasswd2");
 const SignUpBtn = document.querySelector(".SignUpBtn");
 let emailCheck = document.querySelector("#result");
 
+
+
+function capsLock(e) {
+	const capsLockDiv = document.querySelector('#signUp .capsLockDiv');
+	if(((e.keyCode >= 65 && e.keyCode <= 90) && !e.shiftKey) || ((e.keyCode >= 97 && e.keyCode <= 122) && e.shiftKey)) {
+		console.log("aaa");
+		capsLockDiv.style.display = 'block';
+	} else {
+		console.log("bbb");
+		capsLockDiv.style.display = 'none';
+	}
+}
+
+userpasswd.addEventListener("keypress", e => capsLock(e));
+
 // input null체크
 function nullCheck(e) {
 	if (useremail.value.length == 0) {
