@@ -64,7 +64,7 @@
 <!-- 아이템 추천 -->
 
 <div class="ratingTop_leports_list">
-<h2> 평점 좋은 레포츠들 </h2>
+<h2> 인기 폭발 TOP 10 </h2>
     <div class="swiper-container">
       <div class="swiper-wrapper">
        <c:forEach var="dto" items="${ratingList}">
@@ -82,7 +82,7 @@
 <div class="blank" style="padding-top:70px;"></div>
 
 <div class="reservationTop_leports_list">
-<h2> 예약 많은 레포츠들 </h2>
+<h2> 예약 TOP 10 </h2>
     <div class="swiper-container">
       <div class="swiper-wrapper">
        <c:forEach var="dto" items="${reserveList}">
