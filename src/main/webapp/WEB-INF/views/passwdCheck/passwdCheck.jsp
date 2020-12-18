@@ -21,6 +21,7 @@
 			<div class="comment">계속하려면 먼저 본인임을 인증하세요.</div>
 			<div class="signRow">
 				<input type="password" name="user_pw" class="userPasswd" placeholder="비밀번호 입력" />
+				<div class="capsLockDiv" style="display: none"><b>CapsLock</b>이 켜져있습니다.</div>
 			<div class="buttonWrap">
 				<button type="submit">확인</button>
 			</div>
@@ -35,8 +36,8 @@
 			e.preventDefault();
 		}
 	}
-		
 	})
 	</script>
+<script type="text/javascript" src="../js/capsLock.js"></script>
 </body>
 </html>

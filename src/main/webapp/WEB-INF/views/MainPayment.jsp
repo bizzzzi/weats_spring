@@ -3,7 +3,7 @@
          pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<c:set var="regExpPhone" value="(\d{3}).*(\d{3,4}).*(\d{4})"/>
+<c:set var="regExpPhone" value="^01([0|1|6|7|8|9]?)([0-9]{3,4})([0-9]{4})$"/>
 <c:set var="regExpEmail" value="^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[a-zA-Z]([-_.]?[a-zA-Z])*.[a-zA-Z]{2,3}$"/>
 <!DOCTYPE html>
 <html lang="ko">

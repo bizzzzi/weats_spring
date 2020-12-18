@@ -15,9 +15,10 @@
 						placeholder="이메일 주소" />
 				</div>
 				<div class="signRow">
-					<input type="password" name="user_pw" id="userPasswd"
+					<input type="password" name="user_pw" id="userPasswd" class="userPasswd"
 						placeholder="비밀번호" />
 				</div>
+				<div class="capsLockDiv" style="display: none"><b>CapsLock</b>이 켜져있습니다.</div>
 				<div>
 					<button type="submit" class="loginBtn btn btn-lg btn-primary">로그인</button>
 				</div>
@@ -51,3 +52,4 @@
 	</div>
 </div>
 <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" src="js/capsLock.js"></script>

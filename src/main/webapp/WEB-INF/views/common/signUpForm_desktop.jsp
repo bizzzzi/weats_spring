@@ -26,7 +26,9 @@
 					<input type="password" name="user_pw" class="userPasswd" id="user_pw"
 						   placeholder="비밀번호(공백을 제외한 영문, 숫자 혹은 특수문자 2가지 조합 8~15자)"
 						   pattern="${regExpPw}" title="공백을 제외한 영문, 숫자, 특수문자 2가지 조합 8~15자"/>
+					<div class="capsLockDiv" style="display: none"><b>CapsLock</b>이 켜져있습니다.</div>
 				</div>
+
 				<div class="signRow"> 
 					<input type="password" name="user_pw2" class="userPasswd2"
 						placeholder="비밀번호를 한번 더 입력해주세요." />
