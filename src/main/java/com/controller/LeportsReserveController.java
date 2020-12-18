@@ -27,13 +27,6 @@ public class LeportsReserveController {
 		model.addAttribute("reserve_count", reserve_count);
 		return "MainPayment";
 	}
-	
-	@RequestMapping("/test")
-	public String test(String leports_id, String reserveDay) {
-		System.out.println(leports_id);
-		System.out.println(reserveDay);
-		return null;
-	}
-	
+
 }
 
