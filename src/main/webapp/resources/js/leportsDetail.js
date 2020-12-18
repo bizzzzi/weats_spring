@@ -185,6 +185,7 @@ $('table').on("click", "td", function() {
 			price = 0;
 			for(var i = 0; i < ajax_maxPerson.length; i++) {
 				pCount[i].value = 0;
+				pTotalCount.value = 0;
 				maxPerson[i].value = ajax_maxPerson[i].value;
 				leports_item_mc[i].innerText = "예약 가능 인원 : " + ajax_maxPerson[i].value;
 				selectItem[i].innerHTML = "";
@@ -198,3 +199,4 @@ $('table').on("click", "td", function() {
 	});
 	
 });
+

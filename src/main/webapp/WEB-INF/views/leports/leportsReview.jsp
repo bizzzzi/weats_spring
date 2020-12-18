@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <div>
 	<hr>
-	<div class="review_title">후기</div>
+	<div class="review_title" id="href_review">후기</div>
 	<c:forEach var="dto" items="${leportsReview}" varStatus="status">
 		<hr>
 		<div class="review_list" data-value="${status.index}">

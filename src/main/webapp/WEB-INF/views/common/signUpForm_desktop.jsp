@@ -47,7 +47,7 @@
 					<i class="fas fa-play"></i>
 				</div>
 			</div>
-			<button type="submit" class="SignUpBtn">회원가입</button>
+			<button type="submit" class="SignUpBtn btn btn-lg btn-primary">회원가입</button>
 		</form>
 	</div>
 </div>
