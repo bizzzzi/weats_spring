@@ -1,6 +1,9 @@
+<%@page import="com.dto.LeportsThumbnailDTO"%>
+<%@page import="java.util.List"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-
+	pageEncoding="UTF-8"%>
+	
 <div class="recommend-wrap">
 <!-- 상단 배너 -->
 
@@ -56,50 +59,37 @@
     </div>
   </div>
   
- <div class="blank" style="padding-top:50px;"></div>
+ <div class="blank" style="padding-top:70px;"></div>
 
 <!-- 아이템 추천 -->
 
-<div class="RECOMMENDED_LEPORTS_LIST">
-<h2> 이 달의 레포츠 추천</h2>
+<div class="ratingTop_leports_list">
+<h2> 인기 폭발 TOP 10 </h2>
     <div class="swiper-container">
       <div class="swiper-wrapper">
+       <c:forEach var="dto" items="${ratingList}">
         <div class="swiper-slide">
-          <a href="#"><img src="" />1</a>
+          <a href="leportsDetail?leports_id=${dto.leports_id}"><img src="images/${dto.leports_main_img}" /></a>
         </div>
+       </c:forEach>
+      </div>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+  </div>
+  
+<div class="blank" style="padding-top:70px;"></div>
+
+<div class="reservationTop_leports_list">
+<h2> 예약 TOP 10 </h2>
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+       <c:forEach var="dto" items="${reserveList}">
         <div class="swiper-slide">
-          <a href="#"><img src="" />2</a>
+          <a href="leportsDetail?leports_id=${dto.leports_id}"><img src="images/${dto.leports_main_img}" /></a>
         </div>
-        <div class="swiper-slide">
-          <a href="#"><img src="" />3</a>
-        </div>
-        <div class="swiper-slide">
-          <a href="#"><img src="" />4</a>
-        </div>
-        <div class="swiper-slide">
-          <a href="#"><img src="" />5</a>
-        </div>
-        <div class="swiper-slide">
-          <a href="#"><img src="" />6</a>
-        </div>
-        <div class="swiper-slide">
-          <a href="#"><img src="" />7</a>
-        </div>
-        <div class="swiper-slide">
-          <a href="#"><img src="" />8</a>
-        </div>
-        <div class="swiper-slide">
-          <a href="#"><img src="" />9</a>
-        </div>
-        <div class="swiper-slide">
-          <a href="#"><img src="" />10</a>
-        </div>
-        <div class="swiper-slide">
-          <a href="#"><img src="" />11</a>
-        </div>
-        <div class="swiper-slide">
-          <a href="#"><img src="" />12</a>
-        </div>
+       </c:forEach>
       </div>
       <div class="swiper-pagination"></div>
       <div class="swiper-button-next"></div>
@@ -129,7 +119,7 @@
     });
   </script>
   
-<div class="blank" style="padding-top:50px;"></div>
+<div class="blank" style="padding-top:70px;"></div>
 
 <!-- 스크롤 페이지 -->
 
