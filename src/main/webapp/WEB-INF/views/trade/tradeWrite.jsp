@@ -29,16 +29,6 @@
 	</style>
 </head>
 <body>
-	<div class="uploadDIV">
-		<form id="uploadForm" method="post" enctype="multipart/form-data">
-			첫 등록된 이미지가 메인 이미지가 됩니다.
-			<input type="file" name="uploadFile" class="file" multiple><br>
-			<div>
-				<ul class="uploadResult">
-				</ul>
-			</div>
-		</form>
-	</div>
 	<form action="TradeWrite" method="POST" class="tradeForm">
 		<h3>중고거래 글쓰기</h3>
 		<hr>
@@ -59,12 +49,23 @@
 			<input type="text" class="form-control trade_first_row_info" name="trade_user_name" placeholder="이름"/>
 			<input type="text" class="form-control" name="trade_price" placeholder="가격"/><br>
 		</div>
-		<div class="uploadBox">
-			<input type="text" name="trade_main_img"><br>
-			<input type="text" name="trade_sub_img1"><br>
-			<input type="text" name="trade_sub_img2"><br>
-			<input type="text" name="trade_sub_img3"><br>
-			<input type="text" name="trade_sub_img4"><br>
+		<div class="uploadDIV">
+			<form id="uploadForm" method="post" enctype="multipart/form-data">
+				첫 등록된 이미지가 메인 이미지가 됩니다.
+				<br>
+				<input type="file" name="uploadFile" class="file" multiple><br>
+				<div>
+					<ul class="uploadResult">
+					</ul>
+				</div>
+				<div class="uploadBox">
+					<input type="text" name="trade_main_img"><br>
+					<input type="text" name="trade_sub_img1"><br>
+					<input type="text" name="trade_sub_img2"><br>
+					<input type="text" name="trade_sub_img3"><br>
+					<input type="text" name="trade_sub_img4"><br>
+				</div>
+			</form>
 		</div>
 		<div class="trade_btns">
 			<input type="submit" class="btn btn-primary" value="글쓰기">

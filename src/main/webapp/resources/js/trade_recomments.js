@@ -226,12 +226,14 @@ function checkExtension(fileName, fileSize){
 let uploadResult = $(".uploadResult");
 let tradeForm = $(".tradeForm");
 let uploadTit = $(".uploadTit");
+let inputArr = [];
+let count = 0;
 $('.file').change(function(e){                            //업로드할 파일을 선택 할 경우 동작을 일으킵니다.
 	// uploadResult.empty();
 	let formData = new FormData();
 	let inputFile = $("input[name='uploadFile']");
 	let files = inputFile[0].files;
-	console.log(files);
+	//console.log(files);
 	for(let i=0; i<files.length;i++){
 		if(!checkExtension(files[i].name, files[i].size)){
 			return false;
@@ -249,8 +251,13 @@ $('.file').change(function(e){                            //업로드할 파일�
 		dataType: 'json',
 		success: function(data){
 			$('.file').val('');                           //file input에 들어가 있는 값을 비워줍니다.
-			console.log(data);                      //업로드 되었다면 결과를 콘솔에 출력해봅니다.
+			//console.log(data);                      //업로드 되었다면 결과를 콘솔에 출력해봅니다.
 			showUploadedFile(data);
+			console.log("(ajax)inputArr.length: "+inputArr.length);
+			if(inputArr.length===0){
+				inputArr.push(data);
+				console.log("(ajax2)inputArr.length: "+inputArr.length);
+			}
 		}
 	});
 });
@@ -265,15 +272,30 @@ function showUploadedFile(uploadResultArr){
 		if(!obj.image){
 			str+= "<li><img src='/resources/images/attach.png'"+obj.fileName+"</li>";
 		}else{
-			console.log(`fileCallPath: ${fileCallPath}, uploadPath: ${obj.uploadPath}, uuid: ${obj.uuid}, fileName: ${obj.fileName}`);
-			if(i===0){
-				$("input[name='trade_main_img']").val(`'${fileCallPath}'`);
-				str += `<li><img src="/weats/display?fileName=${fileCallPath}"><span data-name="trade_main_img" data-file=\'${fileCallPath}\' data-type="image">X</span></li>`;
-			}else if(i>0 && i<5){
-				$("input[name='trade_sub_img"+i+"']").val(fileCallPath);
-				//$("input[name='trade_sub_img"+i+"'").val(`'${fileCallPath}'`);
-				str += `<li><img src="/weats/display?fileName=${fileCallPath}"><span data-name="trade_sub_img${i}" data-file=\'${fileCallPath}\' data-type="image">X</span></li>`;
+			//console.log(`fileCallPath: ${fileCallPath}, uploadPath: ${obj.uploadPath}, uuid: ${obj.uuid}, fileName: ${obj.fileName}`);
+			if(inputArr.length === 0){
+				console.log("(if===0)inputArr.length: "+inputArr.length);
+				if(i===0){
+					$("input[name='trade_main_img']").val(`'${fileCallPath}'`);
+					str += `<li><img src="/weats/display?fileName=${fileCallPath}"><span data-name="trade_main_img" data-file=\'${fileCallPath}\' data-type="image">X</span></li>`;
+					count++;
+					console.log("count: "+count+"\t"+i);
+				}else if(i>0 && i<5){
+					$("input[name='trade_sub_img"+i+"']").val(fileCallPath);
+					//$("input[name='trade_sub_img"+i+"'").val(`'${fileCallPath}'`);
+					str += `<li><img src="/weats/display?fileName=${fileCallPath}"><span data-name="trade_sub_img${i}" data-file=\'${fileCallPath}\' data-type="image">X</span></li>`;
+					count++;
+					console.log("count2: "+count+"\t"+i);
+				}
+			}else {//inputArr.length===0
+				console.log("(if!==0)inputArr.length: "+inputArr.length);
+				//처음에 3개 첨부 시 main, sub1, sub2 / arr.length==3
+				console.log("count3: "+count);
+				$("input[name='trade_sub_img"+count+"']").val(fileCallPath);
+				str += `<li><img src="/weats/display?fileName=${fileCallPath}"><span data-name="trade_sub_img${count}" data-file=\'${fileCallPath}\' data-type="image">X</span></li>`;
+				count++;
 			}
+
 		}
 		console.log("index:"+i);
 	});
@@ -294,6 +316,12 @@ uploadResult.on("click","span",function(e){
 			alert(result);
 			targetLi.remove();
 			$(`input[name='${name}'`).val("");
+			count--;
+			console.log("count Del: "+count);
+			if(count===0){
+				inputArr=[];
+				console.log("inputArr Del: "+inputArr.length)
+			}
 		}
 	});
 })
