@@ -3,6 +3,8 @@
          pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<c:set var="regExpPhone" value="(\d{3}).*(\d{3,4}).*(\d{4})"/>
+<c:set var="regExpEmail" value="^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[a-zA-Z]([-_.]?[a-zA-Z])*.[a-zA-Z]{2,3}$"/>
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -72,13 +74,15 @@
   			<div class="input-group-prepend">
     	    	<span class="input-group-text" id="basic-addon1">연락처</span>
   		    </div>
-  			<input type="text" class="form-control rs_phone_js" name="rs_phone" aria-describedby="basic-addon1">
+  			<input type="text" class="form-control rs_phone_js" name="rs_phone" aria-describedby="basic-addon1"
+                    pattern="${regExpPhone}" title="올바른 전화번호 형식이 아닙니다.(숫자만 입력)">
 		  </div>
           <div class="input-group mb-3">
   			<div class="input-group-prepend">
     	    	<span class="input-group-text" id="basic-addon1">이메일</span>
   		    </div>
-  			<input type="text" class="form-control rs_email_js" aria-describedby="basic-addon1">
+  			<input type="text" class="form-control rs_email_js" aria-describedby="basic-addon1"
+                    pattern="${regExpEmail}" title="올바른 이메일 형식이 아닙니다.">
 		  </div>
         </div>
 
@@ -87,17 +91,17 @@
           <div>
             (당일여행인 경우)
             <br>
-			1) 여행 개시일로부터 3일 이전취소시 : 예약금 100% 환불<br>
-			2) 여행 개시일로부터 2일 이전취소시 : 예약금환급 및 여행가의 90% 환불<br>
+			1) 여행 개시일로부터 3일 이전 취소 시 : 예약금 100% 환불<br>
+			2) 여행 개시일로부터 2일 이전 취소 시 : 예약금환급 및 여행가의 90% 환불<br>
 			3) 여행 개시일로부터 1일 이전취소시 : 예약금환급 및 여행가의 80% 환불<br>
-			4) 여행당일 통보 및 통보가 없는 경 : 예약금환급 및 여행가의 70% 환불<br>
+			4) 여행당일 통보 및 통보가 없는 경우 : 예약금환급 및 여행가의 70% 환불<br>
 			<br>
 			(숙박여행인 경우)
 			<br>
-			1) 여행 개시일로부터 5일 이전취소시 : 예약금 100% 환불<br>
-			2) 여행 개시일로부터 2일 이전취소시 : 예약금환급 및 여행가의 90% 환불<br>
-			3) 여행 개시일로부터 1일 이전취소시 : 예약금환급 및 여행가의 80% 환불<br>
-			4) 여행당일 통보 및 통보가 없는 경 : 예약금환급 및 여행가의 70% 환불<br>
+			1) 여행 개시일로부터 5일 이전 취소 시 : 예약금 100% 환불<br>
+			2) 여행 개시일로부터 2일 이전 취소 시 : 예약금환급 및 여행가의 90% 환불<br>
+			3) 여행 개시일로부터 1일 이전 취소 시 : 예약금환급 및 여행가의 80% 환불<br>
+			4) 여행당일 통보 및 통보가 없는 경우 : 예약금환급 및 여행가의 70% 환불<br>
           </div>
         </div>
 

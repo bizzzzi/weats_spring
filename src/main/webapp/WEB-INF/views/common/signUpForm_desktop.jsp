@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-​
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="regExpPw" value="^\S(?=.*[a-zA-Z])((?=.*\d)|(?=.*\W)).{8,15}$"/>
+<c:set var="regExpEmail" value="^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[a-zA-Z]([-_.]?[a-zA-Z])*.[a-zA-Z]{2,3}$"/>
 <div class="signUpModal hidden">
 	<div class="modalOverlay2"></div>
 	<div id="signUpForm">
@@ -11,8 +13,9 @@
 				<div class="closeBtn2">❌</div>
 				<hr>
 				<div class="signRow">
-					<input type="email" name="user_email" class="userEmail" id="user_email"
-						placeholder="이메일 주소(아이디)" />
+					<input type="text" name="user_email" class="userEmail" id="user_email"
+						placeholder="이메일 주소(아이디)" pattern="${regExpEmail}"
+						title="올바른 이메일 형식이 아닙니다."/>
 						<span id="result" style="display:none"></span>
 				</div>
 				<div class="signRow">
@@ -21,7 +24,8 @@
 				</div>
 				<div class="signRow">
 					<input type="password" name="user_pw" class="userPasswd" id="user_pw"
-						placeholder="비밀번호(영문, 숫자, 특수문자 기호)" />
+						   placeholder="비밀번호(공백을 제외한 영문, 숫자 혹은 특수문자 2가지 조합 8~15자)"
+						   pattern="${regExpPw}" title="공백을 제외한 영문, 숫자, 특수문자 2가지 조합 8~15자"/>
 				</div>
 				<div class="signRow"> 
 					<input type="password" name="user_pw2" class="userPasswd2"

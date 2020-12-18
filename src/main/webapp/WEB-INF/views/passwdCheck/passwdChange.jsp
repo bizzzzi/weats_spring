@@ -1,5 +1,7 @@
 <%@page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="regExpPw" value="^\S(?=.*[a-zA-Z])((?=.*\d)|(?=.*\W)).{8,15}$"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +17,8 @@
 			<div class="comment">변경할 비밀번호를 입력하세요</div>
 			<div class="signRow">
 				<input type="password" name="new_pw" class="userPasswd1"
-					placeholder="비밀번호 입력" />
+					   placeholder="비밀번호(공백을 제외한 영문, 숫자 혹은 특수문자 2가지 조합 8~15자)"
+					   pattern="${regExpPw}" title="공백을 제외한 영문, 숫자, 특수문자 2가지 조합 8~15자"/>
 			</div>
 			<div class="signRow">
 				<input type="password" name="new_pw2" class="userPasswd2"
