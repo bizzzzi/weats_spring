@@ -71,9 +71,10 @@ public class KakaoPayController {
             ReservationItemDTO itemDTO = null;
             ArrayList<ReservationItemDTO> itemList = new ArrayList<ReservationItemDTO>();
             for(int i=0; i<item_title.size(); i++) {
-                itemDTO = new ReservationItemDTO(null, item_title.get(i).replaceAll("[\\[\\]]", "")
-                        , Integer.parseInt(item_person.get(i).replaceAll("[\\[\\]]", "")), Integer.parseInt(item_price.get(i).replaceAll("[\\[\\]]", "")
-                ), reservation_id, item_id.get(i).replaceAll("[\\[\\]]", ""));
+                itemDTO = new ReservationItemDTO(null, reservation_id,  item_id.get(i).replaceAll("[\\[\\]]", "")
+                        , item_title.get(i).replaceAll("[\\[\\]]", ""), Integer.parseInt(item_person.get(i).replaceAll("[\\[\\]]", ""))
+                        , Integer.parseInt(item_price.get(i).replaceAll("[\\[\\]]", "")
+                ));
                 itemList.add(itemDTO);
                 service.reserveItemAdd(itemList);
 

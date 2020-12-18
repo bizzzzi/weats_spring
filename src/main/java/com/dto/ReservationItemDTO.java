@@ -13,9 +13,9 @@ import java.util.List;
 @ToString
 public class ReservationItemDTO {
     private String rs_item_id;
+    private String reservation_id;
+    private String leports_item_id;
     private String rs_item_title;
     private int rs_item_person;
     private int rs_item_price;
-    private String reservation_id;
-    private String leports_item_id;
 }
