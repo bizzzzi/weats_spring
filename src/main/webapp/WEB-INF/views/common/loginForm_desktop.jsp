@@ -19,10 +19,10 @@
 						placeholder="비밀번호" />
 				</div>
 				<div>
-					<button type="submit" class="loginBtn">로그인</button>
+					<button type="submit" class="loginBtn btn btn-lg btn-primary">로그인</button>
 				</div>
 				<div id="find">
-					<span id="findPw">비밀번호 찾기</span>
+					<span id="findPw" style="cursor: pointer">비밀번호 찾기</span>
 				</div>
 			</div>
 		</form>
@@ -44,7 +44,7 @@
 						<span id="findEmailResult" style="display:none"></span>
 				</div>
 				<div>
-					<button type="submit" class="findPwBtn">비밀번호 재설정 링크 보내기</button>
+					<button type="submit" class="findPwBtn btn btn-lg btn-primary">비밀번호 재설정 링크 보내기</button>
 				</div>
 			</div>
 		</form>

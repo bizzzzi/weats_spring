@@ -28,7 +28,7 @@
 				</div>
 			</div>
 			<hr>
-			<div class="leports_ticket">티켓 선택</div>
+			<div class="leports_ticket" id="href_ticket">티켓 선택</div>
 			<div class="calendar_wrap">
 				<table class="scriptCalendar">
 					<thead>
@@ -57,7 +57,7 @@
 					   style="display: none">
 				<!-- <div class="choiceDay_data"></div> -->
 			</div>
-			<div class="leports_item_list">
+			<div class="leports_item_list" id="href_item_list">
 				<div class="string_day">선택날짜 : <span class="userSelectDay"></span></div>
 				<!-- for문 돌려서 반복 출력 -->
 				<c:forEach var="dto" items="${leportsDetail}">
@@ -111,7 +111,7 @@
 			</div>
 		</form>
 		<hr>
-		<div>
+		<div id="href_leports_content">
 			상품 상세 설명 : ${leportsDetail[0].leports_content}
 		</div>
 	</div>
@@ -120,7 +120,7 @@
 			<div class="current_amount">현재 금액</div>
 			<span class="js_total_amount2">0</span>원<br>
 		</div>
-		<button type="button" class="btn btn-lg btn-primary" style="width: 280px;">티켓 선택</button>
+		<button type="button" class="btn btn-lg btn-primary" onclick="location.href='#href_ticket'" style="width: 280px;">티켓 선택</button>
 	</div>
 
 
