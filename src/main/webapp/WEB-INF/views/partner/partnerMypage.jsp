@@ -20,16 +20,15 @@
     <form method="post" class="partnerAllForm">
       <input type="hidden" name="partner_id" value="${pdto.partner_id}">
       <input type="hidden" name="user_id" value="${pdto.user_id}">
+      
 		<div class="formBox">
 	        <div class="title">상호 이름</div>
 	        <input type="text" class="c_name" name="c_name" value="${pdto.c_name}">
-		</div>
-		<div class="formBox">
+	
 	        <div class="title">연락처</div>
 	        <div class="comment">상시 가능한 연락처를 입력해주세요.</div>
 	        <input type="text" class="c_phone" name="c_phone" value="${pdto.c_phone}">
- 		</div>
- 		<div class="formBox">
+ 	
 	        <div class="title">주소</div>
 	          <div class="post">
 	          	<input type="button" class="postBtn" onclick="sample4_execDaumPostcode()" value="우편번호 찾기">
@@ -37,13 +36,11 @@
 	            <input type="text" name="c_address" id="sample4_roadAddress" value="${pdto.c_address}">
 	            <input type="text" name="c_detail_address" id="c_detail_address" value="${pdto.c_detail_address}">
 	          </div>
-	    </div>      
-		<div class="formBox">
+	      
 	        <div class="title">사업자 등록번호</div>
 	          <input type="text" name="partner_license_num" class="partner_license_num" size="23" maxlength="10" 
 	          value="${pdto.partner_license_num}">
-		</div>
-		<div class="formBox">
+	
 	        <div class="title">서류 제출</div>
 	          <div class="guide_img">
 	            <input type="file" id="image_upload" class="image_inputType_file" name="partner_license_docs"
@@ -51,14 +48,15 @@
 	            <!-- file형태와 image만 업로드하도록 설정 -->
 	            <div id="image_container">
 	              <!-- 사진을 미리 보여줄 영역 -->
-	              <img src="#" alt=""/>
+	              <img src="" alt=""/>
 	            </div>
 	          </div>
 	          <div class="comment">
 	          	사업자 등록증 사진을 업로드해주세요. 이미지 규격은 '*'을 권장합니다.
 	  	      </div>
-	  	</div>  
-      <div class="partnerBtn">
+		</div>
+		
+      <div class="partnerBtn info">
         <input class="submitBtn Btn" type="submit" formaction="PartnerUpdate" value="정보 수정">
         <!-- 비밀번호 인증 후 파트너 정보 수정 -->
         <input class="cancleBtn Btn" type="reset" value="작성취소">

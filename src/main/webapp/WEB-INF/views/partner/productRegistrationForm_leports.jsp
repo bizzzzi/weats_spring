@@ -21,23 +21,19 @@
 	        <div class="title">상품 이름 *</div>
 	            <input type="text" name="leports_title" class="leports_title" placeholder="ex) 서핑강습 2시간">
 	            <span id="result"></span>
-	    </div>
-		<div class="formBox">
+
         <div class="title">상품 소개 *</div>      
             <textarea name="leports_content" class="leports_content" cols="30" rows="7"></textarea>
-        </div>    
-        <div class="formBox">
+    
 	        <div class="title">대표 사진 *</div>     
-	            <input class="leports_main_img" name="leports_main_img" type="file" accept="img/*" required multiple>
-	    	</div>
-    	<div class="formBox">
+	            <input class="leports_main_img" name="leports_main_img" type="file" accept="img/*" required>
+
         <div class="title">서브 사진</div>    
             <input class="leports_sub_img1" name="leports_sub_img1" type="file" accept="img/*">       
             <input class="leports_sub_img2" name="leports_sub_img2" type="file" accept="img/*">     
             <input class="leports_sub_img3" name="leports_sub_img3" type="file" accept="img/*">    
             <input class="leports_sub_img4" name="leports_sub_img4" type="file" accept="img/*">
-        </div>
-        <div class="formBox">    
+  
 	        <div class="title">지역 카테고리 *</div>      
 	          <div>
 	            <select name="leports_loc" class="leports_loc">
@@ -61,8 +57,7 @@
 	              <option value="제주">제주도</option>
 	            </select>
 	          </div>
-		</div>
-		<div class="formBox">
+
 	        <div class="title">레포츠 카테고리 *</div>     
 	          <div>
 	            <select name="leports_type" class="leports_type">

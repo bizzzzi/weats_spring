@@ -19,12 +19,14 @@
 }
 #SideMenu h3{
 	margin-bottom: 30px;
+    color:#f8fafa;	
 }
 #SideMenu a{
 	font-size: 1.2em;
 	padding: 15px;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color:#f8fafa;
 }
 #SideMenu a:hover{
 	background: #ABDEFB;
@@ -36,7 +38,28 @@
 #partnerPageWrap {
 	display:flex;
 }
+/* 파트너 메인 */
+#partnerMain{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    margin: 5% 0;
+}
 
+#partnerMain .maintitle{
+    width: 100%;
+    margin-bottom: 5%;
+    color:#636466;
+}
+#partnerMain a{
+    background-color: #51ABF3;
+    width: 20%;
+    color: #fff;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+} 
 /*파트너 등록폼*/
 .partner_form {
     width: 100%;
@@ -62,31 +85,51 @@
     margin-bottom: 5px;
     width: 50%;
 }
-.formBox .postBtn{
+.formBox .postBtn.form{
 	display: block;
     margin-bottom: 20px;
     padding: 5px 15px;
+    margin-left: 25%;
+    background: #51ABF3;
+    color: #fff;
+    border: 1px solid #51ABF3;
+    border-radius: 4px;
 }
-
-.partner_form .partnerBtn{
+.formBox .postBtn.form:hover{
+	background-color: #438fc9;
+}
+ .partner_form .partnerBtn{
 	width:100%;
     justify-content: center;
     display: flex;
     margin-top: 40px;
-}
-.partner_form .partnerBtn.form{
-
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
-	text-align: center;
-}
+} 
 .partnerBtn input{
-	margin: auto;
-    padding: 10px 10%;
+    background: #51ABF3;
+    color: #fff;
+    border: 1px solid #51ABF3;
+    border-radius: 4px;
+    padding: 10px 60px;
+}
+.partnerBtn.form{
+	display: flex;
+    flex-direction: column;
+}
+.partnerBtn.form input{
+	width: 50%;
+    margin: auto;
+}
+
+.partnerBtn input:hover{
+	background-color: #438fc9;
+}
+.partnerBtn input:disabled{
+	background-color: #51ABF3;
+    opacity: 0.5;
 }
 .partner_form img{
-	width: 100%;
+    width: 70%;
+    height: 400px;
 	
 }
 .partner_form .comment {
@@ -100,9 +143,18 @@
 .formBox #result{
 	color: red;
 }
+.itemform{
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .16);
+    margin: 20px;
+    padding: 10px;
+    border-radius: 10px;
+}
 .item_wrap{
 	width: 100%;
 	display: flex;
+}
+.partner_form.item{
+	padding: 0 10%;
 }
 .partner_form .item_wrap input{
 	width: 70%;
@@ -124,30 +176,12 @@
 	width: 20%;
     padding: 10px 40px;
     margin: auto;
-}
-.partner_form .addItemList{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-}
-.partner_form .addItemList input{
-    padding: 0.8em 0.5em;
-    margin: 5px;
-    width: 50%;
-}
-.partner_form .addForm{
-    margin: 20px 0px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    background: #6dbaf5;
+    color: #fff;
+    border: 1px solid #6dbaf5;
+    border-radius: 4px;
 }
 /*파트너 마이페이지*/
-
-.guide_img .before_img {
-  background-color: red;
-  height: 200px;
-}
 
 .main_title {
   display: flex;
@@ -157,6 +191,19 @@
   font-style: normal;
   color: #212121;
   line-height: inherit;
+}
+.formBox .postBtn{
+	display: block;
+    margin-bottom: 20px;
+    padding: 5px 15px;
+}
+.partnerBtn.info{
+    display: flex;
+    margin: 30px 0;
+}
+.partnerBtn.info input{
+    width: 100%;
+    margin: 0 10px;
 }
 /*등록상품 리스트*/
 .leportsProducts{
@@ -171,13 +218,13 @@
 	padding: 10px;
     display: flex;
     margin: 10px;
-    border-radius: 5%;
-    border: 1px solid darkred;
+    border-radius: 4px;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .16);
 }
 .partner_main_img{
     width: 300px;
     height: 200px;
-    border: 1px solid black;
+    border: 1px solid #D6D6D6;
 }
 .partner_main_img img{
 	width: 300px;
@@ -213,6 +260,7 @@
 	width: 200px;
 	height: 200px;
     margin: auto;
+    border: 1px solid #D6D6D6;
 }
 .rs_content .rs_info{
 	padding: 10px;
@@ -225,3 +273,31 @@
 .rs_content .rs_info ul{
 	padding: 10px;
 }
+
+@media screen and (max-width: 768px) { 
+		.formBox input[type="text"], 
+		.formBox.item input[type="text"],
+		.formBox.item input[type="number"],
+		.partner_form .addItemList input{
+			width: 100%;
+		}
+		.partner_form img{
+			width: 100%;
+   			height: 300px;
+		}
+		.item_wrap{
+		    flex-direction: column;
+		}
+		.addBtn{
+		    width: 40%;
+		}
+		.formBox .postBtn,.formBox .postBtn.form{
+			margin-left: 0;
+		}
+		.partnerBtn.info{
+			flex-direction: column;
+		}
+		.partnerBtn.info input{
+			margin: 5px 0;
+		}
+	 }

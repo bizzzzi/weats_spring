@@ -16,9 +16,10 @@
 	<header class="header">
 		<h1 class="main_title">상품 등록</h1>
 	</header>
-	<div class="partner_form">
+	<div class="partner_form item">
 		<form action="ItemAdd" method="post" class="partnerAllForm item">
 			<input type="hidden" name="leports_id" value="${dto.leports_id}">
+			<div id="pre_set" class="itemform">
 			<div class="item_wrap">
 				<div class="formBox item">			
 					<div class="title">레포츠 아이템 이름</div>
@@ -39,11 +40,13 @@
 					<input type="number" name="leports_max_capacity" class="leports_max_capacity" placeholder="숫자만 입력해주세요.">				
 				</div>
 			</div>	
-				<div class="addItemList">
+				
+			</div>
+				<div id="addItemList">
 					<!-- leports_item이 추가되는 영역 -->
 				</div>
 	
-			<input class="addBtn" type="button" value="추가" id="addItem" />
+			<input class="addBtn" type="button" value="추가" id="addItem" onclick="add_item()" />
 			
 			<div class="partnerBtn form">
 				<p>아래 버튼을 선택하면 개인정보 동의 및 파트너 약관에 동의하는 것입니다.</p>

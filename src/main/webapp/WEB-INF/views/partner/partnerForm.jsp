@@ -10,21 +10,19 @@
   </header>
 
   <div class="partner_form" id="partner">
-    <form action="PartnerAdd" method="post" class="partnerAllForm my">
+    <form action="PartnerAdd" method="post" class="partnerAllForm">
     	
-    	<div class="formBox">
+		<div class="formBox">
 	        <div class="title">상호 이름*</div>
 	        <input type="text" name="c_name" class="c_name" placeholder="상호 이름을 입력해주세요.">
-        </div>
-        <div class="formBox">
+
 	        <div class="title">연락처*</div>
 	        <div class="comment">상시 가능한 연락처를 입력해주세요.</div>
 			<input type="text" name="c_phone" class="c_phone" size="23" maxlength="11" placeholder="하이픈(-)은 빼고 입력해주세요.">
- 		</div>
-		<div class="formBox">
+
 	        <div class="title">주소*</div>
 	          <div class="post">
-	          	<input type="button" class="postBtn" onclick="sample4_execDaumPostcode()" value="우편번호 찾기">
+	          	<input type="button" class="postBtn form" onclick="sample4_execDaumPostcode()" value="우편번호 찾기">
 	            <input type="text" name="c_postnum" id="sample4_postcode" placeholder="우편번호">
 	            <input type="text" name="c_address" id="sample4_roadAddress" placeholder="도로명주소">
 	            <input type="text" name="c_detail_address" id="sample4_jibunAddress" placeholder="상세주소 입력">
@@ -34,14 +32,11 @@
 	          style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1" onclick="foldDaumPostcode()"
 	          alt="접기 버튼">
      		 </div>
-		</div>
 
-    	<div class="formBox">
         	<div class="title">사업자 번호*</div>
           	<input type="text" name="partner_license_num" class="partner_license_num" size="23" maxlength="10"
             placeholder="하이픈(-)은 빼고 입력해주세요.">
-		</div>
-    	<div class="formBox">
+
 	        <div class="title">사업자 등록증*</div>     
 	        <div class="guide_img">
 	            <input type="file" id="image_upload" class="image_inputType_file" name="partner_license_docs" accept="img/*"

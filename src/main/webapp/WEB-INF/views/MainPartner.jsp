@@ -18,29 +18,18 @@
 <script type="text/javascript" src="js/bootstrap.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/partner.css">
 <script src="https://kit.fontawesome.com/400289e08c.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <div id="wrap">
 	<div id="desktop">
 		<jsp:include page="common/header_desktop.jsp" flush="true"></jsp:include>
-		<jsp:include page="common/loginForm_desktop.jsp" flush="true"></jsp:include>
-		<jsp:include page="common/signUpForm_desktop.jsp" flush="true"></jsp:include>
 	</div>
-	<div id="partner_main">
-		<ul>
-			<li><a href="partnerCheck/PartnerMypage">계정관리</a></li>
-			<li><a href="productRegistrationForm_leports">상품등록</a></li>
-		</ul>
-		<ul>
-			<li><a href="partnerCheck/LeportsAddList">등록상품관리</a></li>
-			<li><a href="partnerCheck/ProductResevation">예약 관리</a></li>
-		</ul>
+	<div id="partnerMain">
+		<jsp:include page="partner/partnerSideMenu.jsp" flush="true"></jsp:include>
 	</div>
-	<jsp:include page="common/footer.jsp" flush="true"></jsp:include>
-</div>
-<script type="text/javascript" src="js/modal.js"></script>
-<script type="text/javascript" src="js/signUpForm.js"></script>
-<script type="text/javascript" src="js/thumbnail.js"></script>
+	 <jsp:include page="common/footer.jsp" flush="true"></jsp:include>
+</div>	
 </body>
 </html>

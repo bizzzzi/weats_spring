@@ -21,24 +21,20 @@
 	        <div class="title">상품 이름</div>        
 	        <input type="text" name="leports_title" class="leports_title" value="${ldto.leports_title}">
 	        <span id="result"></span>
-		</div>
-		<div class="formBox">
+
 	        <div class="title">상품 소개</div>
 	            <textarea name="leports_content" class="leports_content" cols="30"
 	              rows="10">${ldto.leports_content}</textarea>
-		</div>
-		<div class="formBox">
+
 	        <div class="title">대표 사진</div>
 	            <input class="leports_main_img" name="leports_main_img" type="file" accept="img/*">
-		</div>
-		<div class="formBox">
+
 	        <div class="title">서브 사진</div>
 	            <input class="leports_sub_img1" name="leports_sub_img1" type="file" accept="img/*">
 	            <input class="leports_sub_img2" name="leports_sub_img2" type="file" accept="img/*">
 	            <input class="leports_sub_img3" name="leports_sub_img3" type="file" accept="img/*">
 	            <input class="leports_sub_img4" name="leports_sub_img4" type="file" accept="img/*">
-		</div>
-		<div class="formBox">	
+
 	        <div class="title">지역 카테고리</div>
 	          <div>
 	            <select name="leports_loc" class="leports_loc">
@@ -53,8 +49,7 @@
 	              <option value="기타">기타</option>
 	            </select>
 	          </div>
-		</div>
-		<div class="formBox">
+
 	        <div class="title">레포츠 카테고리</div>
 	          <div>
 	            <select name="leports_type" class="leports_type">
@@ -66,7 +61,7 @@
 	          </div>
 		</div>
       <c:forEach var="idto" items="${idto}">
-      <div class="addForm">
+      <div class="itemform">
 	      <div class="item_wrap">
 	      	<div class="formBox item">
 		        <div class="title">레포츠 아이템 이름</div>
@@ -91,7 +86,7 @@
 	  </div>    
       </c:forEach>
       
-      <div class="partnerBtn">
+      <div class="partnerBtn info">
         <input class="submitBtn" type="submit" formaction="ProductUpdate" value="정보 수정">
         <input class="cancleBtn" type="reset" value="작성 취소">
         <input class="deletetBtn" type="submit" formaction="ProductDelete" value="상품 삭제">
