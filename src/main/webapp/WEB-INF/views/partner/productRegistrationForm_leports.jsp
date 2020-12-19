@@ -69,7 +69,7 @@
 	          </div>
 	    </div>      
 	    <div class="partnerBtn">
-       		<input class="submitBtn" type="submit" disabled="disabled" value="다음">
+       		<input class="submitBtn" type="submit" disabled="disabled" value="다음" onclick="productNull()">
        	</div>	
     </form>
   </div>

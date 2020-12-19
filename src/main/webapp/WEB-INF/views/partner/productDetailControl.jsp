@@ -18,15 +18,15 @@
     <form method="post" class="partnerAllForm">
       <input type="hidden" name="leports_id" value="${ldto.leports_id}"> 
 		<div class="formBox">
-	        <div class="title">상품 이름</div>        
+	        <div class="title">상품 이름*</div>        
 	        <input type="text" name="leports_title" class="leports_title" value="${ldto.leports_title}">
 	        <span id="result"></span>
 
-	        <div class="title">상품 소개</div>
+	        <div class="title">상품 소개*</div>
 	            <textarea name="leports_content" class="leports_content" cols="30"
 	              rows="10">${ldto.leports_content}</textarea>
 
-	        <div class="title">대표 사진</div>
+	        <div class="title">대표 사진*</div>
 	            <input class="leports_main_img" name="leports_main_img" type="file" accept="img/*">
 
 	        <div class="title">서브 사진</div>
@@ -35,7 +35,7 @@
 	            <input class="leports_sub_img3" name="leports_sub_img3" type="file" accept="img/*">
 	            <input class="leports_sub_img4" name="leports_sub_img4" type="file" accept="img/*">
 
-	        <div class="title">지역 카테고리</div>
+	        <div class="title">지역 카테고리*</div>
 	          <div>
 	            <select name="leports_loc" class="leports_loc">
 	              <option value="서울">서울</option>
@@ -50,7 +50,7 @@
 	            </select>
 	          </div>
 
-	        <div class="title">레포츠 카테고리</div>
+	        <div class="title">레포츠 카테고리*</div>
 	          <div>
 	            <select name="leports_type" class="leports_type">
 	              <option value="지상 레포츠">지상 레포츠</option>
@@ -87,7 +87,7 @@
       </c:forEach>
       
       <div class="partnerBtn info">
-        <input class="submitBtn" type="submit" formaction="ProductUpdate" value="정보 수정">
+        <input class="submitBtn" type="submit" formaction="ProductUpdate" value="정보 수정" onclick="productNull()">
         <input class="cancleBtn" type="reset" value="작성 취소">
         <input class="deletetBtn" type="submit" formaction="loginCheck/CheckPartner?page=productDelete" value="상품 삭제">
       </div>
