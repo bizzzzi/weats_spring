@@ -67,7 +67,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <!--	관리자 페이지에서 FAQ 수정-->
 	<update id="supportUpdate" parameterType="CustomerSupportDTO">
-		update customer_support set s_question = #{s_question}, s_answer = #{s_answer} where support_id = #{support_id}
+		update customer_support set s_question = #{s_question}, s_answer = #{s_answer}, s_type = #{s_type} where support_id = #{support_id}
 	</update>
 <!--	관리자 페이지에서 FAQ 삭제-->
 	<delete id="supportDelete" parameterType="string">
