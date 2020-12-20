@@ -65,12 +65,13 @@
 					<input type="text" name="trade_sub_img3"><br>
 					<input type="text" name="trade_sub_img4"><br>
 				</div>
+				<div class="trade_btns">
+					<input type="submit" class="btn btn-primary" value="글쓰기">
+					<input type="reset" class="btn btn-primary" value="취소하기">
+				</div>
 			</form>
 		</div>
-		<div class="trade_btns">
-			<input type="submit" class="btn btn-primary" value="글쓰기">
-			<input type="reset" class="btn btn-primary" value="취소하기">
-		</div>
+
 	</form>
 </body>
 </html>

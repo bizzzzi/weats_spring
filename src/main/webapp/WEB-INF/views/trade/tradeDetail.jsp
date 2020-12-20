@@ -9,7 +9,7 @@
 	<div class="products_info">
 		<div class="imgframe">
 			<ul class="trade_img">
-				<li><img class="trade_main_img2" src="/weats/display?fileName=${dto.trade_main_img}"></li>
+				<li><img class="trade_main_img" src="/weats/display?fileName=${dto.trade_main_img}"></li>
 				<div>
 					<c:if test="${dto.trade_sub_img1 != null}">
 						<li><img class="trade_sub_img1" src="/weats/display?fileName=${dto.trade_sub_img1}"></li>

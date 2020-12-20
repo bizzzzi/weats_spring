@@ -53,4 +53,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="CommentUpdate" parameterType="HashMap">
 		update trade_comments set trade_comment = #{trade_comment}, comment_regidate = sysdate where trade_comment_id = #{trade_comment_id}
 	</update>
+	<select id="getOldFiles" resultType="TradeDTO">
+		select *  from trade where trade_regidate = to_char(sysdate -1,'yyyy\mm\dd')
+	</select>
 </mapper>

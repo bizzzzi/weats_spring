@@ -276,7 +276,7 @@ function showUploadedFile(uploadResultArr){
 			if(inputArr.length === 0){
 				console.log("(if===0)inputArr.length: "+inputArr.length);
 				if(i===0){
-					$("input[name='trade_main_img']").val(`'${fileCallPath}'`);
+					$("input[name='trade_main_img']").val(`${fileCallPath}`);
 					str += `<li><img src="/weats/display?fileName=${fileCallPath}"><span data-name="trade_main_img" data-file=\'${fileCallPath}\' data-type="image">X</span></li>`;
 					count++;
 					console.log("count: "+count+"\t"+i);
