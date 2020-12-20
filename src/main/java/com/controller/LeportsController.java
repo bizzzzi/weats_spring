@@ -37,7 +37,9 @@ public class LeportsController {
 		if(type == null && loc == null) type = "all";
 
 		model.addAttribute("align", selectAlign);
-		session.setAttribute("category", category);
+		model.addAttribute("type", type);
+		model.addAttribute("loc", loc);
+		model.addAttribute("category", category);
 		
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("type", type);

@@ -4,11 +4,10 @@
 <c:set var="path" value="${pageContext.request.contextPath}" />
     <div class="customer_btn">
         <div class="customer_con">
-            <form>
-                <h3>여기에 물어보세요.</h3>
+            <form action="${path}/supportSearch">
                 <div class="search">
-                    <input type="text" name="search">
-                    <input type="submit" value="검색">
+                        <input type="text" name="search" placeholder="이 곳에 물어보세요." pattern=".{2,}" title="검색어를 두 글자 이상 입력하세요.">
+                        <input type="submit" value="검색">
                 </div>
                 <a href="${path}/loginCheck/QA_question">1:1 문의하기</a>
             </form>
@@ -24,3 +23,6 @@
             <li><a href="${path}/loginCheck/userQuestionList"><span>나의 문의 내역</span></a></li>
         </ul>
     </div>
+<script>
+    const
+</script>

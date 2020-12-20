@@ -1,5 +1,7 @@
 <%@page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="regExpPw" value="^\S(?=.*[a-zA-Z])((?=.*\d)|(?=.*\W)).{8,15}$"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,8 +16,10 @@
 			<div class="title">비밀번호 변경</div>
 			<div class="comment">변경할 비밀번호를 입력하세요</div>
 			<div class="signRow">
-				<input type="password" name="new_pw" class="userPasswd1"
-					placeholder="비밀번호 입력" />
+				<input type="password" name="new_pw" class="userPasswd"
+					   placeholder="비밀번호(공백을 제외한 영문, 숫자 혹은 특수문자 2가지 조합 8~15자)"
+					   pattern="${regExpPw}" title="공백을 제외한 영문, 숫자, 특수문자 2가지 조합 8~15자"/>
+				<div class="capsLockDiv" style="display: none"><b>CapsLock</b>이 켜져있습니다.</div>
 			</div>
 			<div class="signRow">
 				<input type="password" name="new_pw2" class="userPasswd2"
@@ -29,7 +33,7 @@
 		</form>
 	</div>
 	<script>
-		const pw1 = document.querySelector(".userPasswd1");
+		const pw1 = document.querySelector(".userPasswd");
 		const pw2 = document.querySelector(".userPasswd2");
 		const pwCheck = document.querySelector(".pwCheck");
 		const btn = document.querySelector("button");
@@ -53,5 +57,6 @@
 			};
 		});
 	</script>
+	<script type="text/javascript" src="js/capsLock.js"></script>
 </body>
 </html>
