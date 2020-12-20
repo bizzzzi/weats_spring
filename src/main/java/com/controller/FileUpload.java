@@ -16,11 +16,11 @@ public class FileUpload {
             if (fileSize > 0) {
                 is = fileData.getInputStream();
                 File realUploadDir = new File(path);
-                if (!realUploadDir.exists()) {             //경로에 폴더가 존재하지 않으면 생성합니다.
+                if (!realUploadDir.exists()) {
                     realUploadDir.mkdirs();
                 }
                 out = new FileOutputStream(path +"/"+ fileName);
-                FileCopyUtils.copy(is, out);            //InputStream에서 온 파일을 outputStream으로 복사
+                FileCopyUtils.copy(is, out);
             }else{
                 new IOException("잘못된 파일을 업로드 하셨습니다.");
             }
