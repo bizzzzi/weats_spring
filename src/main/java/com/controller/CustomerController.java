@@ -140,7 +140,7 @@ public class CustomerController {
         CustomerSupportDTO supportDTO = customerService.supportDetail(support_id);
         model.addAttribute("support", supportDTO);
         if(request.getRequestURI().contains("adminCheck")){ //관리자
-            return "MainSupportDetail";
+            return "MainSupportDetail_admin";
         } else{
             return "MainSupportDetail"; //사용자 detail 페이지 경로로 수정 예정
         }
