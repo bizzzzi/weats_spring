@@ -13,35 +13,35 @@ function reply(e){
 	const dom = e.target;
 	console.log("click");
 	$.ajax({
-			url:"loginCheck/TradeCommentWrite",
-			type:"POST",
-			data:{
-				trade_comment:$("textarea[name='trade_recomment']").val(),
-				trade_comment_id:comment_id,
-				trade_depth:$("input[name='re_trade_depth']").val(),
-				trade_id:trade_id,
-			},
-			dataType:"json",
-			success:function(data){
-				console.log(data);
-				$(dom).parent().after(getHtml2(data.trade_comment_id,data.trade_comment,data.comment_regidate,data.user_id));
-				// $(dom).insertAdjacentHTML('afterend',`
-				// 	<div class="comment_cont re" style="margin-left: 20px;">
-				// 	<input type="hidden" name="trade_comment_id" value="${data.trade_comment_id}"/>
-				// 	<strong style="color: red">${data.user_id}</strong>
-				// 	<br>
-				// 	<span>${data.trade_comment}</span>
-				// 	<p>${data.comment_regidate}</p>
-				// 	<button class="delBtn" data-commentid="${data.trade_comment_id}" data-user="user_id">삭제</button>
-				// 	<button class="updateBtn" data-commentid="${data.trade_comment_id}" data-user="user_id">수정</button>
-				// 	</div>
-				// `);
-				$(dom).parents().filter(".recomment_cont").remove();
-			},
-			error:function(xhr,status,error){
-				alert("로그인이 필요합니다.");
-			}
-		});
+		url:"loginCheck/TradeCommentWrite",
+		type:"POST",
+		data:{
+			trade_comment:$("textarea[name='trade_recomment']").val(),
+			trade_comment_id:comment_id,
+			trade_depth:$("input[name='re_trade_depth']").val(),
+			trade_id:trade_id,
+		},
+		dataType:"json",
+		success:function(data){
+			console.log(data);
+			$(dom).parent().after(getHtml2(data.trade_comment_id,data.trade_comment,data.comment_regidate,data.user_id));
+			// $(dom).insertAdjacentHTML('afterend',`
+			// 	<div class="comment_cont re" style="margin-left: 20px;">
+			// 	<input type="hidden" name="trade_comment_id" value="${data.trade_comment_id}"/>
+			// 	<strong style="color: red">${data.user_id}</strong>
+			// 	<br>
+			// 	<span>${data.trade_comment}</span>
+			// 	<p>${data.comment_regidate}</p>
+			// 	<button class="delBtn" data-commentid="${data.trade_comment_id}" data-user="user_id">삭제</button>
+			// 	<button class="updateBtn" data-commentid="${data.trade_comment_id}" data-user="user_id">수정</button>
+			// 	</div>
+			// `);
+			$(dom).parents().filter(".recomment_cont").remove();
+		},
+		error:function(xhr,status,error){
+			alert("로그인이 필요합니다.");
+		}
+	});
 }
 function del(e){
 	let btn = e.target;
@@ -113,29 +113,29 @@ function updateFin(e){
 	});
 
 }
-	// $(".delBtn").on("click",function(){
-	// var trade_comment_id=$(this).attr("data-commentid");
-	// var xxx=$(this);
-	// $.ajax({
-	// 	url:'loginCheck/TradeCommentDelete',
-	// 	type:'get',
-	// 	data:{
-	// 		trade_comment_id:trade_comment_id
-	// 	},
-	// 	success:function(data){
-	// 		xxx.text("삭제삭제");
-	// 		console.log(data);
-	// 		/*alert("success")*/
-	// 		xxx.parent().remove();
-	// 	},
-	// 	error:function(xhr,status,error){
-	// 			alert("error");
-	//
-	// 		}
-	// });
-	// })
-	
-	$(".delBtn2").on("click",function(){
+// $(".delBtn").on("click",function(){
+// var trade_comment_id=$(this).attr("data-commentid");
+// var xxx=$(this);
+// $.ajax({
+// 	url:'loginCheck/TradeCommentDelete',
+// 	type:'get',
+// 	data:{
+// 		trade_comment_id:trade_comment_id
+// 	},
+// 	success:function(data){
+// 		xxx.text("삭제삭제");
+// 		console.log(data);
+// 		/*alert("success")*/
+// 		xxx.parent().remove();
+// 	},
+// 	error:function(xhr,status,error){
+// 			alert("error");
+//
+// 		}
+// });
+// })
+
+$(".delBtn2").on("click",function(){
 	var trade_comment_level=$(this).attr("data-commentlevel");
 	var xxx=$(this);
 	$.ajax({
@@ -148,12 +148,12 @@ function updateFin(e){
 			xxx.parent().remove();
 		},
 		error:function(xhr,status,error){
-				alert("error");
+			alert("error");
 
-			}
+		}
 	});
-	})
-	
+})
+
 
 // for(const x in cBtn){
 // 	cBtn[x].addEventListener('click',function(){
@@ -196,19 +196,132 @@ function getHtml(trade_id,comment_id,user_id){
  return result;
 }
 
-
 function getHtml2(comment_id,trade_comment,comment_regidate,user_id){
-  var result = '';
-  result += "<div class='comment_cont re' id='"+comment_id+"'>"+
-	        		"<input type='hidden' name='trade_comment_id' value='"+comment_id+"'/>"+
-	  				"<strong>"+user_id+"</strong><br>"+
-	        		"<div class='commentUpdate'>"+trade_comment+"</div>"+
-	  				"<div class='comment_regidate'>"+comment_regidate+"</div>"+
-	  				"<button class='delBtn btn btn-secondary' data-commentid='"+comment_id+"' onclick='del(event)'>삭제</button>"+
-	  				"<button class='updateBtn btn btn-secondary' data-commentid='"+comment_id+"' onclick='update(event)' style='margin-left:4px;'>수정</button>";
- return result;
+	var result = '';
+	result += "<div class='comment_cont re' id='"+comment_id+"'>"+
+		"<input type='hidden' name='trade_comment_id' value='"+comment_id+"'/>"+
+		"<strong>"+user_id+"</strong><br>"+
+		"<div class='commentUpdate'>"+trade_comment+"</div>"+
+		"<div class='comment_regidate'>"+comment_regidate+"</div>"+
+		"<button class='delBtn btn btn-secondary' data-commentid='"+comment_id+"' onclick='del(event)'>삭제</button>"+
+		"<button class='updateBtn btn btn-secondary' data-commentid='"+comment_id+"' onclick='update(event)' style='margin-left:4px;'>수정</button>";
+	return result;
 }
 
+let regex = new RegExp("(.*?)\.(exe|sh|zip|alz)$");
+let maxSize = 5242880;
 
-	
+function checkExtension(fileName, fileSize){
+	if(fileSize >= maxSize){
+		alert("파일 사이즈 초과")
+		return false;
+	}
+	if(regex.test(fileName)){
+		alert("해당 종류의 파일은 업로드 할 수 없습니다.")
+		return false;
+	}
+	return true;
+}
 
+let uploadResult = $(".uploadResult");
+let tradeForm = $(".tradeForm");
+let uploadTit = $(".uploadTit");
+let inputArr = [];
+let count = 0;
+$('.file').change(function(e){                            //업로드할 파일을 선택 할 경우 동작을 일으킵니다.
+	// uploadResult.empty();
+	let formData = new FormData();
+	let inputFile = $("input[name='uploadFile']");
+	let files = inputFile[0].files;
+	//console.log(files);
+	for(let i=0; i<files.length;i++){
+		if(!checkExtension(files[i].name, files[i].size)){
+			return false;
+		}
+		formData.append("uploadFile",files[i]);
+	}
+
+	$.ajax({
+		url: 'fileUploadAjax',
+		processData: false,
+		contentType: false,
+		data: formData,
+		// data: form.serialize(),                         //폼의 값들을 주소화하여 보내게 됩니다.
+		type: 'POST',
+		dataType: 'json',
+		success: function(data){
+			$('.file').val('');                           //file input에 들어가 있는 값을 비워줍니다.
+			//console.log(data);                      //업로드 되었다면 결과를 콘솔에 출력해봅니다.
+			showUploadedFile(data);
+			console.log("(ajax)inputArr.length: "+inputArr.length);
+			if(inputArr.length===0){
+				inputArr.push(data);
+				console.log("(ajax2)inputArr.length: "+inputArr.length);
+			}
+		}
+	});
+});
+
+
+
+function showUploadedFile(uploadResultArr){
+	let str = "";
+	let fileImg="";
+	$(uploadResultArr).each(function(i,obj){
+		let fileCallPath = encodeURIComponent(obj.uploadPath+"/"+obj.uuid+"_"+obj.fileName);
+		if(!obj.image){
+			str+= "<li><img src='/resources/images/attach.png'"+obj.fileName+"</li>";
+		}else{
+			//console.log(`fileCallPath: ${fileCallPath}, uploadPath: ${obj.uploadPath}, uuid: ${obj.uuid}, fileName: ${obj.fileName}`);
+			if(inputArr.length === 0){
+				console.log("(if===0)inputArr.length: "+inputArr.length);
+				if(i===0){
+					$("input[name='trade_main_img']").val(`${fileCallPath}`);
+					str += `<li><img src="/weats/display?fileName=${fileCallPath}"><span data-name="trade_main_img" data-file=\'${fileCallPath}\' data-type="image">X</span></li>`;
+					count++;
+					console.log("count: "+count+"\t"+i);
+				}else if(i>0 && i<5){
+					$("input[name='trade_sub_img"+i+"']").val(fileCallPath);
+					//$("input[name='trade_sub_img"+i+"'").val(`'${fileCallPath}'`);
+					str += `<li><img src="/weats/display?fileName=${fileCallPath}"><span data-name="trade_sub_img${i}" data-file=\'${fileCallPath}\' data-type="image">X</span></li>`;
+					count++;
+					console.log("count2: "+count+"\t"+i);
+				}
+			}else {//inputArr.length===0
+				console.log("(if!==0)inputArr.length: "+inputArr.length);
+				//처음에 3개 첨부 시 main, sub1, sub2 / arr.length==3
+				console.log("count3: "+count);
+				$("input[name='trade_sub_img"+count+"']").val(fileCallPath);
+				str += `<li><img src="/weats/display?fileName=${fileCallPath}"><span data-name="trade_sub_img${count}" data-file=\'${fileCallPath}\' data-type="image">X</span></li>`;
+				count++;
+			}
+
+		}
+		console.log("index:"+i);
+	});
+	uploadResult.append(str);
+}
+uploadResult.on("click","span",function(e){
+	let targetFile = $(this).data("file");
+	let type = $(this).data("type");
+	let name = $(this).data("name");
+	let targetLi = $(this).closest("li");
+	console.log(targetFile);
+	$.ajax({
+		url: 'deleteFile',
+		data: {fileName: targetFile, type:type},
+		dataType: 'text',
+		type: 'POST',
+		success: function(result){
+			alert(result);
+			targetLi.remove();
+			$(`input[name='${name}'`).val("");
+			count--;
+			console.log("count Del: "+count);
+			if(count===0){
+				inputArr=[];
+				console.log("inputArr Del: "+inputArr.length)
+			}
+		}
+	});
+})
