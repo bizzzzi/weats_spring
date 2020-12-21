@@ -2,25 +2,27 @@
        pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<h1>나의예약내역</h1>
+<h2 class="myPageTitle">나의예약내역</h2>
 <!-- 예약갯수만큼 반복 출력 -->
 <c:forEach var="item" items="${myReserve}" varStatus="status">
 <form class="reservationCancellation" action="passwdCheck" method="get">
    <div class="leportsImg"><!-- 메인이미지 넣을공간 ../images/ -->
-      <img src="${item.leports_main_img}" />
+      <img src="../images/${item.leports_main_img}" />
    </div>
    <%--예약 취소--%>
    <input type="text" name="page" style="display: none" value="reserveCancel"/>
-   <div class="itemInfo">
-   ${item.reservation_id}<br>
-   레포츠 타이틀 : ${item.leports_title}<br>
-   예약날짜 : ${item.rs_date}<br>
-   예약 아이템 : ${item.rs_item_name}<br>
-   주소 : ${item.c_address}<br>
-   상세주소 : ${item.c_detail_address}<br>
-   파트너 연락처 : ${item.c_phone}<br>
-   총 예약 티켓 : ${item.rs_persons}개<br>
-   가격 : ${item.rs_price}원<br>
+   <div class="itemInfo">	  
+	   <div class="reserve_top"> 
+	   		<span class="top_title">${item.leports_title}</span>
+	   		<span class="top_date">예약일: ${item.rs_date}</span>
+	   </div>
+	   <div class="myreserve">	
+		  	<span> 예약 아이템 : ${item.rs_item_name}</span>
+		 	<span>  주소 : ${item.c_address} - ${item.c_detail_address}</span>
+		  	<span> 파트너 연락처 : ${item.c_phone}</span>
+			<span>   예약인원 : ${item.rs_persons}명</span>
+		  	<span> 가격 : ${item.rs_price}원</span>
+	   </div>
 	</div>
    <input type="hidden" class="review_verify" value="${item.review_verify}"/>
    <input type="hidden" name="rs_price" value="${item.rs_price}"/>
@@ -29,8 +31,8 @@
    <input class="rs_date" type="hidden" value="${item.rs_date}"/>
    <input name="leports_title" type="hidden" value="${item.leports_title}"/>
    <div class="btn">
-   <input class="cancel" type="button" value="예약취소" />
-   <input class="review" type="button" value="리뷰쓰기" />
+	   <input class="cancel" type="button" value="예약취소" />
+	   <input class="review" type="button" value="리뷰쓰기" />
    </div>
 </form>
 </c:forEach>

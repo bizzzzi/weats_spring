@@ -10,80 +10,57 @@
 <head>
   <meta charset="UTF-8">
   <title>Insert title here</title>
-  <link rel="stylesheet" href="css/partner.css">
 </head>
 <body>
   <header class="header">
-    <a href="MainPartner">메인으로 이동</a>
-    <h1 class="main_title">파트너 마이페이지</h1>
-    <hr>
+    <h1 class="partner_title">파트너 마이페이지</h1>
   </header>
-  <div class="partner_mypage wrap">
-    <form method="post">
+  <div class="partner_form" id="partner">
+    <form method="post" class="partnerAllForm">
       <input type="hidden" name="partner_id" value="${pdto.partner_id}">
       <input type="hidden" name="user_id" value="${pdto.user_id}">
-      <div class="box">
-        <div class="title">상호 이름</div>
-        <div class="sub_box">
-          <div>
-            <input type="text" class="c_name" name="c_name" value="${pdto.c_name}">
-          </div>
-        </div>
-      </div>
-      <div class="box">
-        <div class="title">연락처</div>
-        <div class="sub_box">
-          <div>
-            <input type="text" class="c_phone" name="c_phone" value="${pdto.c_phone}">
-          </div>
-          <div class="comment">
-            상시 가능한 연락처를 입력해주세요.
-          </div>
-        </div>
-      </div>
-      <div class="box">
-        <div class="title">주소</div>
-        <div class="sub_box">
-          <div>
-            <input type="text" name="c_postnum" id="sample4_postcode" value="${pdto.c_postnum}">
-            <input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
-            <input type="text" name="c_address" id="sample4_roadAddress" value="${pdto.c_address}"><br>
-            <input type="text" name="c_detail_address" id="c_detail_address" value="${pdto.c_detail_address}">
-          </div>
-        </div>
-      </div>
-      <div class="box">
-        <div class="title">사업자 등록번호</div>
-        <div class="sub_box">
-          <input type="text" name="partner_license_num" class="partner_license_num" size="23" maxlength="10"
-            value="${pdto.partner_license_num}">
-        </div>
-      </div>
-      <div class="box">
-        <div class="title">서류 제출</div>
-        <div class="sub_box">
-          <div class="guide_img">
-            <img src="profile.png" alt="제출한 서류 이미지">
-            <input type="file" id="image_upload" class="image_inputType_file" name="partner_license_docs"
-              placeholder="하이픈(-)은 빼고 입력해주세요." type="file" accept="img/*" onchange="thumbnail(this);">
-            <!-- file형태와 image만 업로드하도록 설정 -->
-            <div id="image_container">
-              <!-- 사진을 미리 보여줄 영역 -->
-              <img src="#" alt="" />
-            </div>
-          </div>
-          <div class="comment">
-            사업자 등록증 사진을 업로드해주세요.<br>
-            이미지 규격은 '*'을 권장합니다.
-          </div>
-        </div>
-      </div>
-      <div class="btn_wrap">
-        <button class="submitBtn Btn" type="submit" formaction="PartnerUpdate">정보 수정</button>
+      
+		<div class="formBox">
+	        <div class="title">상호 이름*</div>
+	        <input type="text" class="c_name" name="c_name" value="${pdto.c_name}">
+	
+	        <div class="title">연락처*</div>
+	        <div class="comment">상시 가능한 연락처를 입력해주세요.</div>
+	        <input type="text" class="c_phone" name="c_phone" value="${pdto.c_phone}">
+ 	
+	        <div class="title">주소*</div>
+	          <div class="post">
+	          	<input type="button" class="postBtn" onclick="sample4_execDaumPostcode()" value="우편번호 찾기">
+	            <input type="text" name="c_postnum" id="sample4_postcode" value="${pdto.c_postnum}">            
+	            <input type="text" name="c_address" id="sample4_roadAddress" value="${pdto.c_address}">
+	            <input type="text" name="c_detail_address" id="c_detail_address" value="${pdto.c_detail_address}">
+	          </div>
+	      
+	        <div class="title">사업자 등록번호*</div>
+	          <input type="text" name="partner_license_num" class="partner_license_num" size="23" maxlength="10" 
+	          value="${pdto.partner_license_num}">
+	
+	        <div class="title">서류 제출*</div>
+	          <div class="guide_img">
+	            <input type="file" id="image_upload" class="image_inputType_file" name="partner_license_docs"
+	               type="file" accept="img/*" onchange="thumbnail(this);">
+	            <!-- file형태와 image만 업로드하도록 설정 -->
+	            <div id="image_container">
+	              <!-- 사진을 미리 보여줄 영역 -->
+	              <img src="" alt=""/>
+	            </div>
+	          </div>
+	          <div class="comment">
+	          	사업자 등록증 사진을 업로드해주세요. 이미지 규격은 '*'을 권장합니다.
+	  	      </div>
+		</div>
+		
+      <div class="partnerBtn info">
+        <input class="submitBtn Btn" onclick="nullCheck()" type="submit" formaction="loginCheck/CheckPartner?page=partnerUpdate" value="정보 수정">
         <!-- 비밀번호 인증 후 파트너 정보 수정 -->
-        <button class="cancleBtn Btn" type="reset">취소</button>
+        <input class="cancleBtn Btn" type="reset" value="작성취소">
         <!-- 정보 초기화 버튼 -->
-        <button class="withdrawBtn Btn" type="submit" formaction="PartnerDelete">파트너 탈퇴</button>
+        <input class="withdrawBtn Btn" type="submit" formaction="loginCheck/CheckPartner?page=partnerDelete" value="파트너 탈퇴">
         <!-- 비밀번호 인증 후 파트너 탈퇴 -->
       </div>
     </form>

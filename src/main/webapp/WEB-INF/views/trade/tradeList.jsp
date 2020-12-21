@@ -19,7 +19,7 @@
 		<div class="trade_list">
 			<a href="TradeDetail?trade_id=${x.trade_id}">
 				<div class="trade_main_img">
-					<img src="images/${x.trade_main_img}" />
+					<img src="/weats/display?fileName=${x.trade_main_img}" />
 				</div>
 				<ul class="trade_item_info">
 					<li class="trade_item_title">${x.trade_title}</li>

@@ -17,19 +17,19 @@
                     </li>
                     <li>
                         <strong>이메일 주소</strong>
-                        <input type="text" name="user_email"/>
+                        <input type="text" name="user_email" class="user_email"/>
                     </li>
                     <li>
                         <strong>이름</strong>
-                        <input type="text" name="user_name"/>
+                        <input type="text" name="user_name" class="user_name"/>
                     </li>
                     <li>
                         <strong>제목</strong>
-                        <input type="text" name="q_title"/>
+                        <input type="text" name="q_title" class="q_title"/>
                     </li>
                     <li>
                         <strong>전화번호</strong>
-                        <input type="text" name="q_phone"/>
+                        <input type="text" name="q_phone" class="q_phone"/>
                     </li>
                     <li>
                         <strong>예약번호</strong>
@@ -37,13 +37,14 @@
                     </li>
                     <li>
                         <strong>세부내용</strong>
-                        <input type="text" name="q_content"/>
+                        <input type="text" name="q_content" class="q_content"/>
                     </li>
                 </ul>
                 <div class="qa_submit">
-                    <input type="submit" value="문의하기">
+                    <input type="submit" class="questionSubmit" value="문의하기">
                     <input type="reset" value="취소하기">
                 </div>
             </form>
         </div>
+    </section>
     </section>

@@ -10,7 +10,7 @@
 <script type="text/javascript" src="../js/bootstrap.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="../css/style.css">
-<link rel="stylesheet" type="text/css" href="../css/myPage.css">
+<link rel="stylesheet" type="text/css" href="../css/partner.css">
 <script src="https://kit.fontawesome.com/400289e08c.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -18,17 +18,16 @@
 	<div id="desktop">
 		<jsp:include page="common/header_desktop.jsp" flush="true"></jsp:include>
 	</div>
-	<div id="myPageWrap">
-		<div id="mypageSideMenu">
-			<jsp:include page="member/memberMypage.jsp" flush="true"></jsp:include>
+	<div id="partnerPageWrap">
+		<div id="SideMenu">
+			<jsp:include page="partner/partnerSideMenu.jsp" flush="true"></jsp:include>
 		</div>
-		<div id="reviewWrite">
-			<jsp:include page="member/reviewWriteForm.jsp" flush="true"></jsp:include>
+		<div id="partnerContent">
+			<jsp:include page="partner/ProductControl.jsp" flush="true"></jsp:include>
 		</div>
 	</div>
 	<jsp:include page="common/footer.jsp" flush="true"></jsp:include>
-</div>	
+</div>
 <script type="text/javascript" src="../js/modal.js"></script>
-<script type="text/javascript" src="../js/star.js"></script>
 </body>
 </html>
