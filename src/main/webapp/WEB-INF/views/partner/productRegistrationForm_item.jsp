@@ -17,7 +17,7 @@
 		<h1 class="main_title">상품 등록</h1>
 	</header>
 	<div class="partner_form item">
-		<form action="ItemAdd" method="post" class="partnerAllForm item">
+		<form action="ItemAdd" method="post" id="ItemAddForm" class="partnerAllForm item">
 			<input type="hidden" name="leports_id" value="${dto.leports_id}">
 			<div id="pre_set" class="itemform">
 			<div class="child" onclick="deleteParent(this)" style="float: right;">❌</div>
@@ -34,7 +34,7 @@
 			<div class="item_wrap">
 				<div class="formBox item">
 					<div class="title">가격(원)</div>
-					<input type="text" name="leports_price" class="leports_price" placeholder="숫자만 입력해주세요.">
+					<input type="number" name="leports_price" class="leports_price" placeholder="숫자만 입력해주세요.">
 				</div>
 				<div class="formBox item">	
 					<div class="title">최대 수용 인원</div>
@@ -51,7 +51,7 @@
 			
 			<div class="partnerBtn form">
 				<p>아래 버튼을 선택하면 개인정보 동의 및 파트너 약관에 동의하는 것입니다.</p>
-				<input type="submit" value="확인 및 제출" onclick="itemNull()">
+				<input type="submit" value="확인 및 제출">
 			</div>
 		</form>
 	</div>
