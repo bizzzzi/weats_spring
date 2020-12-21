@@ -10,8 +10,7 @@
 </head>
 <body>
   <header class="header">
-    <h1 class="main_title">상품 등록</h1>
-    <hr>
+    <h1 class="partner_title">상품 등록</h1>
   </header>
  
   <div class="partner_form">

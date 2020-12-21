@@ -13,8 +13,7 @@
 </head>
 <body>
   <header class="header">
-    <h1 class="main_title">파트너 마이페이지</h1>
-    <hr>
+    <h1 class="partner_title">파트너 마이페이지</h1>
   </header>
   <div class="partner_form" id="partner">
     <form method="post" class="partnerAllForm">
@@ -22,14 +21,14 @@
       <input type="hidden" name="user_id" value="${pdto.user_id}">
       
 		<div class="formBox">
-	        <div class="title">상호 이름</div>
+	        <div class="title">상호 이름*</div>
 	        <input type="text" class="c_name" name="c_name" value="${pdto.c_name}">
 	
-	        <div class="title">연락처</div>
+	        <div class="title">연락처*</div>
 	        <div class="comment">상시 가능한 연락처를 입력해주세요.</div>
 	        <input type="text" class="c_phone" name="c_phone" value="${pdto.c_phone}">
  	
-	        <div class="title">주소</div>
+	        <div class="title">주소*</div>
 	          <div class="post">
 	          	<input type="button" class="postBtn" onclick="sample4_execDaumPostcode()" value="우편번호 찾기">
 	            <input type="text" name="c_postnum" id="sample4_postcode" value="${pdto.c_postnum}">            
@@ -37,11 +36,11 @@
 	            <input type="text" name="c_detail_address" id="c_detail_address" value="${pdto.c_detail_address}">
 	          </div>
 	      
-	        <div class="title">사업자 등록번호</div>
+	        <div class="title">사업자 등록번호*</div>
 	          <input type="text" name="partner_license_num" class="partner_license_num" size="23" maxlength="10" 
 	          value="${pdto.partner_license_num}">
 	
-	        <div class="title">서류 제출</div>
+	        <div class="title">서류 제출*</div>
 	          <div class="guide_img">
 	            <input type="file" id="image_upload" class="image_inputType_file" name="partner_license_docs"
 	               type="file" accept="img/*" onchange="thumbnail(this);">

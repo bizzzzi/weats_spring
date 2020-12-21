@@ -12,7 +12,7 @@
 </head>
 <body>
   <header class="header">
-    <h1 class="main_title">상품 상세페이지(파트너용)</h1>
+    <h1 class="partner_title">상품 상세페이지(파트너용)</h1>
   </header>
   <div class="partner_form" id="partner">
     <form method="post" class="partnerAllForm">

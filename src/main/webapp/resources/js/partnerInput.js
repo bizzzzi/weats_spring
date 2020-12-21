@@ -4,7 +4,6 @@ let sample4_postcode=document.getElementById('sample4_postcode');
 let sample4_roadAddress=document.getElementById('sample4_roadAddress');
 let sample4_jibunAddress=document.getElementById('sample4_jibunAddress');
 let partner_license_num = document.querySelector('.partner_license_num');
-let bizID = document.querySelector('.partner_license_num').value;
 let image_inputType_file = document.querySelector('.image_inputType_file');
 let partnerFormBtn = document.querySelector('.partnerFormBtn');
 
@@ -40,7 +39,6 @@ function nullCheck() {
 	} 
 }
 
-partnerFormBtn.addEventListener("click", nullCheck);
 
 let leports_title = document.querySelector('.leports_title');
 let leports_content = document.querySelector('.leports_content');

@@ -17,7 +17,7 @@
 </head>
 <body>
     <header class="header">
-        <h1 class="main_title">예약 관리</h1>
+        <h1 class="partner_title">예약 관리</h1>
     </header>
     
     <div class="reservationControl">

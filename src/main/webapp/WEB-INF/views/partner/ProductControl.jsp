@@ -13,7 +13,7 @@
 </head>
  <body>
   <header class="header">
-    <h1 class="main_title">등록한 상품</h1>
+    <h1 class="partner_title">등록한 상품</h1>
   </header>
     <div class="leportsProducts">
     	<c:forEach var="ldto" items="${leportsAddList}" varStatus="status">

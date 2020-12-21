@@ -53,7 +53,7 @@
 
       <div class="partnerBtn form">
         <p>아래 버튼을 선택하면 개인정보 동의 및 파트너 약관에 동의하는 것입니다.</p><br>
-        <input type="submit" class="partnerFormBtn" value="확인 및 제출">
+        <input type="submit" class="partnerFormBtn" value="확인 및 제출" onclick="nullCheck()">
       </div>
       
     </form>
