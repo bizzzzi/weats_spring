@@ -48,8 +48,8 @@
 	        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-cloud-sun"></i></a>
 	        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 	          <a class="dropdown-item modalOpenBtn" href="#">서울</a>
-	          <a class="dropdown-item modalOpenBtn" href="#">인천</a>
-	          <a class="dropdown-item modalOpenBtn" href="#">제주</a>
+	          <a class="dropdown-item modalOpenBtn2" href="#">인천</a>
+	          <a class="dropdown-item modalOpenBtn3" href="#">제주</a>
 	        </div>
 	      </li>
 	     </ul>

@@ -107,7 +107,7 @@
 
 <body>
   <div class="w_modal w_hidden">
-    <div class="w_modal_overlay3"></div>
+    <div class="w_modal_overlay2"></div>
     <div class="w_modal_content">
       <ul>
         <li class="day">
@@ -156,7 +156,7 @@
           </div>
         </li>
       </ul>
-     <button class="w_closeModal3">close</button>
+     <button class="w_closeModal2">close</button>
     </div>
   </div>
   
