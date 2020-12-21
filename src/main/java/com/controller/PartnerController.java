@@ -2,18 +2,17 @@ package com.controller;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.dto.LeportsDTO;
@@ -21,6 +20,7 @@ import com.dto.LeportsItemDTO;
 import com.dto.MemberDTO;
 import com.dto.PartnerDTO;
 import com.dto.ReservationControlDTO;
+import com.encrypt.UserVerify;
 import com.service.PartnerService;
 import com.sun.jna.platform.linux.LibC.Sysinfo;
 
@@ -28,7 +28,45 @@ import com.sun.jna.platform.linux.LibC.Sysinfo;
 public class PartnerController {
 	@Autowired
 	PartnerService pservice;
+    @Autowired
+    UserVerify userVerify;
+    
+    //비밀번호 확인
+    @RequestMapping("/loginCheck/CheckPartner")
+    public String passwdCheckPage(String page,String leports_id, HttpSession session,PartnerDTO pdto) {
+        if(page != null) {
+            session.setAttribute("page", page);
+            session.setAttribute("partnerUpdate", pdto);
+            session.setAttribute("leports_id", leports_id);
+        }
+        return "passwdCheck/passwdCheckPartner";
+    }
+    
+    @PostMapping("/loginCheck/passwdCheckPartner")
+    public String passwdCheck(String user_pw, HttpSession session) {
+        String page = (String)session.getAttribute("page");
+        MemberDTO login = (MemberDTO) session.getAttribute("login");
+        String user_email = login.getUser_email();
 
+        MemberDTO dto = userVerify.verify(user_email, user_pw);
+
+        String next = "";
+        if(dto != null) { //비번 인증 완료
+            if(page.equals("partnerUpdate")) { 
+                next = "redirect:/PartnerUpdate";
+            } else if(page.equals("partnerDelete")) {
+                next = "redirect:/PartnerDelete";
+            } else if(page.equals("productDelete")){
+                next = "redirect:/ProductDelete";
+            }
+        } else { //비번 인증 실패 시
+            session.setAttribute("mesg", "비밀번호를 잘못 입력하셨습니다.");
+            next = "redirect:passwdCheck";
+        }
+        return next;
+    }
+
+	
 	//파트너 등록
 	@RequestMapping("/PartnerAdd")
 	public String partnerAdd(PartnerDTO dto,HttpSession session,RedirectAttributes attr) {
@@ -60,15 +98,21 @@ public class PartnerController {
 
 	//마이페이지 수정
 	@RequestMapping("/PartnerUpdate")
-	public String PartnerUpdate(PartnerDTO dto,RedirectAttributes attr) {
+	public String PartnerUpdate(HttpSession session,RedirectAttributes attr) {
+		PartnerDTO dto=(PartnerDTO)session.getAttribute("partnerUpdate");
 		pservice.partnerUpdate(dto);
+		System.out.println(dto);
 		attr.addFlashAttribute("partnermesg", "파트너 정보가 수정되었습니다.");
 		return "redirect:/MainPartner";
 	}
 
 	//파트너 탈퇴
 	@RequestMapping("/PartnerDelete")
-	public String PartnerDelete(String partner_id,String user_id) {
+	public String PartnerDelete(HttpSession session) {
+		PartnerDTO pdto=(PartnerDTO)session.getAttribute("partner");
+		MemberDTO mdto=(MemberDTO)session.getAttribute("login");
+		String partner_id=pdto.getPartner_id();
+		String user_id=mdto.getUser_id();
 		pservice.partnerDelete(partner_id);
 		pservice.partner_verifyReset(user_id);
 		return "redirect:/logout";
@@ -91,9 +135,8 @@ public class PartnerController {
 	@RequestMapping("/LeportsAdd")
 	public String ProductAdd(@ModelAttribute("LeportsForm")LeportsDTO dto,HttpSession session,RedirectAttributes attr) {
 		PartnerDTO pdto=(PartnerDTO) session.getAttribute("partner");
-		System.out.println("등록"+pdto);
 		String partner_id=pdto.getPartner_id();
-		dto.setPartner_id(partner_id);//session저장후 수정
+		dto.setPartner_id(partner_id);
 		pservice.leportsInsert(dto);
 		session.setAttribute("leports",dto);
 		attr.addFlashAttribute("LeportsForm",dto);
@@ -116,7 +159,6 @@ public class PartnerController {
 	public String LeportsIdSelect(@ModelAttribute("LeportsForm")LeportsDTO dto,RedirectAttributes attr) {
 		String leports_title=dto.getLeports_title();
 		LeportsDTO ldto=pservice.leportsIdSelect(leports_title);
-		//session.setAttribute("leports", ldto);
 		attr.addFlashAttribute("dto", ldto);
 		return "redirect:/productRegistrationForm_item";
 	}
@@ -138,28 +180,23 @@ public class PartnerController {
 	}
 
 	//레포츠 등록 리스트
-	@RequestMapping("/partnerCheck/LeportsAddList")
-	public ModelAndView LeportsAddList(HttpSession session) {
-		PartnerDTO pdto=(PartnerDTO)session.getAttribute("partner");
-		String partner_id=pdto.getPartner_id();
+	@GetMapping("/partnerCheck/LeportsAddList")
+	public String LeportsAddList(HttpSession session,Model model) {
+		PartnerDTO dto=(PartnerDTO)session.getAttribute("partner");
+		String partner_id=dto.getPartner_id();
 		List<LeportsDTO> list=pservice.ProductControl(partner_id);
-		ModelAndView mav=new ModelAndView();
-		mav.addObject("leportsAddList",list);
-		mav.setViewName("partner/ProductControl");
-		System.out.println(list);
-		return mav;
+		model.addAttribute("leportsAddList",list);
+		return "ProductControl";
 	}
 
 	//상품 상세페이지
-	@RequestMapping("/ProductDetail")
-	public ModelAndView ProductDetail(String leports_id) {
-		ModelAndView mav=new ModelAndView();
+	@GetMapping("/ProductDetail")
+	public String ProductDetail(String leports_id,Model model) {
 		LeportsDTO ldto=pservice.ProductDetailLeports(leports_id);
 		List<LeportsItemDTO> idto=pservice.ProductDetailItem(leports_id);
-		mav.addObject("ldto",ldto);
-		mav.addObject("idto",idto);
-		mav.setViewName("partner/productDetailControl");
-		return mav;
+		model.addAttribute("ldto",ldto);
+		model.addAttribute("idto",idto);
+		return "productDetailControl";
 	}
 
 	//상품 페이지 수정
@@ -181,7 +218,8 @@ public class PartnerController {
 	}
 	//상품 삭제
 	@RequestMapping("/ProductDelete")
-	public String ProductDelete(String leports_id,RedirectAttributes attr){
+	public String ProductDelete(HttpSession session,RedirectAttributes attr){
+		String leports_id=(String)session.getAttribute("leports_id");
 		pservice.leportsDelete(leports_id);
 		attr.addFlashAttribute("partnermesg", "상품이 삭제되었습니다.");
 		return "redirect:/MainPartner";
@@ -189,13 +227,11 @@ public class PartnerController {
 
 	//예약관리
 	@RequestMapping("/partnerCheck/ProductResevation")
-	public ModelAndView ProductResevation(HttpSession session) {
-		ModelAndView mav=new ModelAndView();
+	public String ProductResevation(HttpSession session,Model model) {
 		MemberDTO mdto=(MemberDTO)session.getAttribute("login");
 		String user_id=mdto.getUser_id();
 		List<ReservationControlDTO>list=pservice.ReservationControl(user_id);
-		mav.addObject("leportsList",list);
-		mav.setViewName("partner/reservationControl");
-		return mav;
+		model.addAttribute("leportsList", list);
+		return "reservationControl";
 	}
 }

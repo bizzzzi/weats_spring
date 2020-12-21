@@ -3,9 +3,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <section>
-		<h1>파트너 관리</h1>
-		<hr>
-			<div class="qList">
+		<h2 class="admin_title">파트너 관리</h2>
+			<div class="qList subject">
 				<ul>	
 					<li>멤버ID</li>
 					<li>파트너ID</li>
@@ -16,19 +15,20 @@
 			</div>
 			<div class="qList">
 				<c:forEach var="dto" items="${PartnerList}" varStatus="status">
-					<ul>
-						<li>${dto.user_id}</li>
-						<li>${dto.partner_id}</li>
-						<li><a href="AdminPartnerDetail?pID=${dto.partner_id}">${dto.c_name}</a></li>
-						<li>${dto.partner_license_num}</li>
-						<c:if test="${dto.memberDTO.partner_verify eq 1}">
-							<li>승인대기</li>
-						</c:if>
-						<c:if test="${dto.memberDTO.partner_verify eq 2}">
-							<li>승인완료</li>
-						</c:if>
-					</ul>
+					<a href="AdminPartnerDetail?pID=${dto.partner_id}">
+						<ul>
+							<li>${dto.user_id}</li>
+							<li>${dto.partner_id}</li>
+							<li>${dto.c_name}</li>
+							<li>${dto.partner_license_num}</li>
+							<c:if test="${dto.memberDTO.partner_verify eq 1}">
+								<li>승인대기</li>
+							</c:if>
+							<c:if test="${dto.memberDTO.partner_verify eq 2}">
+								<li>승인완료</li>
+							</c:if>
+						</ul>
+					</a>	
 				</c:forEach>
 			</div>	
-	</div>
 </section>

@@ -20,10 +20,10 @@
 	<mvc:view-controller path="/tradeWrite" view-name="tradeWrite"/>
 	<mvc:view-controller path="/MainPartner" view-name="MainPartner"/>
 	<mvc:view-controller path="/partnerForm" view-name="partnerForm"/>
-	<mvc:view-controller path="productRegistrationForm_leports" view-name="partner/productRegistrationForm_leports"/>
-	<mvc:view-controller path="/partnerMypage" view-name="partner/partnerMypage"/>
-	<mvc:view-controller path="/productRegistrationForm_item" view-name="partner/productRegistrationForm_item"/>
-	<mvc:view-controller path="/ProductControl" view-name="partner/ProductControl"/>
+	<mvc:view-controller path="/productRegistrationForm_leports" view-name="productRegistrationForm_leports"/>
+	<mvc:view-controller path="/partnerMypage" view-name="partnerMypage"/>
+	<mvc:view-controller path="/productRegistrationForm_item" view-name="productRegistrationForm_item"/>
+	<mvc:view-controller path="/ProductControl" view-name="ProductControl"/>
 	<mvc:view-controller path="/MainMemberMyPage" view-name="MainMemberMyPage"/>
 	<mvc:view-controller path="/MainAccountManagement" view-name="MainAccountManagement"/>
 	<mvc:view-controller path="/passwdChangeForm" view-name="passwdCheck/passwdChange"/>

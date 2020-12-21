@@ -15,7 +15,7 @@
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
-        <span class="navbar-toggler-icon"></span>
+      <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
@@ -43,13 +43,23 @@
             <a class="nav-link" href="${path}/MainCustomer">고객센터</a>
           </li>
         </ul>
+	    <ul class="navbar-nav">
+	      <li class="nav-item dropdown">
+	        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-cloud-sun"></i></a>
+	        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+	          <a class="dropdown-item modalOpenBtn" href="#">서울</a>
+	          <a class="dropdown-item modalOpenBtn2" href="#">인천</a>
+	          <a class="dropdown-item modalOpenBtn3" href="#">제주</a>
+	        </div>
+	      </li>
+	     </ul>
         <% MemberDTO dto = (MemberDTO)session.getAttribute("login"); if(dto != null){ String username = dto.getUser_name(); int partner_verify = dto.getPartner_verify(); int
         admin_verify=dto.getAdmin_verify(); if(admin_verify==1){ %>
         <ul class="navbar-nav">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 관리자 </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="admin">관리자 페이지</a>
+              <a class="dropdown-item" href="${path}/admin">관리자 페이지</a>
               <a class="dropdown-item" href="${path}/logout">로그아웃</a>
             </div>
           </li>

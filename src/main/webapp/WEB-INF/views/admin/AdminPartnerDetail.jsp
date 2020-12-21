@@ -3,29 +3,29 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 	<div class="content">
-	<div class="borderLine">
-		<div class="detail">
-			<span class="detail_title">업체명</span>
-			<span class="detail_content">${dto.c_name}</span>
+		<div class="detail_info">
+			<div class="detail">
+				<span class="detail_title">업체명</span>
+				<span class="detail_content">${dto.c_name}</span>
+			</div>
+			<div class="detail">
+				<span class="detail_title">주소</span>
+				<span class="detail_content">${dto.c_postnum} <br> ${dto.c_address} <br> ${dto.c_detail_address}</span>
+			</div>
+			<div class="detail">
+				<span class="detail_title">전화번호</span>
+				<span class="detail_content">${dto.c_phone}</span>
+			</div>
+			<div class="detail">
+				<span class="detail_title">사업자 번호</span>
+				<span class="detail_content">${dto.partner_license_num}</span>
+			</div>
+			<div class="detail">
+				<span class="detail_title">사업 등록증</span>
+				<span class="detail_content"><img src="images/${dto.partner_license_docs}"></span>
+			</div>
 		</div>
-		<div class="detail">
-			<span class="detail_title">주소</span>
-			<span class="detail_content">${dto.c_postnum} <br> ${dto.c_address} <br> ${dto.c_detail_address}</span>
-		</div>
-		<div class="detail">
-			<span class="detail_title">전화번호</span>
-			<span class="detail_content">${dto.c_phone}</span>
-		</div>
-		<div class="detail">
-			<span class="detail_title">사업자 번호</span>
-			<span class="detail_content">${dto.partner_license_num}</span>
-		</div>
-		<div class="detail">
-			<span class="detail_title">사업 등록증</span>
-			<span class="detail_content"><img src="${dto.partner_license_docs}"></span>
-		</div>
-		</div>	
-		<div class="emailBtn">
+		<div class="adminBtn">
 			<c:if test="${dto.memberDTO.partner_verify eq 1}">
 				<input type="button" value="파트너 승인">
 				<input type="button" value="파트너 비승인">
@@ -34,6 +34,6 @@
 				<li>승인완료</li>
 			</c:if>
 	
-		</div>
+</div>
+</div>
 
-	</div>
