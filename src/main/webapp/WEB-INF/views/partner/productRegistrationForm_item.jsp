@@ -20,6 +20,7 @@
 		<form action="ItemAdd" method="post" class="partnerAllForm item">
 			<input type="hidden" name="leports_id" value="${dto.leports_id}">
 			<div id="pre_set" class="itemform">
+			<div class="child" onclick="deleteParent(this)" style="float: right;">❌</div>
 			<div class="item_wrap">
 				<div class="formBox item">			
 					<div class="title">레포츠 아이템 이름</div>
@@ -46,7 +47,7 @@
 					<!-- leports_item이 추가되는 영역 -->
 				</div>
 	
-			<input class="addBtn" type="button" value="추가" id="addItem" onclick="add_item()" />
+			<input class="addBtn" type="button" value="추가" id="addItem" />
 			
 			<div class="partnerBtn form">
 				<p>아래 버튼을 선택하면 개인정보 동의 및 파트너 약관에 동의하는 것입니다.</p>

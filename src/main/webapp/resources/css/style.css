@@ -145,7 +145,7 @@ footer {
 	top: 50%;
 	transform: translate(-50%, -50%);
 	width: 500px;
-	height: 500px;
+	height: 550px;
 	background-color: #fafafa;
 	border-radius: 10px;
 	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px
@@ -197,7 +197,6 @@ footer {
 
 #signUpForm .SignUpBtn {
 	width: 300px;
-	height: 45px;
 	margin-top: 8px;
 	font-size: 16px;
 	font-weight: bold;

@@ -53,10 +53,10 @@
 	        <div class="title">레포츠 카테고리*</div>
 	          <div>
 	            <select name="leports_type" class="leports_type">
-	              <option value="지상 레포츠">지상 레포츠</option>
-	              <option value="수상 레포츠">수상 레포츠</option>
-	              <option value="항공 레포츠">항공 레포츠</option>
-	              <option value="실내 레포츠">실내 레포츠</option>
+	              <option value="지상">지상 레포츠</option>
+	              <option value="수상">수상 레포츠</option>
+	              <option value="항공">항공 레포츠</option>
+	              <option value="실내">실내 레포츠</option>
 	            </select>
 	          </div>
 		</div>
