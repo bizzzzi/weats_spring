@@ -28,17 +28,17 @@ public class AdminController {
     AdminService service;
 
     @RequestMapping(value="/memberList")
-    public String MemberList(RedirectAttributes attr){
+    public String MemberList(Model model){
         List<MemberDTO> list = service.MemberList();
-        attr.addFlashAttribute("memberList",list);
-        return "redirect:/AdminMember";
+        model.addAttribute("memberList",list);
+        return "AdminMember";
     }
     //파트너 회원 승인여부 구분하기
     @RequestMapping(value="/partnerList")
-    public String PartnerList(RedirectAttributes attr){
+    public String PartnerList(Model model){
         List<PartnerDTO> list =service.PartnerList();
-        attr.addFlashAttribute("PartnerList",list);
-        return "redirect:/AdminPartner";
+        model.addAttribute("PartnerList",list);
+        return "AdminPartner";
     }
 
     @RequestMapping(value="/AdminPartnerDetail")

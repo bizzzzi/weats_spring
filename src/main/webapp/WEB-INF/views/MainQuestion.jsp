@@ -35,5 +35,6 @@
 </div>
 <script type="text/javascript" src="../js/modal.js"></script>
 <script type="text/javascript" src="../js/signUpForm.js"></script>
+<script type="text/javascript" src="../js/customer.js"></script>
 </body>
 </html>
