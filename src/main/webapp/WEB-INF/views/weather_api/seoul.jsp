@@ -102,7 +102,6 @@
 </script>
 
 <body>
-  <button class="modalOpenBtn">Open Modal</button>
   <div class="w_modal w_hidden">
     <div class="w_modal_overlay"></div>
     <div class="w_modal_content">
@@ -112,7 +111,7 @@
           <div>
             <span class="day1_icon"></span>
             <span class="day1_max_temp"></span>
-            <span class="day1_min_temp"></span>
+            <span class="day1_min_temp">/ </span>
             <span class="day1_description"></span>
           </div>
         </li>
@@ -121,7 +120,7 @@
           <div>
             <span class="day2_icon"></span>
             <span class="day2_max_temp"></span>
-            <span class="day2_min_temp"></span>
+            <span class="day2_min_temp">/ </span>
             <span class="day2_description"></span>
           </div>
         </li>
@@ -130,7 +129,7 @@
           <div>
             <span class="day3_icon"></span>
             <span class="day3_max_temp"></span>
-            <span class="day3_min_temp"></span>
+            <span class="day3_min_temp">/ </span>
             <span class="day3_description"></span>
           </div>
         </li>
@@ -139,7 +138,7 @@
           <div>
             <span class="day4_icon"></span>
             <span class="day4_max_temp"></span>
-            <span class="day4_min_temp"></span>
+            <span class="day4_min_temp">/ </span>
             <span class="day4_description"></span>
           </div>
         </li>
@@ -148,7 +147,7 @@
           <div>
             <span class="day5_icon"></span>
             <span class="day5_max_temp"></span>
-            <span class="day5_min_temp"></span>
+            <span class="day5_min_temp">/ </span>
             <span class="day5_description"></span>
           </div>
         </li>

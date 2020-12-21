@@ -14,3 +14,4 @@ w_closeModal.addEventListener("click", () => {
 w_modal_overlay.addEventListener("click", () => {
   w_modal.classList.add("w_hidden");
 });
+

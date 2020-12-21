@@ -30,8 +30,6 @@
 		<jsp:include page="common/loginForm_desktop.jsp" flush="true"></jsp:include>
 		<jsp:include page="common/signUpForm_desktop.jsp" flush="true"></jsp:include>
 		<jsp:include page="weather_api/seoul.jsp" flush="true"></jsp:include>
-		<jsp:include page="weather_api/jeju.jsp" flush="true"></jsp:include>
-		<jsp:include page="weather_api/seoul.jsp" flush="true"></jsp:include>
 	</div>
 	<div id="main_contents">
 		<video autoplay="autoplay" loop="loop" muted="muted">
