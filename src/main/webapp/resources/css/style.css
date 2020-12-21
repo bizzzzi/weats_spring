@@ -984,7 +984,10 @@ video {
 #Resale_list section {
 	width: 70%;
 }
-
+.products_info .item_info_title{
+	display: flex;
+	justify-content: space-between;
+}
 .text_info .item_info_title {
 	margin-top: 4px;
 	font-size: 22px;

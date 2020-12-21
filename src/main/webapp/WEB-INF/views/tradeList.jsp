@@ -1,16 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Weats</title>
-<link rel="stylesheet" href="css/bootstrap.css" /><!-- 부트스트랩 -->
-<script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="css/style.css">
 <script src="https://kit.fontawesome.com/400289e08c.js" crossorigin="anonymous"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<c:set var="path" value="${requestScope['javax.servlet.forward.request_uri']}"/>
+	<c:choose>
+		<c:when test="${fn:contains(path,'loginCheck')}">
+			<link rel="stylesheet" href="../css/bootstrap.css" /><!-- 부트스트랩 -->
+			<script type="text/javascript" src="../js/jquery-3.5.1.min.js"></script>
+			<script type="text/javascript" src="../js/bootstrap.js"></script>
+			<link rel="stylesheet" type="text/css" href="../css/style.css">
+		</c:when>
+		<c:otherwise>
+			<link rel="stylesheet" href="css/bootstrap.css" /><!-- 부트스트랩 -->
+			<script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
+			<script type="text/javascript" src="js/bootstrap.js"></script>
+			<link rel="stylesheet" type="text/css" href="css/style.css">
+		</c:otherwise>
+	</c:choose>
 </head>
 <body>
 	<div id="wrap">

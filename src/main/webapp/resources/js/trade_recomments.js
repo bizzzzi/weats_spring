@@ -267,6 +267,7 @@ function getHtml2(comment_id,trade_comment,comment_regidate,user_id){
 	return result;
 }
 
+// File 추가
 let regex = new RegExp("(.*?)\.(exe|sh|zip|alz)$");
 let maxSize = 5242880;
 
@@ -287,6 +288,16 @@ let tradeForm = $(".tradeForm");
 let uploadTit = $(".uploadTit");
 let inputArr = [];
 let count = 0;
+
+
+$('.file').click(function(e){
+	let ChildCount = $(".uploadResult li").length;
+	console.log(ChildCount);
+	let Child = $(".uploadResult").childElementCount;
+	console.log(Child);
+})
+
+
 $('.file').change(function(e){                            //업로드할 파일을 선택 할 경우 동작을 일으킵니다.
 	// uploadResult.empty();
 	let formData = new FormData();
@@ -301,7 +312,7 @@ $('.file').change(function(e){                            //업로드할 파일�
 	}
 
 	$.ajax({
-		url: 'fileUploadAjax',
+		url: getContextPath()+'/fileUploadAjax',
 		processData: false,
 		contentType: false,
 		data: formData,
@@ -362,6 +373,12 @@ function showUploadedFile(uploadResultArr){
 	});
 	uploadResult.append(str);
 }
+
+function getContextPath() {
+	var hostIndex = location.href.indexOf( location.host ) + location.host.length;
+	return location.href.substring( hostIndex, location.href.indexOf('/', hostIndex + 1) );
+}
+
 uploadResult.on("click","span",function(e){
 	let targetFile = $(this).data("file");
 	let type = $(this).data("type");
@@ -369,7 +386,7 @@ uploadResult.on("click","span",function(e){
 	let targetLi = $(this).closest("li");
 	console.log(targetFile);
 	$.ajax({
-		url: 'deleteFile',
+		url: getContextPath()+'/deleteFile',
 		data: {fileName: targetFile, type:type},
 		dataType: 'text',
 		type: 'POST',

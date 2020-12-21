@@ -56,4 +56,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getOldFiles" resultType="TradeDTO">
 		select *  from trade where trade_regidate = to_char(sysdate -1,'yyyy\mm\dd')
 	</select>
+	<delete id="TradeDelete" parameterType="String">
+		delete from trade where trade_id = #{trade_id}
+	</delete>
+	<update id="TradeUpdate" parameterType="TradeDTO">
+		update trade set trade_main_img = #{trade_main_img}, trade_sub_img1 = #{trade_sub_img1}, trade_sub_img2 = #{trade_sub_img2},
+		trade_sub_img3 = #{trade_sub_img3}, trade_sub_img4 = #{trade_sub_img4}, trade_title = #{trade_title}, trade_contents = #{trade_contents},
+		trade_type = #{trade_type}, trade_loc = #{trade_loc}, trade_phone = #{trade_phone}, trade_user_name = #{trade_user_name},
+		trade_price = #{trade_price}, trade_regidate = sysdate where trade_id = #{trade_id}
+	</update>
 </mapper>

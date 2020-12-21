@@ -14,6 +14,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
@@ -39,6 +40,47 @@ public class TradeController {
     @Autowired
     TradeService service;
 
+    @RequestMapping(value="/loginCheck/TradeUpdate")
+    public ModelAndView TradeUpdate(String trade_id){
+        System.out.println("tradeID"+trade_id);
+        TradeDTO dto= service.TradeDetail(trade_id);
+        System.out.println("내가 올린 상품 Detail"+dto);
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("dto",dto);
+        mav.setViewName("tradeUpdate");
+        return mav;
+    }
+    @RequestMapping(value="/TradeUpdate")
+    public String TradeUpdateSubmit(TradeDTO dto){
+        System.out.println("수정 사항: "+dto);
+        int result = service.TradeUpdate(dto);
+        System.out.println("수정 결과: "+ result);
+        return "redirect:/loginCheck/TradeList";
+    }
+
+    @RequestMapping(value="/loginCheck/TradeDelete")
+    public String TradeDelete(String trade_id){
+        TradeDTO dto = service.TradeDetail(trade_id);
+        int result = service.TradeDelete(trade_id);
+        List<String> list = new ArrayList<>();
+        if(dto.getTrade_main_img()!= null){
+            list.add(dto.getTrade_main_img());
+        }
+        if(dto.getTrade_sub_img1()!= null){
+            list.add(dto.getTrade_sub_img1());
+        }
+        if(dto.getTrade_sub_img2()!= null){
+            list.add(dto.getTrade_sub_img1());
+        }
+        if(dto.getTrade_sub_img3()!= null){
+            list.add(dto.getTrade_sub_img1());
+        }
+        if(dto.getTrade_sub_img4()!= null){
+            list.add(dto.getTrade_sub_img1());
+        }
+        FileUpload.fileDelete(list);
+        return "redirect:/TradeList";
+    }
     //중고거래 상품 리스트
     @RequestMapping(value="/TradeList")
     public ModelAndView TradeList(String trade_type){
@@ -56,12 +98,12 @@ public class TradeController {
 
     //내가 올린 상품
     @RequestMapping(value="/loginCheck/TradeList")
-    public String SelectSelf(HttpSession session, RedirectAttributes attr){
+    public String SelectSelf(HttpSession session, Model model){
         List<TradeDTO> list=null;
         MemberDTO dto = (MemberDTO)session.getAttribute("login");
         list = service.SelectSelf(dto.getUser_id());
-        attr.addFlashAttribute("tradeList",list);
-        return "redirect:../tradeList";
+        model.addAttribute("tradeList",list);
+        return "tradeList";
     }
 
     //중고거래 상품 등록
@@ -115,16 +157,14 @@ public class TradeController {
     @RequestMapping(value="/loginCheck/TradeCommentWrite")
     @ResponseBody
     public void TradeComment(HttpSession session, TradeCommentsDTO cDTO, HttpServletResponse response) throws IOException {
-        System.out.println("댓글");
         MemberDTO mDTO = (MemberDTO)session.getAttribute("login");
         cDTO.setUser_id(mDTO.getUser_id());
         int result = 0;
         String nextPage = null;
         cDTO.setTrade_comment_level(cDTO.getTrade_comment_id());
         result = service.ReCommentWrite(cDTO);
-        System.out.println("대댓글depth: "+cDTO.getTrade_depth());
-        System.out.println("대댓글 insert결과: "+result+cDTO);
         String CommentJSON = "{\"trade_comment_id\": \"" + cDTO.getTrade_comment_id() + "\",\"comment_regidate\":\""+service.CommentRegidate(cDTO.getTrade_comment_id())+"\",\"trade_comment\":\""+cDTO.getTrade_comment()+"\",\"user_id\":\""+cDTO.getUser_id()+"\"}";
+        response.setCharacterEncoding("UTF-8");
         response.getWriter().print(CommentJSON);
     }
     @RequestMapping(value="/loginCheck/TradeCommentDelete")

@@ -7,6 +7,15 @@
 <section style="margin: 0 auto;">
 	<!-- 상품상세정보 -->
 	<div class="products_info">
+		<div class="item_info_title">
+			<h2>${dto.trade_title}</h2>
+			<c:if test="${dto.user_id eq login.user_id}">
+				<div class="myBoard">
+					<a href="loginCheck/TradeUpdate?trade_id=${dto.trade_id}" class="btn btn-secondary">수정</a>
+					<a href="loginCheck/TradeDelete?trade_id=${dto.trade_id}" class="btn btn-secondary">삭제</a>
+				</div>
+			</c:if>
+		</div>
 		<div class="imgframe">
 			<ul class="trade_img">
 				<li><img class="trade_main_img" src="/weats/display?fileName=${dto.trade_main_img}"></li>
@@ -30,7 +39,6 @@
 			<ul>
 				<li class="item_info_user"><b>판매자 </b>${dto.trade_user_name}</li>
 				<hr>
-				<li class="item_info_title">${dto.trade_title}</li>
 				<li class="item_info_regidate">등록날짜 ${dto.trade_regidate}</li>
 				<li class="item_info_price">${dto.trade_price}원</li>
 				<li class="item_info_phone"><b>연락처&nbsp;</b>${dto.trade_phone}</li>

@@ -53,13 +53,13 @@
 		<br>
 		<input type="text" class="form-control trade_title" name="trade_title" placeholder="제목을 입력해 주세요."/><br>
 		<div class="trade_write_info">
-			<input type="text" class="form-control trade_first_row_info trade_loc" name="trade_loc" placeholder="지역"/>
+			<input type="text" class="form-control trade_first_row_info trade_user_name" name="trade_user_name" placeholder="이름"/>
 			<input type="text" class="form-control trade_phone" name="trade_phone" placeholder="연락처"/>
 		</div>
 		<br>
 		<textarea class="form-control trade_contents" rows="10" name="trade_contents" placeholder="내용을 입력해 주세요."></textarea><br>
 		<div class="trade_write_info">
-			<input type="text" class="form-control trade_first_row_info trade_user_name" name="trade_user_name" placeholder="이름"/>
+			<input type="text" class="form-control trade_first_row_info trade_loc" name="trade_loc" placeholder="지역"/>
 			<input type="text" class="form-control trade_price" name="trade_price" placeholder="가격"/><br>
 		</div>
 		<div class="uploadDIV">

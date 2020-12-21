@@ -32,9 +32,9 @@
 					<jsp:include page="admin/adminNav.jsp" flush="true"></jsp:include>
 				</div>	
 			</c:if>		
-				<div id="adminContent">
-					<jsp:include page="customer/QA_questionList.jsp" flush="true"></jsp:include>
-				</div>
+			<div id="adminContent">
+				<jsp:include page="customer/QA_questionList.jsp" flush="true"></jsp:include>
+			</div>
 		</div>	
 			<jsp:include page="common/footer.jsp" flush="true"></jsp:include>	
 </div>	
