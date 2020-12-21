@@ -16,28 +16,21 @@
   <link rel="stylesheet" href="css/partner.css">
 </head>
 <body>
-    <header class="header">
-        <h1 class="partner_title">예약 관리</h1>
-    </header>
-    
-    <div class="reservationControl">
-	<c:forEach var="dto" items="${leportsList}" varStatus="status">
-	    <div class="rs_content">
-	         <div class="leports_main_img">
-	         	<img src="../images/${dto.leports_main_img}" alt="상품 대표 이미지">
-	         </div>
-	         <div class="rs_info">   
-		         <ul>  
-		            <li class="leports_title">${dto.leports_title}</li>
-		            <li>예약일 : ${dto.rs_date}</li>
-		            <li>인원수 : ${dto.rs_persons}</li>
-		            <li>예약자 : ${dto.rs_name}</li>
-		            <li>전화번호 : ${dto.rs_phone}</li>
-		            <li>가격 : ${dto.rs_price}</li>
-		        </ul>
-		     </div> 
-		</div>    
-	</c:forEach>  
-	</div>
+  <header class="header">
+    <h1 class="partner_title">예약관리</h1>
+  </header>
+    <div class="leportsProducts">
+    	<c:forEach var="ldto" items="${leportsAddList}" varStatus="status">
+    	<input type="hidden" name="leports_id" value="${ldto.leports_id}" />
+    	<div class="partner_list">
+    		<a href="../reservationDetail?leports_id=${ldto.leports_id}">  			 
+	      		<div class="partner_main_img">
+	      			<img src="../images/${ldto.leports_main_img}" alt="상품 대표 이미지">
+	      		</div>
+				<div class="partner_item_info">${ldto.leports_title}</div>	
+			</a>
+		</div>	
+ 		</c:forEach>
+ 	</div>		
 </body>
 </html>

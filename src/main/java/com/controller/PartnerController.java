@@ -140,20 +140,8 @@ public class PartnerController {
 		pservice.leportsInsert(dto);
 		session.setAttribute("leports",dto);
 		attr.addFlashAttribute("LeportsForm",dto);
-		System.out.println(dto);
 		return "redirect:/LeportsIdSelect";
 	}
-	//레포츠 이름 중복검사
-//	@RequestMapping(value = "/titleDuplicateCheck",produces = "text/plain; charset=UTF-8")
-//	@ResponseBody
-//	public String titleDuplicateCheck(@RequestParam("title")String leports_title) {
-//		LeportsDTO ldto=pservice.leportsIdSelect(leports_title);
-//		String mesg="";
-//		if(ldto!=null) {
-//			mesg="중복된 상품명입니다.";
-//		}
-//		return mesg;
-//	}
 
 	//레포츠 아이디찾기
 	@RequestMapping("/LeportsIdSelect")
@@ -225,9 +213,18 @@ public class PartnerController {
 		return "redirect:/MainPartner";
 	}
 
-	//예약관리
-	@RequestMapping("/partnerCheck/ProductResevation")
+	//예약관리	
+	@GetMapping("/partnerCheck/ProductResevation")
 	public String ProductResevation(HttpSession session,Model model) {
+		PartnerDTO dto=(PartnerDTO)session.getAttribute("partner");
+		String partner_id=dto.getPartner_id();
+		List<LeportsDTO> list=pservice.ProductControl(partner_id);
+		model.addAttribute("leportsAddList",list);
+		return "reservationControl";
+	}
+	//예약관리 상세
+	@RequestMapping("/partnerCheck/ProductResevation")
+	public String ResevationDetail(HttpSession session,Model model) {
 		MemberDTO mdto=(MemberDTO)session.getAttribute("login");
 		String user_id=mdto.getUser_id();
 		List<ReservationControlDTO>list=pservice.ReservationControl(user_id);

@@ -240,43 +240,6 @@ a:hover {
 	margin: 10% 0%;
 }
 /* 예약관리 */
-.reservationControl{
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    justify-content: space-around;
-    flex-direction: row;
-}
-.rs_content{
-	display: flex;
-    padding: 10px;
-    margin: 10px;
-    border-radius: 4px;
-    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .16);
-    width: 500px;
-}
-.rs_content .leports_main_img{
-    display: flex;
-    width: 50%;
-    margin-right: 3%;
-}
-.rs_content .leports_main_img img{
-	width: 200px;
-	height: 200px;
-    margin: auto;
-    border: 1px solid #D6D6D6;
-}
-.rs_content .rs_info{
-	padding: 10px;
-    width: 100%;
-}
-.rs_content .rs_info .leports_title{
-    font-size: 1.4em;
-    margin-bottom: 5px;
-}
-.rs_content .rs_info ul{
-	padding: 10px;
-}
 
 @media screen and (max-width: 768px) { 
 		.formBox input[type="text"], 
