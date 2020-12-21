@@ -5,6 +5,7 @@
 <c:set var="path" value="${requestScope['javax.servlet.forward.request_uri']}"/>
 
 	<section>
+	<div class="qaDetail">
 		<input type="hidden" class="path" value="${path}">
 		<input type="hidden" class="tomail" value="${dto.user_email}">
 		<ul class="qnaList q">
@@ -70,5 +71,6 @@
 					<input type="submit" value="답변등록">
 				</form>
 			</div>
+	</div>		
 	</section>
 

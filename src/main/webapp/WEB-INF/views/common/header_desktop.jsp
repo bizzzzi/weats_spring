@@ -59,7 +59,7 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 관리자 </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="admin">관리자 페이지</a>
+              <a class="dropdown-item" href="${path}/admin">관리자 페이지</a>
               <a class="dropdown-item" href="${path}/logout">로그아웃</a>
             </div>
           </li>
