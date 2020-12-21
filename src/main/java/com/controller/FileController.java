@@ -27,7 +27,8 @@ public class FileController {
     @PostMapping(value = "/fileUploadAjax", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @ResponseBody
     public ResponseEntity<List<AttachFileDTO>> fileUploadAjax(MultipartFile[] uploadFile) throws IOException {
-        String path = "/Users/hhhhbbbb/upload";
+//        String path = "/Users/hhhhbbbb/upload";
+        String path = "/Users/hhhhbbbb/desktop/weats_spring/src/main/webapp/resources/images";
         String fileName="";
         List<AttachFileDTO> list = new ArrayList<>();
         for (MultipartFile multipartFile: uploadFile){
