@@ -23,7 +23,7 @@
 		<jsp:include page="common/loginForm_desktop.jsp" flush="true"></jsp:include>
 		<jsp:include page="common/signUpForm_desktop.jsp" flush="true"></jsp:include>
 	</div>
-	<div id="adminPageWrap">
+	<div id="container">
 		<jsp:include page="customer/customerNav.jsp" flush="true"></jsp:include>
 		<jsp:include page="customer/QA_SupportDetail.jsp" flush="true"></jsp:include>
 	</div>

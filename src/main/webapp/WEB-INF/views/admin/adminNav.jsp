@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <c:set var="path" value="${pageContext.request.contextPath}" />
-<h3 class="maintitle">관리자 페이지</h3>
+<h3 class="sideMenuTitle">관리자 페이지</h3>
 	<a href="${path}/memberList">회원관리</a>
 	<a href="${path}/partnerList">파트너 관리</a>
 	<a href="${path}/adminCheck/AllQuestionList">문의 관리</a>
