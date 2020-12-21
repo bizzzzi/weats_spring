@@ -68,9 +68,9 @@ public class PartnerDAO {
 	}
 	
 	//레포츠 아이디찾기
-	public LeportsDTO leportsIdSelect(String leports_title) {
-		LeportsDTO dto=template.selectOne("leportsIdSelect",leports_title);
-		return dto;
+	public String leportsIdSelect() {
+		String leports_id=template.selectOne("leportsIdSelect");
+		return leports_id;
 	}
 	
 	//등록상품 리스트

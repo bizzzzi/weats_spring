@@ -67,9 +67,9 @@ public class PartnerService {
 		}
 		
 		//레포츠 아이디 찾기
-		public LeportsDTO leportsIdSelect(String leports_title) {			 
-			LeportsDTO dto=dao.leportsIdSelect(leports_title);
-			return dto;
+		public String leportsIdSelect() {			 
+			String leports_id=dao.leportsIdSelect();
+			return leports_id;
 		}
 
 		

@@ -70,9 +70,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		#{leports_price},#{leports_max_capacity})
 	</insert>
 	
-	<!-- 레포츠 이름으로 레포츠아이디 찾기 -->
-	<select id="leportsIdSelect" parameterType="String" resultType="LeportsDTO">
-		select leports_id,leports_title from leports where leports_title=#{leports_title}
+	<!--레포츠아이디 찾기 -->
+	<select id="leportsIdSelect" resultType="String">
+		select 'L'||(max(to_number(substr(leports_id,2)))) from leports
 	</select>
 
 	

@@ -140,27 +140,27 @@ public class PartnerController {
 		pservice.leportsInsert(dto);
 		session.setAttribute("leports",dto);
 		attr.addFlashAttribute("LeportsForm",dto);
+		System.out.println(dto);
 		return "redirect:/LeportsIdSelect";
 	}
 	//레포츠 이름 중복검사
-	@RequestMapping(value = "/titleDuplicateCheck",produces = "text/plain; charset=UTF-8")
-	@ResponseBody
-	public String titleDuplicateCheck(@RequestParam("title")String leports_title) {
-		LeportsDTO ldto=pservice.leportsIdSelect(leports_title);
-		String mesg="";
-		if(ldto!=null) {
-			mesg="중복된 상품명입니다.";
-		}
-		return mesg;
-	}
+//	@RequestMapping(value = "/titleDuplicateCheck",produces = "text/plain; charset=UTF-8")
+//	@ResponseBody
+//	public String titleDuplicateCheck(@RequestParam("title")String leports_title) {
+//		LeportsDTO ldto=pservice.leportsIdSelect(leports_title);
+//		String mesg="";
+//		if(ldto!=null) {
+//			mesg="중복된 상품명입니다.";
+//		}
+//		return mesg;
+//	}
 
 	//레포츠 아이디찾기
 	@RequestMapping("/LeportsIdSelect")
-	public String LeportsIdSelect(@ModelAttribute("LeportsForm")LeportsDTO dto,RedirectAttributes attr) {
-		String leports_title=dto.getLeports_title();
-		LeportsDTO ldto=pservice.leportsIdSelect(leports_title);
-		attr.addFlashAttribute("dto", ldto);
-		return "redirect:/productRegistrationForm_item";
+	public String LeportsIdSelect(Model model) {
+		String leports_id=pservice.leportsIdSelect();
+		model.addAttribute("leports_id", leports_id);
+		return "productRegistrationForm_item";
 	}
 
 	//레포츠 아이템 등록
