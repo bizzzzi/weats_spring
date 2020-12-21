@@ -17,7 +17,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	<insert id="tradeWrite" parameterType="TradeDTO">
 		insert into trade
-		values('T'||trade_seq.nextval,#{user_id},#{trade_main_img},#{trade_sub_img1},#{trade_sub_img2},#{trade_sub_img3},#{trade_sub_img4},#{trade_title},#{trade_contents},#{trade_type},#{trade_loc},#{trade_phone},#{trade_user_name},#{trade_price},sysdate,#{trade_hit})
+		values('T'||trade_seq.nextval,#{user_id},#{trade_main_img},#{trade_sub_img1},#{trade_sub_img2},#{trade_sub_img3},#{trade_sub_img4},#{trade_title},#{trade_contents},#{trade_type},#{trade_loc},#{trade_phone},#{trade_user_name},#{trade_price},sysdate)
 	</insert>
 	<select id="selectItem" parameterType="String"
 		resultType="TradeDTO">
