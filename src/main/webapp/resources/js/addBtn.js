@@ -1,8 +1,10 @@
-let addItem = document.querySelector('#addItem');
-let addItemList = document.querySelector('.addItemList');
-let target = document.querySelector('.item_wrap')
 
-addItem.addEventListener('click', function(event) {
-	target.cloneNode(true);
-	addItemList.innerHTML += target.innerHTML;
-});
+function add_item(){
+    let div = document.createElement('div');
+    let addItemList=document.getElementById('addItemList');   
+    div.setAttribute('class','itemform');
+    div.innerHTML = document.getElementById('pre_set').innerHTML;
+    addItemList.appendChild(div);
+}
+
+

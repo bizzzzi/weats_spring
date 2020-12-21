@@ -4,7 +4,6 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,24 +13,20 @@
 </head>
  <body>
   <header class="header">
-    <a href="MainPartner">메인으로 이동</a>
-    <h1 class="main_title">등록한 상품</h1>
-    <hr>
+    <h1 class="partner_title">등록한 상품</h1>
   </header>
-    <div class="product_control_table wrap">
-      <ul class="thead subject">
-        <li>상품 이미지 </li>
-        <li>상품명 </li>
-      </ul>
-    <c:forEach var="ldto" items="${leportsAddList}" varStatus="status">
-      <input type="hidden" name="leports_id" value="${ldto.leports_id}" />
-      <ul class="tbody content">
-        <li class="product_img product"><a href="../ProductDetail?leports_id=${ldto.leports_id}">
-            <img src="images/${ldto.leports_main_img}" alt="상품 대표 이미지" style="width:400px"></a></li>
-        <li class="product_name product"><a href="../ProductDetail?leports_id=${ldto.leports_id}">${ldto.leports_title} </a>
-        </li>
-      </ul>
-  </div>
-  </c:forEach>
+    <div class="leportsProducts">
+    	<c:forEach var="ldto" items="${leportsAddList}" varStatus="status">
+    	<input type="hidden" name="leports_id" value="${ldto.leports_id}" />
+    	<div class="partner_list">
+    		<a href="../ProductDetail?leports_id=${ldto.leports_id}">  			 
+	      		<div class="partner_main_img">
+	      			<img src="../images/${ldto.leports_main_img}" alt="상품 대표 이미지">
+	      		</div>
+				<div class="partner_item_info">${ldto.leports_title}</div>	
+			</a>
+		</div>	
+ 		</c:forEach>
+ 	</div>		
  </body>
 </html>
