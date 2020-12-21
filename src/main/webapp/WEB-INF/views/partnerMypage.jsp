@@ -1,13 +1,5 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<c:if test="${! empty partnermesg}">
-	<script>
-		alert('${partnermesg}');
-	</script>
-</c:if>
-<c:remove var="partnermesg" scope="session"></c:remove>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,10 +18,16 @@
 	<div id="desktop">
 		<jsp:include page="common/header_desktop.jsp" flush="true"></jsp:include>
 	</div>
-	<div id="partnerMain">
-		<jsp:include page="partner/partnerSideMenu.jsp" flush="true"></jsp:include>
+	<div id="partnerPageWrap">
+		<div id="SideMenu">
+			<jsp:include page="partner/partnerSideMenu.jsp" flush="true"></jsp:include>
+		</div>
+		<div id="partnerContent">
+			<jsp:include page="partner/partnerMypage.jsp" flush="true"></jsp:include>
+		</div>
 	</div>
-	 <jsp:include page="common/footer.jsp" flush="true"></jsp:include>
-</div>	
+	<jsp:include page="common/footer.jsp" flush="true"></jsp:include>
+</div>
+<script type="text/javascript" src="js/partnerInput.js"></script>
 </body>
 </html>

@@ -14,33 +14,43 @@
 </head>
 <body>
 	<header class="header">
-		<a href="MainPartner">메인으로 이동</a>
 		<h1 class="main_title">상품 등록</h1>
-		<hr>
 	</header>
-	<div class="partner_registration_form wrap">
-		<form action="ItemAdd" method="post">
+	<div class="partner_form item">
+		<form action="ItemAdd" method="post" class="partnerAllForm item">
 			<input type="hidden" name="leports_id" value="${dto.leports_id}">
+			<div id="pre_set" class="itemform">
 			<div class="item_wrap">
-				<div class="leports_item_wrap">
+				<div class="formBox item">			
 					<div class="title">레포츠 아이템 이름</div>
 					<input type="text" name="leports_item_title" class="leports_item_title" placeholder="ex) 서핑(2시간)">
+				</div>
+				<div class="formBox item">		
 					<div class="title">한줄 요약</div>
 					<input type="text" name="leports_summary" class="leports_summary" placeholder="ex) 강습시간: 9:30~11:30">
-					<div class="title">가격(원)</div>
-					<input type="text" name="leports_price" class="leports_price" placeholder="숫자만 입력해주세요.">
-					<div class="title">최대 수용 인원</div>
-					<input type="number" name="leports_max_capacity" class="leports_max_capacity" placeholder="숫자만 입력해주세요.">
 				</div>
 			</div>
-
-			<div class="addItemList">
-				<!-- leports_item이 추가되는 영역 -->
+			<div class="item_wrap">
+				<div class="formBox item">
+					<div class="title">가격(원)</div>
+					<input type="text" name="leports_price" class="leports_price" placeholder="숫자만 입력해주세요.">
+				</div>
+				<div class="formBox item">	
+					<div class="title">최대 수용 인원</div>
+					<input type="number" name="leports_max_capacity" class="leports_max_capacity" placeholder="숫자만 입력해주세요.">				
+				</div>
+			</div>	
+				
 			</div>
-			<input class="addBtn" type="button" value="추가" id="addItem" />
-			<p>아래 버튼을 선택하면 개인정보 동의 및 파트너 약관에 동의하는 것입니다.</p>
-			<div class="Btn">
-				<button class="submitBtn" type="submit">확인 및 제출</button>
+				<div id="addItemList">
+					<!-- leports_item이 추가되는 영역 -->
+				</div>
+	
+			<input class="addBtn" type="button" value="추가" id="addItem" onclick="add_item()" />
+			
+			<div class="partnerBtn form">
+				<p>아래 버튼을 선택하면 개인정보 동의 및 파트너 약관에 동의하는 것입니다.</p>
+				<input type="submit" value="확인 및 제출" onclick="itemNull()">
 			</div>
 		</form>
 	</div>

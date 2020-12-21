@@ -86,6 +86,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select leports_id,leports_main_img,leports_title 
 		from leports
 		where partner_id=#{partner_id}
+		order by leports_id desc
 	</select>
 	
 	<!-- 상품 상세 페이지 레포츠 -->
@@ -117,16 +118,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		leports_max_capacity=#{leports_max_capacity}
 		where leports_item_id=#{leports_item_id}
 	</update>
-	
-	<!-- 예약관리 -->
-<!-- 	<select id="Reservationleports" parameterType="leportsDTO" resultType="String">
-		select leports_main_img,leports_title 
-		from leports 
-		where partner_id=#{partner_id}
-	</select> -->
-	
-
-	
+	<!-- 예약관리 리스트 -->	
 	<resultMap type="LeportsDTO" id="leports">
 		<result column="leports_id" property="leports_id"></result>
 		<result column="leports_title" property="leports_title"></result>
@@ -139,14 +131,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="rs_name" property="rs_name"/>
 		<result column="rs_phone" property="rs_phone"/>
 		<result column="rs_price" property="rs_price"/>
+		<result column="reservation_id" property="reservation_id"/>
 	</resultMap>
 	
 	<resultMap type="ReservationControlDTO" id="ReservationControl">
 		<collection property="leports" resultMap="leports"></collection>
 		<collection property="reservation" resultMap="reservation"></collection>
 	</resultMap>
-	
-		<!-- 예약관리 -->
+
 	<select id="ReservationControl" parameterType="String" resultType="ReservationControlDTO">
 		select l.leports_title, l.leports_main_img,l.leports_id,
 		r.rs_date,r.rs_persons,r.rs_name,r.rs_phone,r.rs_price
@@ -154,5 +146,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		join reservation r
 		on l.leports_id = r.leports_id
 		where user_id=#{user_id}
+		order by r.reservation_id desc
 	</select>
 </mapper>

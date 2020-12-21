@@ -26,5 +26,6 @@
 	</div>
 <script type="text/javascript" src="js/modal.js"></script>
 <script type="text/javascript" src="js/signUpForm.js"></script>
+<script type="text/javascript" src="js/trade_recomments.js"></script>
 </body>
 </html>

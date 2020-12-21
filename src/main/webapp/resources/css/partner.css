@@ -1,5 +1,5 @@
 @charset "UTF-8";
-
+                                              
 @import
 	url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap')
 	;
@@ -7,210 +7,305 @@
 @import
 	url('https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@600&display=swap')
 	;
-body {
-  background-color: rgb(255, 255, 255);
+#SideMenu {
+	width: 20%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	background: #51ABF3;
+	padding: 30px 0;
+	font-size: 1em;
+}
+#SideMenu h3{
+	margin-bottom: 30px;
+    color:#f8fafa;	
+}
+#SideMenu a{
+	font-size: 1.2em;
+	padding: 15px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color:#f8fafa;
+}
+#SideMenu a:hover{
+	background: #6dbaf5;
+}
+#partnerContent {
+	width: 80%;
+	height: 100%;
+}
+#partnerPageWrap {
+	display:flex;
+}
+.title {
+    font-weight: bold;
+    padding: 20px 0;
+    font-size: 18px;
+}
+/* 파트너 메인 */
+#partnerMain{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    margin: 5% 0;
 }
 
+#partnerMain .maintitle{
+    width: 100%;
+    margin-bottom: 5%;
+    color:#636466;
+}
+#partnerMain a{
+    background-color: #51ABF3;
+    width: 20%;
+    color: #fff;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+}
+.partner_title{
+	border-bottom: 5px solid #2F98ED;
+    width: fit-content;
+    margin: 1%;
+    margin-bottom:4%;
+    padding: 10px;
+}
+
+a:hover {
+    text-decoration: none;
+}
+/*파트너 등록폼*/
 .partner_form {
-  width: 60%;
-  height: 60%;
-  position: relative;
-  padding: 3% 20%;
+    width: 100%;
+    height: 100%;
+    padding: 0 15%;
+    margin-bottom: 20px;
 }
-
 .main_title {
-  /* font-size: 20pt; */
   display: flex;
   justify-content: center;
   padding-top: 20px;
   padding-bottom: 20px;
 }
 
-.partner_form form {
-  display: flex;
-  flex-direction: column;
-  background-color: rgb(255, 255, 255);
+.partnerAllForm {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
-
-.box {
-  display: flex;
-  height: 150px;
+.formBox input[type="text"], input[type="number"], select{
+	overflow: visible;
+    padding: 0.8em 0.5em;
+    margin-bottom: 5px;
+    width: 50%;
 }
-
-.title {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 30%;
-  /* background-color: cornflowerblue; */
-  box-sizing: border-box;
-  border: 1px solid;
-  border-radius: 1%;
+.formBox .postBtn.form{
+	display: block;
+    margin-bottom: 20px;
+    padding: 5px 15px;
+    margin-left: 25%;
+    background: #007bff;
+    color: #fff;
+    border: 1px solid #007bff;
+    border-radius: 4px;
 }
-
-.sub_box {
-  float: left;
-  /* background-color: rgb(119, 250, 119); */
-  width: 80%;
-  border-radius: 1%;
-  box-sizing: border-box;
-  border: 1px solid;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  line-height: 1.2;
+.formBox .postBtn.form:hover{
+	background-color: #0062cc;
 }
-
-.partner_form img {
-  background-color: green;
-  height: 70px;
-}
-
-.comment {
-  font-size: 9pt;
-  padding-top: 2%;
-}
-
-.Btn {
-  background-color: rgb(255, 255, 255);
-  position: relative;
-}
-
-.submitBtn:hover {
-  background-color: rgb(187, 221, 248);
-}
-
-.Btn p {
-  display: flex;
-  justify-content: center;
-}
-
-.submitBtn {
-  display: block;
-  width: 200px;
-  height: 40px;
-  line-height: 40px;
-  border: 1px rgb(12, 11, 11) solid;
- /*  margin: 15px auto; */
-  background-color: rgb(255, 255, 255);
-  text-align: center;
-  cursor: pointer;
-  color: #333;
-  transition: all 0.9s, color 0.3;
-}
-
-.partner_mypage {
-  width: 60%;
-  height: 60%;
-  position: relative;
-  padding: 3% 20%;
-}
-
-.partner_mypage form {
-  display: flex;
-  flex-direction: column;
-  background-color: rgb(255, 255, 255);
-}
-
-.partner_mypage img {
-  background-color: green;
-  height: 70px;
-}
-
-.Btn, .addBtn{
-  display: block;
-  width: 200px;
-  height: 40px;
-  line-height: 40px;
-  border: 1px rgb(12, 11, 11) solid;
-  margin: 15px auto;
-  background-color: rgb(255, 255, 255);
-  text-align: center;
-  cursor: pointer;
-  color: #333;
-  transition: all 0.9s, color 0.3;
-}
-
-.Btn:hover {
-  background-color: rgb(187, 221, 248);
-}
-
-.btn_wrap {
-  display: flex;
-}
-
-.image_container {
-  display: flex;
-  padding-left: 30%;
-}
-
-body {
-  font-size: 13px;
-  color: rgba(33, 33, 33, 0.89);
-  background-color: rgb(255, 255, 255);
-}
-
-.main_title {
-  display: flex;
-  justify-content: center;
-  font-size: 40px;
-  font-weight: normal;
-  font-style: normal;
-  color: #212121;
-  line-height: inherit;
-}
-
-.wrap ul {
-  list-style: none;
-  /* padding: inherit; */
-  display: flex;
-  background-color: rgb(255, 255, 255);
-}
-
-.wrap li {
-  padding: inherit;
-}
-
-.wrap {
-  width: 60%;
-  height: 60%;
-  position: relative;
-  padding: 3% 20%;
-  /* text-align: right; */
-}
-
-.thead {
-  vertical-align: middle;
-  border-color: inherit;
-  box-sizing: border-box;
-  letter-spacing: 0px;
-}
-
-.thead li{
-  padding-right: 4rem;
-}
-
-.tbody {
-  color: rgba(33, 33, 33, 0.89);
-  font-size: 13px;
-  letter-spacing: 0px;
-  display: flex;
-  vertical-align: middle;
-  border-color: inherit;
-}
-
-/* 상품 출력될 테이블 라인 */
-.thead, .tbody {
-  border-bottom: 1px solid #e5e5e5;
-  border-top: 0;
-  padding: 15px 8px;
-  vertical-align: middle;
-  font-weight: normal;
-  line-height: 1.42857143;
-}
-
-.partner_registration_form p{
-	display: flex;
+ .partner_form .partnerBtn{
+	width:100%;
     justify-content: center;
+    display: flex;
+    margin-top: 40px;
+} 
+.partnerBtn input,.formBox .postBtn{
+    background: #007bff;
+    color: #fff;
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    padding: 10px 60px;
 }
+.partnerBtn.form{
+	display: flex;
+    flex-direction: column;
+	align-items: center;
+}
+.partnerBtn.form input{
+	width: 50%;
+    margin: auto;
+}
+
+.partnerBtn input:hover{
+	background-color: #0062cc;
+}
+.partnerBtn input:disabled{
+	background-color: #007bff;
+    opacity: 0.3;
+}
+.partner_form img{
+    width: 70%;
+    height: 400px;
+	
+}
+.partner_form .comment {
+  font-size: 9pt;
+}
+/* 상품등록 */
+.formBox textarea{
+	width: 100%;
+    resize: none;
+}
+.formBox #result{
+	color: red;
+}
+.itemform{
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .16);
+    margin: 20px;
+    padding: 10px;
+    border-radius: 10px;
+}
+.item_wrap{
+	width: 100%;
+	display: flex;
+}
+.partner_form.item{
+	padding: 0 10%;
+}
+.partner_form .item_wrap input{
+	width: 70%;
+	padding: 0.8em 0.5em;
+}
+.partnerAllForm.item{
+	display: flex;
+    flex-direction: column;
+    padding:0px;
+    width: 100%;
+}
+.formBox.item{
+	width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.addBtn{
+	width: 20%;
+    padding: 10px 40px;
+    margin: auto;
+    background: #007bff;
+    color: #fff;
+    border: 1px solid #007bff;
+    border-radius: 4px;
+}
+/*파트너 마이페이지*/
+
+.formBox .postBtn{
+	display: block;
+    margin-bottom: 20px;
+    padding: 5px 15px;
+}
+.partnerBtn.info{
+    display: flex;
+    margin: 30px 0;
+}
+.partnerBtn.info input{
+    width: 100%;
+    margin: 0 10px;
+}
+/*등록상품 리스트*/
+.leportsProducts{
+	padding: 10px;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    flex-flow: wrap;
+    justify-content: space-around;
+}
+.partner_list{
+	padding: 10px;
+    display: flex;
+    margin: 10px;
+    border-radius: 4px;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .16);
+}
+.partner_main_img{
+    width: 300px;
+    height: 200px;
+    border: 1px solid #D6D6D6;
+}
+.partner_main_img img{
+	width: 300px;
+	height: 200px;
+}
+.partner_list .partner_item_info{
+	width: 100%;
+	text-align: center;
+	margin: 10% 0%;
+}
+/* 예약관리 */
+.reservationControl{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-around;
+    flex-direction: row;
+}
+.rs_content{
+	display: flex;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 4px;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .16);
+    width: 500px;
+}
+.rs_content .leports_main_img{
+    display: flex;
+    width: 50%;
+    margin-right: 3%;
+}
+.rs_content .leports_main_img img{
+	width: 200px;
+	height: 200px;
+    margin: auto;
+    border: 1px solid #D6D6D6;
+}
+.rs_content .rs_info{
+	padding: 10px;
+    width: 100%;
+}
+.rs_content .rs_info .leports_title{
+    font-size: 1.4em;
+    margin-bottom: 5px;
+}
+.rs_content .rs_info ul{
+	padding: 10px;
+}
+
+@media screen and (max-width: 768px) { 
+		.formBox input[type="text"], 
+		.formBox.item input[type="text"],
+		.formBox.item input[type="number"],
+		.partner_form .addItemList input{
+			width: 100%;
+		}
+		.partner_form img{
+			width: 100%;
+   			height: 300px;
+		}
+		.item_wrap{
+		    flex-direction: column;
+		}
+		.addBtn{
+		    width: 40%;
+		}
+		.formBox .postBtn,.formBox .postBtn.form{
+			margin-left: 0;
+		}
+		.partnerBtn.info{
+			flex-direction: column;
+		}
+		.partnerBtn.info input{
+			margin: 5px 0;
+		}
+	 }
