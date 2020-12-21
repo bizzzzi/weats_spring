@@ -46,21 +46,21 @@
 		<hr>
 		<div class="radio">
 			<span>판매</span>
-            <input type="radio" name="trade_type" value="판매">
+            <input type="radio" name="trade_type" class="trade_type" value="판매">
 			<span>대여</span>
-            <input type="radio" name="trade_type" value="대여">
+            <input type="radio" name="trade_type" class="trade_type" value="대여">
         </div>
 		<br>
-		<input type="text" class="form-control" name="trade_title" placeholder="제목을 입력해 주세요."/><br>
+		<input type="text" class="form-control trade_title" name="trade_title" placeholder="제목을 입력해 주세요."/><br>
 		<div class="trade_write_info">
-			<input type="text" class="form-control trade_first_row_info" name="trade_loc" placeholder="지역"/>
-			<input type="text" class="form-control" name="trade_phone" placeholder="연락처"/>
+			<input type="text" class="form-control trade_first_row_info trade_loc" name="trade_loc" placeholder="지역"/>
+			<input type="text" class="form-control trade_phone" name="trade_phone" placeholder="연락처"/>
 		</div>
 		<br>
-		<textarea class="form-control" rows="10" name="trade_contents" placeholder="내용을 입력해 주세요."></textarea><br>
+		<textarea class="form-control trade_contents" rows="10" name="trade_contents" placeholder="내용을 입력해 주세요."></textarea><br>
 		<div class="trade_write_info">
-			<input type="text" class="form-control trade_first_row_info" name="trade_user_name" placeholder="이름"/>
-			<input type="text" class="form-control" name="trade_price" placeholder="가격"/><br>
+			<input type="text" class="form-control trade_first_row_info trade_user_name" name="trade_user_name" placeholder="이름"/>
+			<input type="text" class="form-control trade_price" name="trade_price" placeholder="가격"/><br>
 		</div>
 		<div class="uploadDIV">
 			<br>
@@ -73,7 +73,7 @@
 						</ul>
 					</div>
 					<div class="uploadBox" style="height: 0">
-						<input type="hidden" name="trade_main_img"><br>
+						<input type="hidden" name="trade_main_img" class="trade_main_img"><br>
 						<input type="hidden" name="trade_sub_img1"><br>
 						<input type="hidden" name="trade_sub_img2"><br>
 						<input type="hidden" name="trade_sub_img3"><br>
@@ -81,7 +81,7 @@
 					</div>
 				</div>
 				<div class="trade_btns">
-					<input type="submit" class="btn btn-primary" value="글쓰기">
+					<input type="submit" class="btn btn-primary tradeSubmit" value="글쓰기">
 					<input type="reset" class="btn btn-primary" value="취소하기">
 				</div>
 			</form>

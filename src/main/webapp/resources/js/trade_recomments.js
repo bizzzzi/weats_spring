@@ -1,13 +1,72 @@
 
 let cBtn  = document.querySelectorAll(".re_comment_btn");
 let cCont = document.querySelectorAll(".comment_cont");
-let rdBox = document.querySelectorAll(".recomment_cont");
-let rcBtn = document.querySelector(".re_comment_submit");
 let rcCont=$("textarea[name='trade_recomment']").val();
 var user_id=$("input[name='re_user_id']").val();
 var comment_id;
-const trade_depth=$("input[name='re_trade_depth']").val();
 const trade_id=$("input[name='trade_id']").val();
+
+let trade_type = document.querySelectorAll(".trade_type");
+let trade_title = document.querySelector(".trade_title");
+let trade_phone = document.querySelector(".trade_phone");
+let trade_loc = document.querySelector(".trade_loc");
+let trade_contents = document.querySelector(".trade_contents");
+let trade_user_name = document.querySelector(".trade_user_name");
+let trade_price = document.querySelector(".trade_price");
+let trade_main_img = document.querySelector(".trade_main_img");
+let tradeSubmit = document.querySelector(".tradeSubmit");
+let isChecked = false;
+function nullCheck(e){
+	for(let i=0; i<trade_type.length; i++){
+		if(trade_type[i].checked){
+			isChecked = true;
+		}
+	}
+	if(isChecked===false){
+		console.log(trade_type)
+		alert("카테고리를 선택해주세요")
+		e.preventDefault()
+	}
+	else if(trade_title.value.length===0){
+		console.log(trade_title)
+		alert("제목을 입력해주세요")
+		e.preventDefault()
+		trade_title.focus();
+	}
+	else if(trade_loc.value.length===0){
+		alert("지역을 입력해주세요")
+		e.preventDefault()
+		trade_loc.focus();
+	}
+	else if(trade_phone.value.length===0){
+		alert("연락처를 입력해주세요")
+		e.preventDefault()
+		trade_phone.focus();
+	}
+	else if(trade_contents.value.length===0){
+		alert("내용을 입력해주세요")
+		e.preventDefault()
+		trade_contents.focus();
+	}
+	else if(trade_user_name.value.length===0){
+		alert("이름을 입력해주세요")
+		e.preventDefault()
+		trade_user_name.focus();
+	}
+	else if(trade_price.value.length===0){
+		alert("가격을 입력해주세요")
+		e.preventDefault()
+		trade_price.focus();
+	}
+	else if(trade_main_img.value.length===0){
+		alert("메인이미지를 선택해주세요")
+		e.preventDefault()
+		trade_main_img.focus();
+	}
+}
+
+tradeSubmit.addEventListener("click", nullCheck);
+
 
 function reply(e){
 	const dom = e.target;
@@ -184,16 +243,16 @@ function cowrite(event){
 }
 
 function getHtml(trade_id,comment_id,user_id){
-  var result = '';
-  result += "<form class='recomment_cont' method='post'>"+
-	        		"<input type='hidden' name='re_trade_id' value='"+trade_id+"'>"+
-	        		"<input type='hidden' name='re_trade_depth' value=1>"+
-	        		"<input type='hidden' name='re_trade_comment_id' value='"+comment_id+"'>"+
-	        		"<input type='hidden' name='re_user_id' value='"+user_id+"'>"+
-	        		"<textarea name='trade_recomment' rows='5' cols='100'></textarea>"+
-	        		"<br><button type='button' class='re_comment_submit btn btn-secondary' onclick='reply(event)'>답글</button>"+
-	        	"</form>";
- return result;
+	var result = '';
+	result += "<form class='recomment_cont' method='post'>"+
+		"<input type='hidden' name='re_trade_id' value='"+trade_id+"'>"+
+		"<input type='hidden' name='re_trade_depth' value=1>"+
+		"<input type='hidden' name='re_trade_comment_id' value='"+comment_id+"'>"+
+		"<input type='hidden' name='re_user_id' value='"+user_id+"'>"+
+		"<textarea name='trade_recomment' rows='5' cols='100'></textarea>"+
+		"<br><button type='button' class='re_comment_submit btn btn-secondary' onclick='reply(event)'>답글</button>"+
+		"</form>";
+	return result;
 }
 
 function getHtml2(comment_id,trade_comment,comment_regidate,user_id){
@@ -287,13 +346,15 @@ function showUploadedFile(uploadResultArr){
 					count++;
 					console.log("count2: "+count+"\t"+i);
 				}
-			}else {//inputArr.length===0
+			}else if(inputArr.length!==0 && count<5) {//inputArr.length===0
 				console.log("(if!==0)inputArr.length: "+inputArr.length);
 				//처음에 3개 첨부 시 main, sub1, sub2 / arr.length==3
 				console.log("count3: "+count);
 				$("input[name='trade_sub_img"+count+"']").val(fileCallPath);
 				str += `<li><img src="/weats/display?fileName=${fileCallPath}"><span data-name="trade_sub_img${count}" data-file=\'${fileCallPath}\' data-type="image">X</span></li>`;
 				count++;
+			}else{
+				alert("이미지 첨부는 최대 5장입니다.")
 			}
 
 		}

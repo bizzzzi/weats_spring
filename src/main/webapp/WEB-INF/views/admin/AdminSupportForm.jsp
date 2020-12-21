@@ -16,15 +16,15 @@
                     </li>
                     <li>
                         <strong>질문 제목</strong>
-                        <input type="text" name="s_question"/>
+                        <input type="text" name="s_question" class="s_question"/>
                     </li>
                     <li>
                         <strong>답변 내용</strong>
-                        <input type="text" name="s_answer"/>
+                        <input type="text" name="s_answer" class="s_answer"/>
                     </li>
                 </ul>
                 <div class="qa_submit">
-                    <input type="submit" value="등록하기">
+                    <input type="submit" class="answerSubmit" value="등록하기">
                     <input type="reset" value="취소하기">
                 </div>
             </form>
