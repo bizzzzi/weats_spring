@@ -267,6 +267,7 @@ function getHtml2(comment_id,trade_comment,comment_regidate,user_id){
 	return result;
 }
 
+// File 추가
 let regex = new RegExp("(.*?)\.(exe|sh|zip|alz)$");
 let maxSize = 5242880;
 
@@ -287,6 +288,7 @@ let tradeForm = $(".tradeForm");
 let uploadTit = $(".uploadTit");
 let inputArr = [];
 let count = 0;
+
 $('.file').change(function(e){                            //업로드할 파일을 선택 할 경우 동작을 일으킵니다.
 	// uploadResult.empty();
 	let formData = new FormData();
