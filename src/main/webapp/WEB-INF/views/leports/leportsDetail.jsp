@@ -16,15 +16,15 @@
 			<hr>
 			<div class="leports_img_wrap">
 				<div class="leports_items_img mainImg">
-					<img src="images/${leportsDetail[0].leports_main_img}">
+					<img src="/weats/display?fileName=${leportsDetail[0].leports_main_img}">
 				</div>
 				<div class="leports_items_img">
-					<img src="images/${leportsDetail[0].leports_sub_img1}">
-					<img src="images/${leportsDetail[0].leports_sub_img2}">
+					<img src="/weats/display?fileName=${leportsDetail[0].leports_sub_img1}">
+					<img src="/weats/display?fileName=${leportsDetail[0].leports_sub_img2}">
 				</div>
 				<div class="leports_items_img">
-					<img src="images/${leportsDetail[0].leports_sub_img3}">
-					<img src="images/${leportsDetail[0].leports_sub_img4}">
+					<img src="/weats/display?fileName=${leportsDetail[0].leports_sub_img3}">
+					<img src="/weats/display?fileName=${leportsDetail[0].leports_sub_img4}">
 				</div>
 			</div>
 			<hr>
