@@ -27,6 +27,45 @@ public class MailController {
 	
 	@Autowired
 	MemberService service;
+// 로그인 했는데 이메일 인증안한 사람때문에 하나 더 만들었는데 좋은 방법 있으면 추천해주세요
+	@RequestMapping("/loginMailSending")
+	public String loginMailSending(HttpServletRequest request, HttpSession session, RedirectAttributes rttr) {
+		System.out.println("test1");
+		String setfrom = "weats";
+		String tomail = "";
+		String title = "";
+		String content = "";
+
+		Map<String, ?> redirectMap = RequestContextUtils.getInputFlashMap(request);
+		System.out.println(redirectMap);
+		if(redirectMap != null) {
+			System.out.println("test2");
+			tomail = (String)session.getAttribute("tomail");
+			System.out.println("tomail : "+tomail);
+			title = (String) redirectMap.get("title");
+			content = (String) redirectMap.get("content");
+			System.out.println("mainSending");
+		}
+
+		try {
+			System.out.println("test3");
+			MimeMessage message = mailSender.createMimeMessage();
+			MimeMessageHelper messageHelper = new MimeMessageHelper(message, true, "UTF-8");
+
+			messageHelper.setFrom(setfrom); // 보내는사람 생략하면 정상작동을 안함
+			messageHelper.setTo(tomail); // 받는사람 이메일
+			messageHelper.setSubject(title); // 메일제목은 생략이 가능하다
+			messageHelper.setText(content, true); // 메일 내용
+			mailSender.send(message);
+
+		} catch (Exception e) {
+			System.out.println("test4");
+			e.printStackTrace();
+		}
+		redirectMap = null;
+		rttr.addFlashAttribute("mesg", "이메일 인증을 완료해주세요");
+		return "redirect:/";
+	}
 	
 	@RequestMapping("/mailSending")
 	public void mailSending(HttpServletRequest request, HttpSession session) {
@@ -68,11 +107,10 @@ public class MailController {
 	public String mailCheck(HttpServletRequest request, HttpSession session, RedirectAttributes rttr) {
 		String user_email = (String) session.getAttribute("tomail");
 		String code = (String) session.getAttribute("code");
-		System.out.println();
 		boolean rightCode = SHA256.getEncrypt(user_email, "cos").equals(code) ? true : false;
 		String next = "";
 		if(rightCode) {
-			if(request.getRequestURI().equals("join")) {
+			if(request.getRequestURI().contains("join")) {
 				System.out.println(user_email);
 				service.user_verifyUpdate(user_email);
 				rttr.addFlashAttribute("mesg", "회원가입 성공");

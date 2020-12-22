@@ -29,7 +29,7 @@
 		<jsp:include page="common/header_desktop.jsp" flush="true"></jsp:include>
 		<jsp:include page="common/loginForm_desktop.jsp" flush="true"></jsp:include>
 		<jsp:include page="common/signUpForm_desktop.jsp" flush="true"></jsp:include>
-		<jsp:include page="weather_api/seoul.jsp" flush="true"></jsp:include>
+		<jsp:include page="weather_api/weather.jsp" flush="true"></jsp:include>
 	</div>
 	<div id="main_contents">
 		<video autoplay="autoplay" loop="loop" muted="muted">
@@ -46,5 +46,6 @@
 <script type="text/javascript" src="js/modal.js"></script>
 <script type="text/javascript" src="js/signUpForm.js"></script>
 <script type="text/javascript" src="js/weather_api.js"></script>
+	<script type="text/javascript" src="js/regExp.js"></script>
 </body>
 </html>

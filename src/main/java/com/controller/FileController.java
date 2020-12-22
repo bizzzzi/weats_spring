@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -27,7 +28,8 @@ public class FileController {
     @PostMapping(value = "/fileUploadAjax", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @ResponseBody
     public ResponseEntity<List<AttachFileDTO>> fileUploadAjax(MultipartFile[] uploadFile) throws IOException {
-        String path = "/Users/hhhhbbbb/upload";
+//        String path = "/Users/hhhhbbbb/upload";
+        String path = "/Users/gimhyeongjin/Desktop/TeamProject_spring/weats/src/main/webapp/resources/images";
         String fileName="";
         List<AttachFileDTO> list = new ArrayList<>();
         for (MultipartFile multipartFile: uploadFile){
@@ -80,4 +82,5 @@ public class FileController {
         }
         return new ResponseEntity<String>("deleted", HttpStatus.OK);
     }
+
 }

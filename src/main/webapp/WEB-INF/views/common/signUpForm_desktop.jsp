@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:set var="regExpPw" value="^\S(?=.*[a-zA-Z])((?=.*\d)|(?=.*\W)).{8,15}$"/>
-<c:set var="regExpEmail" value="^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[a-zA-Z]([-_.]?[a-zA-Z])*.[a-zA-Z]{2,3}$"/>
+<c:set var="regExpPw" value="^\S.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$"/>
+<c:set var="regExpEmail" value="[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}" />
+
 <div class="signUpModal hidden">
 	<div class="modalOverlay2"></div>
 	<div id="signUpForm">
@@ -15,7 +16,7 @@
 				<div class="signRow">
 					<input type="text" name="user_email" class="userEmail" id="user_email"
 						placeholder="이메일 주소(아이디)" pattern="${regExpEmail}"
-						title="올바른 이메일 형식이 아닙니다."/>
+						title="올바른 이메일 형식이 아닙니다." autofocus/>
 						<span id="result" style="display:none"></span>
 				</div>
 				<div class="signRow">
@@ -23,17 +24,18 @@
 						placeholder="이름(예:홍길동)" />
 				</div>
 				<div class="signRow">
-					<input type="password" name="user_pw" class="userPasswd" id="user_pw"
-						   placeholder="비밀번호(공백을 제외한 영문, 숫자 혹은 특수문자 2가지 조합 8~15자)"
-						   pattern="${regExpPw}" title="공백을 제외한 영문, 숫자, 특수문자 2가지 조합 8~15자"/>
-					<div class="capsLockDiv" style="display: none"><b>CapsLock</b>이 켜져있습니다.</div>
+					<input type="password" name="user_pw" class="userPasswd userPasswdReg" id="user_pw"
+						   placeholder="비밀번호(공백을 제외한 영문, 숫자, 특수문자 조합 8~15자)"
+						   onkeyup="checkCapsLock(event)"/>
+					<span class="capsLockSign" style="display: none"><b>CapsLock</b>이 켜져있습니다.</span>
+					<div class="regDiv" style="display: none"></div>
 				</div>
 
 				<div class="signRow"> 
 					<input type="password" name="user_pw2" class="userPasswd2"
 						placeholder="비밀번호를 한번 더 입력해주세요." />
 				</div>
-				<div id="pwCheck"></div>
+				<div id="pwCheck" style="height: 24px;"></div>
 			</div>
 			<div id="전체약관동의">
 				<input type="checkbox" class="" name="agreeAll" id="agreeAll"
@@ -58,3 +60,4 @@
 	</div>
 </div>
 <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" src="js/regExp.js"></script>

@@ -7,6 +7,32 @@
 <head>
   <meta charset="UTF-8">
   <title>Insert title here</title>
+  <script src="http://malsup.github.com/jquery.form.js"></script>
+	<style>
+		.uploadResult{
+			display: flex;
+			width: 100%;
+			margin-top: 30px;
+		}
+		.uploadResult li{
+			width: 30%;
+			margin: 10px;
+		}
+		.uploadResult li img{
+			width: 100%;
+			height: 60%;
+			object-fit: cover;
+		}
+		.ex_file{
+			color: black;
+			border: 1px solid rgba(0, 0, 0, 0.15);
+			border-radius: 0.25rem;
+			background-clip: padding-box;
+			margin: 0;
+			padding: 1px 10px;
+		}
+
+	</style>
 </head>
 <body>
   <header class="header">
@@ -14,7 +40,7 @@
   </header>
  
   <div class="partner_form">
-    <form action="LeportsAdd" method="post" class="partnerAllForm">
+    <form action="LeportsAdd" method="post" class="partnerAllForm leportsForm">
    
    		<div class="formBox">
 	        <div class="title">상품 이름 *</div>
@@ -24,15 +50,25 @@
         <div class="title">상품 소개 *</div>      
             <textarea name="leports_content" class="leports_content" cols="30" rows="7"></textarea>
     
-	        <div class="title">대표 사진 *</div>     
-	            <input class="leports_main_img" name="leports_main_img" type="file" accept="img/*" required>
-
-        <div class="title">서브 사진</div>    
-            <input class="leports_sub_img1" name="leports_sub_img1" type="file" accept="img/*">       
-            <input class="leports_sub_img2" name="leports_sub_img2" type="file" accept="img/*">     
-            <input class="leports_sub_img3" name="leports_sub_img3" type="file" accept="img/*">    
-            <input class="leports_sub_img4" name="leports_sub_img4" type="file" accept="img/*">
-  
+    	<div class="uploadDIV">
+			<br>
+			<form id="uploadForm" method="post" enctype="multipart/form-data">
+				<div class="form-control" style="height: auto">
+					<label for="ex_file" class="ex_file">업로드</label> 첫 등록된 이미지가 메인 이미지가 됩니다.
+					<input type="file" name="uploadFile" class="file" multiple style="display: none" id="ex_file"><br>
+					<div>
+						<ul class="uploadResult">
+						</ul>
+					</div>
+					<div class="uploadBox" style="height: 0">
+						<input type="hidden" name="leports_main_img" class="leports_main_img"><br>
+						<input type="hidden" name="leports_sub_img1"><br>
+						<input type="hidden" name="leports_sub_img2"><br>
+						<input type="hidden" name="leports_sub_img3"><br>
+						<input type="hidden" name="leports_sub_img4" class="subImg4"><br>
+					</div>
+				</div>
+			
 	        <div class="title">지역 카테고리 *</div>      
 	          <div>
 	            <select name="leports_loc" class="leports_loc">
@@ -69,7 +105,9 @@
 	    </div>      
 	    <div class="partnerBtn">
        		<input class="submitBtn" type="submit" disabled="disabled" value="다음" onclick="productNull()">
-       	</div>	
+       	</div>
+       	</form>
+		</div>
     </form>
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

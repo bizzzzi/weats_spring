@@ -39,6 +39,7 @@
                         <li>${dto.user_id}</li>
                     </c:if>
                         <li>${dto.q_title}</li>
+                        <li>${dto.q_content}</li>
                         <li>${dto.q_regidate}</li>
                         <c:choose>
                             <c:when test="${dto.answer_verify == 0}">

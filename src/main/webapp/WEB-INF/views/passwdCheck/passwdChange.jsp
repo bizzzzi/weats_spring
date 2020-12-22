@@ -1,7 +1,6 @@
 <%@page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:set var="regExpPw" value="^\S(?=.*[a-zA-Z])((?=.*\d)|(?=.*\W)).{8,15}$"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,10 +15,11 @@
 			<div class="title">비밀번호 변경</div>
 			<div class="comment">변경할 비밀번호를 입력하세요</div>
 			<div class="signRow">
-				<input type="password" name="new_pw" class="userPasswd"
-					   placeholder="비밀번호(공백을 제외한 영문, 숫자 혹은 특수문자 2가지 조합 8~15자)"
-					   pattern="${regExpPw}" title="공백을 제외한 영문, 숫자, 특수문자 2가지 조합 8~15자"/>
-				<div class="capsLockDiv" style="display: none"><b>CapsLock</b>이 켜져있습니다.</div>
+				<input type="password" name="new_pw" class="userPasswd userPasswdReg"
+					   placeholder="비밀번호(공백을 제외한 영문, 숫자, 특수문자 조합 8~15자)"
+					   onkeyup="checkCapsLock(event)" autofocus/>
+				<span class="capsLockDiv" style="display: none"><b>CapsLock</b>이 켜져있습니다.</span>
+				<span class="regDiv" style="display: none"></span>
 			</div>
 			<div class="signRow">
 				<input type="password" name="new_pw2" class="userPasswd2"
@@ -54,9 +54,11 @@
 				pw2.value = null;
 				pw2.focus();
 				e.preventDefault();
-			};
+			} else {
+				alert("비밀번호 변경 완료");
+			}
 		});
 	</script>
-	<script type="text/javascript" src="js/capsLock.js"></script>
+	<script type="text/javascript" src="js/regExp.js"></script>
 </body>
 </html>
