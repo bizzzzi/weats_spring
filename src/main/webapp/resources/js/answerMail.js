@@ -1,4 +1,3 @@
-console.log('aasasas')
 const path = document.querySelector(".path").value;
 const tomail = document.querySelector(".tomail").value;
 console.log(path);

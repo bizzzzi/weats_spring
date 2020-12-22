@@ -3,8 +3,9 @@
          pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<c:set var="regExpPhone" value="^01([0|1|6|7|8|9]?)([0-9]{3,4})([0-9]{4})$"/>
-<c:set var="regExpEmail" value="^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[a-zA-Z]([-_.]?[a-zA-Z])*.[a-zA-Z]{2,3}$"/>
+<c:set var="regExpPhone" value="01([0|1|6|7|8|9]?)([0-9]{8,9})"/>
+<c:set var="regExpEmail" value="[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}" />
+
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -31,7 +32,7 @@
         <div class="PRODUCT_INFORMATION">
           <h3>상품 정보</h3>
           <div class="payment_leports_item_info">
-            <img src="../images/${main_img}" class="img-responsive img-rounded" width="100%;"/>
+            <img src="/weats/display?fileName=${main_img}" class="img-responsive img-rounded" width="100%;"/>
             <ul>
             	<li class="leports_title">${leports_title}</li>
             	<hr>
@@ -68,14 +69,14 @@
   			<div class="input-group-prepend">
     	    	<span class="input-group-text" id="basic-addon1">예약자</span>
   		    </div>
-  			<input type="text" class="form-control rs_name_js" name="rs_name" aria-describedby="basic-addon1">
+  			<input type="text" class="form-control rs_name_js" name="rs_name" aria-describedby="basic-addon1" autofocus>
 		  </div>
           <div class="input-group mb-3">
   			<div class="input-group-prepend">
     	    	<span class="input-group-text" id="basic-addon1">연락처</span>
   		    </div>
   			<input type="text" class="form-control rs_phone_js" name="rs_phone" aria-describedby="basic-addon1"
-                    pattern="${regExpPhone}" title="올바른 전화번호 형식이 아닙니다.(숫자만 입력)">
+                    pattern="${regExpPhone}" title="올바른 전화번호 형식이 아닙니다.(숫자만 입력)" maxlength="11">
 		  </div>
           <div class="input-group mb-3">
   			<div class="input-group-prepend">

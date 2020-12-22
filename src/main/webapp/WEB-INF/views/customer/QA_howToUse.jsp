@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="rootPath" value="${pageContext.request.contextPath}" />
+
     <section>
         <div id="banner">
             <h2>
@@ -53,7 +56,7 @@
         </div>
         <div class="how_footer">
             <h2>weats에 더 궁금한 점이 있으신가요?</h2>
-            <a href="MainFrequently.jsp">자주 묻는 질문 확인하기</a>
+            <a href="${rootPath}/supportList?s_type=자주 묻는 질문">자주 묻는 질문 확인하기</a>
         </div>
     </section>
 </div>
