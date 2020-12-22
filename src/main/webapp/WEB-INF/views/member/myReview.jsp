@@ -36,3 +36,14 @@
 		</form>
 	</c:forEach>
 </div>	
+
+<script>
+	const myReviewForm = document.querySelector('.myReviewForm');
+	myReviewForm.addEventListener('submit', () => {
+		if(confirm("정말 삭제하시겠습니까?") === true) {
+			return true;
+		} else {
+			event.preventDefault();
+		}
+	})
+</script>
