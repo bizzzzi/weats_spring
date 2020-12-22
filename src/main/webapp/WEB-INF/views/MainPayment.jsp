@@ -32,7 +32,7 @@
         <div class="PRODUCT_INFORMATION">
           <h3>상품 정보</h3>
           <div class="payment_leports_item_info">
-            <img src="../images/${main_img}" class="img-responsive img-rounded" width="100%;"/>
+            <img src="/weats/display?fileName=${main_img}" class="img-responsive img-rounded" width="100%;"/>
             <ul>
             	<li class="leports_title">${leports_title}</li>
             	<hr>

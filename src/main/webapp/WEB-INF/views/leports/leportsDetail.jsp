@@ -16,7 +16,7 @@
 			<hr>
 			<div class="leports_img_wrap">
 				<div class="leports_items_img mainImg">
-					<img src="/weats/display?fileName=${leportsDetail[0].leports_main_img}">
+					<img src="/weats/display?fileName=${leportsDetail[0].leports_main_img}" style="margin-top: 24px;">
 				</div>
 				<div class="leports_items_img">
 					<c:if test="${leportsDetail[0].leports_sub_img1 eq null}">

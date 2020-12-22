@@ -16,24 +16,56 @@
 				</div>
 			</c:if>
 		</div>
-		<div class="imgframe">
-			<ul class="trade_img">
-				<li><img class="trade_main_img" src="/weats/display?fileName=${dto.trade_main_img}"></li>
-				<div>
-					<c:if test="${dto.trade_sub_img1 != null}">
-						<li><img class="trade_sub_img1" src="/weats/display?fileName=${dto.trade_sub_img1}"></li>
-					</c:if>
-					<c:if test="${dto.trade_sub_img2 != null}">
-						<li><img class="trade_sub_img2" src="/weats/display?fileName=${dto.trade_sub_img2}"></li>
-					</c:if>
-					<c:if test="${dto.trade_sub_img3 != null}">
-						<li><img class="trade_sub_img3" src="/weats/display?fileName=${dto.trade_sub_img3}"></li>
-					</c:if>
-					<c:if test="${dto.trade_sub_img4 != null}">
-						<li><img class="trade_sub_img4" src="/weats/display?fileName=${dto.trade_sub_img4}"></li>
-					</c:if>
-				</div>
-			</ul>
+		<hr>
+		<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  			<ol class="carousel-indicators">
+    			<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    			<c:if test="${dto.trade_sub_img1 != null}">
+    				<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    			</c:if>
+    			<c:if test="${dto.trade_sub_img2 != null}">
+    				<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    			</c:if>
+    			<c:if test="${dto.trade_sub_img3 != null}">
+    				<li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+    			</c:if>
+    			<c:if test="${dto.trade_sub_img4 != null}">
+    				<li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+    			</c:if>
+  			</ol>
+  			<div class="carousel-inner">
+    			<div class="carousel-item active">
+      				<img class="trade_main_img d-block w-100" src="/weats/display?fileName=${dto.trade_main_img}">
+    			</div>
+    			<c:if test="${dto.trade_sub_img1 != null}">
+    				<div class="carousel-item">
+      					<img class="trade_sub_img1 d-block w-100" src="/weats/display?fileName=${dto.trade_sub_img1}">
+    				</div>
+    			</c:if>
+    			<c:if test="${dto.trade_sub_img2 != null}">
+    				<div class="carousel-item">
+      					<img class="trade_sub_img2 d-block w-100" src="/weats/display?fileName=${dto.trade_sub_img2}">
+    				</div>
+    			</c:if>
+    			<c:if test="${dto.trade_sub_img3 != null}">
+    				<div class="carousel-item">
+      					<img class="trade_sub_img3 d-block w-100" src="/weats/display?fileName=${dto.trade_sub_img3}">
+    				</div>
+    			</c:if>
+    			<c:if test="${dto.trade_sub_img4 != null}">
+    				<div class="carousel-item">
+      					<img class="trade_sub_img4 d-block w-100" src="/weats/display?fileName=${dto.trade_sub_img4}">
+    				</div>
+    			</c:if>
+  			</div>
+  			<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    			<span class="sr-only">Previous</span>
+  			</a>
+  			<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+    			<span class="sr-only">Next</span>
+  			</a>
 		</div>
 		<div class="text_info">
 			<ul>

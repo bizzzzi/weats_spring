@@ -7,7 +7,7 @@
 <c:forEach var="item" items="${myReserve}" varStatus="status">
 <form class="reservationCancellation" action="passwdCheck" method="get">
    <div class="leportsImg"><!-- 메인이미지 넣을공간 ../images/ -->
-      <img src="../images/${item.leports_main_img}" />
+      <img src="/weats/display?fileName=${item.leports_main_img}" />
    </div>
    <%--예약 취소--%>
    <input type="text" name="page" style="display: none" value="reserveCancel"/>
