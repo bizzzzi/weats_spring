@@ -64,10 +64,11 @@ function productNull() {
 		alert("지역을 선택해주세요.")
 		event.preventDefault();
 		leports_loc.focus();
-	} else if(minimum_number.value === "") {
-		alert("사진을 5개 이상 첨부해 주세요.");
-		event.preventDefault();
 	}
+//	} else if(minimum_number.value === "") {
+//		alert("사진을 5개 이상 첨부해 주세요.");
+//		event.preventDefault();
+//	}
 }
 
 

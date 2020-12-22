@@ -19,12 +19,32 @@
 					<img src="/weats/display?fileName=${leportsDetail[0].leports_main_img}">
 				</div>
 				<div class="leports_items_img">
-					<img src="/weats/display?fileName=${leportsDetail[0].leports_sub_img1}">
-					<img src="/weats/display?fileName=${leportsDetail[0].leports_sub_img2}">
+					<c:if test="${leportsDetail[0].leports_sub_img1 eq null}">
+						<img src="images/defaultImg.png">
+					</c:if>
+					<c:if test="${leportsDetail[0].leports_sub_img1 ne null}">
+						<img src="/weats/display?fileName=${leportsDetail[0].leports_sub_img1}">
+					</c:if>
+					<c:if test="${leportsDetail[0].leports_sub_img2 eq null}">
+						<img src="images/defaultImg.png">
+					</c:if>
+					<c:if test="${leportsDetail[0].leports_sub_img2 ne null}">
+						<img src="/weats/display?fileName=${leportsDetail[0].leports_sub_img2}">
+					</c:if>
 				</div>
 				<div class="leports_items_img">
-					<img src="/weats/display?fileName=${leportsDetail[0].leports_sub_img3}">
-					<img src="/weats/display?fileName=${leportsDetail[0].leports_sub_img4}">
+					<c:if test="${leportsDetail[0].leports_sub_img3 eq null}">
+						<img src="images/defaultImg.png">
+					</c:if>
+					<c:if test="${leportsDetail[0].leports_sub_img3 ne null}">
+						<img src="/weats/display?fileName=${leportsDetail[0].leports_sub_img3}">
+					</c:if>
+					<c:if test="${leportsDetail[0].leports_sub_img4 eq null}">
+						<img src="images/defaultImg.png">
+					</c:if>
+					<c:if test="${leportsDetail[0].leports_sub_img4 ne null}">
+						<img src="/weats/display?fileName=${leportsDetail[0].leports_sub_img4}">
+					</c:if>
 				</div>
 			</div>
 			<hr>

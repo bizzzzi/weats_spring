@@ -813,10 +813,12 @@ video {
 #leports_Detail .mainImg {
 	flex: 50%;
 	max-width: 50%;
+	height: 100%;
 	padding: 0 4px;
 }
 
 #leports_Detail .leports_items_img img {
+	height: 50%;
 	margin-top: 8px;
 	vertical-align: middle;
 	width: 100%;
