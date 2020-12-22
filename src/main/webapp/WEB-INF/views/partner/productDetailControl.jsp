@@ -17,6 +17,8 @@
   <div class="partner_form" id="partner">
     <form method="post" class="partnerAllForm">
       <input type="hidden" name="leports_id" value="${ldto.leports_id}"> 
+      <input type="hidden"  id="leports_loc" value="${ldto.leports_loc}"> 
+      <input type="hidden"  id="leports_type" value="${ldto.leports_type}"> 
 		<div class="formBox">
 	        <div class="title">상품 이름*</div>        
 	        <input type="text" name="leports_title" class="leports_title" value="${ldto.leports_title}">
@@ -37,22 +39,31 @@
 
 	        <div class="title">지역 카테고리*</div>
 	          <div>
-	            <select name="leports_loc" class="leports_loc">
-	              <option value="서울">서울</option>
-	              <option value="부산">부산</option>
-	              <option value="인천">인천</option>
-	              <option value="경기">경기</option>
-	              <option value="강원">강원</option>
-	              <option value="충청">충청</option>
-	              <option value="전라도">전라도</option>
-	              <option value="경상도">경상도</option>
-	              <option value="기타">기타</option>
+	            <select name="leports_loc" id="locSelect" class="leports_loc">
+	              <option value="시도">시도를 선택하세요.</option>
+	              <option value="서울">서울특별시</option>
+	              <option value="부산">부산광역시</option>
+	              <option value="대구">대구광역시</option>
+	              <option value="인천">인천광역시</option>
+	              <option value="광주">광주광역시</option>
+	              <option value="대전">대전광역시</option>
+	              <option value="울산">울산광역시</option>
+	              <option value="세종">세종특별자치시</option>
+	              <option value="경기">경기도</option>
+	              <option value="강원">강원도</option>
+	              <option value="충북">충청북도</option>
+	              <option value="충남">충청남도</option>
+	              <option value="전북">전라북도</option>
+	              <option value="전남">전라남도</option>
+	              <option value="경북">경상북도</option>
+	              <option value="경남">경상남도</option>
+	              <option value="제주">제주도</option>
 	            </select>
 	          </div>
 
 	        <div class="title">레포츠 카테고리*</div>
 	          <div>
-	            <select name="leports_type" class="leports_type">
+	            <select name="leports_type" class="leports_type" id="typeSelect">
 	              <option value="지상">지상 레포츠</option>
 	              <option value="수상">수상 레포츠</option>
 	              <option value="항공">항공 레포츠</option>
