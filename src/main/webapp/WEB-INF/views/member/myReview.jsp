@@ -8,7 +8,7 @@
 		<form class="myReviewForm" action="reviewDelete" method="post">
 			<div class="itemTop">
 				<div class="leportsImg">
-					<img src="../images/${review.leports_main_img}" /><%-- 메인 이미지 src : ${review.leports_main_img}<br> --%>
+					<img src="/weats/display?fileName=${review.leports_main_img}" /><%-- 메인 이미지 src : ${review.leports_main_img}<br> --%>
 				</div>
 				<div class="itemInfo">
 						<span class="top_title">${review.leports_title}</span>	
