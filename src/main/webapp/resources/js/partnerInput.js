@@ -45,6 +45,7 @@ let leports_content = document.querySelector('.leports_content');
 let leports_main_img = document.querySelector('.leports_main_img');
 let leports_loc = document.querySelector('.leports_loc');
 let leports_type = document.querySelector('.leports_type');
+let minimum_number = document.querySelector('.subImg4');
 
 function productNull() {
 	if(leports_title.value === "") {
@@ -64,33 +65,10 @@ function productNull() {
 		event.preventDefault();
 		leports_loc.focus();
 	}
+//	} else if(minimum_number.value === "") {
+//		alert("사진을 5개 이상 첨부해 주세요.");
+//		event.preventDefault();
+//	}
 }
 
-let leports_item_title = document.querySelector('.leports_item_title');
-let leports_summary = document.querySelector('.leports_summary');
-let leports_price = document.querySelector('.leports_price');
-let leports_max_capacity = document.querySelector('.leports_max_capacity');
 
-function itemNull() {
-	if(leports_item_title.value === "") {
-		alert("레포츠 아이템이름을 입력해주세요.");
-		event.preventDefault();
-		leports_item_title.focus();
-	} else if(leports_summary.value ==="") {
-		alert("한줄요약을 입력해주세요.")
-		event.preventDefault();
-		leports_summary.focus();
-	}else if(leports_price.value ==="") {
-		alert("가격을 입력해주세요.")
-		event.preventDefault();
-		leports_price.focus();
-	}else if(isNaN(leports_price.value)) {
-		alert("숫자만 입력해주세요")
-		event.preventDefault();
-		leports_price.focus();
-	}else if(leports_max_capacity.value ==="") {
-		alert("최대 수용인원을 입력해주세요.")
-		event.preventDefault();
-		leports_max_capacity.focus();
-	}
-}
