@@ -1,9 +1,12 @@
 package com.controller;
 
 import org.springframework.util.FileCopyUtils;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
+import java.net.URLDecoder;
+import java.util.List;
 
 public class FileUpload {
     public static void fileUpload(MultipartFile fileData, String path, String fileName) throws IOException {
@@ -30,6 +33,20 @@ public class FileUpload {
         }finally{
             if(out != null){out.close();}
             if(is != null){is.close();}
+        }
+    }
+
+    public static void fileDelete(List<String> list){
+        File file;
+        try{
+            for(String fileName: list){
+                file = new File(URLDecoder.decode(fileName, "UTF-8"));
+                System.out.println("Del fileName: "+fileName);
+                System.out.println("Del file: "+file);
+                file.delete();
+            }
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
         }
     }
 }

@@ -62,5 +62,15 @@ public class TradeDAO {
 		int result = template.insert("CommentUpdate",map);
 		return result;
 	}
+
+	public int TradeDelete(String trade_id){
+		int result = template.delete("TradeDelete",trade_id);
+		return result;
+	}
+
+	public int TradeUpdate(TradeDTO dto){
+		int result = template.insert("TradeUpdate",dto);
+		return result;
+	}
 	
 }
