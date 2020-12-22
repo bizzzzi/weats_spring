@@ -1,5 +1,7 @@
 package com.dao;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -7,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.dto.LeportsDTO;
+import com.dto.LeportsDetailDTO;
 import com.dto.LeportsItemDTO;
 import com.dto.PartnerDTO;
 import com.dto.ReservationControlDTO;
@@ -101,9 +104,9 @@ public class PartnerDAO {
 		return n;
 	}
 	//예약관리
-	public List<ReservationControlDTO>  ReservationControl(String user_id){
-		List<ReservationControlDTO> list=template.selectList("ReservationControl",user_id);
+	public List<ReservationControlDTO>  ReservationControl(String leports_id){
+		List<ReservationControlDTO> list=template.selectList("ReservationControl",leports_id);
 		return list;
 	}
-
+	
 }

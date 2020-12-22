@@ -240,7 +240,20 @@ a:hover {
 	margin: 10% 0%;
 }
 /* 예약관리 */
-
+.rsList ul{
+    display: flex;
+    justify-content: space-around;
+    margin: 10px 10px;
+}
+.rsList.subject ul{
+	background-color: #E3F7FE;
+	padding: 10px 0px;
+	margin: 10px 10px;
+}
+.rsList li{
+    width: 100%;
+    text-align: center;
+}
 @media screen and (max-width: 768px) { 
 		.formBox input[type="text"], 
 		.formBox.item input[type="text"],

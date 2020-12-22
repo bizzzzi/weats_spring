@@ -23,7 +23,7 @@
     	<c:forEach var="ldto" items="${leportsAddList}" varStatus="status">
     	<input type="hidden" name="leports_id" value="${ldto.leports_id}" />
     	<div class="partner_list">
-    		<a href="../reservationDetail?leports_id=${ldto.leports_id}">  			 
+    		<a href="../DetailResevation?leports_id=${ldto.leports_id}">  			 
 	      		<div class="partner_main_img">
 	      			<img src="../images/${ldto.leports_main_img}" alt="상품 대표 이미지">
 	      		</div>

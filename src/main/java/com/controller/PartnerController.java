@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.dto.LeportsDTO;
+import com.dto.LeportsDetailDTO;
 import com.dto.LeportsItemDTO;
 import com.dto.MemberDTO;
 import com.dto.PartnerDTO;
@@ -222,13 +223,11 @@ public class PartnerController {
 		model.addAttribute("leportsAddList",list);
 		return "reservationControl";
 	}
-	//예약관리 상세
-	@RequestMapping("/partnerCheck/ProductResevation")
-	public String ResevationDetail(HttpSession session,Model model) {
-		MemberDTO mdto=(MemberDTO)session.getAttribute("login");
-		String user_id=mdto.getUser_id();
-		List<ReservationControlDTO>list=pservice.ReservationControl(user_id);
-		model.addAttribute("leportsList", list);
-		return "reservationControl";
+	//예약관리 레포츠 아이템 출력
+	@RequestMapping("/DetailResevation")
+		public String DetailResevation(String leports_id,Model model,HttpSession session) {
+		List<ReservationControlDTO> rdto=pservice.ReservationControl(leports_id);
+		model.addAttribute("rdto",rdto);
+		return "reservationDetail";
 	}
 }
