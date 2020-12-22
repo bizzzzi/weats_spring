@@ -38,25 +38,33 @@
 	        <div class="title">지역 카테고리*</div>
 	          <div>
 	            <select name="leports_loc" class="leports_loc">
-	              <option value="서울">서울</option>
-	              <option value="부산">부산</option>
-	              <option value="인천">인천</option>
-	              <option value="경기">경기</option>
-	              <option value="강원">강원</option>
-	              <option value="충청">충청</option>
-	              <option value="전라도">전라도</option>
-	              <option value="경상도">경상도</option>
-	              <option value="기타">기타</option>
+	              <option <c:if test="${ldto.leports_loc eq '서울'}"> selected </c:if>>서울특별시</option>
+	              <option <c:if test="${ldto.leports_loc eq '부산'}"> selected </c:if>>부산광역시</option>
+	              <option <c:if test="${ldto.leports_loc eq '대구'}"> selected </c:if>>대구광역시</option>
+	              <option <c:if test="${ldto.leports_loc eq '인천'}"> selected </c:if>>인천광역시</option>
+	              <option <c:if test="${ldto.leports_loc eq '광주'}"> selected </c:if>>광주광역시</option>
+	              <option <c:if test="${ldto.leports_loc eq '대전'}"> selected </c:if>>대전광역시</option>
+	              <option <c:if test="${ldto.leports_loc eq '울산'}"> selected </c:if>>울산광역시</option>
+	              <option <c:if test="${ldto.leports_loc eq '세종'}"> selected </c:if>>세종특별자치시</option>
+	              <option <c:if test="${ldto.leports_loc eq '경기'}"> selected </c:if>>경기도</option>
+	              <option <c:if test="${ldto.leports_loc eq '강원'}"> selected </c:if>>강원도</option>
+	              <option <c:if test="${ldto.leports_loc eq '충청북도'}"> selected </c:if>>충청북도</option>
+	              <option <c:if test="${ldto.leports_loc eq '충청남도'}"> selected </c:if>>충청남도</option>
+	              <option <c:if test="${ldto.leports_loc eq '전라북도'}"> selected </c:if>>전라북도</option>
+	              <option <c:if test="${ldto.leports_loc eq '전라남도'}"> selected </c:if>>전라남도</option>
+	              <option <c:if test="${ldto.leports_loc eq '경상북도'}"> selected </c:if>>경상북도</option>
+	              <option <c:if test="${ldto.leports_loc eq '경상남도'}"> selected </c:if>>경상남도</option>
+	              <option <c:if test="${ldto.leports_loc eq '제주'}"> selected </c:if>>제주도</option>
 	            </select>
 	          </div>
 
 	        <div class="title">레포츠 카테고리*</div>
 	          <div>
 	            <select name="leports_type" class="leports_type">
-	              <option value="지상">지상 레포츠</option>
-	              <option value="수상">수상 레포츠</option>
-	              <option value="항공">항공 레포츠</option>
-	              <option value="실내">실내 레포츠</option>
+	              <option <c:if test="${ldto.leports_type eq '지상'}"> selected </c:if>>지상 레포츠</option>
+	              <option <c:if test="${ldto.leports_type eq '수상'}"> selected </c:if>>수상 레포츠</option>
+	              <option <c:if test="${ldto.leports_type eq '항공'}"> selected </c:if>>항공 레포츠</option>
+	              <option <c:if test="${ldto.leports_type eq '실내'}"> selected </c:if>>실내 레포츠</option>
 	            </select>
 	          </div>
 		</div>
