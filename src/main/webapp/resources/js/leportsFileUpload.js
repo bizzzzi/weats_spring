@@ -73,26 +73,26 @@ function showUploadedFile(uploadResultArr){
 			str+= "<li><img src='/resources/images/attach.png'"+obj.fileName+"</li>";
 		}else{
 			if(count === 0){
-				if(i === 0){
+				if(i === 0){ // 처음 파일 첨부할 경우 - 메인이미지
 					$("input[name='leports_main_img']").val(`${fileCallPath}`);
 					str += `<li><img src="/weats/display?fileName=${fileCallPath}"><span data-name="leports_main_img" data-file=\'${fileCallPath}\' data-type="image">X</span></li>`;
 					count++;
 					console.log("count: "+count+"\t"+i);
-				}else if(i>0 && i <5){
+				}else if(i>0 && i < 10){ // 처음 파일 첨부할 경우 - 서브 이미지 부
 					$("input[name='leports_sub_img"+i+"']").val(fileCallPath);
 					//$("input[name='trade_sub_img"+i+"'").val(`'${fileCallPath}'`);
 					str += `<li><img src="/weats/display?fileName=${fileCallPath}"><span data-name="leports_sub_img${i}" data-file=\'${fileCallPath}\' data-type="image">X</span></li>`;
 					count++;
 					console.log("count2: "+count+"\t"+i);
 				}
-			}else if(count !== 0 && count <5){
+			}else if(count !== 0 && count < 10){ // 두번째 첨부 버튼 클릭했을 경우
 				$("input[name='leports_sub_img"+count+"']").val(fileCallPath);
 				//$("input[name='trade_sub_img"+i+"'").val(`'${fileCallPath}'`);
 				str += `<li><img src="/weats/display?fileName=${fileCallPath}"><span data-name="leports_sub_img${count}" data-file=\'${fileCallPath}\' data-type="image">X</span></li>`;
 				count++;
 				console.log("count2: "+count+"\t"+i);
 			} else{
-				alert("이미지 첨부는 최대 5장입니다.")
+				alert("이미지 첨부는 최대 10장입니다.")
 			}
 		}
 		console.log("index:"+i);

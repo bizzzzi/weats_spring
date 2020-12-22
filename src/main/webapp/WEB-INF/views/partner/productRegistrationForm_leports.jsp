@@ -50,7 +50,6 @@
         <div class="title">상품 소개 *</div>      
             <textarea name="leports_content" class="leports_content" cols="30" rows="7"></textarea>
     
-    <!--  -->
     	<div class="uploadDIV">
 			<br>
 			<form id="uploadForm" method="post" enctype="multipart/form-data">
@@ -62,23 +61,14 @@
 						</ul>
 					</div>
 					<div class="uploadBox" style="height: 0">
-						<input type="hidden" name="leports_main_img" class="trade_main_img"><br>
+						<input type="hidden" name="leports_main_img" class="leports_main_img"><br>
 						<input type="hidden" name="leports_sub_img1"><br>
 						<input type="hidden" name="leports_sub_img2"><br>
 						<input type="hidden" name="leports_sub_img3"><br>
-						<input type="hidden" name="leports_sub_img4"><br>
+						<input type="hidden" name="leports_sub_img4" class="subImg4"><br>
 					</div>
 				</div>
 			
-	        <!-- <div class="title">대표 사진 *</div>     
-	            <input class="leports_main_img" name="leports_main_img" type="file" accept="img/*" required>
-
-        <div class="title">서브 사진</div>    
-            <input class="leports_sub_img1" name="leports_sub_img1" type="file" accept="img/*">       
-            <input class="leports_sub_img2" name="leports_sub_img2" type="file" accept="img/*">     
-            <input class="leports_sub_img3" name="leports_sub_img3" type="file" accept="img/*">    
-            <input class="leports_sub_img4" name="leports_sub_img4" type="file" accept="img/*"> -->
-  
 	        <div class="title">지역 카테고리 *</div>      
 	          <div>
 	            <select name="leports_loc" class="leports_loc">
@@ -116,8 +106,8 @@
 	    <div class="partnerBtn">
        		<input class="submitBtn" type="submit" disabled="disabled" value="다음" onclick="productNull()">
        	</div>
-       	</form><!--  -->
-		</div><!--  -->	
+       	</form>
+		</div>
     </form>
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
