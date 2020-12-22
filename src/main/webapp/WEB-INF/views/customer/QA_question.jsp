@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="regExpPhone" value="01([0|1|6|7|8|9]?)([0-9]{8,9})"/>
     <section>
         <h2>1:1 문의하기</h2>
         <div class="questionForm">
@@ -29,7 +31,8 @@
                     </li>
                     <li>
                         <strong>전화번호</strong>
-                        <input type="text" name="q_phone" class="q_phone"/>
+                        <input type="text" name="q_phone" class="q_phone" pattern="${regExpPhone}"
+                               title="올바른 전화번호 형식이 아닙니다.(숫자만 입력)" maxlength="11"/>
                     </li>
                     <li>
                         <strong>예약번호</strong>

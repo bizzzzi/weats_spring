@@ -20,7 +20,7 @@
 			<div class="useremail">${login.user_email}</div>
 			<div class="comment">계속하려면 먼저 본인임을 인증하세요.</div>
 			<div class="signRow">
-				<input type="password" name="user_pw" class="userPasswd" placeholder="비밀번호 입력" />
+				<input type="password" name="user_pw" class="userPasswd userPasswdReg" placeholder="비밀번호 입력" onkeyup="checkCapsLock(event)"/>
 				<div class="capsLockDiv" style="display: none"><b>CapsLock</b>이 켜져있습니다.</div>
 			<div class="buttonWrap">
 				<button type="submit">확인</button>
@@ -46,6 +46,6 @@
 	}
 	})
 	</script>
-<script type="text/javascript" src="../js/capsLock.js"></script>
+<script type="text/javascript" src="../js/regExp.js"></script>
 </body>
 </html>

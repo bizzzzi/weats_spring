@@ -11,6 +11,7 @@
 			<div class="review_email">${dto.user_email}</div>
 			<div>${dto.review_comments}</div>
 			<div class="review_regidate">${dto.review_regidate}</div>
+			<div>리뷰 점수 : ${dto.review_star}</div>
 		</div>
 	</c:forEach>
 	<div class="review_btn_wrap">

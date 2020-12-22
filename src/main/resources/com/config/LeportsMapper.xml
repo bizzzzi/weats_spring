@@ -43,7 +43,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <!--	레포츠 상세 페이지 리뷰-->
 	<select id="reviewAll" parameterType="string" resultType="LeportsReviewDTO">
-		select r.review_id, r.leports_id, r.reservation_id, r.user_id, m.user_email, r.review_comments, to_char(r.review_regidate, 'yyyy-mm-dd') review_regidate
+		select r.review_id, r.leports_id, r.reservation_id, r.user_id, m.user_email, r.review_comments, to_char(r.review_regidate, 'yyyy-mm-dd') review_regidate, review_star
 		from reservation_review r
 		join member m
 		on r.user_id = m.user_id
