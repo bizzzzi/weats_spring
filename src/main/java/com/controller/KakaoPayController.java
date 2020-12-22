@@ -58,6 +58,7 @@ public class KakaoPayController {
         ReservationDTO dto = new ReservationDTO(null, user_id,leports_id, rs_name, rs_phone,quantity,
                 "카카오 페이", rs_date, null, total_price, item_name, null, 0);
         int n = service.reserveAdd(dto);
+        leportsService.reserveCountUp(leports_id);
         Map<String, String> reserveId_search = new HashMap<>();
         reserveId_search.put("user_id", user_id);
         reserveId_search.put("leports_id", leports_id);
@@ -76,9 +77,9 @@ public class KakaoPayController {
                         , Integer.parseInt(item_price.get(i).replaceAll("[\\[\\]]", "")
                 ));
                 itemList.add(itemDTO);
-                service.reserveItemAdd(itemList);
 
             }
+            service.reserveItemAdd(itemList);
         }
 
         session.setAttribute("user_info", map);

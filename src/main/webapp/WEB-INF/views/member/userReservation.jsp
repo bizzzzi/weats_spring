@@ -18,9 +18,9 @@
 	   </div>
 	   <div class="myreserve">	
 		  	<span> 예약 아이템 : ${item.rs_item_name}</span>
-		 	<span>  주소 : ${item.c_address} - ${item.c_detail_address}</span>
+		 	<span> 주소 : ${item.c_address} - ${item.c_detail_address}</span>
 		  	<span> 파트너 연락처 : ${item.c_phone}</span>
-			<span>   예약인원 : ${item.rs_persons}명</span>
+			<span> 예약개수 : ${item.rs_persons}개</span>
 		  	<span> 가격 : ${item.rs_price}원</span>
 	   </div>
 	</div>

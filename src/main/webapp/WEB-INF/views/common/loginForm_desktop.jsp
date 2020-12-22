@@ -5,20 +5,20 @@
 <div class="loginModal hidden">
 	<div class="modalOverlay"></div>
 	<div id="loginForm">
-		<form action="login" method="POST">
+		<form id="login" action="login" method="POST">
 			<div class="title">로그인</div>
 			<div class="closeBtn">❌</div>
 			<hr>
 			<div class="login_info">
 				<div class="signRow">
 					<input type="email" name="user_email" id="userEmail"
-						placeholder="이메일 주소" />
+						placeholder="이메일 주소" autofocus/>
 				</div>
 				<div class="signRow">
 					<input type="password" name="user_pw" id="userPasswd" class="userPasswd"
-						placeholder="비밀번호" />
+						placeholder="비밀번호" onkeyup="checkCapsLock(event)"/>
 				</div>
-				<div class="capsLockDiv" style="display: none"><b>CapsLock</b>이 켜져있습니다.</div>
+				<span class="capsLockLogin" style="display: none"><b>CapsLock</b>이 켜져있습니다.</span>
 				<div>
 					<button type="submit" class="loginBtn btn btn-lg btn-primary">로그인</button>
 				</div>
@@ -45,11 +45,12 @@
 						<span id="findEmailResult" style="display:none"></span>
 				</div>
 				<div>
-					<button type="submit" class="findPwBtn btn btn-lg btn-primary">비밀번호 재설정 링크 보내기</button>
+					<button type="submit" class="findPwBtn btn btn-lg btn-primary">비밀번호 재설정 메일 받기</button>
 				</div>
 			</div>
 		</form>
 	</div>
 </div>
 <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
-<script type="text/javascript" src="js/capsLock.js"></script>
+<script type="text/javascript" src="js/regExp.js"></script>
+

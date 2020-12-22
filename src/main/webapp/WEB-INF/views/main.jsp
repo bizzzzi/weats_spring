@@ -46,5 +46,6 @@
 <script type="text/javascript" src="js/modal.js"></script>
 <script type="text/javascript" src="js/signUpForm.js"></script>
 <script type="text/javascript" src="js/weather_api.js"></script>
+	<script type="text/javascript" src="js/regExp.js"></script>
 </body>
 </html>

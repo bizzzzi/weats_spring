@@ -18,7 +18,7 @@
         <div class="kakaoPayItemName">상품명 : ${pay_info.item_name}</div>
         <div class="kakaoPayTotal">결제금액 : ${pay_info.amount.total}원</div>
       </div>
-      <button class="btn btn-primary" type="button" onclick="location.href='/weats'">메인 페이지로 이동</button>
+      <button class="btn btn-primary" type="button" onclick="location.href='loginCheck/myReservePage'">예약 내역 페이지로 이동</button>
     </div>
 </body>
 </html>

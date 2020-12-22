@@ -96,19 +96,35 @@ public class MemberController {
 		MemberDTO dto = userVerify.verify(user_email, user_pw);
 		System.out.println(dto);
 		String next = "";
-		if(dto!=null && dto.getAdmin_verify()==0) {
+		if(dto != null) {
+			if(dto.getAdmin_verify() == 0 && dto.getUser_verify() == 1) {
 			dto.setUser_pw(null);//session에 비밀번호 미저장
 			rttr.addFlashAttribute("mesg", "로그인 성공");
 			session.setAttribute("login", dto);
 			next = "redirect:/PartnerKeyCheck"; /* 파트너 verify 컨트롤러로 이동하게 수정 필요 */
-		}else if(dto==null){
+			} else if(dto.getAdmin_verify() == 0 && dto.getUser_verify() == 0 ){
+				dto.setUser_pw(null);//session에 비밀번호 미저장
+				rttr.addFlashAttribute("mesg", "로그인 성공");
+				session.setAttribute("login", dto);
+
+				String code = SHA256.getEncrypt(dto.getUser_email(), "cos");
+				String localhost = "http://localhost:8080/weats/";
+				String content = "다음 링크에 접속하여 이메일 인증  <a href='"+localhost+"join/checkEmail?code="+code+"'>이메일 인증하기</a>" ;
+				String title = "weats 이메일 인증";
+				session.setAttribute("tomail", user_email);
+				session.setAttribute("code", code);
+				rttr.addFlashAttribute("content", content);
+				rttr.addFlashAttribute("title", title);
+				next = "redirect:/loginMailSending";
+			} else if(dto.getAdmin_verify() == 1){
+				dto.setUser_pw(null);//session에 비밀번호 미저장
+				rttr.addFlashAttribute("mesg", "로그인 성공");
+				session.setAttribute("login", dto);
+				next = "redirect:/admin"; /* 파트너 verify 컨트롤러로 이동하게 수정 필요 */
+			}
+		} else {
 			rttr.addFlashAttribute("mesg", "로그인 실패");
 			next = "redirect:/";
-		}else if(dto!=null && dto.getAdmin_verify()==1){
-			dto.setUser_pw(null);//session에 비밀번호 미저장
-			rttr.addFlashAttribute("mesg", "로그인 성공");
-			session.setAttribute("login", dto);
-			next = "redirect:/admin"; /* 파트너 verify 컨트롤러로 이동하게 수정 필요 */
 		}
 		return next;
 	}
