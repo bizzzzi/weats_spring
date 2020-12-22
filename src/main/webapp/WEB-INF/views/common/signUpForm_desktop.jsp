@@ -33,7 +33,7 @@
 					<input type="password" name="user_pw2" class="userPasswd2"
 						placeholder="비밀번호를 한번 더 입력해주세요." />
 				</div>
-				<div id="pwCheck"></div>
+				<div id="pwCheck" style="height: 24px;"></div>
 			</div>
 			<div id="전체약관동의">
 				<input type="checkbox" class="" name="agreeAll" id="agreeAll"

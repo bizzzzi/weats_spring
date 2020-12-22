@@ -29,7 +29,7 @@ public class FileController {
     @ResponseBody
     public ResponseEntity<List<AttachFileDTO>> fileUploadAjax(MultipartFile[] uploadFile) throws IOException {
 //        String path = "/Users/hhhhbbbb/upload";
-        String path = "/Users/hhhhbbbb/desktop/weats_spring/src/main/webapp/resources/images";
+        String path = "/Users/gimhyeongjin/Desktop/TeamProject_spring/weats/src/main/webapp/resources/images";
         String fileName="";
         List<AttachFileDTO> list = new ArrayList<>();
         for (MultipartFile multipartFile: uploadFile){
