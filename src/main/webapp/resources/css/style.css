@@ -523,6 +523,10 @@ video {
 	padding: 100px 0;
 }
 
+.leports_list_menu {
+	padding-top: 14px;
+}
+
 /* 레포츠 리스트 */
 #leports_list .leports_item img {
 	width: 100%;
@@ -596,6 +600,11 @@ video {
 }
 
 /* 레포츠 리스트 nav*/
+
+.leports_detail_menu {
+	padding-top: 14px;	
+}
+
 #leports_Detail_Nav .leports_detail_menu a {
 	border: 1px solid #F2F3F5;
 	border-radius: 8px;
@@ -823,6 +832,7 @@ video {
 	vertical-align: middle;
 	width: 100%;
 	border-radius: 2px;
+	border: 1px solid #E5E5E5;
 }
 
 /* Responsive layout - makes a two column-layout instead of four columns */
@@ -898,6 +908,7 @@ video {
 
 /* 중고거래 */
 #Resale_list .trade_nav {
+	padding-top: 14px;
 	padding-bottom: 30px;
 }
 
@@ -985,6 +996,11 @@ video {
 #Resale_list section {
 	width: 70%;
 }
+
+.products_info {
+	padding-top: 14px;
+}
+
 .products_info .item_info_title{
 	display: flex;
 	justify-content: space-between;
@@ -1272,4 +1288,12 @@ video {
 
 .trade_btns input {
 	margin-left: 4px;
+}
+
+/* 중고거래 슬라이더 */
+.carousel-inner img {
+    height: 500px;
+    background-position: center center;
+    background-size: cover;
+    object-fit: contain;
 }
