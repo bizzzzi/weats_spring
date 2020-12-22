@@ -104,39 +104,10 @@
 	          </div>
 	    </div>      
 	    <div class="partnerBtn">
-       		<input class="submitBtn" type="submit" disabled="disabled" value="다음" onclick="productNull()">
-       	</div>
-       	</form>
-		</div>
+       		<input class="submitBtn" type="submit" value="다음" onclick="productNull()">
+       	</div>	
     </form>
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script type="text/javascript">
-    $(document).ready(function () {
-      $(".leports_title").on("keyup", function () {
-        $.ajax({
-          url: 'titleDuplicateCheck',
-          type: 'get',
-          data: {
-            title: $(".leports_title").val(),
-          },
-          dataType: "text",
-          success: function (data, status, xhr) {
-            if (data == "중복된 상품명입니다.") {
-              console.log(data);
-              $("#result").text(data);
-              $(".submitBtn").attr("disabled", "disabled");
-            } else {
-              $("#result").text(data);
-              $(".submitBtn").removeAttr("disabled");
-            }
-          },
-          erorr: function (xhr, status, error) {
-            console.log("error");
-          }
-        });
-      });
-    });
-  </script>
 </body>
 </html>

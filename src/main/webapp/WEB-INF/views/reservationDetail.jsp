@@ -23,12 +23,11 @@
 			<jsp:include page="partner/partnerSideMenu.jsp" flush="true"></jsp:include>
 		</div>
 		<div id="partnerContent">
-			<jsp:include page="partner/productDetailControl.jsp" flush="true"></jsp:include>
+			<jsp:include page="partner/reservationDetail.jsp" flush="true"></jsp:include>
 		</div>
 	</div>
 	<jsp:include page="common/footer.jsp" flush="true"></jsp:include>
 </div>
-<script type="text/javascript" src="js/partnerInput.js"></script>
-<script type="text/javascript" src="js/selectOption.js"></script>
+<script type="text/javascript" src="js/modal.js"></script>
 </body>
 </html>

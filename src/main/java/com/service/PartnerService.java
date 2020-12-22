@@ -1,5 +1,7 @@
 package com.service;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.dao.PartnerDAO;
 import com.dto.LeportsDTO;
+import com.dto.LeportsDetailDTO;
 import com.dto.LeportsItemDTO;
 import com.dto.PartnerDTO;
 import com.dto.ReservationControlDTO;
@@ -67,9 +70,9 @@ public class PartnerService {
 		}
 		
 		//레포츠 아이디 찾기
-		public LeportsDTO leportsIdSelect(String leports_title) {			 
-			LeportsDTO dto=dao.leportsIdSelect(leports_title);
-			return dto;
+		public String leportsIdSelect() {			 
+			String leports_id=dao.leportsIdSelect();
+			return leports_id;
 		}
 
 		
@@ -100,9 +103,9 @@ public class PartnerService {
 			return n;
 		}
 		//예약관리
-		public List<ReservationControlDTO> ReservationControl(String user_id) {
-			List<ReservationControlDTO> list=dao.ReservationControl(user_id);
+		public List<ReservationControlDTO> ReservationControl(String leports_id) {
+			List<ReservationControlDTO> list=dao.ReservationControl(leports_id);
 			return list;
 		}
-	
+		
 }
