@@ -51,3 +51,7 @@ button {
 .w_hidden {
   display: none;
 }
+
+.weather_nav ul li.active{
+  border-bottom: 2px solid #2F98ED;
+}
