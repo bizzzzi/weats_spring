@@ -47,12 +47,12 @@
 	              <option value="세종">세종특별자치시</option>
 	              <option value="경기">경기도</option>
 	              <option value="강원">강원도</option>
-	              <option value="충청">충청북도</option>
-	              <option value="충청">충청남도</option>
-	              <option value="전라">전라북도</option>
-	              <option value="전라">전라남도</option>
-	              <option value="경상">경상북도</option>
-	              <option value="경상">경상남도</option>
+	              <option value="충청북도">충청북도</option>
+	              <option value="충청남도">충청남도</option>
+	              <option value="전라북도">전라북도</option>
+	              <option value="전라남도">전라남도</option>
+	              <option value="경상북도">경상북도</option>
+	              <option value="경상남도">경상남도</option>
 	              <option value="제주">제주도</option>
 	            </select>
 	          </div>
@@ -60,10 +60,10 @@
 	        <div class="title">레포츠 카테고리 *</div>     
 	          <div>
 	            <select name="leports_type" class="leports_type">
-	              <option value="지상 레포츠">지상 레포츠</option>
-	              <option value="수상 레포츠">수상 레포츠</option>
-	              <option value="항공 레포츠">항공 레포츠</option>
-	              <option value="실내 레포츠">실내 레포츠</option>
+	              <option value="지상">지상 레포츠</option>
+	              <option value="수상">수상 레포츠</option>
+	              <option value="항공">항공 레포츠</option>
+	              <option value="실내">실내 레포츠</option>
 	            </select>
 	          </div>
 	    </div>      
