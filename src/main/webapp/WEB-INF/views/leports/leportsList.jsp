@@ -64,7 +64,7 @@
 	<div class="leports_item">
 		<a href="leportsDetail?leports_id=${dto.leports_id}">
 			<div>
-				<img class="leports_item_images" src="images/${dto.leports_main_img}">
+				<img class="leports_item_images" src="/weats/display?fileName=${dto.leports_main_img}">
 			</div>
 			<div>
 				<ul class="leports_item_info">

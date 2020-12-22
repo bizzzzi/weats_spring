@@ -75,4 +75,14 @@ public class TradeService {
 		int result = dao.CommentUpdate(map);
 		return result;
 	}
+
+	public int TradeDelete(String trade_id){
+		int result = dao.TradeDelete(trade_id);
+		return result;
+	}
+
+	public int TradeUpdate(TradeDTO dto){
+		int result = dao.TradeUpdate(dto);
+		return result;
+	}
 }

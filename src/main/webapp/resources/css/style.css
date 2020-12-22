@@ -145,7 +145,7 @@ footer {
 	top: 50%;
 	transform: translate(-50%, -50%);
 	width: 500px;
-	height: 500px;
+	height: 550px;
 	background-color: #fafafa;
 	border-radius: 10px;
 	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px
@@ -197,7 +197,6 @@ footer {
 
 #signUpForm .SignUpBtn {
 	width: 300px;
-	height: 45px;
 	margin-top: 8px;
 	font-size: 16px;
 	font-weight: bold;
@@ -814,10 +813,12 @@ video {
 #leports_Detail .mainImg {
 	flex: 50%;
 	max-width: 50%;
+	height: 100%;
 	padding: 0 4px;
 }
 
 #leports_Detail .leports_items_img img {
+	height: 50%;
 	margin-top: 8px;
 	vertical-align: middle;
 	width: 100%;
@@ -984,7 +985,10 @@ video {
 #Resale_list section {
 	width: 70%;
 }
-
+.products_info .item_info_title{
+	display: flex;
+	justify-content: space-between;
+}
 .text_info .item_info_title {
 	margin-top: 4px;
 	font-size: 22px;
