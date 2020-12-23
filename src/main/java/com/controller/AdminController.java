@@ -51,7 +51,7 @@ public class AdminController {
         mav.setViewName("AdminPartnerDetail");
         return mav;
     }
-    @RequestMapping("/partnerConfirm")
+    @RequestMapping(value="/partnerConfirm")
     public String partnerConfirm(String uID,String reject, HttpSession session, RedirectAttributes attr){
         String partner_email = service.PartnerEmail(uID);
         String code = SHA256.getEncrypt(partner_email, "cos");
