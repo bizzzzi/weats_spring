@@ -22,7 +22,8 @@
 					
 				<div class="itemContent">		
 					<span class="date">작성일 : ${review.review_regidate}<br></span>
-					<span class="comments">${review.review_comments}</span>
+					<span class="comments">${review.review_comments}</span><br>
+					<span class="date">리뷰를 수정하시려면 삭제 후 다시 작성해주세요</span>
 				</div>		
 		
 					<input type="text" name="review_id" style="display: none;" value="${review.review_id}" />

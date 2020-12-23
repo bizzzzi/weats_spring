@@ -23,7 +23,7 @@
                     </li>
                     <li>
                         <strong>이름</strong>
-                        <input type="text" name="user_name" class="user_name"/>
+                        <input type="text" name="user_name" class="user_name" value="${login.user_name}" readonly/>
                     </li>
                     <li>
                         <strong>제목</strong>
