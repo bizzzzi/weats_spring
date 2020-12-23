@@ -631,7 +631,7 @@ video {
 	line-height: 70px;
 	position: -webkit-sticky;
 	position: sticky;
-	top: 100px;
+	top: 65px;
 	border: 1px solid #E9ECEF;
 	border-radius: 4px;
 	text-align: center;
@@ -843,7 +843,20 @@ video {
 	border: 1px solid #E5E5E5;
 }
 
+.side_nav_btn {
+	width: 280px;
+}
+
 /* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 1400px) {
+	#leports_Detail .side_nav {
+		width: 200px;
+	}
+	.side_nav_btn {
+		width: 176px;
+	}
+}
+
 @media screen and (max-width: 1000px) {
 	#leports_Detail .contents {
 		width: 100%;
@@ -851,6 +864,8 @@ video {
 	#leports_Detail .side_nav {
 		display: none;
 	}
+	
+	
 }
 
 @media screen and (max-width: 800px) {
