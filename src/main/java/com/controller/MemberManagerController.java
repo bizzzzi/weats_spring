@@ -116,15 +116,15 @@ public class MemberManagerController {
     }
 
     @GetMapping("/loginCheck/myReserveDetail")
-    public String myReserveDetail(String reservation_id, Model model){
+    public String myReserveDetail(@ModelAttribute("leports_title") String leports_title ,String reservation_id, Model model){
         logger.debug("상세 페이지 예약 아이디 : {}", reservation_id);
         List<ReservationItemDTO> list = reserveService.reserveDetailList(reservation_id);
         for(ReservationItemDTO dto: list) {
             logger.debug("예약 아이템 {}", dto );
         }
-        model.addAttribute("itemlist", list);
+        model.addAttribute("itemList", list);
 //        예약 내역에서 예약한 레포츠 하나 클릭하면 아이템별로 보여줄 상세 페이지 return
-        return null;
+        return "MainReservationDetail";
     }
     
     @PostMapping("/loginCheck/reviewWriteForm")

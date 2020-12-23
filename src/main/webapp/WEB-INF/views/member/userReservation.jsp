@@ -6,8 +6,8 @@
 <h2 class="myPageTitle">나의예약내역</h2>
 <!-- 예약갯수만큼 반복 출력 -->
 <c:forEach var="item" items="${myReserve}" varStatus="status">
-    <a href="myReserveDetail?reservation_id=${item.reservation_id}" style="text-decoration: none">
     <form class="reservationCancellation" action="passwdCheck" method="get">
+    <a href="myReserveDetail?reservation_id=${item.reservation_id}&leports_title=${item.leports_title}" class="reserve_css" style="text-decoration: none;">
         <div class="leportsImg"><!-- 메인이미지 넣을공간 ../images/ -->
             <img src="/weats/display?fileName=${item.leports_main_img}"/>
         </div>
@@ -36,6 +36,6 @@
             <input class="cancel" type="button" value="예약취소"/>
             <input class="review" type="button" value="리뷰쓰기"/>
         </div>
-    </form>
     </a>
+    </form>
 </c:forEach>
