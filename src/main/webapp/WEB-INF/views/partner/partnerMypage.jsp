@@ -83,11 +83,11 @@
 				</div>
 		</div>
       <div class="partnerBtn info">
-        <input class="submitBtn Btn" onclick="nullCheck()" type="submit" formaction="loginCheck/CheckPartner?page=partnerUpdate" value="정보 수정">
+        <input class="submitBtn Btn" onclick="nullCheck()" type="submit" formaction="../CheckPartner?page=partnerUpdate" value="정보 수정">
         <!-- 비밀번호 인증 후 파트너 정보 수정 -->
         <input class="cancleBtn Btn" type="reset" value="작성취소">
         <!-- 정보 초기화 버튼 -->
-        <input class="withdrawBtn Btn" type="submit" formaction="loginCheck/CheckPartner?page=partnerDelete" value="파트너 탈퇴">
+        <input class="withdrawBtn Btn" type="submit" formaction="../CheckPartner?page=partnerDelete" value="파트너 탈퇴">
         <!-- 비밀번호 인증 후 파트너 탈퇴 -->
       </div>
     </form>

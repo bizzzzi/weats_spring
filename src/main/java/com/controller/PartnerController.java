@@ -33,7 +33,7 @@ public class PartnerController {
     UserVerify userVerify;
     
     //비밀번호 확인
-    @RequestMapping("/loginCheck/CheckPartner")
+    @RequestMapping("/CheckPartner")
     public String passwdCheckPage(String page,String leports_id, HttpSession session,PartnerDTO pdto) {
         if(page != null) {
             session.setAttribute("page", page);
@@ -43,7 +43,7 @@ public class PartnerController {
         return "passwdCheck/passwdCheckPartner";
     }
     
-    @PostMapping("/loginCheck/passwdCheckPartner")
+    @PostMapping("/passwdCheckPartner")
     public String passwdCheck(String user_pw, HttpSession session) {
         String page = (String)session.getAttribute("page");
         MemberDTO login = (MemberDTO) session.getAttribute("login");
@@ -88,12 +88,12 @@ public class PartnerController {
 	}
 	//파트너 마이페이지
 	@RequestMapping("/partnerCheck/PartnerMypage")
-	public String PartnerMypage(HttpSession session,RedirectAttributes attr) {
+	public String PartnerMypage(HttpSession session,Model model) {
 		MemberDTO mdto=(MemberDTO) session.getAttribute("login");
 		String user_id=mdto.getUser_id();
 		PartnerDTO pdto=pservice.partnerSelect(user_id);
-		attr.addFlashAttribute("pdto",pdto);
-		return "redirect:/partnerMypage";
+		model.addAttribute("pdto",pdto);
+		return "partnerMypage";
 	}
 
 	//마이페이지 수정
