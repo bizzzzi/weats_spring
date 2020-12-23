@@ -884,6 +884,10 @@ video {
 	float: right;
 }
 
+.leports_review_star {
+	color: #51ABF3;
+}
+
 .review_title {
 	font-size: 22px;
 	font-weight: bold;
