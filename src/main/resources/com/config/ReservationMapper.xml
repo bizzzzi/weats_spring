@@ -52,6 +52,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		order by r.rs_payment_date desc
 	</select>
 
+<!--	예약 내역 상세-->
+	<select id="reserveDetailList" parameterType="string" resultType="ReservationItemDTO">
+		select * from reservation_item where reservation_id = #{reservation_id}
+	</select>
+
 	<!--tid 찾기(예약 취소)-->
 	<select id="tidSearch" parameterType="hashmap" resultType="string">
 		select tid from reservation where reservation_id = #{reservation_id} and user_id = #{user_id}

@@ -141,7 +141,7 @@
 			<div class="current_amount">현재 금액</div>
 			<span class="js_total_amount2">0</span>원<br>
 		</div>
-		<button type="button" class="btn btn-lg btn-primary" onclick="location.href='#href_ticket'" style="width: 280px;">티켓 선택</button>
+		<button type="button" class="btn btn-lg btn-primary side_nav_btn" onclick="location.href='#href_ticket'">티켓 선택</button>
 	</div>
 
 	<%-- 레포츠 등록 일자 :
