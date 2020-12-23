@@ -108,7 +108,7 @@ h3.maintitle {
     margin: 50px 0px 20px 0px;
     text-align: center;
 }
-.adminBtn input {
+span.emailBtn{
 	padding: 10px 40px;
     margin: 0px 20px;
     background: #007bff;
@@ -116,7 +116,14 @@ h3.maintitle {
     border: 1px solid #007bff;
     border-radius: 4px;
 }
-
+.emailBtn a{
+	color:#fff;
+	text-decoration: none;
+}
+.emailBtn a:hover{
+	color:#fff;
+	text-decoration: none;
+}
 
 /*문의 답변 페이지*/
 ul.qnaList{
