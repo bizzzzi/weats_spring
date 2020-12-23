@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
        pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <h2 class="myPageTitle">나의예약내역</h2>
 <!-- 예약갯수만큼 반복 출력 -->
@@ -21,7 +22,7 @@
 		 	<span> 주소 : ${item.c_address} - ${item.c_detail_address}</span>
 		  	<span> 파트너 연락처 : ${item.c_phone}</span>
 			<span> 예약개수 : ${item.rs_persons}개</span>
-		  	<span> 가격 : ${item.rs_price}원</span>
+		  	<span> 가격 : <fmt:formatNumber value="${item.rs_price}" pattern="#,###" />원</span>
 	   </div>
 	</div>
    <input type="hidden" class="review_verify" value="${item.review_verify}"/>

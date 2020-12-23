@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 		 pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <div style="height: 30px;"></div>
 
@@ -88,7 +89,7 @@
 							<div class="leports_item_mc">예약 가능 인원 : ${dto.leports_max_capacity}</div>
 						</div>
 						<div>
-							<span class="leports_item_price">${dto.leports_price}원</span><span class="person"> 1인</span>
+							<span class="leports_item_price"><fmt:formatNumber value="${dto.leports_price}" pattern="#,###" />원</span><span class="person"> 1인</span>
 						</div>
 						<div class="list_item">
 
