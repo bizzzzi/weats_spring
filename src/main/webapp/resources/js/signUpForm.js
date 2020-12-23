@@ -28,6 +28,9 @@ function nullCheck(e) {
 		useremail.value = null;
 		useremail.focus();
 		e.preventDefault();
+	} else if(document.getElementById("pwCheck").innerHTML == "비밀번호가 일치하지 않습니다") {
+		userpasswd2.focus();
+		e.preventDefault();
 	} else {
 		Check(); // 약관동의 체크 메소드
 	}

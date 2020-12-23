@@ -14,6 +14,7 @@ function checkCapsLock(event)  {
     const capsLockLogin = document.querySelector('.capsLockLogin');
     const capsLockDiv = document.querySelector('.capsLockDiv');
 
+
     if (event.getModifierState("CapsLock")) {
         if (capsLockDiv != null) capsLockDiv.style.display = 'inline-block';
         else {
@@ -31,6 +32,7 @@ function checkCapsLock(event)  {
 }
 
 function regPw() {
+    const signUpBtn = document.querySelector('.SignUpBtn');
     const pw = document.querySelector(".userPasswdReg");
     const regDiv = document.querySelector(".regDiv");
     const pwVal = pw.value;
@@ -39,19 +41,23 @@ function regPw() {
     if(pwVal.search(/\s/) !== -1) {
         regDiv.innerText = "공백없이 입력해주세요.";
         regDiv.style.display = 'inline-block';
+        signUpBtn.type = "button";
         return false;
     } else if(pwVal.length < 8 || pwVal.length > 15) {
         regDiv.innerText = "비밀번호를 8~15 자리이내로 입력해주세요.";
         regDiv.style.display = 'inline-block';
+        signUpBtn.type = "button";
         return false;
     }else if (!reg) {
         console.log("else if");
         regDiv.innerText = "영문, 숫자 혹은 특수문자 중 2가지 이상을 조합하여 입력해주세요.";
         regDiv.style.display = 'inline-block';
+        signUpBtn.type = "button";
         return false;
     } else {
         console.log("else");
         regDiv.style.display = 'none';
+        signUpBtn.type = "submit";
     }
 }
 
