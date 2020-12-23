@@ -37,6 +37,14 @@
 	            <input class="leports_sub_img3" name="leports_sub_img3" type="file" accept="img/*">
 	            <input class="leports_sub_img4" name="leports_sub_img4" type="file" accept="img/*">
 
+			<div class="imageFlex">
+				<img src="/weats/display?fileName=${ldto.leports_main_img}">
+				<img src="/weats/display?fileName=${ldto.leports_sub_img1}">
+				<img src="/weats/display?fileName=${ldto.leports_sub_img2}">
+				<img src="/weats/display?fileName=${ldto.leports_sub_img3}">
+				<img src="/weats/display?fileName=${ldto.leports_sub_img4}">
+			</div>
+
 	        <div class="title">지역 카테고리*</div>
 	          <div>
 	            <select name="leports_loc" id="locSelect" class="leports_loc">
@@ -51,12 +59,9 @@
 	              <option value="세종">세종특별자치시</option>
 	              <option value="경기">경기도</option>
 	              <option value="강원">강원도</option>
-	              <option value="충청북도">충청북도</option>
-	              <option value="충청남도">충청남도</option>
-	              <option value="전라북도">전라북도</option>
-	              <option value="전라남도">전라남도</option>
-	              <option value="경상북도">경상북도</option>
-	              <option value="경상남도">경상남도</option>
+	              <option value="충청도">충청도</option>
+	              <option value="전라도">전라도</option>
+	              <option value="경상도">경상도</option>
 	              <option value="제주">제주도</option>
 	            </select>
 	          </div>
