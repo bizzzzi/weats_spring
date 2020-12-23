@@ -69,7 +69,7 @@
 			<form id="uploadForm" method="post" enctype="multipart/form-data">
 				<div class="form-control" style="height: auto">
 					<label for="ex_file" class="ex_file">업로드</label> 사업자 등록증을 첨부해주세요.
-					<input type="file" name="uploadFile" class="file" style="display: none" id="ex_file"><br>
+					<input type="file" name="uploadFile" multiple class="file" style="display: none" id="ex_file"><br>
 					<div>
 						<ul class="uploadResult">
 							<c:if test="${pdto.partner_license_docs != null}">
@@ -85,7 +85,7 @@
       <div class="partnerBtn info">
         <input class="submitBtn Btn" onclick="nullCheck()" type="submit" formaction="../CheckPartner?page=partnerUpdate" value="정보 수정">
         <!-- 비밀번호 인증 후 파트너 정보 수정 -->
-        <input class="cancleBtn Btn" type="reset" value="작성취소">
+        <input class="cancleBtn Btn"  type="reset" value="작성취소">
         <!-- 정보 초기화 버튼 -->
         <input class="withdrawBtn Btn" type="submit" formaction="../CheckPartner?page=partnerDelete" value="파트너 탈퇴">
         <!-- 비밀번호 인증 후 파트너 탈퇴 -->
