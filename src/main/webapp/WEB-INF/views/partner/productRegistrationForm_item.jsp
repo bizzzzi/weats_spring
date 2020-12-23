@@ -18,7 +18,7 @@
 	</header>
 	<div class="partner_form item">
 		<form action="ItemAdd" method="post" id="ItemAddForm" class="partnerAllForm item">
-			<input type="hidden" name="leports_id" value="${dto.leports_id}">
+			<input type="hidden" name="leports_id" value="${leports_id}">
 			<div id="pre_set" class="itemform">
 			<div class="child" onclick="deleteParent(this)" style="float: right;">❌</div>
 			<div class="item_wrap">

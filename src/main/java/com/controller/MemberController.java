@@ -103,10 +103,6 @@ public class MemberController {
 			session.setAttribute("login", dto);
 			next = "redirect:/PartnerKeyCheck"; /* 파트너 verify 컨트롤러로 이동하게 수정 필요 */
 			} else if(dto.getAdmin_verify() == 0 && dto.getUser_verify() == 0 ){
-				dto.setUser_pw(null);//session에 비밀번호 미저장
-				rttr.addFlashAttribute("mesg", "로그인 성공");
-				session.setAttribute("login", dto);
-
 				String code = SHA256.getEncrypt(dto.getUser_email(), "cos");
 				String localhost = "http://localhost:8080/weats/";
 				String content = "다음 링크에 접속하여 이메일 인증  <a href='"+localhost+"join/checkEmail?code="+code+"'>이메일 인증하기</a>" ;

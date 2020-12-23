@@ -10,13 +10,38 @@
 <head>
   <meta charset="UTF-8">
   <title>Insert title here</title>
+  	<style>
+		.uploadResult{
+			display: flex;
+			width: 100%;
+			margin-top: 30px;
+		}
+		.uploadResult li{
+			width: 50%;
+			margin: 10px;
+		}
+		.uploadResult li img{
+			width: 100%;
+			height: 90%;
+			object-fit: cover;
+		}
+		.ex_file{
+			color: black;
+			border: 1px solid rgba(0, 0, 0, 0.15);
+			border-radius: 0.25rem;
+			background-clip: padding-box;
+			margin: 0;
+			padding: 1px 10px;
+		}
+
+	</style>
 </head>
 <body>
   <header class="header">
     <h1 class="partner_title">파트너 마이페이지</h1>
   </header>
   <div class="partner_form" id="partner">
-    <form method="post" class="partnerAllForm">
+    <form method="post" class="partnerAllForm partnerform">
       <input type="hidden" name="partner_id" value="${pdto.partner_id}">
       <input type="hidden" name="user_id" value="${pdto.user_id}">
       
@@ -40,21 +65,23 @@
 	          <input type="text" name="partner_license_num" class="partner_license_num" size="23" maxlength="10" 
 	          value="${pdto.partner_license_num}">
 	
-	        <div class="title">서류 제출*</div>
-	          <div class="guide_img">
-	            <input type="file" id="image_upload" class="image_inputType_file" name="partner_license_docs"
-	               type="file" accept="img/*" onchange="thumbnail(this);">
-	            <!-- file형태와 image만 업로드하도록 설정 -->
-	            <div id="image_container">
-	              <!-- 사진을 미리 보여줄 영역 -->
-	              <img src="" alt=""/>
-	            </div>
-	          </div>
-	          <div class="comment">
-	          	사업자 등록증 사진을 업로드해주세요. 이미지 규격은 '*'을 권장합니다.
-	  	      </div>
+			<div class="title">사업자 등록증*</div>
+			<form id="uploadForm" method="post" enctype="multipart/form-data">
+				<div class="form-control" style="height: auto">
+					<label for="ex_file" class="ex_file">업로드</label> 사업자 등록증을 첨부해주세요.
+					<input type="file" name="uploadFile" class="file" style="display: none" id="ex_file"><br>
+					<div>
+						<ul class="uploadResult">
+							<c:if test="${pdto.partner_license_docs != null}">
+								<li><img src="/weats/display?fileName=${pdto.partner_license_docs}"><span data-name="partner_license_docs" data-file=\'${pdto.partner_license_docs}\' data-type="image">기존 이미지</span></li>
+							</c:if>
+						</ul>
+					</div>
+					<div class="uploadBox" style="height: 0">
+						<input type="hidden" name="partner_license_docs" class="partner_license_docs" value="${pdto.partner_license_docs}"><br>
+					</div>
+				</div>
 		</div>
-		
       <div class="partnerBtn info">
         <input class="submitBtn Btn" onclick="nullCheck()" type="submit" formaction="loginCheck/CheckPartner?page=partnerUpdate" value="정보 수정">
         <!-- 비밀번호 인증 후 파트너 정보 수정 -->

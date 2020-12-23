@@ -44,13 +44,14 @@
             	<hr>
             	<div class="leports_item_title">${item}</div>
             	<fmt:parseNumber var="test" value="${item_price[status.index] / reserve_count[status.index]}" integerOnly="true"/>
-            	<div class="rs_price">${reserve_count[status.index]} X ${test}원<span class="item_total_price">${item_price[status.index]}원</span></div>
+            	<div class="rs_price">${reserve_count[status.index]} X <fmt:formatNumber value="${test}" pattern="#,###" />원<span class="item_total_price"><fmt:formatNumber value="${item_price[status.index]}" pattern="#,###" />원</span></div>
             </c:forEach>
           </div>
           <hr>
           <div class="payment_leports_total_price">
           	<span>총 금액</span>
-          	<strong>${totalPrice}원</strong>
+          	<strong><fmt:formatNumber value="${totalPrice}" pattern="#,###" />원</strong>
+
           </div>
         </div>
         <!-- 데이터 넘기는 항목들 -->        
@@ -108,7 +109,8 @@
 
         <div class="PAYMENT_BUTTON">
           <span style="font-size: 14px;">아래 버튼을 선택하면 게스트 권리 포기서, 환불 정책 및 게스트 환불 정책에 동의하는 것입니다.</span><br />
-          <button class="paymentBtn btn btn-primary" type="submit" style="margin-top:15px;">${totalPrice}원 확인 및 결제</button>
+          <button class="paymentBtn btn btn-primary" type="submit" style="margin-top:15px;"><fmt:formatNumber value="${totalPrice}" pattern="#,###" />원 확인 및 결제</button>
+
         </div>
         </div>
         </div>

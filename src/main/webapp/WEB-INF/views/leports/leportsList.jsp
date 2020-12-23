@@ -1,6 +1,7 @@
 <%@page import="com.dto.LeportsThumbnailDTO"%>
 <%@page import="java.util.List"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -73,7 +74,8 @@
 					<li class="leports_item_title">${dto.leports_title}</li>
 					<li class="leports_item_summary">${dto.leports_summary}</li>
 					<li class="leports_item_review"><span class="leports_item_review_star">★${dto.review_star}</span> ${dto.review_cnt}개</li>
-					<li class="leports_item_price">${dto.leports_price}원 / 1인</li>
+					<li class="leports_item_price"><fmt:formatNumber value="${dto.leports_price}" pattern="#,###" />원~ / 1인</li>
+
 				</ul>
 			</div>
 		</a>

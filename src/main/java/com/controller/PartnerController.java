@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.dto.LeportsDTO;
+import com.dto.LeportsDetailDTO;
 import com.dto.LeportsItemDTO;
 import com.dto.MemberDTO;
 import com.dto.PartnerDTO;
@@ -91,7 +92,6 @@ public class PartnerController {
 		MemberDTO mdto=(MemberDTO) session.getAttribute("login");
 		String user_id=mdto.getUser_id();
 		PartnerDTO pdto=pservice.partnerSelect(user_id);
-		//session.setAttribute("partner", pdto);
 		attr.addFlashAttribute("pdto",pdto);
 		return "redirect:/partnerMypage";
 	}
@@ -142,25 +142,13 @@ public class PartnerController {
 		attr.addFlashAttribute("LeportsForm",dto);
 		return "redirect:/LeportsIdSelect";
 	}
-	//레포츠 이름 중복검사
-	@RequestMapping(value = "/titleDuplicateCheck",produces = "text/plain; charset=UTF-8")
-	@ResponseBody
-	public String titleDuplicateCheck(@RequestParam("title")String leports_title) {
-		LeportsDTO ldto=pservice.leportsIdSelect(leports_title);
-		String mesg="";
-		if(ldto!=null) {
-			mesg="중복된 상품명입니다.";
-		}
-		return mesg;
-	}
 
 	//레포츠 아이디찾기
 	@RequestMapping("/LeportsIdSelect")
-	public String LeportsIdSelect(@ModelAttribute("LeportsForm")LeportsDTO dto,RedirectAttributes attr) {
-		String leports_title=dto.getLeports_title();
-		LeportsDTO ldto=pservice.leportsIdSelect(leports_title);
-		attr.addFlashAttribute("dto", ldto);
-		return "redirect:/productRegistrationForm_item";
+	public String LeportsIdSelect(Model model) {
+		String leports_id=pservice.leportsIdSelect();
+		model.addAttribute("leports_id", leports_id);
+		return "productRegistrationForm_item";
 	}
 
 	//레포츠 아이템 등록
@@ -225,13 +213,20 @@ public class PartnerController {
 		return "redirect:/MainPartner";
 	}
 
-	//예약관리
-	@RequestMapping("/partnerCheck/ProductResevation")
+	//예약관리	
+	@GetMapping("/partnerCheck/ProductResevation")
 	public String ProductResevation(HttpSession session,Model model) {
-		MemberDTO mdto=(MemberDTO)session.getAttribute("login");
-		String user_id=mdto.getUser_id();
-		List<ReservationControlDTO>list=pservice.ReservationControl(user_id);
-		model.addAttribute("leportsList", list);
+		PartnerDTO dto=(PartnerDTO)session.getAttribute("partner");
+		String partner_id=dto.getPartner_id();
+		List<LeportsDTO> list=pservice.ProductControl(partner_id);
+		model.addAttribute("leportsAddList",list);
 		return "reservationControl";
+	}
+	//예약관리 레포츠 아이템 출력
+	@RequestMapping("/DetailResevation")
+		public String DetailResevation(String leports_id,Model model,HttpSession session) {
+		List<ReservationControlDTO> rdto=pservice.ReservationControl(leports_id);
+		model.addAttribute("rdto",rdto);
+		return "reservationDetail";
 	}
 }

@@ -605,6 +605,14 @@ video {
 	padding-top: 14px;	
 }
 
+#leports_Detail_Nav {
+	position: sticky;
+	top:0;
+	left:0;
+	background-color: white;
+	padding-bottom: 10px;
+}
+
 #leports_Detail_Nav .leports_detail_menu a {
 	border: 1px solid #F2F3F5;
 	border-radius: 8px;
@@ -623,7 +631,7 @@ video {
 	line-height: 70px;
 	position: -webkit-sticky;
 	position: sticky;
-	top: 0;
+	top: 65px;
 	border: 1px solid #E9ECEF;
 	border-radius: 4px;
 	text-align: center;
@@ -835,7 +843,20 @@ video {
 	border: 1px solid #E5E5E5;
 }
 
+.side_nav_btn {
+	width: 280px;
+}
+
 /* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 1400px) {
+	#leports_Detail .side_nav {
+		width: 200px;
+	}
+	.side_nav_btn {
+		width: 176px;
+	}
+}
+
 @media screen and (max-width: 1000px) {
 	#leports_Detail .contents {
 		width: 100%;
@@ -843,6 +864,8 @@ video {
 	#leports_Detail .side_nav {
 		display: none;
 	}
+	
+	
 }
 
 @media screen and (max-width: 800px) {
@@ -882,6 +905,10 @@ video {
 	margin-top: 18px;
 	margin-bottom: 50px;
 	float: right;
+}
+
+.leports_review_star {
+	color: #51ABF3;
 }
 
 .review_title {
@@ -1296,4 +1323,17 @@ video {
     background-position: center center;
     background-size: cover;
     object-fit: contain;
+}
+
+.reservation_detail_title {
+	display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+.reservation_detail_item {
+	display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #7C7C7D;
 }

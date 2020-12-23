@@ -9,14 +9,42 @@
 <head>
   <meta charset="UTF-8">
   <title>Insert title here</title>
+  <script src="http://malsup.github.com/jquery.form.js"></script>
+	<style>
+		.uploadResult{
+			display: flex;
+			width: 100%;
+			margin-top: 30px;
+		}
+		.uploadResult li{
+			width: 30%;
+			margin: 10px;
+		}
+		.uploadResult li img{
+			width: 100%;
+			height: 60%;
+			object-fit: cover;
+		}
+		.ex_file{
+			color: black;
+			border: 1px solid rgba(0, 0, 0, 0.15);
+			border-radius: 0.25rem;
+			background-clip: padding-box;
+			margin: 0;
+			padding: 1px 10px;
+		}
+
+	</style>
 </head>
 <body>
   <header class="header">
     <h1 class="partner_title">상품 상세페이지(파트너용)</h1>
   </header>
   <div class="partner_form" id="partner">
-    <form method="post" class="partnerAllForm">
+    <form method="post" class="partnerAllForm leportsForm">
       <input type="hidden" name="leports_id" value="${ldto.leports_id}"> 
+      <input type="hidden"  id="leports_loc" value="${ldto.leports_loc}"> 
+      <input type="hidden"  id="leports_type" value="${ldto.leports_type}"> 
 		<div class="formBox">
 	        <div class="title">상품 이름*</div>        
 	        <input type="text" name="leports_title" class="leports_title" value="${ldto.leports_title}">
@@ -26,45 +54,67 @@
 	            <textarea name="leports_content" class="leports_content" cols="30"
 	              rows="10">${ldto.leports_content}</textarea>
 
-	        <div class="title">대표 사진*</div>
-	            <input class="leports_main_img" name="leports_main_img" type="file" accept="img/*">
-
-	        <div class="title">서브 사진</div>
-	            <input class="leports_sub_img1" name="leports_sub_img1" type="file" accept="img/*">
-	            <input class="leports_sub_img2" name="leports_sub_img2" type="file" accept="img/*">
-	            <input class="leports_sub_img3" name="leports_sub_img3" type="file" accept="img/*">
-	            <input class="leports_sub_img4" name="leports_sub_img4" type="file" accept="img/*">
-
+		
+			<form id="uploadForm" method="post" enctype="multipart/form-data">
+				<div class="form-control" style="height: auto">
+					<label for="ex_file" class="ex_file">업로드</label> 첫 등록된 이미지가 메인 이미지가 됩니다.
+					<input type="file" name="uploadFile" class="file" multiple style="display: none" id="ex_file"><br>
+					<div>
+						<ul class="uploadResult">
+							<c:if test="${ldto.leports_main_img != null}">
+								<li><img src="/weats/display?fileName=${ldto.leports_main_img}"><span data-name="leports_main_img" data-file=\'${ldto.leports_main_img}\' data-type="image">X</span></li>
+							</c:if>
+							<c:if test="${ldto.leports_sub_img1 != null}">
+								<li><img src="/weats/display?fileName=${ldto.leports_sub_img1}"><span data-name="leports_sub_img1" data-file=\'${ldto.leports_sub_img1}\' data-type="image">X</span></li>
+							</c:if>
+							<c:if test="${ldto.leports_sub_img2 != null}">
+								<li><img src="/weats/display?fileName=${ldto.leports_sub_img2}"><span data-name="leports_sub_img2" data-file=\'${ldto.leports_sub_img2}\' data-type="image">X</span></li>
+							</c:if>
+							<c:if test="${ldto.leports_sub_img3 != null}">
+								<li><img src="/weats/display?fileName=${ldto.leports_sub_img3}"><span data-name="leports_sub_img3" data-file=\'${ldto.leports_sub_img3}\' data-type="image">X</span></li>
+							</c:if>
+							<c:if test="${ldto.leports_sub_img4 != null}">
+								<li><img src="/weats/display?fileName=${ldto.leports_sub_img4}"><span data-name="leports_sub_img4" data-file=\'${ldto.leports_sub_img4}\' data-type="image">X</span></li>
+							</c:if>
+						</ul>
+					</div>
+					<div class="uploadBox" style="height: 0">
+						<input type="hidden" name="leports_main_img" class="leports_main_img" value="${ldto.leports_main_img}"><br>
+						<input type="hidden" name="leports_sub_img1" value="${ldto.leports_sub_img1}"><br>
+						<input type="hidden" name="leports_sub_img2" value="${ldto.leports_sub_img2}"><br>
+						<input type="hidden" name="leports_sub_img3" value="${ldto.leports_sub_img3}"><br>
+						<input type="hidden" name="leports_sub_img4" value="${ldto.leports_sub_img4}"><br>
+					</div>
+				</div>
+				
 	        <div class="title">지역 카테고리*</div>
 	          <div>
-	            <select name="leports_loc" class="leports_loc">
-	              <option <c:if test="${ldto.leports_loc eq '서울'}"> selected </c:if>>서울특별시</option>
-	              <option <c:if test="${ldto.leports_loc eq '부산'}"> selected </c:if>>부산광역시</option>
-	              <option <c:if test="${ldto.leports_loc eq '대구'}"> selected </c:if>>대구광역시</option>
-	              <option <c:if test="${ldto.leports_loc eq '인천'}"> selected </c:if>>인천광역시</option>
-	              <option <c:if test="${ldto.leports_loc eq '광주'}"> selected </c:if>>광주광역시</option>
-	              <option <c:if test="${ldto.leports_loc eq '대전'}"> selected </c:if>>대전광역시</option>
-	              <option <c:if test="${ldto.leports_loc eq '울산'}"> selected </c:if>>울산광역시</option>
-	              <option <c:if test="${ldto.leports_loc eq '세종'}"> selected </c:if>>세종특별자치시</option>
-	              <option <c:if test="${ldto.leports_loc eq '경기'}"> selected </c:if>>경기도</option>
-	              <option <c:if test="${ldto.leports_loc eq '강원'}"> selected </c:if>>강원도</option>
-	              <option <c:if test="${ldto.leports_loc eq '충청북도'}"> selected </c:if>>충청북도</option>
-	              <option <c:if test="${ldto.leports_loc eq '충청남도'}"> selected </c:if>>충청남도</option>
-	              <option <c:if test="${ldto.leports_loc eq '전라북도'}"> selected </c:if>>전라북도</option>
-	              <option <c:if test="${ldto.leports_loc eq '전라남도'}"> selected </c:if>>전라남도</option>
-	              <option <c:if test="${ldto.leports_loc eq '경상북도'}"> selected </c:if>>경상북도</option>
-	              <option <c:if test="${ldto.leports_loc eq '경상남도'}"> selected </c:if>>경상남도</option>
-	              <option <c:if test="${ldto.leports_loc eq '제주'}"> selected </c:if>>제주도</option>
+	            <select name="leports_loc" id="locSelect" class="leports_loc">
+	              <option value="시도">시도를 선택하세요.</option>
+	              <option value="서울">서울특별시</option>
+	              <option value="부산">부산광역시</option>
+	              <option value="대구">대구광역시</option>
+	              <option value="인천">인천광역시</option>
+	              <option value="광주">광주광역시</option>
+	              <option value="대전">대전광역시</option>
+	              <option value="울산">울산광역시</option>
+	              <option value="세종">세종특별자치시</option>
+	              <option value="경기">경기도</option>
+	              <option value="강원">강원도</option>
+	              <option value="충청">충청도</option>
+	              <option value="전라">전라도</option>
+	              <option value="경상">경상도</option>
+	              <option value="제주">제주도</option>
 	            </select>
 	          </div>
 
 	        <div class="title">레포츠 카테고리*</div>
 	          <div>
-	            <select name="leports_type" class="leports_type">
-	              <option <c:if test="${ldto.leports_type eq '지상'}"> selected </c:if>>지상 레포츠</option>
-	              <option <c:if test="${ldto.leports_type eq '수상'}"> selected </c:if>>수상 레포츠</option>
-	              <option <c:if test="${ldto.leports_type eq '항공'}"> selected </c:if>>항공 레포츠</option>
-	              <option <c:if test="${ldto.leports_type eq '실내'}"> selected </c:if>>실내 레포츠</option>
+	            <select name="leports_type" class="leports_type" id="typeSelect">
+	              <option value="지상">지상 레포츠</option>
+	              <option value="수상">수상 레포츠</option>
+	              <option value="항공">항공 레포츠</option>
+	              <option value="실내">실내 레포츠</option>
 	            </select>
 	          </div>
 		</div>

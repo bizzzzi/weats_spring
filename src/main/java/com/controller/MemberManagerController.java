@@ -3,11 +3,14 @@ package com.controller;
 import com.dto.LeportsReviewDTO;
 import com.dto.MemberDTO;
 import com.dto.MyReserveDTO;
+import com.dto.ReservationItemDTO;
 import com.encrypt.SHA256;
 import com.encrypt.UserVerify;
 import com.service.LeportsService;
 import com.service.MemberService;
 import com.service.ReserveService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,6 +40,8 @@ public class MemberManagerController {
 
     @Autowired
     UserVerify userVerify;
+
+    private static final Logger logger = LoggerFactory.getLogger(MemberManagerController.class.getSimpleName());
 
     @GetMapping("/loginCheck/passwdCheck")
     public String passwdCheckPage(String page, String reservation_id, String rs_price, HttpSession session) {
@@ -109,6 +114,18 @@ public class MemberManagerController {
         model.addAttribute("myReserve", list);
         return "/MainUserReservation";
     }
+
+    @GetMapping("/loginCheck/myReserveDetail")
+    public String myReserveDetail(@ModelAttribute("leports_title") String leports_title ,String reservation_id, Model model){
+        logger.debug("상세 페이지 예약 아이디 : {}", reservation_id);
+        List<ReservationItemDTO> list = reserveService.reserveDetailList(reservation_id);
+        for(ReservationItemDTO dto: list) {
+            logger.debug("예약 아이템 {}", dto );
+        }
+        model.addAttribute("itemList", list);
+//        예약 내역에서 예약한 레포츠 하나 클릭하면 아이템별로 보여줄 상세 페이지 return
+        return "MainReservationDetail";
+    }
     
     @PostMapping("/loginCheck/reviewWriteForm")
     public String reviewWriteForm(@ModelAttribute("leports_title") String leports_title, @ModelAttribute("leports_id") String leports_id
@@ -162,11 +179,4 @@ public class MemberManagerController {
         return "redirect:myReview";
     }
 
-//    @PostMapping("/reviewUpdate")
-//    public String reviewUpdate(@RequestParam Map<String, String> map, HttpSession session) {
-//        MemberDTO login = (MemberDTO)session.getAttribute("login");
-//        map.put("user_id", login.getUser_id());
-//        reserveService.reviewUpdate(map);
-//        return null;
-//    }
 }

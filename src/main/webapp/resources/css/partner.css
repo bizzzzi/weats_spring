@@ -95,6 +95,9 @@ a:hover {
     flex-direction: column;
     width: 100%;
 }
+.formBox {
+    margin-bottom: 30px;
+}
 .formBox input[type="text"], input[type="number"], select{
 	overflow: visible;
     padding: 0.8em 0.5em;
@@ -140,10 +143,6 @@ a:hover {
 .partnerBtn input:hover{
 	background-color: #0062cc;
 }
-.partnerBtn input:disabled{
-	background-color: #007bff;
-    opacity: 0.3;
-}
 .partner_form img{
     width: 70%;
     height: 400px;
@@ -162,7 +161,7 @@ a:hover {
 }
 .itemform{
     box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .16);
-    margin: 20px;
+    margin: 0px 20px 20px;
     padding: 10px;
     border-radius: 10px;
 }
@@ -197,6 +196,13 @@ a:hover {
     color: #fff;
     border: 1px solid #007bff;
     border-radius: 4px;
+}
+.imageFlex{
+	display: flex;
+}
+.imageFlex img{
+	width: 100px;
+	height: 100px;
 }
 /*파트너 마이페이지*/
 
@@ -244,44 +250,20 @@ a:hover {
 	margin: 10% 0%;
 }
 /* 예약관리 */
-.reservationControl{
+.rsList ul{
     display: flex;
-    flex-wrap: wrap;
-    width: 100%;
     justify-content: space-around;
-    flex-direction: row;
+    margin: 10px 10px;
 }
-.rs_content{
-	display: flex;
-    padding: 10px;
-    margin: 10px;
-    border-radius: 4px;
-    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .16);
-    width: 500px;
+.rsList.subject ul{
+	background-color: #E3F7FE;
+	padding: 10px 0px;
+	margin: 10px 10px;
 }
-.rs_content .leports_main_img{
-    display: flex;
-    width: 50%;
-    margin-right: 3%;
-}
-.rs_content .leports_main_img img{
-	width: 200px;
-	height: 200px;
-    margin: auto;
-    border: 1px solid #D6D6D6;
-}
-.rs_content .rs_info{
-	padding: 10px;
+.rsList li{
     width: 100%;
+    text-align: center;
 }
-.rs_content .rs_info .leports_title{
-    font-size: 1.4em;
-    margin-bottom: 5px;
-}
-.rs_content .rs_info ul{
-	padding: 10px;
-}
-
 @media screen and (max-width: 768px) { 
 		.formBox input[type="text"], 
 		.formBox.item input[type="text"],

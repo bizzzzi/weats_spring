@@ -63,8 +63,7 @@ public class MailController {
 			e.printStackTrace();
 		}
 		redirectMap = null;
-		rttr.addFlashAttribute("mesg", "이메일 인증을 완료해주세요");
-		return "redirect:/";
+		return "redirect:mailCheck";
 	}
 	
 	@RequestMapping("/mailSending")
@@ -115,7 +114,7 @@ public class MailController {
 				service.user_verifyUpdate(user_email);
 				rttr.addFlashAttribute("mesg", "회원가입 성공");
 				next = "redirect:/";
-			} else {
+			} else if(request.getRequestURI().contains("password")) {
 				rttr.addFlashAttribute("user_email", user_email);
 				next = "redirect:../passwdChangeForm";
 			}

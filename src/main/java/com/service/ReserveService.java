@@ -51,10 +51,6 @@ public class ReserveService {
         dao.reviewVerify(map);
     }
 
-//    public void reviewUpdate(Map<String,?> map) {
-//        dao.reviewUpdate(map);
-//    }
-
     public void reviewDelete(Map<String, String> map) {
         dao.reviewDelete(map);
     }
@@ -63,21 +59,12 @@ public class ReserveService {
         dao.reserveItemAdd(itemDTOList);
     }
 
-//    public void deleteReserveItem(String reservation_id) {
-//        dao.deleteReserveItem(reservation_id);
-//    }
-
-//    public List<String> reserveIdByDate(Map<String, String> map) {
-//        return dao.reserveIdByDate(map);
-//    }
-//
-//    public List<ReservationItemDTO> personCount(List<String> list) {
-//        return dao.personCount(list);
-//    }
-
     public List<HashMap<String,?>> reservePerson(Map<String, String> map) {
         return dao.reservePerson(map);
     }
 
 
+    public List<ReservationItemDTO> reserveDetailList(String reservation_id) {
+        return dao.reserveDetailList(reservation_id);
+    }
 }

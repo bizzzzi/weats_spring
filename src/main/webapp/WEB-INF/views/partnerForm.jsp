@@ -26,5 +26,6 @@
 <script type="text/javascript" src="js/thumbnail.js"></script>
 <script type="text/javascript" src="js/partnerInput.js"></script>
 <script type="text/javascript" src="js/businessNumber.js"></script>
+<script type="text/javascript" src="js/partnerFileUpload.js"></script>
 </body>
 </html>
