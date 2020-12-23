@@ -34,25 +34,25 @@ let down = (i, x) => {
 		   		<div class="item_multi">${pCount[i].value} X ${itemPrice[i].value}원</div>
 			</div>
 			<div>
-				<div class="select_item_price">${pCount[i].value * itemPrice[i].value}원</div>
+				<div class="select_item_price">${(pCount[i].value * itemPrice[i].value).toLocaleString()}원</div>
 				<input type="text" style="display:none" value="${pCount[i].value * itemPrice[i].value}" name="items_price" />
 				<input type="text" style="display:none" value="${pCount[i].value}" name="reserve_count"/>
 				<input type="text" style="display:none" value="${itemId[i].value}" name="itemId"/>
 			</div>
 		   </div>`;
 		selectItemPrice = document.querySelectorAll('.select_item_price');
-		price -= Number(itemPrice[i].value);
-		totalAmount.innerText = price;
-		totalAmount2.innerText = price;
-		totalPrice.value = price;
+		price -= Number(itemPrice[i].value).toLocaleString();
+		totalAmount.innerText = price.toLocaleString();
+		totalAmount2.innerText = price.toLocaleString();
+		totalPrice.value = price
 		console.log(totalPrice.value);
 	} else if (Number(pCount[i].value) === 1){
 		pCount[i].value -= x;
 		pTotalCount.value -= x;
 		price -= Number(itemPrice[i].value);
-		totalAmount.innerText = price;
-		totalAmount2.innerText = price;
-		totalPrice.value = price;
+		totalAmount.innerText = price.toLocaleString();
+		totalAmount2.innerText = price.toLocaleString();
+		totalPrice.value = price
 		console.log(totalPrice.value);
         selectItem[i].innerHTML = "";
 	}
@@ -70,10 +70,10 @@ let up = (i, x) => {
 		   							<div>${itemName[i].value}</div>
 									<input type="text" style="display:none" value="${itemName[i].value}" name="item_name" />
 		   							<div>
-		   								<div class="item_multi">${pCount[i].value} X ${itemPrice[i].value}원</div>
+		   							<div class="item_multi">${pCount[i].value} X ${itemPrice[i].value.toLocaleString()}원</div>
 									</div>
 									<div>
-										<div class="select_item_price">${pCount[i].value * itemPrice[i].value}원</div>
+										<div class="select_item_price">${(pCount[i].value * itemPrice[i].value).toLocaleString()}원</div>
 										<input type="text" style="display:none" value="${pCount[i].value * itemPrice[i].value}" name="items_price" />
 										<input type="text" style="display:none" value="${pCount[i].value}" name="reserve_count"/>
 										<input type="text" style="display:none" value="${itemId[i].value}" name="itemId"/>
@@ -81,9 +81,9 @@ let up = (i, x) => {
 								   </div>`;
 		selectItemPrice = document.querySelectorAll('.select_item_price');
 		price += Number(itemPrice[i].value);
-		totalAmount.innerText = price;
-		totalAmount2.innerText = price;
-		totalPrice.value = price;
+		totalAmount.innerText = price.toLocaleString();
+		totalAmount2.innerText = price.toLocaleString();
+		totalPrice.value = price
 		console.log(totalPrice.value);
 	}
 };

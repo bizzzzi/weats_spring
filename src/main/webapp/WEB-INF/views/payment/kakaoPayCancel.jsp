@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -13,10 +14,9 @@
 	<div id="kakaoPaySuccess">
       <div class="kakaoPayTitle">예약이 취소되었습니다.</div>
       <div>
-      	<div class="kakaoPayName">&nbsp;</div>
-      	<div class="kakaoPayName">&nbsp;</div>
+      	<div class="kakaoPayName">&nbsp;주문 번호 : ${cancel_info.partner_order_id}</div>
         <div class="kakaoPayItemName" style="font-size:24px;">상품명 : ${cancel_info.item_name}</div>
-        <div class="kakaoPayTotal">&nbsp;</div>
+        <div class="kakaoPayTotal">취소 금액 :  <fmt:formatNumber value="${cancel_info.amount.total}" pattern="#,###" /></div>
       </div>
       <button class="btn btn-primary" type="button" onclick="location.href='loginCheck/myReservePage'">예약 내역 페이지로 이동</button>
     </div>

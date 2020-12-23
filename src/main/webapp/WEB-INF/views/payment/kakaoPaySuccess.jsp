@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -16,7 +17,7 @@
       <div>
         <div class="kakaoPayName">예약자 : ${user_info.rs_name}</div>
         <div class="kakaoPayItemName">상품명 : ${pay_info.item_name}</div>
-        <div class="kakaoPayTotal">결제금액 : ${pay_info.amount.total}원</div>
+        <div class="kakaoPayTotal">결제금액 : <fmt:formatNumber value="${pay_info.amount.total}" pattern="#,###" />원</div>
       </div>
       <button class="btn btn-primary" type="button" onclick="location.href='loginCheck/myReservePage'">예약 내역 페이지로 이동</button>
     </div>
