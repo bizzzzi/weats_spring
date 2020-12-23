@@ -197,6 +197,13 @@ a:hover {
     border: 1px solid #007bff;
     border-radius: 4px;
 }
+.imageFlex{
+	display: flex;
+}
+.imageFlex img{
+	width: 100px;
+	height: 100px;
+}
 /*파트너 마이페이지*/
 
 .formBox .postBtn{

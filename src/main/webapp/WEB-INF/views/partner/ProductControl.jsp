@@ -21,7 +21,7 @@
     	<div class="partner_list">
     		<a href="../ProductDetail?leports_id=${ldto.leports_id}">  			 
 	      		<div class="partner_main_img">
-	      			<img src="../images/${ldto.leports_main_img}" alt="상품 대표 이미지">
+	      			<img src="/weats/display?fileName=${ldto.leports_main_img}" alt="상품 대표 이미지">
 	      		</div>
 				<div class="partner_item_info">${ldto.leports_title}</div>	
 			</a>

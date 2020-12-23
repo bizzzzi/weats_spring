@@ -92,7 +92,6 @@ public class PartnerController {
 		MemberDTO mdto=(MemberDTO) session.getAttribute("login");
 		String user_id=mdto.getUser_id();
 		PartnerDTO pdto=pservice.partnerSelect(user_id);
-		//session.setAttribute("partner", pdto);
 		attr.addFlashAttribute("pdto",pdto);
 		return "redirect:/partnerMypage";
 	}
