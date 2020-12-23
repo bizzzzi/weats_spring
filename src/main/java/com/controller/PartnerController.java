@@ -33,7 +33,7 @@ public class PartnerController {
     UserVerify userVerify;
     
     //비밀번호 확인
-    @RequestMapping("/loginCheck/CheckPartner")
+    @RequestMapping("/CheckPartner")
     public String passwdCheckPage(String page,String leports_id, HttpSession session,PartnerDTO pdto) {
         if(page != null) {
             session.setAttribute("page", page);
@@ -43,7 +43,7 @@ public class PartnerController {
         return "passwdCheck/passwdCheckPartner";
     }
     
-    @PostMapping("/loginCheck/passwdCheckPartner")
+    @PostMapping("/passwdCheckPartner")
     public String passwdCheck(String user_pw, HttpSession session) {
         String page = (String)session.getAttribute("page");
         MemberDTO login = (MemberDTO) session.getAttribute("login");
@@ -88,12 +88,12 @@ public class PartnerController {
 	}
 	//파트너 마이페이지
 	@RequestMapping("/partnerCheck/PartnerMypage")
-	public String PartnerMypage(HttpSession session,RedirectAttributes attr) {
+	public String PartnerMypage(HttpSession session,Model model) {
 		MemberDTO mdto=(MemberDTO) session.getAttribute("login");
 		String user_id=mdto.getUser_id();
 		PartnerDTO pdto=pservice.partnerSelect(user_id);
-		attr.addFlashAttribute("pdto",pdto);
-		return "redirect:/partnerMypage";
+		model.addAttribute("pdto",pdto);
+		return "partnerMypage";
 	}
 
 	//마이페이지 수정
@@ -130,43 +130,55 @@ public class PartnerController {
 		}
 		return "redirect:/";
 	}
-
-	//레포츠 등록
-	@RequestMapping("/LeportsAdd")
-	public String ProductAdd(@ModelAttribute("LeportsForm")LeportsDTO dto,HttpSession session,RedirectAttributes attr) {
-		PartnerDTO pdto=(PartnerDTO) session.getAttribute("partner");
-		String partner_id=pdto.getPartner_id();
-		dto.setPartner_id(partner_id);
-		pservice.leportsInsert(dto);
-		session.setAttribute("leports",dto);
-		attr.addFlashAttribute("LeportsForm",dto);
-		return "redirect:/LeportsIdSelect";
-	}
-
-	//레포츠 아이디찾기
-	@RequestMapping("/LeportsIdSelect")
-	public String LeportsIdSelect(Model model) {
-		String leports_id=pservice.leportsIdSelect();
-		model.addAttribute("leports_id", leports_id);
+	
+	//레포츠 세션 저장
+	@RequestMapping("/LeportsAdd")//레포츠dto 세션저장
+	public String LeportsAdd(LeportsDTO ldto,HttpSession session) {
+		session.setAttribute("ldto", ldto);
+		System.out.println(ldto);
 		return "productRegistrationForm_item";
 	}
-
-	//레포츠 아이템 등록
-	@RequestMapping("/ItemAdd")
-	public String ItemAdd(LeportsItemDTO dto,String[] leports_item_title, String[] leports_summary,
-			int[] leports_price, int[] leports_max_capacity,String leports_id,RedirectAttributes attr) {
+	//레포츠 DB저장
+	@RequestMapping("/LeportsAddDB") 
+	public String LeportsAddDB(HttpSession session,LeportsItemDTO idto,
+			String[] leports_item_title,String[] leports_summary,
+			int[] leports_price, int[] leports_max_capacity){
 		
+		PartnerDTO pdto=(PartnerDTO)session.getAttribute("partner");
+		String partner_id=pdto.getPartner_id();
+		LeportsDTO ldto=(LeportsDTO)session.getAttribute("ldto");
+		ldto.setPartner_id(partner_id);
+		pservice.leportsInsert(ldto);		
+		System.out.println(ldto);
 		for(int i=0; i<leports_item_title.length; i++) {
-			dto.setLeports_item_title(leports_item_title[i]);
-			dto.setLeports_summary(leports_summary[i]);
-			dto.setLeports_price(leports_price[i]);
-			dto.setLeports_max_capacity(leports_max_capacity[i]);
-			pservice.leportsItemInsert(dto);
+			session.setAttribute("leports_item_title", leports_item_title);
+			session.setAttribute("leports_summary", leports_summary);
+			session.setAttribute("leports_price", leports_price);
+			session.setAttribute("leports_max_capacity", leports_max_capacity);
 		}
-		attr.addFlashAttribute("partnermesg", "상품이 등록되었습니다.");
+		return "redirect:/ItemAddTest";
+	}
+	//아이템 DB저장
+	@RequestMapping("/ItemAddTest")
+	public String ItemAddTest(HttpSession session,RedirectAttributes attr) {
+		String leports_id=pservice.leportsIdSelect();
+		String[] leports_item_title=(String[])session.getAttribute("leports_item_title");
+		String[] leports_summary=(String[])session.getAttribute("leports_summary");
+		int[] leports_price=(int[])session.getAttribute("leports_price");
+		int[] leports_max_capacity=(int[])session.getAttribute("leports_max_capacity");
+		for(int i=0; i<leports_item_title.length; i++) {
+			LeportsItemDTO idto=new LeportsItemDTO();
+			idto.setLeports_id(leports_id);
+			idto.setLeports_item_title(leports_item_title[i]);
+			idto.setLeports_summary(leports_summary[i]);
+			idto.setLeports_price(leports_price[i]);
+			idto.setLeports_max_capacity(leports_max_capacity[i]);
+			pservice.leportsItemInsert(idto);
+		}
+		attr.addFlashAttribute("partnermesg","상품이 등록되었습니다.");
 		return "redirect:/MainPartner";
 	}
-
+	
 	//레포츠 등록 리스트
 	@GetMapping("/partnerCheck/LeportsAddList")
 	public String LeportsAddList(HttpSession session,Model model) {

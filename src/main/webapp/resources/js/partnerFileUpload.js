@@ -73,21 +73,21 @@ function getContextPath() {
 	return location.href.substring( hostIndex, location.href.indexOf('/', hostIndex + 1) );
 }
 
-//uploadResult.on("click","span",function(e){
-//	let targetFile = $(this).data("file");
-//	let type = $(this).data("type");
-//	let name = $(this).data("name");
-//	let targetLi = $(this).closest("li");
-//	console.log(targetFile);
-//	$.ajax({
-//		url: getContextPath()+'/deleteFile',
-//		data: {fileName: targetFile, type:type},
-//		dataType: 'text',
-//		type: 'POST',
-//		success: function(result){
-//			alert(result);
-//			targetLi.remove();
-//			$(`input[name='${name}'`).val("");
-//		}
-//	});
-//})
+uploadResult.on("click","span",function(e){
+	let targetFile = $(this).data("file");
+	let type = $(this).data("type");
+	let name = $(this).data("name");
+	let targetLi = $(this).closest("li");
+	console.log(targetFile);
+	$.ajax({
+		url: getContextPath()+'/deleteFile',
+		data: {fileName: targetFile, type:type},
+		dataType: 'text',
+		type: 'POST',
+		success: function(result){
+			alert(result);
+			targetLi.remove();
+			$(`input[name='${name}'`).val("");
+		}
+	});
+})
