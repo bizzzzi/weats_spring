@@ -83,9 +83,9 @@
 	              <option value="세종">세종특별자치시</option>
 	              <option value="경기">경기도</option>
 	              <option value="강원">강원도</option>
-	              <option value="충청도">충청도</option>
-	              <option value="전라도">전라도</option>
-	              <option value="경상도">경상도</option>
+	              <option value="충청">충청도</option>
+	              <option value="전라">전라도</option>
+	              <option value="경상">경상도</option>
 	              <option value="제주">제주도</option>
 	            </select>
 	          </div>

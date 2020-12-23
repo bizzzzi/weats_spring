@@ -9,13 +9,39 @@
 <head>
   <meta charset="UTF-8">
   <title>Insert title here</title>
+  <script src="http://malsup.github.com/jquery.form.js"></script>
+	<style>
+		.uploadResult{
+			display: flex;
+			width: 100%;
+			margin-top: 30px;
+		}
+		.uploadResult li{
+			width: 30%;
+			margin: 10px;
+		}
+		.uploadResult li img{
+			width: 100%;
+			height: 60%;
+			object-fit: cover;
+		}
+		.ex_file{
+			color: black;
+			border: 1px solid rgba(0, 0, 0, 0.15);
+			border-radius: 0.25rem;
+			background-clip: padding-box;
+			margin: 0;
+			padding: 1px 10px;
+		}
+
+	</style>
 </head>
 <body>
   <header class="header">
     <h1 class="partner_title">상품 상세페이지(파트너용)</h1>
   </header>
   <div class="partner_form" id="partner">
-    <form method="post" class="partnerAllForm">
+    <form method="post" class="partnerAllForm leportsForm">
       <input type="hidden" name="leports_id" value="${ldto.leports_id}"> 
       <input type="hidden"  id="leports_loc" value="${ldto.leports_loc}"> 
       <input type="hidden"  id="leports_type" value="${ldto.leports_type}"> 
@@ -28,23 +54,39 @@
 	            <textarea name="leports_content" class="leports_content" cols="30"
 	              rows="10">${ldto.leports_content}</textarea>
 
-	        <div class="title">대표 사진*</div>
-	            <input class="leports_main_img" name="leports_main_img" type="file" accept="img/*">
-
-	        <div class="title">서브 사진</div>
-	            <input class="leports_sub_img1" name="leports_sub_img1" type="file" accept="img/*">
-	            <input class="leports_sub_img2" name="leports_sub_img2" type="file" accept="img/*">
-	            <input class="leports_sub_img3" name="leports_sub_img3" type="file" accept="img/*">
-	            <input class="leports_sub_img4" name="leports_sub_img4" type="file" accept="img/*">
-
-			<div class="imageFlex">
-				<img src="/weats/display?fileName=${ldto.leports_main_img}">
-				<img src="/weats/display?fileName=${ldto.leports_sub_img1}">
-				<img src="/weats/display?fileName=${ldto.leports_sub_img2}">
-				<img src="/weats/display?fileName=${ldto.leports_sub_img3}">
-				<img src="/weats/display?fileName=${ldto.leports_sub_img4}">
-			</div>
-
+		
+			<form id="uploadForm" method="post" enctype="multipart/form-data">
+				<div class="form-control" style="height: auto">
+					<label for="ex_file" class="ex_file">업로드</label> 첫 등록된 이미지가 메인 이미지가 됩니다.
+					<input type="file" name="uploadFile" class="file" multiple style="display: none" id="ex_file"><br>
+					<div>
+						<ul class="uploadResult">
+							<c:if test="${ldto.leports_main_img != null}">
+								<li><img src="/weats/display?fileName=${ldto.leports_main_img}"><span data-name="leports_main_img" data-file=\'${ldto.leports_main_img}\' data-type="image">X</span></li>
+							</c:if>
+							<c:if test="${ldto.leports_sub_img1 != null}">
+								<li><img src="/weats/display?fileName=${ldto.leports_sub_img1}"><span data-name="leports_sub_img1" data-file=\'${ldto.leports_sub_img1}\' data-type="image">X</span></li>
+							</c:if>
+							<c:if test="${ldto.leports_sub_img2 != null}">
+								<li><img src="/weats/display?fileName=${ldto.leports_sub_img2}"><span data-name="leports_sub_img2" data-file=\'${ldto.leports_sub_img2}\' data-type="image">X</span></li>
+							</c:if>
+							<c:if test="${ldto.leports_sub_img3 != null}">
+								<li><img src="/weats/display?fileName=${ldto.leports_sub_img3}"><span data-name="leports_sub_img3" data-file=\'${ldto.leports_sub_img3}\' data-type="image">X</span></li>
+							</c:if>
+							<c:if test="${ldto.leports_sub_img4 != null}">
+								<li><img src="/weats/display?fileName=${ldto.leports_sub_img4}"><span data-name="leports_sub_img4" data-file=\'${ldto.leports_sub_img4}\' data-type="image">X</span></li>
+							</c:if>
+						</ul>
+					</div>
+					<div class="uploadBox" style="height: 0">
+						<input type="hidden" name="leports_main_img" class="leports_main_img" value="${ldto.leports_main_img}"><br>
+						<input type="hidden" name="leports_sub_img1" value="${ldto.leports_sub_img1}"><br>
+						<input type="hidden" name="leports_sub_img2" value="${ldto.leports_sub_img2}"><br>
+						<input type="hidden" name="leports_sub_img3" value="${ldto.leports_sub_img3}"><br>
+						<input type="hidden" name="leports_sub_img4" value="${ldto.leports_sub_img4}"><br>
+					</div>
+				</div>
+				
 	        <div class="title">지역 카테고리*</div>
 	          <div>
 	            <select name="leports_loc" id="locSelect" class="leports_loc">
@@ -59,9 +101,9 @@
 	              <option value="세종">세종특별자치시</option>
 	              <option value="경기">경기도</option>
 	              <option value="강원">강원도</option>
-	              <option value="충청도">충청도</option>
-	              <option value="전라도">전라도</option>
-	              <option value="경상도">경상도</option>
+	              <option value="충청">충청도</option>
+	              <option value="전라">전라도</option>
+	              <option value="경상">경상도</option>
 	              <option value="제주">제주도</option>
 	            </select>
 	          </div>

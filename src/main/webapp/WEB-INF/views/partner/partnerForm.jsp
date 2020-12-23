@@ -3,14 +3,47 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
+	  <script src="http://malsup.github.com/jquery.form.js"></script>
+	<style>
+		.uploadResult{
+			display: flex;
+			width: 100%;
+			margin-top: 30px;
+			justify-content: center;
+		}
+		.uploadResult li{
+			width: 100%;
+			margin: 10px;
+			height: 100%;
+		}
+		.uploadResult li img{
+			width: 100%;
+			height: 60%;
+			object-fit: cover;
+		}
+		.ex_file{
+			color: black;
+			border: 1px solid rgba(0, 0, 0, 0.15);
+			border-radius: 0.25rem;
+			background-clip: padding-box;
+			margin: 0;
+			padding: 1px 10px;
+		}
+		.form-control.partner{
+			width: 50%;
+			margin: auto;
+		}
+		.form-control.partner span{
+			display: none;
+		}
+	</style>
 <header class="header">
       <h1 class="main_title">파트너 등록</h1>
       <hr>
   </header>
 
   <div class="partner_form" id="partner">
-    <form action="PartnerAdd" method="post" class="partnerAllForm">
+    <form action="PartnerAdd" method="post" class="partnerAllForm partnerform">
     	
 		<div class="formBox">
 	        <div class="title">상호 이름*</div>
@@ -36,16 +69,21 @@
         	<div class="title">사업자 번호*</div>
           	<input type="text" name="partner_license_num" class="partner_license_num" size="23" maxlength="10"
             placeholder="하이픈(-)은 빼고 입력해주세요.">
-
-	        <div class="title">사업자 등록증*</div>     
-	        <div class="guide_img">
-	            <input type="file" id="image_upload" class="image_inputType_file" name="partner_license_docs" accept="img/*"
-	              onchange="thumbnail(this);" />
-	            <div id="image_container">
-	              <!-- 사진을 미리 보여줄 영역 -->
-	              <img src="#" alt="" />
-	            </div>
-	         </div>
+			
+			<div class="title">사업자 등록증*</div>
+			<form id="uploadForm" method="post" enctype="multipart/form-data">
+				<div class="form-control partner" style="height: auto">
+					<label for="ex_file" class="ex_file">업로드</label> 사업자 등록증을 첨부해주세요.
+					<input type="file" name="uploadFile" class="file" style="display: none" id="ex_file"><br>
+					<div>
+						<ul class="uploadResult">
+						</ul>
+					</div>
+					<div class="uploadBox" style="height: 0">
+						<input type="hidden" name="partner_license_docs" class="partner_license_docs"><br>
+					</div>
+				</div>
+			
 	          <div class="comment">
 	            <small>사업자 등록증 사진을 업로드해주세요.</small><br> <small>이미지 규격은 '*'을 권장합니다.</small>
 	          </div>

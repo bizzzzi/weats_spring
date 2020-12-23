@@ -30,5 +30,6 @@
 </div>
 <script type="text/javascript" src="js/partnerInput.js"></script>
 <script type="text/javascript" src="js/selectOption.js"></script>
+<script type="text/javascript" src="js/leportsFileUpload.js"></script>
 </body>
 </html>
