@@ -1,7 +1,7 @@
 
 // 사업자 등록 번호 유효성 검사
 
-function checkCorporateRegistrationNumber() {
+function checkBusinessNumber() {
 	const partnerLicenseNum = document.querySelector('.partner_license_num');
 	const messageBox = document.querySelector('.partner_license_num_alert');
 	const value  = partnerLicenseNum.value.split('').map(Number); // 배열 요소를 숫자로 변환
