@@ -27,13 +27,12 @@
 		</div>
 		<div class="adminBtn">
 			<c:if test="${dto.memberDTO.partner_verify eq 1}">
-				<a href="partnerConfirm?uID=${dto.memberDTO.user_id}">파트너 승인</a>
-				<a href="partnerConfirm?uID=${dto.memberDTO.user_id}&reject=reject">파트너 승인</a>
+				<span class="emailBtn"><a href="partnerConfirm?uID=${dto.memberDTO.user_id}">파트너 승인</a></span>
+				<span class="emailBtn"><a href="partnerConfirm?uID=${dto.memberDTO.user_id}&reject=reject">파트너 비승인</a></span>
 			</c:if>
 			<c:if test="${dto.memberDTO.partner_verify eq 2}">
 				<h2>승인완료</h2>
 			</c:if>
-	비
 </div>
 </div>
 
