@@ -1,5 +1,6 @@
 <%@page import="com.dto.MemberDTO"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="regExpPhone" value="01([0|1|6|7|8|9]?)([0-9]{8,9})"/>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -51,7 +52,7 @@
 
 	        <div class="title">연락처*</div>
 	        <div class="comment">상시 가능한 연락처를 입력해주세요.</div>
-			<input type="text" name="c_phone" class="c_phone" size="23" maxlength="11" placeholder="하이픈(-)은 빼고 입력해주세요.">
+			<input type="text" name="c_phone" class="c_phone" pattern="${regExpPhone}" title="올바른 전화번호 형식이 아닙니다.(숫자만 입력)" maxlength="11" size="23" maxlength="11" placeholder="하이픈(-)은 빼고 입력해주세요.">
 
 	        <div class="title">주소*</div>
 	          <div class="post">
@@ -67,9 +68,13 @@
      		 </div>
 
         	<div class="title">사업자 번호*</div>
-          	<input type="text" name="partner_license_num" class="partner_license_num" size="23" maxlength="10"
+          	<input type="text" onkeyup="checkBusinessNumber()" name="partner_license_num" class="partner_license_num" size="23" maxlength="10"
             placeholder="하이픈(-)은 빼고 입력해주세요.">
-			
+
+            <div class="partner_license_num_alert" style="display:none">
+            사업자 번호가 올바르지 않습니다.
+            </div>
+
 			<div class="title">사업자 등록증*</div>
 			<form id="uploadForm" method="post" enctype="multipart/form-data">
 				<div class="form-control partner" style="height: auto">
@@ -83,7 +88,7 @@
 						<input type="hidden" name="partner_license_docs" class="partner_license_docs"><br>
 					</div>
 				</div>
-			
+
 	          <div class="comment">
 	            <small>사업자 등록증 사진을 업로드해주세요.</small><br> <small>이미지 규격은 '*'을 권장합니다.</small>
 	          </div>
