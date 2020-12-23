@@ -35,8 +35,11 @@
      		 </div>
 
         	<div class="title">사업자 번호*</div>
-          	<input type="text" name="partner_license_num" class="partner_license_num" size="23" maxlength="10"
+          	<input type="text" onkeyup="checkBusinessNumber()" name="partner_license_num" class="partner_license_num" size="23" maxlength="10"
             placeholder="하이픈(-)은 빼고 입력해주세요.">
+            <div class="partner_license_num_alert" style="display:none">
+            사업자 번호가 올바르지 않습니다.
+            </div>
 
 	        <div class="title">사업자 등록증*</div>     
 	        <div class="guide_img">
