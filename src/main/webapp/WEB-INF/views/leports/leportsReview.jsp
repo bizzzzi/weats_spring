@@ -8,10 +8,10 @@
 	<c:forEach var="dto" items="${leportsReview}" varStatus="status">
 		<hr>
 		<div class="review_list" data-value="${status.index}">
+			<div class="leports_review_star">★${dto.review_star}</div>
 			<div class="review_email">${dto.user_email}</div>
 			<div>${dto.review_comments}</div>
 			<div class="review_regidate">${dto.review_regidate}</div>
-			<div>리뷰 점수 : ${dto.review_star}</div>
 		</div>
 	</c:forEach>
 	<div class="review_btn_wrap">
