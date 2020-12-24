@@ -1,9 +1,8 @@
 const path = document.querySelector(".path").value;
 const tomail = document.querySelector(".tomail").value;
-console.log(path);
 if(path.search("adminCheck") !== -1){
     $(".answerForm").on("submit", function() {
-        console.log('xxxxx');
+        console.log('answerMail');
         $.ajax({
             type : "POST",
             url : "answerMail", // 서버 주소

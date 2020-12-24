@@ -22,7 +22,8 @@ function checkBusinessNumber() {
         	const partnerFormBtn = document.querySelector('.partnerFormBtn');
         	partnerFormBtn.type = 'button'; // input타입을 button으로 변경하여 폼 제출을 막아줌
         	partnerFormBtn.addEventListener('click',()=>{
-        		alert('사업자 번호가 올바른지 확인해주세요.');
+        	  partnerLicenseNum.value = "";
+            partnerLicenseNum.focus();
         	})
         	messageBox.style.display = 'block';
         }else{

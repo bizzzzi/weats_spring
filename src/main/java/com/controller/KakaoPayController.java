@@ -113,8 +113,6 @@ public class KakaoPayController {
         map.put("user_id", user_id);
         map.put("reservation_id", reservation_id);
         service.deleteReserve(map);
-
-
         leportsService.reserveCountDown(leports_id);
         rttr.addAttribute("leports_id", leports_id);
 //        service.deleteReserveItem(reservation_id);
@@ -143,6 +141,7 @@ public class KakaoPayController {
             model.addAttribute("cancel_info", kakaopay.kakaopayCancel(tid, rs_price));
             service.deleteReserve(map);
             leportsService.reserveCountDown(leports_id);
+            session.removeAttribute("leports_id");
             session.removeAttribute("reservation_id");
             session.removeAttribute("rs_price");
         }

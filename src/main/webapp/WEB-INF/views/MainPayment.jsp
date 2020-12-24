@@ -83,7 +83,7 @@
   			<div class="input-group-prepend">
     	    	<span class="input-group-text" id="basic-addon1">이메일</span>
   		    </div>
-  			<input type="text" class="form-control rs_email_js" aria-describedby="basic-addon1"
+  			<input type="text" class="form-control rs_email_js" name="rs_email" aria-describedby="basic-addon1"
                     pattern="${regExpEmail}" title="올바른 이메일 형식이 아닙니다.">
 		  </div>
         </div>
