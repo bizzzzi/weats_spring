@@ -746,6 +746,9 @@ video {
 #leports_Detail .leports_item_title {
 	font-size: 18px;
 	font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 #leports_Detail .leports_item_summary {
