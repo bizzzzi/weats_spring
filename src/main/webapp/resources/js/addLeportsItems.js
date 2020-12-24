@@ -24,7 +24,7 @@ ItemAddForm.addEventListener('submit', function(e) {
 	let leports_price = document.querySelectorAll('.leports_price');
 	let leports_max_capacity = document.querySelectorAll('.leports_max_capacity');
 	
-	for(let i = 0; i < leports_item_title.length; i++) {
+	for(let i = 1; i < leports_item_title.length; i++) {
 		if(leports_item_title[i].value === "") {
 			alert("레포츠 아이템이름을 입력해주세요.");
 			e.preventDefault();
@@ -49,3 +49,4 @@ ItemAddForm.addEventListener('submit', function(e) {
 	}
 	
 });
+
