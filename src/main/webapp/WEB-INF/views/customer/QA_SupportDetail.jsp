@@ -15,7 +15,7 @@
             </div>
 
             <div class="how_footer">
-                <h2>weats에 더 궁금한 점이 있으신가요?</h2>
+                <h2>Weats에 더 궁금한 점이 있으신가요?</h2>
                 <a href="${rootPath}/supportList?s_type=자주 묻는 질문">자주 묻는 질문 확인하기</a>
             </div>
     </section>

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Weats</title>
 <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
