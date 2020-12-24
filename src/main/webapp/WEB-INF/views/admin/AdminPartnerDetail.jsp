@@ -22,7 +22,7 @@
 			</div>
 			<div class="detail">
 				<span class="detail_title">사업 등록증</span>
-				<span class="detail_content"><img src="images/${dto.partner_license_docs}"></span>
+				<span class="detail_content"><img src="/weats/display?fileName=${dto.partner_license_docs}"></span>
 			</div>
 		</div>
 		<div class="adminBtn">

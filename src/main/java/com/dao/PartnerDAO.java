@@ -108,5 +108,5 @@ public class PartnerDAO {
 		List<ReservationControlDTO> list=template.selectList("ReservationControl",leports_id);
 		return list;
 	}
-	
+
 }

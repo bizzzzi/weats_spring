@@ -62,7 +62,7 @@ public class PartnerController {
             }
         } else { //비번 인증 실패 시
             session.setAttribute("mesg", "비밀번호를 잘못 입력하셨습니다.");
-            next = "redirect:passwdCheck";
+            next = "redirect:CheckPartner";
         }
         return next;
     }
@@ -211,7 +211,7 @@ public class PartnerController {
 			idto.setLeports_max_capacity(leports_max_capacity[i]);
 			idto.setLeports_price(leports_price[i]);
 			idto.setLeports_summary(leports_summary[i]);
-			int n=pservice.ProductUpdateItem(idto);
+			pservice.ProductUpdateItem(idto);
 		}
 		attr.addFlashAttribute("partnermesg","상품정보가 수정되었습니다.");
 		return "redirect:/MainPartner";
