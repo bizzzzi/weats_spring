@@ -42,6 +42,29 @@
 	</header>
 	<div class="partner_form item">
 		<form action="LeportsAddDB" method="post" id="ItemAddForm" class="partnerAllForm item">
+		<div id="pre_set" class="itemform">
+			<div class="item_wrap">
+				<div class="formBox item">			
+					<div class="title">레포츠 아이템 이름</div>
+					<input type="text" name="leports_item_title" class="leports_item_title" placeholder="ex) 서핑(2시간)">
+				</div>
+				<div class="formBox item">		
+					<div class="title">한줄 요약</div>
+					<input type="text" name="leports_summary" class="leports_summary" placeholder="ex) 강습시간: 9:30~11:30">
+				</div>
+			</div>
+			<div class="item_wrap">
+				<div class="formBox item">
+					<div class="title">가격(원)</div>
+					<input type="number" name="leports_price" class="leports_price" placeholder="숫자만 입력해주세요.">
+				</div>
+				<div class="formBox item">	
+					<div class="title">최대 수용 인원</div>
+					<input type="number" name="leports_max_capacity" class="leports_max_capacity" placeholder="숫자만 입력해주세요.">				
+				</div>
+			</div>	
+				
+			</div>
 				<div id="addItemList">
 					<!-- leports_item이 추가되는 영역 -->
 				</div>
