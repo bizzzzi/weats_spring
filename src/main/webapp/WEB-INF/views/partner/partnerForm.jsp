@@ -67,7 +67,7 @@
 	          alt="접기 버튼">
      		 </div>
 
-        	<div class="title">사업자 번호*</div>
+        	<div class="title">사업자 등록번호*</div>
           	<input type="text" onkeyup="checkBusinessNumber()" name="partner_license_num" class="partner_license_num" size="23" maxlength="10"
             placeholder="하이픈(-)은 빼고 입력해주세요.">
 

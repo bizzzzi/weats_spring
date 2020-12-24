@@ -30,5 +30,6 @@
 </div>
 <script type="text/javascript" src="js/partnerInput.js"></script>
 <script type="text/javascript" src="js/partnerFileUpload.js"></script>
+<script type="text/javascript" src="js/businessNumber.js"></script>
 </body>
 </html>

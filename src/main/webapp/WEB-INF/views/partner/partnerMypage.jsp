@@ -1,6 +1,7 @@
 <%@page import="com.dto.MemberDTO"%>
 <%@page import="com.dto.PartnerDTO"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="regExpPhone" value="01([0|1|6|7|8|9]?)([0-9]{8,9})"/>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -51,7 +52,7 @@
 	
 	        <div class="title">연락처*</div>
 	        <div class="comment">상시 가능한 연락처를 입력해주세요.</div>
-	        <input type="text" class="c_phone" name="c_phone" value="${pdto.c_phone}">
+	        <input type="text" class="c_phone" name="c_phone" value="${pdto.c_phone}" pattern="${regExpPhone}" title="올바른 전화번호 형식이 아닙니다.(숫자만 입력)" maxlength="11" size="23" maxlength="11" placeholder="하이픈(-)은 빼고 입력해주세요.">
  	
 	        <div class="title">주소*</div>
 	          <div class="post">
@@ -62,8 +63,12 @@
 	          </div>
 	      
 	        <div class="title">사업자 등록번호*</div>
-	          <input type="text" name="partner_license_num" class="partner_license_num" size="23" maxlength="10" 
-	          value="${pdto.partner_license_num}">
+	          <input type="text" onkeyup="checkBusinessNumber()" name="partner_license_num" class="partner_license_num" size="23" maxlength="10" 
+	          placeholder="하이픈(-)은 빼고 입력해주세요." value="${pdto.partner_license_num}">
+	
+            <div class="partner_license_num_alert" style="display:none">
+            사업자 번호가 올바르지 않습니다.
+            </div>
 	
 			<div class="title">사업자 등록증*</div>
 			<form id="uploadForm" method="post" enctype="multipart/form-data">
@@ -83,7 +88,7 @@
 				</div>
 		</div>
       <div class="partnerBtn info">
-        <input class="submitBtn Btn" onclick="nullCheck()" type="submit" formaction="loginCheck/CheckPartner?page=partnerUpdate" value="정보 수정">
+        <input class="partnerFormBtn submitBtn Btn" onclick="nullCheck()" type="submit" formaction="loginCheck/CheckPartner?page=partnerUpdate" value="정보 수정">
         <!-- 비밀번호 인증 후 파트너 정보 수정 -->
         <input class="cancleBtn Btn" type="reset" value="작성취소">
         <!-- 정보 초기화 버튼 -->
