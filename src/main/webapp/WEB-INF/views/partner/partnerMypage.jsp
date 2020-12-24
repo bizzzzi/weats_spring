@@ -54,9 +54,11 @@
 	        <input type="text" class="c_phone" name="c_phone" value="${pdto.c_phone}">
  	
 	        <div class="title">주소*</div>
-	          <div class="post">
+	          <div class="post my">
+	          <div class="postTop">
 	          	<input type="button" class="postBtn" onclick="sample4_execDaumPostcode()" value="우편번호 찾기">
 	            <input type="text" name="c_postnum" id="sample4_postcode" value="${pdto.c_postnum}">            
+	          </div>  
 	            <input type="text" name="c_address" id="sample4_roadAddress" value="${pdto.c_address}">
 	            <input type="text" name="c_detail_address" id="c_detail_address" value="${pdto.c_detail_address}">
 	          </div>

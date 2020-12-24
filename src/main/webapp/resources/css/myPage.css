@@ -6,7 +6,7 @@
 	display: flex;
 	flex-direction: column;
 	text-align: center;
-	background: #95CEF7;
+	background: #51ABF3;
 	padding: 30px 0;
 	font-size: 1em;
 }
@@ -27,7 +27,8 @@
   	color:#f8fafa;
 }
 #mypageSideMenu a:hover{
-	background: #ABDEFB;
+	background: #6dbaf5;
+	text-decoration: none;
 }
 #myPageWrap {
 	display:flex;
