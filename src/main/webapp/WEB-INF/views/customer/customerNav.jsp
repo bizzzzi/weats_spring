@@ -23,6 +23,4 @@
             <li><a href="${path}/loginCheck/userQuestionList"><span>나의 문의 내역</span></a></li>
         </ul>
     </div>
-<script>
-    const
-</script>
+

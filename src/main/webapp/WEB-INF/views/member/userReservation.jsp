@@ -19,6 +19,7 @@
                 <span class="top_date">예약일: ${item.rs_date}</span>
             </div>
             <div class="myreserve">
+                <span> 예약 번호 : ${item.reservation_id}</span>
                 <span> 예약 아이템 : ${item.rs_item_name}</span>
                 <span> 주소 : ${item.c_address} - ${item.c_detail_address}</span>
                 <span> 파트너 연락처 : ${item.c_phone}</span>

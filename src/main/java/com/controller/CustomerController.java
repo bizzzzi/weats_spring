@@ -25,7 +25,7 @@ public class CustomerController {
 
     @Autowired
     MemberService memberService;
-    
+
     private static final Logger logger = LoggerFactory.getLogger(CustomerController.class.getSimpleName());
 
     @RequestMapping("/QA_Support")
@@ -98,7 +98,6 @@ public class CustomerController {
     //1대1 문의 상세 페이지
     @GetMapping(value = {"/adminCheck/questionDetail", "/loginCheck/questionDetail"})
     public String AdminQuestionDetail(@RequestParam("q_group") String question_group, Model model, HttpServletRequest request) {
-        System.out.println("넘어옴");
         List<CustomerQnADTO> customerQnADTOList = customerService.questionDetail(question_group);
         CustomerQnADTO customerQnADTO = customerQnADTOList.get(0); //원 게시글
         customerQnADTOList.remove(0); //리스트에서 원 게시글 삭제
