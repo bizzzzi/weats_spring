@@ -13,13 +13,7 @@
 	<link rel="stylesheet" href="css/partner.css">
 </head>
 <body>
-	<header class="header">
-		<h1 class="main_title">상품 등록</h1>
-	</header>
-	<div class="partner_form item">
-		<form action="LeportsAddDB" method="post" id="ItemAddForm" class="partnerAllForm item">
-			
-			<div id="pre_set" class="itemform">
+<div id="pre_set" class="itemform" style="display:none;">
 			<div class="child" onclick="deleteParent(this)" style="float: right;">❌</div>
 			<div class="item_wrap">
 				<div class="formBox item">			
@@ -43,6 +37,11 @@
 			</div>	
 				
 			</div>
+	<header class="header">
+		<h1 class="main_title">상품 등록</h1>
+	</header>
+	<div class="partner_form item">
+		<form action="LeportsAddDB" method="post" id="ItemAddForm" class="partnerAllForm item">
 				<div id="addItemList">
 					<!-- leports_item이 추가되는 영역 -->
 				</div>
