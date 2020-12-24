@@ -83,7 +83,7 @@
 				<!-- for문 돌려서 반복 출력 -->
 				<c:forEach var="dto" items="${leportsDetail}">
 					<div class="list_item_info">
-						<div>
+						<div style="width: 33%;">
 							<div class="leports_item_title">${dto.leports_item_title}</div>
 							<div class="leports_item_summary">${dto.leports_summary}</div>
 							<div class="leports_item_mc">예약 가능 인원 : ${dto.leports_max_capacity}</div>
