@@ -44,15 +44,16 @@ public class MemberManagerController {
     private static final Logger logger = LoggerFactory.getLogger(MemberManagerController.class.getSimpleName());
 
     @GetMapping("/loginCheck/passwdCheck")
-    public String passwdCheckPage(String page, String reservation_id, String rs_price, HttpSession session) {
+    public String passwdCheckPage(String page, String reservation_id, String leports_id, String rs_price, HttpSession session) {
         if(page != null) {
             session.setAttribute("page", page);
         }
         if(reservation_id != null && rs_price != null) {
-
             session.setAttribute("reservation_id", reservation_id);
             session.setAttribute("rs_price", rs_price);
         }
+        logger.debug("레포츠 아이디 : {} ", leports_id);
+        if(leports_id != null) session.setAttribute("leports_id", leports_id);
         return "passwdCheck/passwdCheck";
     }
     @PostMapping("/loginCheck/passwdCheck")
@@ -60,7 +61,6 @@ public class MemberManagerController {
         String page = (String)session.getAttribute("page");
         MemberDTO login = (MemberDTO) session.getAttribute("login");
         String user_email = login.getUser_email();
-
         MemberDTO dto = userVerify.verify(user_email, user_pw);
 
         String next = "";

@@ -12,7 +12,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Weats</title>
 	<script src="http://malsup.github.com/jquery.form.js"></script>
 	<style>
 		.uploadResult{

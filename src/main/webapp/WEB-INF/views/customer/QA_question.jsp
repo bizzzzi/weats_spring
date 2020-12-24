@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="regExpPhone" value="01([0|1|6|7|8|9]?)([0-9]{8,9})"/>
+<c:set var="regExpEmail" value="[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}" />
     <section>
         <h2>1:1 문의하기</h2>
         <div class="questionForm">
@@ -19,7 +20,8 @@
                     </li>
                     <li>
                         <strong>이메일 주소</strong>
-                        <input type="text" name="user_email" class="user_email"/>
+                        <input type="text" name="user_email" class="user_email" pattern="${regExpEmail}"
+                               title="올바른 이메일 형식이 아닙니다." />
                     </li>
                     <li>
                         <strong>이름</strong>
