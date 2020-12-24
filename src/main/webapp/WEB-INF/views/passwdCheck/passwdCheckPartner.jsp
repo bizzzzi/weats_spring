@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="../css/style.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
 <c:if test="${mesg != null}">
@@ -46,6 +46,6 @@
 	}
 	})
 	</script>
-<script type="text/javascript" src="../js/regExp.js"></script>
+<script type="text/javascript" src="js/regExp.js"></script>
 </body>
 </html>
