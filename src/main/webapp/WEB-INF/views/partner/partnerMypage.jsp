@@ -69,7 +69,7 @@
 			<form id="uploadForm" method="post" enctype="multipart/form-data">
 				<div class="form-control" style="height: auto">
 					<label for="ex_file" class="ex_file">업로드</label> 사업자 등록증을 첨부해주세요.
-					<input type="file" name="uploadFile" multiple class="file" style="display: none" id="ex_file"><br>
+					<input type="file" name="uploadFile" class="file" style="display: none" id="ex_file"><br>
 					<div>
 						<ul class="uploadResult">
 							<c:if test="${pdto.partner_license_docs != null}">
