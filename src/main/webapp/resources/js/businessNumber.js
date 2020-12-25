@@ -18,7 +18,6 @@ function checkBusinessNumber() {
            partnerLicenseNum.value = "";
            partnerLicenseNum.focus();
          })
-          messageBox.style.display = 'block';
         }else{
           messageBox.style.display = 'none';
          partnerFormBtn.type = 'submit';

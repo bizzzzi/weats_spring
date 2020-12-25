@@ -20,6 +20,7 @@ let uploadTit = $(".uploadTit");
 let inputArr = [];
 let count = 0;
 
+
 $('.file').change(function(e){
 	let formData = new FormData();
 	let inputFile = $("input[name='uploadFile']");
@@ -57,10 +58,15 @@ function showUploadedFile(uploadResultArr){
 			if(count === 0){
 				if(i === 0){ // 처음 파일 첨부할 경우 - 메인이미지
 					$("input[name='partner_license_docs']").val(`${fileCallPath}`);
-					str += `<li><img src="/weats/display?fileName=${fileCallPath}"><span data-name="partner_license_docs" data-file=\'${fileCallPath}\' data-type="image">변경 이미지</span></li>`;
+					str += `<li class="del"><img src="/weats/display?fileName=${fileCallPath}"><span data-name="partner_license_docs" data-file=\'${fileCallPath}\' data-type="image">변경 이미지</span></li>`;
 					count++;
 					console.log("count: "+count+"\t"+i);
 				}
+			}else{//처음이 아니면
+				ImageDel();
+				$("input[name='partner_license_docs']").val(`${fileCallPath}`);
+				str += `<li class="del"><img src="/weats/display?fileName=${fileCallPath}"><span data-name="partner_license_docs" data-file=\'${fileCallPath}\' data-type="image">변경 이미지</span></li>`;			
+				console.log("count: "+count+"\t"+i);
 			}
 		}
 		console.log("index:"+i);
@@ -73,21 +79,30 @@ function getContextPath() {
 	return location.href.substring( hostIndex, location.href.indexOf('/', hostIndex + 1) );
 }
 
-//uploadResult.on("click","span",function(e){
-//	let targetFile = $(this).data("file");
-//	let type = $(this).data("type");
-//	let name = $(this).data("name");
-//	let targetLi = $(this).closest("li");
-//	console.log(targetFile);
-//	$.ajax({
-//		url: getContextPath()+'/deleteFile',
-//		data: {fileName: targetFile, type:type},
-//		dataType: 'text',
-//		type: 'POST',
-//		success: function(result){
-//			alert(result);
-//			targetLi.remove();
-//			$(`input[name='${name}'`).val("");
-//		}
-//	});
-//})
+uploadResult.on("click","span",function(e){
+	let targetFile = $(this).data("file");
+	let type = $(this).data("type");
+	let name = $(this).data("name");
+	let targetLi = $(this).closest("li");
+	console.log(targetFile);
+	$.ajax({
+		url: getContextPath()+'/deleteFile',
+		data: {fileName: targetFile, type:type},
+		dataType: 'text',
+		type: 'POST',
+		success: function(result){
+			alert(result);
+			targetLi.remove();
+			$(`input[name='${name}'`).val("");
+		}
+	});
+})
+
+//작성 취소시 첨부한 이미지 삭제
+let cancleBtn=document.querySelector(".cancleBtn");
+let ImageDel=function(){
+	$('.del ').remove();
+}
+cancleBtn.addEventListener("click",ImageDel);
+
+//file 이미지 변경

@@ -55,9 +55,12 @@
 			<input type="text" name="c_phone" class="c_phone" pattern="${regExpPhone}" title="올바른 전화번호 형식이 아닙니다.(숫자만 입력)" maxlength="11" size="23" maxlength="11" placeholder="하이픈(-)은 빼고 입력해주세요.">
 
 	        <div class="title">주소*</div>
+	        
 	          <div class="post">
+	          <div class="postTop">
 	          	<input type="button" class="postBtn form" onclick="sample4_execDaumPostcode()" value="우편번호 찾기">
 	            <input type="text" name="c_postnum" id="sample4_postcode" placeholder="우편번호">
+	           </div>
 	            <input type="text" name="c_address" id="sample4_roadAddress" placeholder="도로명주소">
 	            <input type="text" name="c_detail_address" id="sample4_jibunAddress" placeholder="상세주소 입력">
 	   		  </div>

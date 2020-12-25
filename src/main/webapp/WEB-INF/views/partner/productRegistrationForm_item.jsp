@@ -9,18 +9,40 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Insert title here</title>
+	<title>Weats</title>
 	<link rel="stylesheet" href="css/partner.css">
 </head>
 <body>
+<div id="pre_set" class="itemform" style="display:none;">
+			<div class="child" onclick="deleteParent(this)" style="float: right;">❌</div>
+			<div class="item_wrap">
+				<div class="formBox item">			
+					<div class="title">레포츠 아이템 이름</div>
+					<input type="text" name="leports_item_title" class="leports_item_title" placeholder="ex) 서핑(2시간)">
+				</div>
+				<div class="formBox item">		
+					<div class="title">한줄 요약</div>
+					<input type="text" name="leports_summary" class="leports_summary" placeholder="ex) 강습시간: 9:30~11:30">
+				</div>
+			</div>
+			<div class="item_wrap">
+				<div class="formBox item">
+					<div class="title">가격(원)</div>
+					<input type="number" name="leports_price" class="leports_price" placeholder="숫자만 입력해주세요.">
+				</div>
+				<div class="formBox item">	
+					<div class="title">최대 수용 인원</div>
+					<input type="number" name="leports_max_capacity" class="leports_max_capacity" placeholder="숫자만 입력해주세요.">				
+				</div>
+			</div>	
+				
+			</div>
 	<header class="header">
 		<h1 class="main_title">상품 등록</h1>
 	</header>
 	<div class="partner_form item">
-		<form action="ItemAdd" method="post" id="ItemAddForm" class="partnerAllForm item">
-			<input type="hidden" name="leports_id" value="${leports_id}">
-			<div id="pre_set" class="itemform">
-			<div class="child" onclick="deleteParent(this)" style="float: right;">❌</div>
+		<form action="LeportsAddDB" method="post" id="ItemAddForm" class="partnerAllForm item">
+		<div id="pre_set" class="itemform">
 			<div class="item_wrap">
 				<div class="formBox item">			
 					<div class="title">레포츠 아이템 이름</div>

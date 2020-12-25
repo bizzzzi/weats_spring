@@ -104,16 +104,27 @@ a:hover {
     margin-bottom: 5px;
     width: 50%;
 }
-.formBox .postBtn.form{
-	display: block;
-    margin-bottom: 20px;
-    padding: 5px 15px;
-    margin-left: 25%;
+
+.post {
+    width: 50%;
+    margin: auto;
+}
+.post.my{
+	margin: 0;
+}
+.post input[type="text"] {
+    width: 100%;
+}
+.postTop {
+    display: flex;
+}
+ .formBox .postBtn{
+    margin-right: 10px; 
     background: #007bff;
     color: #fff;
     border: 1px solid #007bff;
     border-radius: 4px;
-}
+} 
 .formBox .postBtn.form:hover{
 	background-color: #0062cc;
 }
@@ -289,5 +300,8 @@ a:hover {
 		}
 		.partnerBtn.info input{
 			margin: 5px 0;
+		}
+		.post{
+			width: 100%;
 		}
 	 }

@@ -5,8 +5,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="../css/style.css">
+<title>Weats</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
 <c:if test="${mesg != null}">
@@ -15,8 +15,7 @@
 <c:remove var="mesg" scope="session" />
 	<div id="passwdCheckContainer">
 		<form id="passwdCheckForm" action="passwdCheckPartner" method="post">
-			<div class="logo">로고</div>
-			<div class="title">시작하기</div>
+			<div class="title">비밀번호 확인</div>
 			<div class="useremail">${login.user_email}</div>
 			<div class="comment">계속하려면 먼저 본인임을 인증하세요.</div>
 			<div class="signRow">
@@ -46,6 +45,6 @@
 	}
 	})
 	</script>
-<script type="text/javascript" src="../js/regExp.js"></script>
+<script type="text/javascript" src="js/regExp.js"></script>
 </body>
 </html>

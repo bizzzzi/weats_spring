@@ -14,8 +14,8 @@
 				<span>${dto.question_id}</span>
 			</li>
 			<li>
-				<strong>USER ID</strong>
-				<span>${dto.user_id}</span>
+				<strong>USER EMAIL</strong>
+				<span>${dto.user_email}</span>
 			</li>
 			<li>
 				<strong>제목</strong>

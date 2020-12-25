@@ -10,7 +10,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Insert title here</title>
+  <title>Weats</title>
   	<style>
 		.uploadResult{
 			display: flex;
@@ -55,9 +55,11 @@
 	        <input type="text" class="c_phone" name="c_phone" value="${pdto.c_phone}" pattern="${regExpPhone}" title="올바른 전화번호 형식이 아닙니다.(숫자만 입력)" maxlength="11" size="23" maxlength="11" placeholder="하이픈(-)은 빼고 입력해주세요.">
  	
 	        <div class="title">주소*</div>
-	          <div class="post">
+	          <div class="post my">
+	          <div class="postTop">
 	          	<input type="button" class="postBtn" onclick="sample4_execDaumPostcode()" value="우편번호 찾기">
 	            <input type="text" name="c_postnum" id="sample4_postcode" value="${pdto.c_postnum}">            
+	          </div>  
 	            <input type="text" name="c_address" id="sample4_roadAddress" value="${pdto.c_address}">
 	            <input type="text" name="c_detail_address" id="c_detail_address" value="${pdto.c_detail_address}">
 	          </div>
@@ -90,9 +92,9 @@
       <div class="partnerBtn info">
         <input class="partnerFormBtn submitBtn Btn" onclick="nullCheck()" type="submit" formaction="loginCheck/CheckPartner?page=partnerUpdate" value="정보 수정">
         <!-- 비밀번호 인증 후 파트너 정보 수정 -->
-        <input class="cancleBtn Btn" type="reset" value="작성취소">
+        <input class="cancleBtn Btn"  type="reset" value="작성취소">
         <!-- 정보 초기화 버튼 -->
-        <input class="withdrawBtn Btn" type="submit" formaction="loginCheck/CheckPartner?page=partnerDelete" value="파트너 탈퇴">
+        <input class="withdrawBtn Btn" type="submit" formaction="../CheckPartner?page=partnerDelete" value="파트너 탈퇴">
         <!-- 비밀번호 인증 후 파트너 탈퇴 -->
       </div>
     </form>

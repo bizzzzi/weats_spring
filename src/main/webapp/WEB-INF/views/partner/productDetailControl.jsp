@@ -8,7 +8,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Insert title here</title>
+  <title>Weats</title>
   <script src="http://malsup.github.com/jquery.form.js"></script>
 	<style>
 		.uploadResult{
@@ -147,7 +147,7 @@
       <div class="partnerBtn info">
         <input class="submitBtn" type="submit" formaction="ProductUpdate" value="정보 수정" onclick="productNull()">
         <input class="cancleBtn" type="reset" value="작성 취소">
-        <input class="deletetBtn" type="submit" formaction="loginCheck/CheckPartner?page=productDelete" value="상품 삭제">
+        <input class="deletetBtn" type="submit" formaction="CheckPartner?page=productDelete" value="상품 삭제">
       </div>
     </form>
   </div>
