@@ -13,6 +13,7 @@ function checkBusinessNumber() {
         let a =  Math.floor(value[9]) === (10 - (checkSum % 10));
         if(!a){
          const partnerFormBtn = document.querySelector('.partnerFormBtn');
+         messageBox.style.display = 'block';
          partnerFormBtn.type = 'button'; // input타입을 button으로 변경하여 폼 제출을 막아줌
          partnerFormBtn.addEventListener('click',()=>{
            partnerLicenseNum.value = "";
@@ -20,7 +21,10 @@ function checkBusinessNumber() {
          })
         }else{
           messageBox.style.display = 'none';
-         partnerFormBtn.type = 'submit';
+          partnerFormBtn.addEventListener('click',()=>{
+            partnerFormBtn.type = 'submit';
+          })
+
         }
     } else {
         partnerFormBtn.addEventListener('click',()=>{
