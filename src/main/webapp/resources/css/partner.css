@@ -240,19 +240,20 @@ a:hover {
     justify-content: space-around;
 }
 .partner_list{
-	padding: 10px;
+    padding: 10px;
     display: flex;
     margin: 10px;
     border-radius: 4px;
+    width: 300px;
     box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .16);
 }
 .partner_main_img{
-    width: 300px;
+    width: 280px;
     height: 200px;
     border: 1px solid #D6D6D6;
 }
 .partner_main_img img{
-	width: 300px;
+	width: 100%;
 	height: 200px;
 }
 .partner_list .partner_item_info{
