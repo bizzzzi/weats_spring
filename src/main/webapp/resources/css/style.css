@@ -584,6 +584,9 @@ video {
 
 #leports_list .leports_item_title {
 	font-weight: bold;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 #leports_list .leports_item_summary {
