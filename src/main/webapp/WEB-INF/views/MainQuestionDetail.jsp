@@ -26,11 +26,13 @@
 			<jsp:include page="customer/customerNav.jsp" flush="true"></jsp:include>
 		</c:if>
 	<div id="adminPageWrap">
-		<div id="SideMenu">
+		
 			<c:if test="${fn:contains(path,'adminCheck')}">		
-				<jsp:include page="admin/adminNav.jsp" flush="true"></jsp:include>
+				<div id="SideMenu">
+					<jsp:include page="admin/adminNav.jsp" flush="true"></jsp:include>
+				</div>
 			</c:if>
-		</div>
+		
 		<div id="adminContent">	
 			<jsp:include page="customer/QA_questionDetail.jsp" flush="true"></jsp:include>
 		</div>		
