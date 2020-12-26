@@ -41,8 +41,10 @@ public class TradeDAO {
 	}
 	public List<TradeCommentsDTO> CommentList(String trade_id) {
 		List<TradeCommentsDTO> list=template.selectList("CommentList",trade_id);
+		System.out.println("dao list: "+list);
 		return list;
 	}
+
 	public String CommentRegidate(String trade_comment_id) {
 		String regidate=template.selectOne("CommentRegidate",trade_comment_id);
 		return regidate;

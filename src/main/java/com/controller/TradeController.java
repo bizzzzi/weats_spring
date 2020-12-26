@@ -134,6 +134,7 @@ public class TradeController {
     public ModelAndView tradeDetail(String trade_id){
         TradeDTO dto=service.TradeDetail(trade_id);
         List<TradeCommentsDTO> list=service.CommentList(trade_id);
+        System.out.println("댓글리스트: "+list);
         ModelAndView mav=new ModelAndView();
         List<TradeCommentsDTO> list2=new ArrayList<>();
         for(TradeCommentsDTO x:list){

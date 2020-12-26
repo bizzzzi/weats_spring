@@ -1,8 +1,8 @@
 package com.dto;
 
-import org.springframework.stereotype.Repository;
+import org.apache.ibatis.type.Alias;
 
-@Repository
+@Alias("TradeCommentsDTO")
 public class TradeCommentsDTO {
 	private String trade_comment_id;
 	private String trade_id;
@@ -11,12 +11,15 @@ public class TradeCommentsDTO {
 	private String comment_regidate;
 	private String trade_comment_level;
 	private int trade_depth;
+
+	private MemberDTO memberDTO;
+
 	public TradeCommentsDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	public TradeCommentsDTO(String trade_comment_id, String trade_id, String user_id, String trade_comment,
-			String comment_regidate, String trade_comment_level, int trade_depth) {
+			String comment_regidate, String trade_comment_level, int trade_depth, MemberDTO memberDTO) {
 		super();
 		this.trade_comment_id = trade_comment_id;
 		this.trade_id = trade_id;
@@ -25,10 +28,13 @@ public class TradeCommentsDTO {
 		this.comment_regidate = comment_regidate;
 		this.trade_comment_level = trade_comment_level;
 		this.trade_depth = trade_depth;
+		this.memberDTO = memberDTO;
 	}
-	public String getTrade_comment_id() {
-		return trade_comment_id;
+	public MemberDTO getMemberDTO() {
+		return memberDTO;
 	}
+
+
 	public void setTrade_comment_id(String trade_comment_id) {
 		this.trade_comment_id = trade_comment_id;
 	}
@@ -68,6 +74,13 @@ public class TradeCommentsDTO {
 	public void setTrade_depth(int trade_depth) {
 		this.trade_depth = trade_depth;
 	}
+	public void setMemberDTO(MemberDTO memberDTO) {
+		this.memberDTO = memberDTO;
+	}
+	public String getTrade_comment_id() {
+		return trade_comment_id;
+	}
+
 	@Override
 	public String toString() {
 		return "TradeCommentsDTO [trade_comment_id=" + trade_comment_id + ", trade_id=" + trade_id + ", user_id="

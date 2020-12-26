@@ -85,17 +85,6 @@ function reply(e){
 		success:function(data){
 			console.log(data);
 			$(dom).parent().after(getHtml2(data.trade_comment_id,data.trade_comment,data.comment_regidate,data.user_id));
-			// $(dom).insertAdjacentHTML('afterend',`
-			// 	<div class="comment_cont re" style="margin-left: 20px;">
-			// 	<input type="hidden" name="trade_comment_id" value="${data.trade_comment_id}"/>
-			// 	<strong style="color: red">${data.user_id}</strong>
-			// 	<br>
-			// 	<span>${data.trade_comment}</span>
-			// 	<p>${data.comment_regidate}</p>
-			// 	<button class="delBtn" data-commentid="${data.trade_comment_id}" data-user="user_id">삭제</button>
-			// 	<button class="updateBtn" data-commentid="${data.trade_comment_id}" data-user="user_id">수정</button>
-			// 	</div>
-			// `);
 			$(dom).parents().filter(".recomment_cont").remove();
 		},
 		error:function(xhr,status,error){
@@ -173,27 +162,7 @@ function updateFin(e){
 	});
 
 }
-// $(".delBtn").on("click",function(){
-// var trade_comment_id=$(this).attr("data-commentid");
-// var xxx=$(this);
-// $.ajax({
-// 	url:'loginCheck/TradeCommentDelete',
-// 	type:'get',
-// 	data:{
-// 		trade_comment_id:trade_comment_id
-// 	},
-// 	success:function(data){
-// 		xxx.text("삭제삭제");
-// 		console.log(data);
-// 		/*alert("success")*/
-// 		xxx.parent().remove();
-// 	},
-// 	error:function(xhr,status,error){
-// 			alert("error");
-//
-// 		}
-// });
-// })
+
 
 $(".delBtn2").on("click",function(){
 	var trade_comment_level=$(this).attr("data-commentlevel");

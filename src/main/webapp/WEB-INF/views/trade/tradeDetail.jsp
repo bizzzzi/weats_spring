@@ -101,7 +101,7 @@
 		<c:forEach var="dto" items="${commentsList}" varStatus="status">
 			<c:if test="${dto.trade_depth eq 0}" >
 				<div class="comment_cont" id="${dto.trade_comment_id}">
-					<strong>${dto.user_id}</strong>
+					<strong>${dto.memberDTO.user_email}</strong>
 					<br>
 					<div class="commentUpdate">${dto.trade_comment}</div>
 					<div class="comment_regidate">${fn:substring(dto.comment_regidate,0,10)}</div>
@@ -113,7 +113,7 @@
 					<c:forEach var="dto2" items="${recommentsList}" varStatus="status">
 						<c:if test="${dto2.trade_comment_level eq dto.trade_comment_id}">
 							<div class="comment_cont re" id="${dto2.trade_comment_id}">
-								<strong>${dto2.user_id}</strong>
+								<strong>${dto2.memberDTO.user_email}</strong>
 								<br>
 								<div class="commentUpdate">${dto2.trade_comment}</div>
 								<div class="comment_regidate">${fn:substring(dto2.comment_regidate,0,10)}</div>
