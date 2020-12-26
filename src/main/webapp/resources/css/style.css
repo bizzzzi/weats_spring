@@ -144,8 +144,8 @@ footer {
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%, -50%);
-	width: 500px;
-	height: 550px;
+	width: 550px;
+	height: 760px;
 	background-color: #fafafa;
 	border-radius: 10px;
 	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px
@@ -201,6 +201,13 @@ footer {
 	font-size: 16px;
 	font-weight: bold;
 	cursor: pointer;
+}
+
+.privacy{
+	font-size: 12px;
+    width: 540px;
+    padding-left: 12px;
+    padding-bottom: 13.5px;
 }
 
 /* 비밀번호찾기폼 */
@@ -577,6 +584,9 @@ video {
 
 #leports_list .leports_item_title {
 	font-weight: bold;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 #leports_list .leports_item_summary {
