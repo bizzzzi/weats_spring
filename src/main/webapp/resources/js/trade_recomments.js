@@ -16,6 +16,7 @@ let trade_price = document.querySelector(".trade_price");
 let trade_main_img = document.querySelector(".trade_main_img");
 let tradeSubmit = document.querySelector(".tradeSubmit");
 let isChecked = false;
+
 function nullCheck(e){
 	for(let i=0; i<trade_type.length; i++){
 		if(trade_type[i].checked){
@@ -162,7 +163,7 @@ function updateFin(e){
 			$("#"+trade_comment_id+">"+"textarea").replaceWith(`<span class="commentUpdate">${trade_comment}</span>`);
 			$("#"+trade_comment_id+">"+".updateBtn").replaceWith(`<button class="updateBtn btn btn-secondary" data-commentid="${trade_comment_id}" onclick="update(event)" style="margin-left:4px;">수정</button>`);
 			if($(".updateBtn.origin")){
-				$("#"+trade_comment_id+">"+".re_comment_btn").replaceWith(`<button class="re_comment_btn" value="${trade_comment_id}" onclick="cowrite(event)" >댓글달기</button>`);
+				$("#"+trade_comment_id+">"+".re_comment_btn").replaceWith(`<button class="re_comment_btn btn btn-secondary" value="${trade_comment_id}" onclick="cowrite(event)" >댓글달기</button>`);
 
 			}
 		},

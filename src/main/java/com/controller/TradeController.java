@@ -40,6 +40,11 @@ public class TradeController {
     @Autowired
     TradeService service;
 
+    @RequestMapping(value="/WriteCancel")
+    public String WriteCancel(){
+        return "redirect:/TradeList";
+    }
+
     @RequestMapping(value="/loginCheck/TradeUpdate")
     public ModelAndView TradeUpdate(String trade_id){
         System.out.println("tradeID"+trade_id);
