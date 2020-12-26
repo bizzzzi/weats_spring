@@ -143,8 +143,4 @@
 		</div>
 		<button type="button" class="btn btn-lg btn-primary side_nav_btn" onclick="location.href='#href_ticket'">티켓 선택</button>
 	</div>
-
-	<%-- 레포츠 등록 일자 :
-	${leportsDetail[0].leports_regidate} --%>
-
 </div>
