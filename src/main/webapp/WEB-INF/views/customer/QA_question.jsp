@@ -9,7 +9,7 @@
             <form action="questionWrite" method="post">
                 <ul>
                     <li>
-                        <strong>문의 유형</strong>
+                        <strong>*문의 유형</strong>
                         <select name="q_type">
                             <option value="이용방법">이용방법</option>
                             <option value="자주 묻는 질문">자주 묻는 질문</option>
@@ -19,20 +19,20 @@
                         </select>
                     </li>
                     <li>
-                        <strong>이메일 주소</strong>
+                        <strong>*이메일 주소</strong>
                         <input type="text" name="user_email" class="user_email" pattern="${regExpEmail}"
                                title="올바른 이메일 형식이 아닙니다." />
                     </li>
                     <li>
-                        <strong>이름</strong>
+                        <strong>*이름</strong>
                         <input type="text" name="user_name" class="user_name" value="${login.user_name}" readonly/>
                     </li>
                     <li>
-                        <strong>제목</strong>
+                        <strong>*제목</strong>
                         <input type="text" name="q_title" class="q_title"/>
                     </li>
                     <li>
-                        <strong>전화번호</strong>
+                        <strong>*전화번호</strong>
                         <input type="text" name="q_phone" class="q_phone" pattern="${regExpPhone}"
                                title="올바른 전화번호 형식이 아닙니다.(숫자만 입력)" maxlength="11"/>
                     </li>
@@ -41,7 +41,7 @@
                         <input type="text" name="q_reservation_id"/>
                     </li>
                     <li>
-                        <strong>세부내용</strong>
+                        <strong>*세부내용</strong>
                         <input type="text" name="q_content" class="q_content"/>
                     </li>
                 </ul>
