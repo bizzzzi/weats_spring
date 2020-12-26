@@ -82,7 +82,7 @@
 				</div>
 				<div class="trade_btns">
 					<input type="submit" class="btn btn-primary tradeSubmit" value="글쓰기">
-					<input type="reset" class="btn btn-primary" value="취소하기">
+					<a href="WriteCancel" class="btn btn-primary">취소하기</a>
 				</div>
 			</form>
 		</div>
