@@ -69,7 +69,7 @@
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 	<!-- Transaction관련 어노테이션 활성화 및 관리 Manager 주입 -->
-	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="false" />
+	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true" />
 	<!-- DataSourceTransactionManager 설정 tx 설정 끝 -->
 
 	<!-- jdbcTemplate 빈생성 ,DataSource주입 --><!-- PreparedStatement 사용할 때 씀  -->

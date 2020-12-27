@@ -3,8 +3,7 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="TradeMapper">
-	<select id="selectTrade" parameterType="String"
-		resultType="TradeDTO">
+	<select id="selectTrade" parameterType="String" resultType="TradeDTO">
 		select trade_main_img,trade_title,trade_price, trade_id
 		from trade
 		where trade_type=#{trade_type}
@@ -39,10 +38,29 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="CommentRegidate" parameterType="String" resultType="String">
 		select comment_regidate from trade_comments where trade_comment_id=#{trade_comment_id}
 	</select>
+<!--	<select id="CommentList" parameterType="String"-->
+<!--		resultType="TradeCommentsDTO">-->
+<!--		select * from trade_comments where trade_id=#{trade_id}-->
+<!--		order by trade_comment_level desc,comment_regidate asc-->
+<!--	</select>-->
+	<resultMap id="MemberDTO" type="MemberDTO">
+		<result column="user_email" property="user_email"/>
+		<result column="user_id" property="user_id"/>
+	</resultMap>
+	<resultMap id="TradeCommentsDTO" type="TradeCommentsDTO">
+		<result column="trade_comment_id" property="trade_comment_id"/>
+		<result column="trade_id" property="trade_id"/>
+		<result column="user_id" property="user_id"/>
+		<result column="trade_comment" property="trade_comment"/>
+		<result column="comment_regidate" property="comment_regidate"/>
+		<result column="trade_comment_level" property="trade_comment_level"/>
+		<result column="trade_depth" property="trade_depth"/>
+		<collection property="memberDTO" resultMap="MemberDTO"/>
+	</resultMap>
 	<select id="CommentList" parameterType="String"
-		resultType="TradeCommentsDTO">
-		select * from trade_comments where trade_id=#{trade_id}
-		order by trade_comment_level desc,comment_regidate asc
+			resultMap="TradeCommentsDTO">
+		select m.user_email, t.trade_comment_id, t.trade_id, t.user_id, t.trade_comment, t.comment_regidate, t.trade_comment_level, t.trade_depth from trade_comments t, member m where t.trade_id=#{trade_id} and m.user_id = t.user_id
+		order by t.trade_comment_level desc, t.comment_regidate asc
 	</select>
 	<delete id="CommentDel" parameterType="String">
 		delete from trade_comments where trade_comment_id=#{trade_comment_id}

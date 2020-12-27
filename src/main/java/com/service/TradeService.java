@@ -52,9 +52,11 @@ public class TradeService {
 
 	public List<TradeCommentsDTO> CommentList(String trade_id){
 		List<TradeCommentsDTO> list=dao.CommentList(trade_id);
+		System.out.println("service: 댓굴"+ list);
 		return list;
 	}
-	
+
+
 	public String CommentRegidate(String trade_comment_id) {
 		String regidate=dao.CommentRegidate(trade_comment_id);
 		return regidate;
