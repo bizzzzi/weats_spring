@@ -1,8 +1,19 @@
+// 마스킹
+let re_user_email = document.querySelectorAll('.re_user_email');
+
+for(let i = 0; i < re_user_email.length; i++) {
+	let originStr = re_user_email[i].innerText;
+	let emailStr = originStr.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi);
+	let strLength;
+	strLength = emailStr.toString().split('@')[0].length - 3;
+	re_user_email[i].innerText = originStr.toString().replace(new RegExp('.(?=.{0,' + strLength + '}@)', 'g'), '*');
+}
+
 
 let cBtn  = document.querySelectorAll(".re_comment_btn");
 let cCont = document.querySelectorAll(".comment_cont");
 let rcCont=$("textarea[name='trade_recomment']").val();
-var user_id=$("input[name='re_user_id']").val();
+var user_email=$("input[name='re_user_email']").val();
 var comment_id;
 const trade_id=$("input[name='trade_id']").val();
 
@@ -84,7 +95,7 @@ function reply(e){
 		dataType:"json",
 		success:function(data){
 			console.log(data);
-			$(dom).parent().after(getHtml2(data.trade_comment_id,data.trade_comment,data.comment_regidate,data.user_id));
+			$(dom).parent().after(getHtml2(data.trade_comment_id,data.trade_comment,data.comment_regidate,data.user_email));
 			$(dom).parents().filter(".recomment_cont").remove();
 		},
 		error:function(xhr,status,error){
@@ -209,27 +220,27 @@ function cowrite(event){
 	comment_id = btn.value;
 	console.log(comment_id);
 	$(".recomment_cont").remove();
-	btn.insertAdjacentHTML('afterend',getHtml(trade_id,comment_id,user_id));
+	btn.insertAdjacentHTML('afterend',getHtml(trade_id,comment_id));
 }
 
-function getHtml(trade_id,comment_id,user_id){
+function getHtml(trade_id,comment_id){
 	var result = '';
 	result += "<form class='recomment_cont' method='post'>"+
 		"<input type='hidden' name='re_trade_id' value='"+trade_id+"'>"+
 		"<input type='hidden' name='re_trade_depth' value=1>"+
 		"<input type='hidden' name='re_trade_comment_id' value='"+comment_id+"'>"+
-		"<input type='hidden' name='re_user_id' value='"+user_id+"'>"+
+		//"<input type='hidden' name='re_user_email' value='"+re_user_email+"'>"+
 		"<textarea name='trade_recomment' rows='5' cols='100'></textarea>"+
 		"<br><button type='button' class='re_comment_submit btn btn-secondary' onclick='reply(event)'>답글</button>"+
 		"</form>";
 	return result;
 }
 
-function getHtml2(comment_id,trade_comment,comment_regidate,user_id){
+function getHtml2(comment_id,trade_comment,comment_regidate,user_email){
 	var result = '';
 	result += "<div class='comment_cont re' id='"+comment_id+"'>"+
 		"<input type='hidden' name='trade_comment_id' value='"+comment_id+"'/>"+
-		"<strong>"+user_id+"</strong><br>"+
+		"<strong class='re_user_email'>"+user_email+"</strong><br>"+
 		"<div class='commentUpdate'>"+trade_comment+"</div>"+
 		"<div class='comment_regidate'>"+comment_regidate+"</div>"+
 		"<button class='delBtn btn btn-secondary' data-commentid='"+comment_id+"' onclick='del(event)'>삭제</button>"+

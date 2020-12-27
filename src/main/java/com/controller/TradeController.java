@@ -169,7 +169,7 @@ public class TradeController {
         String nextPage = null;
         cDTO.setTrade_comment_level(cDTO.getTrade_comment_id());
         result = service.ReCommentWrite(cDTO);
-        String CommentJSON = "{\"trade_comment_id\": \"" + cDTO.getTrade_comment_id() + "\",\"comment_regidate\":\""+service.CommentRegidate(cDTO.getTrade_comment_id())+"\",\"trade_comment\":\""+cDTO.getTrade_comment()+"\",\"user_id\":\""+cDTO.getUser_id()+"\"}";
+        String CommentJSON = "{\"trade_comment_id\": \"" + cDTO.getTrade_comment_id() + "\",\"comment_regidate\":\""+service.CommentRegidate(cDTO.getTrade_comment_id())+"\",\"trade_comment\":\""+cDTO.getTrade_comment()+"\",\"user_email\":\""+mDTO.getUser_email()+"\"}";
         response.setCharacterEncoding("UTF-8");
         response.getWriter().print(CommentJSON);
     }
