@@ -28,7 +28,10 @@ let down = (i, x) => {
 		pCount[i].value -= x;
 		pTotalCount.value -= x;
 		selectItem[i].innerHTML = `<div class="select_items_option${[i]} select_item_info">
-		   	<div>${itemName[i].value}</div>
+		   	<div style="width:33%;
+		   		overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;">${itemName[i].value}</div>
 			<input type="text" style="display:none" value="${itemName[i].value}" name="item_name" />
 		   	<div>
 		   		<div class="item_multi">${pCount[i].value} X ${itemPrice[i].value}원</div>
@@ -41,7 +44,7 @@ let down = (i, x) => {
 			</div>
 		   </div>`;
 		selectItemPrice = document.querySelectorAll('.select_item_price');
-		price -= Number(itemPrice[i].value).toLocaleString();
+		price -= Number(itemPrice[i].value);
 		totalAmount.innerText = price.toLocaleString();
 		totalAmount2.innerText = price.toLocaleString();
 		totalPrice.value = price
@@ -52,7 +55,7 @@ let down = (i, x) => {
 		price -= Number(itemPrice[i].value);
 		totalAmount.innerText = price.toLocaleString();
 		totalAmount2.innerText = price.toLocaleString();
-		totalPrice.value = price
+		totalPrice.value = price;
 		console.log(totalPrice.value);
         selectItem[i].innerHTML = "";
 	}
@@ -67,7 +70,10 @@ let up = (i, x) => {
 		pCount[i].value = pCountValue;
 		pTotalCount.value++;
 		selectItem[i].innerHTML = `<div class="select_items_option${[i]} select_item_info">
-		   							<div>${itemName[i].value}</div>
+		   							<div style="width:33%;
+		   								overflow: hidden;
+										text-overflow: ellipsis;
+										white-space: nowrap;">${itemName[i].value}</div>
 									<input type="text" style="display:none" value="${itemName[i].value}" name="item_name" />
 		   							<div>
 		   							<div class="item_multi">${pCount[i].value} X ${itemPrice[i].value.toLocaleString()}원</div>
@@ -83,7 +89,7 @@ let up = (i, x) => {
 		price += Number(itemPrice[i].value);
 		totalAmount.innerText = price.toLocaleString();
 		totalAmount2.innerText = price.toLocaleString();
-		totalPrice.value = price
+		totalPrice.value = price;
 		console.log(totalPrice.value);
 	}
 };
