@@ -23,7 +23,7 @@
 				</div>
 				<ul class="trade_item_info">
 					<li class="trade_item_title">${x.trade_title}</li>
-					<li class="trade_item_price">${x.trade_price}원</li>
+					<li class="trade_item_price">${x.trade_price}</li>
 				</ul>
 			</a>
 		</div>

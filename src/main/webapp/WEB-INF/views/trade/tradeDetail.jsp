@@ -72,7 +72,7 @@
 				<li class="item_info_user"><b>판매자 </b>${dto.trade_user_name}</li>
 				<hr>
 				<li class="item_info_regidate">등록날짜 ${dto.trade_regidate}</li>
-				<li class="item_info_price">${dto.trade_price}원</li>
+				<li class="item_info_price">${dto.trade_price}</li>
 				<li class="item_info_phone"><b>연락처&nbsp;</b>${dto.trade_phone}</li>
 			</ul>
 		</div>
