@@ -3,7 +3,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
+
+<div class="blank" style="padding-top:30px;"></div>	
 <div class="recommend-wrap">
 <!-- 상단 배너 -->
 
@@ -11,42 +12,42 @@
     <ul id="slider">
       <li>
         <div>
-          <h3>Slide #1</h3>
-          <span>Sub-title</span>
+          <h3>할인 받고 Let's 스키</h3>
+          <span>선착순 10명에게만! 달려~!~!~</span>
         </div>
-        <img src="https://fakeimg.pl/350x200/960a96/000?text=11111">
+        <img src="images/banner_1.jpg">
       </li>
 
       <li>
         <div>
-          <h3>Slide #2</h3>
-          <span>Sub-title</span>
+          <h3>속이 뻥 뚫리는 짜릿함을 느끼고 싶다면?!</h3>
+          <span>단양으로 오세요~</span>
         </div>
-        <img src="https://fakeimg.pl/350x200/D27328/000?text=22222">
+        <img src="images/banner_2.jpg">
       </li>
 
       <li>
         <div>
-          <h3>Slide #3</h3>
-          <span>Sub-title</span>
+          <h3>심장이 두근거리는 레포츠를 찾으시나요?</h3>
+          <span>그렇다면 홍천 가리산 레포츠 파크로!</span>
         </div>
-        <img src="https://fakeimg.pl/350x200/FF607F/000?text=33333">
+        <img src="images/banner_3.jpg">
       </li>
 
       <li>
         <div>
-          <h3>Slide #4</h3>
-          <span>Sub-title</span>
+          <h3>멀리 나가지 않아도!</h3>
+          <span>멋진 노을을 즐기며 한강에서 카약을~</span>
         </div>
-        <img src="https://fakeimg.pl/350x200/0A6E0A/000?text=44444">
+        <img src="images/banner_4.jpg">
       </li>
 
       <li>
         <div>
-          <h3>Slide #5</h3>
-          <span>Sub-title</span>
+          <h3>여기 한국 맞아?</h3>
+          <span>한국에서 즐기는 해외의 맛, 강원 서피비치</span>
         </div>
-        <img src="https://fakeimg.pl/350x200/0064CD/000?text=55555">
+        <img src="images/banner_5.jpg">
       </li>
     </ul>
 
