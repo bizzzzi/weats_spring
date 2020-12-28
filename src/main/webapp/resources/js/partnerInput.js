@@ -28,10 +28,10 @@ function nullCheck() {
 		alert("상세 주소를 입력해주세요.")
 		event.preventDefault();
 		sample4_jibunAddress.focus();
-	} else if(partner_license_num.value ==="") {
-		alert("사업자 번호를 입력해주세요.")
-		event.preventDefault();
-		partner_license_num.focus();
+//	} else if(partner_license_num.value ==="") {
+//		alert("사업자 번호를 입력해주세요.")
+//		event.preventDefault();
+//		partner_license_num.focus();
 	} else if(image_inputType_file.value==="") {
 		alert("사업자 등록증을 첨부해주세요")
 		event.preventDefault();
