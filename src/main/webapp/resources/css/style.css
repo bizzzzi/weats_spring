@@ -997,6 +997,9 @@ video {
 
 #Resale_list .trade_item_info li {
 	margin-top: 8px;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 #Resale_list .trade_item_price {
