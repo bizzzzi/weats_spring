@@ -1,3 +1,23 @@
+let moneyArr = document.querySelectorAll(".trade_item_price");
+if(moneyArr){
+	for(let i = 0; i< moneyArr.length; i++){
+		let money1 = moneyArr[i].innerHTML;
+		money1 = String(money1);
+		moneyArr[i].innerHTML = money1.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,')+"원";
+	}
+}
+
+let money = document.querySelector(".item_info_price");
+if(money){
+	let moneyText = money.innerHTML;
+	function makeComma(moneyText) {
+		moneyText = String(moneyText);
+		return moneyText.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
+	}
+	money.innerHTML = makeComma(moneyText+"원");
+}
+
+
 // 마스킹
 let re_user_email = document.querySelectorAll('.re_user_email');
 
@@ -97,7 +117,15 @@ function reply(e){
 		dataType:"json",
 		success:function(data){
 			console.log(data);
-			$(dom).parent().parent().after(getHtml2(data.trade_comment_id,data.trade_comment,data.comment_regidate,data.user_email));
+			let emailStr = data.user_email.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi);
+			let strLength;
+			strLength = emailStr.toString().split('@')[0].length - 3;
+			let user_email = data.user_email.toString().replace(new RegExp('.(?=.{0,' + strLength + '}@)', 'g'), '*');
+			if($("#"+comment_id+"> .comment_cont.re:last").html()){
+				$("#"+comment_id+"> .comment_cont.re:last").after(getHtml2(data.trade_comment_id,data.trade_comment,data.comment_regidate,user_email));
+			}else{
+				$(dom).parent().parent().after(getHtml2(data.trade_comment_id,data.trade_comment,data.comment_regidate,user_email));
+			}
 			$(dom).parents().parent().filter(".recomment_cont").remove();
 		},
 		error:function(xhr,status,error){
@@ -105,6 +133,8 @@ function reply(e){
 		}
 	});
 }
+
+
 function del(e){
 	let btn = e.target;
 	let trade_comment_id=$(btn).attr("data-commentid");
@@ -209,32 +239,13 @@ $(".delBtn2").on("click",function(){
 })
 
 
-// for(const x in cBtn){
-// 	cBtn[x].addEventListener('click',function(){
-// 		comment_id=cBtn[x].value;
-// 		console.log(comment_id);
-// 		for(let i in rdBox){
-// 			rdBox[i].removeChild();
-// 		}
-// 		cBtn[x].insertAdjacentHTML('afterend',getHtml(trade_id,comment_id,user_id));
-//
-// 		/*getHtml(trade_id,comment_id,user_id)*/
-//
-// 	})
-// }
-// $(".re_comment_btn").on("click",function(event){
-// 	let btn = event.target;
-// 	comment_id = btn.value;
-// 	console.log(comment_id);
-// 	$(".recomment_cont").remove();
-// 	btn.insertAdjacentHTML('afterend',getHtml(trade_id,comment_id,user_id));
-// })
 function cowrite(event){
 	let btn = event.target;
+	let parent = btn.parentElement;
 	comment_id = btn.value;
 	console.log(comment_id);
 	$(".recomment_cont").remove();
-	btn.insertAdjacentHTML('afterend',getHtml(trade_id,comment_id));
+	parent.insertAdjacentHTML('afterend',getHtml(trade_id,comment_id));
 }
 
 function getHtml(trade_id,comment_id){
