@@ -3,7 +3,6 @@
     margin: 0 auto;
     text-align: center;
     height: 250px;
-    background-color: aquamarine;
     display: flex;
     align-content: center;
     margin-bottom: 30px;
@@ -40,10 +39,9 @@ section{
 
 /*이용방법*/
 
-#banner{
+#customerBanner{
     width: 100%;
     text-align: center;
-    background: aquamarine;
     height: 250px;
     display: flex;
     align-items: center;
@@ -55,7 +53,9 @@ section{
     margin-top: 30px;
 }
 .howList img{
-    width: 50%;
+    width: 20%;
+    height: 120px;
+    object-fit: contain;
 }
 .howList ul{
     width: 100%;
@@ -129,3 +129,22 @@ section{
 .support_cont li{
     margin: 5px 0px;
 }
+
+.customer_con{
+    background-image: url("../images/customer_bg.png");
+    background-position: 0%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.searchBox{
+    background-color: #ffffff;
+    border: none;
+    border-radius: .5rem;
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .30), 0 1px 3px 1px rgba(60, 64, 67, .15);
+    box-sizing: border-box;
+    color: #202124;
+    font-size: 1rem;
+    padding: 0 2.5rem 0 4.5rem;
+    vertical-align: middle;
+}
+

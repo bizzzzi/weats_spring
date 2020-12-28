@@ -4,7 +4,7 @@
 <c:set var="rootPath" value="${pageContext.request.contextPath}" />
 
     <section>
-        <div id="banner">
+        <div id="customerBanner">
             <h2>
                 실시간으로 쉽고, 빠르게 검색하고 <br>
                 예약할 수 있는<br>
@@ -12,7 +12,7 @@
             </h2>
         </div>
         <div class="howList">
-            <img src="images/howImg.png">
+            <img src="images/customer_bg7.png">
             <ul>
                 <li><h3>1</h3></li>
                 <li><h4>레포츠 예약</h4></li>
@@ -27,7 +27,7 @@
             </ul>
         </div>
         <div class="howList">
-            <img src="images/howImg.png">
+            <img src="images/customer_bg8.png">
             <ul>
                 <li><h3>2</h3></li>
                 <li><h4>중고거래</h4></li>
@@ -42,7 +42,7 @@
             </ul>
         </div>
         <div class="howList">
-            <img src="images/howImg.png">
+            <img src="images/customer_bg4.png">
             <ul>
                 <li><h3>3</h3></li>
                 <li><h4>결제하기</h4></li>
@@ -56,7 +56,7 @@
         </div>
         <div class="how_footer">
             <h2>Weats에 더 궁금한 점이 있으신가요?</h2>
-            <a href="${rootPath}/supportList?s_type=자주 묻는 질문">자주 묻는 질문 확인하기</a>
+            <a href="${rootPath}/supportList?s_type=자주 묻는 질문" class="btn btn-primary">자주 묻는 질문 확인하기</a>
         </div>
     </section>
 </div>

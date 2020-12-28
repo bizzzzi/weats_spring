@@ -19,7 +19,7 @@
 		<jsp:include page="common/header_desktop.jsp" flush="true"></jsp:include>
 	</div>
 	<div id="myPageWrap">
-		<div id="mypageSideMenu">
+		<div id="SideMenu">
 			<jsp:include page="member/memberMypage.jsp" flush="true"></jsp:include>
 		</div>
 		<div id="reviewWrite">

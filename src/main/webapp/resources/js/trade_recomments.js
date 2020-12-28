@@ -77,7 +77,9 @@ function nullCheck(e){
 	}
 }
 
-tradeSubmit.addEventListener("click", nullCheck);
+if(tradeSubmit){
+	tradeSubmit.addEventListener("click", nullCheck);
+}
 
 
 function reply(e){
@@ -95,8 +97,8 @@ function reply(e){
 		dataType:"json",
 		success:function(data){
 			console.log(data);
-			$(dom).parent().after(getHtml2(data.trade_comment_id,data.trade_comment,data.comment_regidate,data.user_email));
-			$(dom).parents().filter(".recomment_cont").remove();
+			$(dom).parent().parent().after(getHtml2(data.trade_comment_id,data.trade_comment,data.comment_regidate,data.user_email));
+			$(dom).parents().parent().filter(".recomment_cont").remove();
 		},
 		error:function(xhr,status,error){
 			alert("로그인이 필요합니다.");
@@ -114,7 +116,7 @@ function del(e){
 			trade_comment_id:trade_comment_id
 		},
 		success:function(data){
-			$(btn).parent().remove();
+			$(btn).parent().parent().parent().remove();
 		},
 		error:function(xhr,status,error){
 			alert("error");
@@ -133,16 +135,18 @@ function update(e){
 
 	let btn = e.target;
 	let trade_comment_id = $(btn).attr("data-commentid");
-	let comment = $("#"+trade_comment_id+">"+".commentUpdate").text();
-
-
-	if($("#"+trade_comment_id+">"+".re_comment_btn")){
-		$("#"+trade_comment_id+">"+".commentUpdate").replaceWith(`<textarea name="trade_recomment" rows="5" cols="100">${comment}</textarea>`);
-		$("#"+trade_comment_id+">"+".updateBtn").replaceWith(`<button class="updateBtn origin btn btn-secondary" data-commentid="${trade_comment_id}" onclick="updateFin(event)" style="margin-left:4px;">저장</button>`);
-		$("#"+trade_comment_id+">"+".re_comment_btn").replaceWith(`<div class="re_comment_btn" value="${trade_comment_id}"></div>`);
+	let comment = $("#"+trade_comment_id+" .commentUpdate").text();
+	console.log(trade_comment_id)
+	let reBox = $("#"+trade_comment_id+">"+".re_box");
+	console.log(reBox)
+	console.log(reBox.html())
+	if(reBox.html()){
+		$("#"+trade_comment_id+">"+".re_box"+">"+".commentUpdate").replaceWith(`<textarea name="trade_recomment" rows="5" cols="100">${comment}</textarea>`);
+		$("#"+trade_comment_id+">"+".re_box"+">"+".replyBtn"+">"+".updateBtn").replaceWith(`<button class="updateBtn origin btn btn-secondary" data-commentid="${trade_comment_id}" onclick="updateFin(event)" style="margin-left:4px;">저장</button>`);
 	}else{
 		$("#"+trade_comment_id+">"+".commentUpdate").replaceWith(`<textarea name="trade_recomment" rows="5" cols="100">${comment}</textarea>`);
-		$("#"+trade_comment_id+">"+".updateBtn").replaceWith(`<button class="updateBtn btn btn-secondary" data-commentid="${trade_comment_id}" onclick="updateFin(event)" style="margin-left:4px;">저장</button>`);
+		$("#"+trade_comment_id+">"+".replyBtn"+">"+".updateBtn").replaceWith(`<button class="updateBtn origin btn btn-secondary" data-commentid="${trade_comment_id}" onclick="updateFin(event)" style="margin-left:4px;">저장</button>`);
+		$("#"+trade_comment_id+">"+".replyBtn"+">"+".re_comment_btn").replaceWith(`<div class="re_comment_btn" value="${trade_comment_id}"></div>`);
 	}
 }
 function updateFin(e){
@@ -159,11 +163,15 @@ function updateFin(e){
 		},
 		dataType: 'text',
 		success:function(data){
-			$("#"+trade_comment_id+"> .comment_regidate").replaceWith(`<p class="comment_regidate">${data}</p>`);
-			$("#"+trade_comment_id+">"+"textarea").replaceWith(`<span class="commentUpdate">${trade_comment}</span>`);
-			$("#"+trade_comment_id+">"+".updateBtn").replaceWith(`<button class="updateBtn btn btn-secondary" data-commentid="${trade_comment_id}" onclick="update(event)" style="margin-left:4px;">수정</button>`);
 			if($(".updateBtn.origin")){
-				$("#"+trade_comment_id+">"+".re_comment_btn").replaceWith(`<button class="re_comment_btn btn btn-secondary" value="${trade_comment_id}" onclick="cowrite(event)" >댓글달기</button>`);
+				$("#"+trade_comment_id+">"+".comment_regidate").replaceWith(`<p class="comment_regidate">${data}</p>`);
+				$("#"+trade_comment_id+"> textarea").replaceWith(`<span class="commentUpdate">${trade_comment}</span>`);
+				$("#"+trade_comment_id+"> .replyBtn > .updateBtn").replaceWith(`<button class="updateBtn btn btn-secondary" data-commentid="${trade_comment_id}" onclick="update(event)" style="margin-left:4px;">수정</button>`);
+				$("#"+trade_comment_id+"> .replyBtn > .re_comment_btn").replaceWith(`<button class="re_comment_btn btn btn-secondary" value="${trade_comment_id}" onclick="cowrite(event)" >댓글달기</button>`);
+			}else{
+				$("#"+trade_comment_id+"> .re_box > .comment_regidate").replaceWith(`<p class="comment_regidate">${data}</p>`);
+				$("#"+trade_comment_id+"> .re_box > textarea").replaceWith(`<span class="commentUpdate">${trade_comment}</span>`);
+				$("#"+trade_comment_id+"> .re_box > .replyBtn > .updateBtn").replaceWith(`<button class="updateBtn btn btn-secondary" data-commentid="${trade_comment_id}" onclick="update(event)" style="margin-left:4px;">수정</button>`);
 
 			}
 		},
@@ -176,6 +184,7 @@ function updateFin(e){
 
 
 $(".delBtn2").on("click",function(){
+	console.log("delBTN")
 	var trade_comment_level=$(this).attr("data-commentlevel");
 	var xxx=$(this);
 	$.ajax({
@@ -185,7 +194,7 @@ $(".delBtn2").on("click",function(){
 			trade_comment_level:trade_comment_level,
 		},
 		success:function(data){
-			xxx.parent().remove();
+			xxx.parent().parent().remove();
 		},
 		error:function(xhr,status,error){
 			alert("error");
@@ -230,8 +239,10 @@ function getHtml(trade_id,comment_id){
 		"<input type='hidden' name='re_trade_depth' value=1>"+
 		"<input type='hidden' name='re_trade_comment_id' value='"+comment_id+"'>"+
 		//"<input type='hidden' name='re_user_email' value='"+re_user_email+"'>"+
+		"<div class='replyBox'>"+
 		"<textarea name='trade_recomment' rows='5' cols='100'></textarea>"+
 		"<br><button type='button' class='re_comment_submit btn btn-secondary' onclick='reply(event)'>답글</button>"+
+		"</div>"+
 		"</form>";
 	return result;
 }
@@ -239,12 +250,14 @@ function getHtml(trade_id,comment_id){
 function getHtml2(comment_id,trade_comment,comment_regidate,user_email){
 	var result = '';
 	result += "<div class='comment_cont re' id='"+comment_id+"'>"+
-		"<input type='hidden' name='trade_comment_id' value='"+comment_id+"'/>"+
+		"<span class='re_ico'></span>"+
+		"<div class='re_box'><input type='hidden' name='trade_comment_id' value='"+comment_id+"'/>"+
 		"<strong class='re_user_email'>"+user_email+"</strong><br>"+
 		"<div class='commentUpdate'>"+trade_comment+"</div>"+
 		"<div class='comment_regidate'>"+comment_regidate+"</div>"+
-		"<button class='delBtn btn btn-secondary' data-commentid='"+comment_id+"' onclick='del(event)'>삭제</button>"+
-		"<button class='updateBtn btn btn-secondary' data-commentid='"+comment_id+"' onclick='update(event)' style='margin-left:4px;'>수정</button>";
+		"<div class='replyBtn'><button class='delBtn btn btn-secondary' data-commentid='"+comment_id+"' onclick='del(event)'>삭제</button>"+
+		"<button class='updateBtn btn btn-secondary' data-commentid='"+comment_id+"' onclick='update(event)' style='margin-left:4px;'>수정</button>"+
+		"</div></div></div>";
 	return result;
 }
 
