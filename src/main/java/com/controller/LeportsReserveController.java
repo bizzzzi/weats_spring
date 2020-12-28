@@ -35,7 +35,7 @@ public class LeportsReserveController {
     @PostMapping("/loginCheck/successMail")
     public String successMail(String reservation_id, String user_email, String user_name, String item_name, String total_price, HttpSession session, RedirectAttributes rttr) {
         System.out.println("예약자 이메일 " + user_email);
-        String localhost = "http://localhost:8080/weats/";
+        String localhost = "http://125.141.55.162:8080/weats/";
         String title = "weats 예약 완료 메일";
         String content = "<h3>정상적으로 예약이 완료되었습니다.</h3> <br>" +
                 "<b>주문 번호 : </b> " + reservation_id + "<br>" +
@@ -55,7 +55,7 @@ public class LeportsReserveController {
     @PostMapping("/loginCheck/cancelMail")
     public String cancelMail(String reservation_id, String user_email, String item_name, String total_price, HttpSession session, RedirectAttributes rttr) {
         System.out.println("예약자 이메일 " + user_email);
-        String localhost = "http://localhost:8080/weats/";
+        String localhost = "http://125.141.55.162:8080/weats/";
         String title = "weats 예약 취소 메일";
         String content = "<h3>정상적으로 예약 취소가 완료되었습니다.</h3> <br>" +
                 "<b>주문 번호 : </b> " + reservation_id + "<br>" +
