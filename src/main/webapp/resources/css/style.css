@@ -835,6 +835,8 @@ video {
 	display: flex;
 	flex-wrap: wrap;
 	padding: 4px;
+	height: 400px;
+	overflow: hidden;
 }
 
 #leports_Detail .leports_items_img {
@@ -843,11 +845,16 @@ video {
 	padding: 0 4px;
 }
 
+#leports_Detail .leports_items_img .leports_item_main_img {
+	object-fit: cover;
+	height: 400px;
+}
+
 #leports_Detail .mainImg {
 	flex: 50%;
 	max-width: 50%;
-	height: 100%;
 	padding: 0 4px;
+	height: 400px;
 }
 
 #leports_Detail .leports_items_img img {
