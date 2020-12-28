@@ -105,27 +105,34 @@
 					<br>
 					<div class="commentUpdate">${dto.trade_comment}</div>
 					<div class="comment_regidate">${fn:substring(dto.comment_regidate,0,10)}</div>
-					<c:if test="${dto.user_id eq login.user_id}">
-						<button class="delBtn2 btn btn-secondary" data-commentlevel="${dto.trade_comment_level}">삭제</button>
-						<button class="updateBtn btn btn-secondary" data-commentid="${dto.trade_comment_id}" onclick="update(event)" >수정</button>
-					</c:if>
-					<button class="re_comment_btn btn btn-secondary" value="${dto.trade_comment_id}" onclick="cowrite(event)" >댓글달기</button>
+					<div class="replyBtn">
+						<c:if test="${dto.user_id eq login.user_id}">
+							<button class="delBtn2 btn btn-secondary" data-commentlevel="${dto.trade_comment_level}">삭제</button>
+							<button class="updateBtn btn btn-secondary" data-commentid="${dto.trade_comment_id}" onclick="update(event)" >수정</button>
+						</c:if>
+						<button class="re_comment_btn btn btn-secondary" value="${dto.trade_comment_id}" onclick="cowrite(event)" >댓글달기</button>
+					</div>
 					<c:forEach var="dto2" items="${recommentsList}" varStatus="status">
 						<c:if test="${dto2.trade_comment_level eq dto.trade_comment_id}">
 							<div class="comment_cont re" id="${dto2.trade_comment_id}">
-								<strong class="re_user_email">${dto2.memberDTO.user_email}</strong>
-								<br>
-								<div class="commentUpdate">${dto2.trade_comment}</div>
-								<div class="comment_regidate">${fn:substring(dto2.comment_regidate,0,10)}</div>
-								<c:if test="${dto2.user_id eq login.user_id}">
-									<button class="delBtn btn btn-secondary" data-commentid="${dto2.trade_comment_id}" onclick="del(event)">삭제</button>
-									<button class="updateBtn btn btn-secondary" data-commentid="${dto2.trade_comment_id}" onclick="update(event)">수정</button>
-								</c:if>
+								<span class="re_ico"></span>
+								<div class="re_box">
+									<strong class="re_user_email">${dto2.memberDTO.user_email}</strong>
+									<br>
+									<div class="commentUpdate">${dto2.trade_comment}</div>
+									<div class="comment_regidate">${fn:substring(dto2.comment_regidate,0,10)}</div>
+									<div class="replyBtn">
+										<c:if test="${dto2.user_id eq login.user_id}">
+											<button class="delBtn btn btn-secondary" data-commentid="${dto2.trade_comment_id}" onclick="del(event)">삭제</button>
+											<button class="updateBtn btn btn-secondary" data-commentid="${dto2.trade_comment_id}" onclick="update(event)">수정</button>
+										</c:if>
+									</div>
+								</div>
 							</div>
 						</c:if>
 					</c:forEach>
+					<hr>
 				</div>
-				<hr>
 			</c:if>
 		</c:forEach>
 	</div>

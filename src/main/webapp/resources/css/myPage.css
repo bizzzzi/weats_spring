@@ -1,35 +1,9 @@
 @charset "UTF-8";
-
-#mypageSideMenu {
-	width: 20%;
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-	text-align: center;
-	background: #51ABF3;
-	padding: 30px 0;
-	font-size: 1em;
-}
-
 #mypageContent, #reviewWrite {
 	width: 80%;
 	height: 100%;
 }
-#mypageSideMenu h3{
-	margin-bottom: 30px;
-	color:#f8fafa;
-}
-#mypageSideMenu a{
-	font-size: 1.2em;
-	padding: 15px;
-  	border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  	border-top: 1px solid rgba(255, 255, 255, 0.05);
-  	color:#f8fafa;
-}
-#mypageSideMenu a:hover{
-	background: #6dbaf5;
-	text-decoration: none;
-}
+
 #myPageWrap {
 	display:flex;
 }

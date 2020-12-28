@@ -19,7 +19,8 @@
                 </div>
             </c:when>
             <c:otherwise>
-                <h2>나의 문의 내역</h2>
+                <h2 style="width: 80%; margin: 0 auto">나의 문의 내역</h2>
+                <hr>
                 <div class="qList">
                     <ul>
                         <li>문의ID</li>

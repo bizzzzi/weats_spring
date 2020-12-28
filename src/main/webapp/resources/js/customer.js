@@ -1,4 +1,3 @@
-//
 // //answer form
 // let answerSubmit = document.querySelector(".questionSubmit");
 // let s_question = document.querySelector(".s_question");
