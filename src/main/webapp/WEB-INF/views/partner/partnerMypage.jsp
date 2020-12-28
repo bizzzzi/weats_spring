@@ -16,10 +16,10 @@
 			display: flex;
 			width: 100%;
 			margin-top: 30px;
+			flex-direction: column;
 		}
 		.uploadResult li{
-			width: 50%;
-			margin: 10px;
+			width: 100%;
 		}
 		.uploadResult li img{
 			width: 100%;
@@ -74,13 +74,13 @@
 	
 			<div class="title">사업자 등록증*</div>
 			<form id="uploadForm" method="post" enctype="multipart/form-data">
-				<div class="form-control" style="height: auto">
+				<div class="form-control partnerMy" style="height: auto">
 					<label for="ex_file" class="ex_file">업로드</label> 사업자 등록증을 첨부해주세요.
 					<input type="file" name="uploadFile" class="file" style="display: none" id="ex_file"><br>
 					<div>
 						<ul class="uploadResult">
 							<c:if test="${pdto.partner_license_docs != null}">
-								<li><img src="/weats/display?fileName=${pdto.partner_license_docs}"><span data-name="partner_license_docs" data-file=\'${pdto.partner_license_docs}\' data-type="image">기존 이미지</span></li>
+								<li class="basicImg"><img src="/weats/display?fileName=${pdto.partner_license_docs}"><span data-name="partner_license_docs" data-file=\'${pdto.partner_license_docs}\' data-type="image">기존 이미지</span></li>
 							</c:if>
 						</ul>
 					</div>

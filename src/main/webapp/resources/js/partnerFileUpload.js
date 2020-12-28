@@ -104,5 +104,3 @@ let ImageDel=function(){
 	$('.del ').remove();
 }
 cancleBtn.addEventListener("click",ImageDel);
-
-//file 이미지 변경

@@ -238,6 +238,9 @@ a:hover {
 	text-align: center;
 	margin: 10% 0%;
 }
+.form-control.partnerMy{
+	width: 50%;
+}
 /* 예약관리 */
 .rsList ul{
     display: flex;
