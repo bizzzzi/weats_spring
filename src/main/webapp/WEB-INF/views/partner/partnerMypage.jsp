@@ -90,7 +90,7 @@
 				</div>
 		</div>
       <div class="partnerBtn info">
-        <input class="partnerFormBtn submitBtn Btn" onclick="nullCheck()" type="submit" formaction="loginCheck/CheckPartner?page=partnerUpdate" value="정보 수정">
+        <input class="partnerFormBtn submitBtn Btn" onclick="nullCheck()" type="submit" formaction="../CheckPartner?page=partnerUpdate" value="정보 수정">
         <!-- 비밀번호 인증 후 파트너 정보 수정 -->
         <input class="cancleBtn Btn"  type="reset" value="작성취소">
         <!-- 정보 초기화 버튼 -->
@@ -133,6 +133,5 @@
       }).open();
     }
   </script>
-  <script src="js/thumbnail.js"></script>
 </body>
 </html>
