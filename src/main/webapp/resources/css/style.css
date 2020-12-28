@@ -592,6 +592,9 @@ video {
 #leports_list .leports_item_summary {
 	font-size: 14px;
 	color: #656E74;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 #leports_list .leports_item_review_star {
