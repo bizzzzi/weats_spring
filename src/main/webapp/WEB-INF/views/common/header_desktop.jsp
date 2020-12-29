@@ -17,12 +17,12 @@
       >
       <span class="navbar-toggler-icon"></span>
       </button>
+    <c:set var="path" value="${pageContext.request.contextPath}" />
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="RecommendList">추천</a>
+            <a class="nav-link" href="${path}/RecommendList">추천</a>
           </li>
-          <c:set var="path" value="${pageContext.request.contextPath}" />
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="${path}/leportsList?category=byType" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               레포츠
@@ -72,7 +72,7 @@
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <%= username %> </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="${path}/MainMemberMyPage">마이페이지</a>
-              <a class="dropdown-item" href="partnerForm">파트너등록</a>
+              <a class="dropdown-item" href="${path}/partnerForm">파트너등록</a>
               <a class="dropdown-item" href="${path}/logout">로그아웃</a>
             </div>
           </li>
