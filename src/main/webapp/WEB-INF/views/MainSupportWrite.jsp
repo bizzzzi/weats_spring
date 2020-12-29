@@ -12,6 +12,7 @@
 	<link rel="stylesheet" type="text/css" href="../css/customer.css">
 	<link rel="stylesheet" type="text/css" href="../css/admin.css">
 	<link rel="stylesheet" type="text/css" href="../css/customer_nav2.css">
+	<link rel="stylesheet" type="text/css" href="../css/weather_api.css">
 	<link rel="stylesheet" href="../css/bootstrap.css" /><!-- 부트스트랩 -->
 	<script src="https://kit.fontawesome.com/400289e08c.js" crossorigin="anonymous"></script>
 </head>
@@ -19,6 +20,7 @@
 <div id="wrap">
 	<div id="desktop">
 		<jsp:include page="common/header_desktop.jsp" flush="true"></jsp:include>
+		<jsp:include page="weather_api/weather.jsp" flush="true"></jsp:include>		
 	</div>
 	<div id="adminPageWrap">
 		<div id="SideMenu">
@@ -32,6 +34,6 @@
 </div>	
 <script type="text/javascript" src="../js/main.js"></script>
 <script type="text/javascript" src="../js/modal.js"></script>
-<script type="text/javascript" src="../js/supportDetail.js"></script>
+<script type="text/javascript" src="../js/weather_api.js"></script>
 </body>
 </html>

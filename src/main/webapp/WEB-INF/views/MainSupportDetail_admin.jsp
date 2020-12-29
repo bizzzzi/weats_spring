@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="../css/admin.css">
     <link rel="stylesheet" type="text/css" href="../css/customer.css">
     <link rel="stylesheet" type="text/css" href="../css/customer_nav2.css">
+    <link rel="stylesheet" type="text/css" href="../css/weather_api.css">
     <script type="text/javascript" src="../js/jquery-3.5.1.min.js"></script>
     <link rel="stylesheet" href="../css/bootstrap.css"/><!-- 부트스트랩 -->
     <script type="text/javascript" src="../js/bootstrap.js"></script>
@@ -22,6 +23,7 @@
 <div id="wrap">
     <div id="desktop">
         <jsp:include page="common/header_desktop.jsp" flush="true"></jsp:include>
+		<jsp:include page="weather_api/weather.jsp" flush="true"></jsp:include>		
     </div>
     <div id="adminPageWrap">
         <div id="SideMenu">
@@ -36,5 +38,6 @@
 <script type="text/javascript" src="../js/main.js"></script>
 <script type="text/javascript" src="../js/modal.js"></script>
 <script type="text/javascript" src="../js/supportDetail.js"></script>
+<script type="text/javascript" src="../js/weather_api.js"></script>
 </body>
 </html>

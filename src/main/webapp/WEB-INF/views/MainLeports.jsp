@@ -10,6 +10,7 @@
 <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>
 <link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/weather_api.css">
 <script src="https://kit.fontawesome.com/400289e08c.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -18,6 +19,7 @@
 		<jsp:include page="common/header_desktop.jsp" flush="true"></jsp:include>
 		<jsp:include page="common/loginForm_desktop.jsp" flush="true"></jsp:include>
 		<jsp:include page="common/signUpForm_desktop.jsp" flush="true"></jsp:include>
+	    <jsp:include page="weather_api/weather.jsp" flush="true"></jsp:include>
 	</div>
 	<div id="leports_list">
 		<jsp:include page="leports/leportsList.jsp" flush="true"></jsp:include>
@@ -26,5 +28,6 @@
 	</div>
 <script type="text/javascript" src="js/modal.js"></script>
 <script type="text/javascript" src="js/signUpForm.js"></script>
+<script type="text/javascript" src="js/weather_api.js"></script>
 </body>
 </html>
