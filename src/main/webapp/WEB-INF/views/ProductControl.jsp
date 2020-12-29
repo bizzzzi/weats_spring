@@ -12,7 +12,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="../css/style.css">
 <link rel="stylesheet" type="text/css" href="../css/partner.css">
-<link rel="stylesheet" type="text/css" href="../css/weahter_api.css">
+<link rel="stylesheet" type="text/css" href="../css/weather_api.css">
 <script src="https://kit.fontawesome.com/400289e08c.js"
 	crossorigin="anonymous"></script>
 </head>
