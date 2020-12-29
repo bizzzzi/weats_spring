@@ -41,6 +41,9 @@
 				<strong>등록일</strong>
 				<span>${dto.q_regidate}</span>
 			</li>
+			<c:if test="${delete <= 1}">
+				<a class="btn btn-secondary" href="questinoDelete?question_id=${dto.question_id}">삭제</a>
+			</c:if>
 		</ul>
 
 		<c:if test="${fn:length(list) != 0}">
