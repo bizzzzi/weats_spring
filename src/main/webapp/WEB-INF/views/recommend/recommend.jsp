@@ -70,7 +70,7 @@
       <div class="swiper-wrapper">
        <c:forEach var="dto" items="${ratingList}">
         <div class="swiper-slide">
-          <a href="leportsDetail?leports_id=${dto.leports_id}"><img src="images/${dto.leports_main_img}" /></a>
+          <a href="leportsDetail?leports_id=${dto.leports_id}"><img class="slide_img" src="/weats/display?fileName=${dto.leports_main_img}"/></a>
         </div>
        </c:forEach>
       </div>
@@ -88,7 +88,7 @@
       <div class="swiper-wrapper">
        <c:forEach var="dto" items="${reserveList}">
         <div class="swiper-slide">
-          <a href="leportsDetail?leports_id=${dto.leports_id}"><img src="images/${dto.leports_main_img}" /></a>
+          <a href="leportsDetail?leports_id=${dto.leports_id}"><img class="slide_img" src="/weats/display?fileName=${dto.leports_main_img}" /></a>
         </div>
        </c:forEach>
       </div>

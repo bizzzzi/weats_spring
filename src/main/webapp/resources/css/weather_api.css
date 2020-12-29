@@ -13,6 +13,7 @@ button {
   height: 100%;
   top: 0;
   left: 0;
+  z-index: 9999;
 }
 
 .w_modal_overlay{

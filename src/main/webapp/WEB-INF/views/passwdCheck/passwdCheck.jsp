@@ -15,7 +15,7 @@
 <c:remove var="mesg" scope="session" />
 	<div id="passwdCheckContainer">
 		<form id="passwdCheckForm" action="passwdCheck" method="post">
-			<div class="logo">로고</div>
+			<div class="logo">Weats</div>
 			<div class="title">시작하기</div>
 			<div class="useremail">${login.user_email}</div>
 			<div class="comment">계속하려면 먼저 본인임을 인증하세요.</div>

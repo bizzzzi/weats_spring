@@ -496,7 +496,6 @@ video {
 	{
 	text-align: center;
 	font-size: 18px;
-	background: grey;
 	/* Center slide text vertically */
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -866,8 +865,8 @@ video {
 	border: 1px solid #E5E5E5;
 }
 
-.side_nav_btn {
-	width: 280px;
+.leports_side_nav_btn {
+	width: 260px;
 }
 
 /* Responsive layout - makes a two column-layout instead of four columns */
@@ -875,8 +874,8 @@ video {
 	#leports_Detail .side_nav {
 		width: 200px;
 	}
-	.side_nav_btn {
-		width: 176px;
+	.leports_side_nav_btn {
+		width: 146px;
 	}
 }
 

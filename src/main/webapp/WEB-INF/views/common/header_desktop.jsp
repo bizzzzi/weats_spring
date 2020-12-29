@@ -5,7 +5,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="/weats/">Weats</a>
+      <a class="navbar-brand" href="/weats/" style="color: #4ba3c7;">Weats</a>
       <button
         class="navbar-toggler"
         type="button"

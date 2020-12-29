@@ -100,7 +100,7 @@ function weatherBox(day_max_temp, day_min_temp, day_date, day_icon, day_descript
       "<img src='http://openweathermap.org/img/wn/"+day_icon+".png'>"+
       "</span><br>"+
       "<span class='day_max_temp'>최고: "+day_max_temp+"</span><br>"+
-      "<span class='day_min_temp'>최: "+day_min_temp+"</span><br>"+
+      "<span class='day_min_temp'>최저: "+day_min_temp+"</span><br>"+
       "<span class='day_description'>"+day_description+"</span>"+
       "</div>"+
       "</li>";

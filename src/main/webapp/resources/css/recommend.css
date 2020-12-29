@@ -171,7 +171,6 @@ url('https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css
 .swiper-slide {
       text-align: center;
       font-size: 18px;
-      background: grey;
 
       /* Center slide text vertically */
       display: -webkit-box;
@@ -271,3 +270,6 @@ img {
 	text-decoration: line-through;
 }
 
+.slide_img {
+	height: 200px;
+}
