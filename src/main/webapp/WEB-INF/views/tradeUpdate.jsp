@@ -12,6 +12,7 @@
 <script type="text/javascript" src="../js/bootstrap.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="../css/style.css">
+<link rel="stylesheet" type="text/css" href="../css/weather_api.css">
 <script src="https://kit.fontawesome.com/400289e08c.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -20,6 +21,7 @@
 		<jsp:include page="common/header_desktop.jsp" flush="true"></jsp:include>
 		<jsp:include page="common/loginForm_desktop.jsp" flush="true"></jsp:include>
 		<jsp:include page="common/signUpForm_desktop.jsp" flush="true"></jsp:include>
+ 	    <jsp:include page="weather_api/weather.jsp" flush="true"></jsp:include>		
 	</div>
 	<div id="trade_write_div">
 		<jsp:include page="trade/tradeUpdate.jsp" flush="true"></jsp:include>
@@ -29,5 +31,6 @@
 <script type="text/javascript" src="../js/modal.js"></script>
 <script type="text/javascript" src="../js/signUpForm.js"></script>
 <script type="text/javascript" src="../js/fileUpload.js"></script>
+<script type="text/javascript" src="../js/weather_api.js"></script>
 </body>
 </html>
