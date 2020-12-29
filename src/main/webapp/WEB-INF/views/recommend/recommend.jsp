@@ -63,17 +63,26 @@
  <div class="blank" style="padding-top:70px;"></div>
 
 <!-- 아이템 추천 -->
-
 <div class="ratingTop_leports_list">
 <h2> 인기 폭발 TOP 10 </h2>
     <div class="swiper-container">
       <div class="swiper-wrapper">
-       <c:forEach var="dto" items="${ratingList}">
-        <div class="swiper-slide">
+        <c:forEach var="dto" items="${ratingList}">
+         <div class="swiper-slide"> 
           <a href="leportsDetail?leports_id=${dto.leports_id}"><img class="slide_img" src="/weats/display?fileName=${dto.leports_main_img}"/></a>
-        </div>
-       </c:forEach>
-      </div>
+         </div>
+           <div>
+			 <ul class="leports_item_info">
+				<li style="display: none">상품 아이디: ${dto.leports_id}</li>
+				<li class="leports_item_loc">${dto.leports_loc}</li>
+				<li class="leports_item_title">${dto.leports_title}</li>
+				<li class="leports_item_summary">${dto.leports_summary}</li>
+				<li class="leports_item_review"><span class="leports_item_review_star">★${dto.review_star}</span> ${dto.review_cnt}개</li>					
+				<li class="leports_item_price"><fmt:formatNumber value="${dto.leports_price}" pattern="#,###" />원~ / 1인</li>
+			 </ul>
+		   </div>
+        </c:forEach>
+       </div>
       <div class="swiper-pagination"></div>
       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
@@ -90,6 +99,16 @@
         <div class="swiper-slide">
           <a href="leportsDetail?leports_id=${dto.leports_id}"><img class="slide_img" src="/weats/display?fileName=${dto.leports_main_img}" /></a>
         </div>
+		   <div>
+			 <ul class="leports_item_info">
+				<li style="display: none">상품 아이디: ${dto.leports_id}</li>
+				<li class="leports_item_loc">${dto.leports_loc}</li>
+				<li class="leports_item_title">${dto.leports_title}</li>
+				<li class="leports_item_summary">${dto.leports_summary}</li>
+				<li class="leports_item_review"><span class="leports_item_review_star">★${dto.review_star}</span> ${dto.review_cnt}개</li>					
+				<li class="leports_item_price"><fmt:formatNumber value="${dto.leports_price}" pattern="#,###" />원~ / 1인</li>
+			 </ul>
+		   </div>
        </c:forEach>
       </div>
       <div class="swiper-pagination"></div>
