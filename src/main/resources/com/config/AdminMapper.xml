@@ -4,7 +4,7 @@
 		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="AdminMapper">
 	<select id="MemberList" resultType="MemberDTO">
-		select user_id, user_name, user_email, user_verify, partner_verify from member
+		select user_id, user_name, user_email, user_verify, partner_verify from member order by partner_verify
 	</select>
 	<!--resultMap - type:객체 타입	-->
 	<!-- resultMap - id: resultMap명  -->
@@ -29,6 +29,7 @@
 
 	<select id="PartnerList" resultMap="PartnerDTO">
 		select m.user_id, m.partner_verify, p.c_name, p.partner_id, p.c_postnum, p.c_address, p.c_detail_address, p.partner_license_num from member m,partner p where m.user_id = p.user_id
+order by m.partner_verify
 	</select>
 
 	<select id="PartnerDetail" resultMap="PartnerDTO">
