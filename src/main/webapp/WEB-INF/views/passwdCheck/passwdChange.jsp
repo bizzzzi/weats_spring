@@ -11,7 +11,7 @@
 <body>
 	<div id="passwdChangeContainer">
 		<form id="passwdChangeForm" action="passwdChange" method="post">
-			<div class="logo">로고</div>
+			<div class="logo">Weats</div>
 			<div class="title">비밀번호 변경</div>
 			<div class="comment">변경할 비밀번호를 입력하세요</div>
 			<div class="signRow">
