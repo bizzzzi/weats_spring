@@ -15,11 +15,13 @@
 	<link rel="stylesheet" type="text/css" href="../css/admin.css">
 	<link rel="stylesheet" type="text/css" href="../css/customer_nav2.css">
 	<link rel="stylesheet" type="text/css" href="../css/customer.css">
+	<link rel="stylesheet" type="text/css" href="../css/weather_api.css">
 </head>
 <body>
 <div id="wrap">
 	<div id="desktop">
 		<jsp:include page="common/header_desktop.jsp" flush="true"></jsp:include>
+		<jsp:include page="weather_api/weather.jsp" flush="true"></jsp:include>		
 	</div>
 	<c:set var="path" value="${requestScope['javax.servlet.forward.request_uri']}"/>
 		<c:if test="${fn:contains(path,'loginCheck')}">
@@ -42,6 +44,7 @@
 	<script type="text/javascript" src="../js/modal.js"></script>
 	<script type="text/javascript" src="../js/signUpForm.js"></script>
 	<script type="text/javascript" src="../js/customer.js"></script>
+	<script type="text/javascript" src="../js/weather_api.js"></script>
 </div>	
 </body>
 </html>
