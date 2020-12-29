@@ -273,3 +273,44 @@ img {
 .slide_img {
 	height: 200px;
 }
+
+.recommend_item{
+	display: table;
+}
+.recommend_item_info{
+	font-size: 12px;
+}
+.recommend_item_loc {
+	font-size: 13px;
+	color: #A8AEB3;
+}
+
+.recommend_item_title {
+	font-weight: bold;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.recommend_item_summary {
+	font-size: 14px;
+	color: #656E74;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.recommend_item_review_star {
+	font-size: 15px;
+	color: #51ABF3;
+}
+
+.recommend_item_review {
+	font-size: 13px;
+	color: #A8AEB3;
+}
+
+.recommend_item_price {
+	font-size: 16px;
+	color: #565C61;
+}

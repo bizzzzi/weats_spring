@@ -68,19 +68,19 @@
     <div class="swiper-container">
       <div class="swiper-wrapper">
         <c:forEach var="dto" items="${ratingList}">
-         <div class="swiper-slide"> 
+         <div class="swiper-slide recommend_item"> 
           <a href="leportsDetail?leports_id=${dto.leports_id}"><img class="slide_img" src="/weats/display?fileName=${dto.leports_main_img}"/></a>
-         </div>
-           <div>
-			 <ul class="leports_item_info">
+          <div>
+			 <ul class="recommend_item_info">
 				<li style="display: none">상품 아이디: ${dto.leports_id}</li>
-				<li class="leports_item_loc">${dto.leports_loc}</li>
-				<li class="leports_item_title">${dto.leports_title}</li>
-				<li class="leports_item_summary">${dto.leports_summary}</li>
-				<li class="leports_item_review"><span class="leports_item_review_star">★${dto.review_star}</span> ${dto.review_cnt}개</li>					
-				<li class="leports_item_price"><fmt:formatNumber value="${dto.leports_price}" pattern="#,###" />원~ / 1인</li>
+				<li class="recommend_item_loc">${dto.leports_loc}</li>
+				<li class="recommend_item_title">${dto.leports_title}</li>
+				<li class="recommend_item_summary">${dto.leports_summary}</li>
+				<li class="recommend_item_review"><span class="leports_item_review_star">★${dto.review_star}</span> ${dto.review_cnt}개</li>					
+				<li class="recommend_item_price"><fmt:formatNumber value="${dto.leports_price}" pattern="#,###" />원~ / 1인</li>
 			 </ul>
 		   </div>
+         </div>     
         </c:forEach>
        </div>
       <div class="swiper-pagination"></div>
@@ -96,19 +96,19 @@
     <div class="swiper-container">
       <div class="swiper-wrapper">
        <c:forEach var="dto" items="${reserveList}">
-        <div class="swiper-slide">
+        <div class="swiper-slide recommend_item">
           <a href="leportsDetail?leports_id=${dto.leports_id}"><img class="slide_img" src="/weats/display?fileName=${dto.leports_main_img}" /></a>
-        </div>
-		   <div>
-			 <ul class="leports_item_info">
+			<div>
+			 <ul class="recommend_item_info">
 				<li style="display: none">상품 아이디: ${dto.leports_id}</li>
-				<li class="leports_item_loc">${dto.leports_loc}</li>
-				<li class="leports_item_title">${dto.leports_title}</li>
-				<li class="leports_item_summary">${dto.leports_summary}</li>
-				<li class="leports_item_review"><span class="leports_item_review_star">★${dto.review_star}</span> ${dto.review_cnt}개</li>					
-				<li class="leports_item_price"><fmt:formatNumber value="${dto.leports_price}" pattern="#,###" />원~ / 1인</li>
+				<li class="recommend_item_loc">${dto.leports_loc}</li>
+				<li class="recommend_item_title">${dto.leports_title}</li>
+				<li class="recommend_item_summary">${dto.leports_summary}</li>
+				<li class="recommend_item_review"><span class="leports_item_review_star">★${dto.review_star}</span> ${dto.review_cnt}개</li>					
+				<li class="recommend_item_price"><fmt:formatNumber value="${dto.leports_price}" pattern="#,###" />원~ / 1인</li>
 			 </ul>
-		   </div>
+		    </div>        
+	    </div>
        </c:forEach>
       </div>
       <div class="swiper-pagination"></div>
