@@ -141,6 +141,6 @@
 			<div class="current_amount">현재 금액</div>
 			<span class="js_total_amount2">0</span>원<br>
 		</div>
-		<button type="button" class="btn btn-lg btn-primary side_nav_btn" onclick="location.href='#href_ticket'">티켓 선택</button>
+		<button type="button" class="btn btn-lg btn-primary leports_side_nav_btn" onclick="location.href='#href_ticket'">티켓 선택</button>
 	</div>
 </div>
