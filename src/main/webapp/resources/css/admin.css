@@ -137,8 +137,7 @@ ul.qnaList span.regidate{
 	resize: none;
 }
 .answer input{
-	width: 100px;
-	margin-left: 10px;
+	width: 10%;
 	background: #007bff;
     color: #fff;
     border: 1px solid #007bff;

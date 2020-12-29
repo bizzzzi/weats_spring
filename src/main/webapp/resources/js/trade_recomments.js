@@ -156,27 +156,25 @@ function del(e){
 }
 function update(e){
 	let textComment = $("textarea[name='trade_recomment']").text();
-	console.log(`${textComment} 이전 댓글`);
 	let commentId = $("textarea[name='trade_recomment']").parent("div").attr('id');
-	console.log(`commentId: ${commentId}`);
-
+	let commentId2 = $("textarea[name='trade_recomment']").parent().parent("div").attr('id');
+	if($("#"+commentId+"> textarea").html()){
+		$("#"+commentId+"> .replyBtn > .updateBtn").replaceWith(`<button class="updateBtn btn btn-secondary" data-commentid="${commentId}" onclick="update(event)">수정</button>`);
+		$("#"+commentId+">"+".replyBtn"+">"+".re_comment_btn").replaceWith(`<div class="re_comment_btn btn btn-secondary" value="${commentId}">댓글달기</div>`);
+	}else if($("#"+commentId2+"> .re_box > textarea").html()) {
+		$("#"+commentId2+"> .re_box > .replyBtn > .updateBtn").replaceWith(`<button class="updateBtn btn btn-secondary" data-commentid="${commentId2}" onclick="update(event)">수정</button>`);
+	}
 	$("textarea[name='trade_recomment']").replaceWith(`<span class="commentUpdate">${textComment}</span>`);
-	$("#"+commentId+" .updateBtn").replaceWith(`<button class="updateBtn" data-commentid="${commentId}" onclick="update(event)">수정</button>`);
 
 	let btn = e.target;
 	let trade_comment_id = $(btn).attr("data-commentid");
-	console.log(trade_comment_id)
 	let reBox = $("#"+trade_comment_id+">"+".re_box");
 	let comment = $("#"+trade_comment_id+">"+".commentUpdate").text();
 	let comment2 = $("#"+trade_comment_id+"> .re_box > .commentUpdate").text();
-	console.log(reBox)
-	console.log(reBox.html())
 	if(reBox.html()){
-		console.log("not origin",comment2);
 		$("#"+trade_comment_id+">"+".re_box"+">"+".commentUpdate").replaceWith(`<textarea name="trade_recomment" rows="5" cols="100">${comment2}</textarea>`);
 		$("#"+trade_comment_id+">"+".re_box"+">"+".replyBtn"+">"+".updateBtn").replaceWith(`<button class="updateBtn btn btn-secondary" data-commentid="${trade_comment_id}" onclick="updateFin(event)" style="margin-left:4px;">저장</button>`);
 	}else{
-		console.log("origin",comment)
 		$("#"+trade_comment_id+">"+".commentUpdate").replaceWith(`<textarea name="trade_recomment" rows="5" cols="100">${comment}</textarea>`);
 		$("#"+trade_comment_id+">"+".replyBtn"+">"+".updateBtn").replaceWith(`<button class="updateBtn origin btn btn-secondary" data-commentid="${trade_comment_id}" onclick="updateFin(event)" style="margin-left:4px;">저장</button>`);
 		$("#"+trade_comment_id+">"+".replyBtn"+">"+".re_comment_btn").replaceWith(`<div class="re_comment_btn" value="${trade_comment_id}"></div>`);

@@ -79,7 +79,8 @@ public class PartnerController {
 		if(n==1) {
 			pservice.partner_verifyUpdate(user_id);
 		}
-		attr.addFlashAttribute("mesg","승인 완료 후 안내 메일을 전송해드립니다.");
+		attr.addFlashAttribute("mesg","승인 완료 후 안내 메일을 전송해드립니다. 다시 로그인해주세요");
+		session.invalidate();
 		return "redirect:/";
 	}
 	@RequestMapping(value="/partnerCheck/MainPartner")
