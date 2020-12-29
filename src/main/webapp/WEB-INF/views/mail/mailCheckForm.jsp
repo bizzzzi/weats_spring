@@ -8,11 +8,9 @@
 <title>Weats</title>
 </head>
 <body>
-	<c:if test="${!empty mesg }"> <!-- /memberAdd -->
-		<script>alert("${mesg}")</script> <!-- 회원가입, 로그인 시 mesg넘어옴(addFlashAttribute) -->
-	</c:if>
-	<c:remove var="mesg" scope="session"/>
-
+<c:if test="${sessionScope.tomail != null}">
+	<c:set var="user_email" value="${sessionScope.tomail}"/>
+</c:if>
 	<div id="mailCheckForm">
 		<div class="mailCheckTitle">이메일 인증</div>
 		<p>
