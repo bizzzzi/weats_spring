@@ -71,4 +71,12 @@ public class CustomerService {
     public List<CustomerSupportDTO> supportSearch(String search) {
         return dao.supportSearch(search);
     }
+
+    public int deleteBtn(String question_group) {
+        return dao.deleteBtn(question_group);
+    }
+
+    public void questionDelete(String question_id) {
+        dao.questionDelete(question_id);
+    }
 }

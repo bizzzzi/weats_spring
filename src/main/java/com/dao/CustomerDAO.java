@@ -46,20 +46,21 @@ public class CustomerDAO {
         template.insert("supportWrite", supportDTO);
     }
 
-    //    관리자 로그인 FAQ List
+    //    관리자 로그인 support List
     public List<CustomerSupportDTO> supportList() {
         return template.selectList("supportList");
     }
 
-    //    사용자 로그인 FAQ List
+    //    사용자 로그인 support List
     public List<CustomerSupportDTO> supportList(String s_type) {
         return template.selectList("supportListByType", s_type);
     }
-    //  FAQ 상세
+    //  support 상세
     public CustomerSupportDTO supportDetail(String support_id) {
         return template.selectOne("supportDetail", support_id);
     }
 
+//    support 삭제
     public void supportUpdate(CustomerSupportDTO supportDTO) {
         System.out.println(supportDTO);
         template.update("supportUpdate", supportDTO);
@@ -71,5 +72,13 @@ public class CustomerDAO {
 
     public List<CustomerSupportDTO> supportSearch(String search) {
         return template.selectList("supportSearch", search);
+    }
+
+    public int deleteBtn(String question_group) {
+        return template.selectOne("deleteBtn", question_group);
+    }
+
+    public void questionDelete(String question_id) {
+        template.delete("questionDelete", question_id);
     }
 }

@@ -31,6 +31,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from customer_question where question_group = #{question_group} order by q_regidate
 	</select>
 
+<!--	댓글 버튼 생성-->
+	<select id="deleteBtn" parameterType="string" resultType="int">
+		select count(*) from customer_question where question_group = #{question_group}
+	</select>
+
+<!--	댓글 삭제-->
+	<delete id="questionDelete" parameterType="string">
+		delete from customer_question where question_id = #{question_id}
+	</delete>
+
 <!--	관리자가 원 게시글에 답변(댓글)-->
 	<update id="answerSuccess" parameterType="string">
 		update customer_question set answer_verify = 1 where question_id = #{question_group}
@@ -79,5 +89,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from customer_support
 		where s_type like '%' || #{search} ||'%' or s_question like '%' || #{search} ||'%' or s_answer like '%' || #{search} ||'%'
 	</select>
+
 
 </mapper>
