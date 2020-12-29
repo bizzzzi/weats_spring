@@ -160,8 +160,8 @@ function update(e){
 	let commentId = $("textarea[name='trade_recomment']").parent("div").attr('id');
 	console.log(`commentId: ${commentId}`);
 
-	//$("textarea[name='trade_recomment']").replaceWith(`<span class="commentUpdate">${textComment}</span>`);
-	//$("#"+commentId+" > .updateBtn").replaceWith(`<button class="updateBtn" data-commentid="${commentId}" onclick="update(event)">수정</button>`);
+	$("textarea[name='trade_recomment']").replaceWith(`<span class="commentUpdate">${textComment}</span>`);
+	$("#"+commentId+" .updateBtn").replaceWith(`<button class="updateBtn" data-commentid="${commentId}" onclick="update(event)">수정</button>`);
 
 	let btn = e.target;
 	let trade_comment_id = $(btn).attr("data-commentid");
