@@ -31,6 +31,7 @@ public class FileController {
         String path = "/Users/hhhhbbbb/upload";
 //		  String path = "/C:/WeatsProjectsSpring/weats_spring/src/main/webapp/resources/images";
 //        String path = "/Users/gimhyeongjin/Desktop/TeamProject_spring/weats/src/main/webapp/resources/images";
+//        String path = "/Users/macyungc/Desktop/weats/weats_spring/src/main/webapp/resources/images";
 //        String path = "/C/CSR/weats_spring/weats/src/main/webapp/resources/images";
 //        String path = "/C/CSR/weats_spring/weats/src/main/webapp/resources/images";
 
