@@ -4,7 +4,7 @@ let sample4_postcode=document.getElementById('sample4_postcode');
 let sample4_roadAddress=document.getElementById('sample4_roadAddress');
 let sample4_jibunAddress=document.getElementById('sample4_jibunAddress');
 let partner_license_num = document.querySelector('.partner_license_num');
-let image_inputType_file = document.querySelector('.image_inputType_file');
+let partner_license_docs = document.querySelector('.partner_license_docs');
 let partnerFormBtn = document.querySelector('.partnerFormBtn');
 
 function nullCheck() {
@@ -28,17 +28,17 @@ function nullCheck() {
 		alert("상세 주소를 입력해주세요.")
 		event.preventDefault();
 		sample4_jibunAddress.focus();
-//	} else if(partner_license_num.value ==="") {
-//		alert("사업자 번호를 입력해주세요.")
-//		event.preventDefault();
-//		partner_license_num.focus();
-	} else if(image_inputType_file.value==="") {
+	} else if(partner_license_num.value ==="") {
+		alert("사업자 번호를 입력해주세요.")
+		event.preventDefault();
+		partner_license_num.focus();
+	} else if(partner_license_docs.value ==="") {
 		alert("사업자 등록증을 첨부해주세요")
 		event.preventDefault();
-		image_inputType_file.focus();
+	
 	} 
+	
 }
-
 
 let leports_title = document.querySelector('.leports_title');
 let leports_content = document.querySelector('.leports_content');
