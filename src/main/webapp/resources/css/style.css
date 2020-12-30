@@ -1431,3 +1431,8 @@ video {
 #SideMenu a:hover{
 	background: #e9ecef;
 }
+
+/*관리자 페이지 승인 대기*/
+.admin_confirm{
+	color: red;
+}

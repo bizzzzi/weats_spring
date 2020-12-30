@@ -46,7 +46,7 @@
                         <li>${dto.q_regidate}</li>
                         <c:choose>
                             <c:when test="${dto.answer_verify == 0}">
-                                <li>답변 대기</li>
+                                <li class="admin_confirm">답변 대기</li>
                             </c:when>
                             <c:otherwise>
                                 <li>답변 완료</li>

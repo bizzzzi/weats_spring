@@ -22,7 +22,7 @@
 							<li>${dto.c_name}</li>
 							<li>${dto.partner_license_num}</li>
 							<c:if test="${dto.memberDTO.partner_verify eq 1}">
-								<li>승인대기</li>
+								<li class="admin_confirm">승인대기</li>
 							</c:if>
 							<c:if test="${dto.memberDTO.partner_verify eq 2}">
 								<li>승인완료</li>
