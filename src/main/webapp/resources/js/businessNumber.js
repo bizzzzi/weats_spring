@@ -16,7 +16,7 @@ function checkBusinessNumber() {
          messageBox.style.display = 'block';
          partnerFormBtn.type = 'button'; // input타입을 button으로 변경하여 폼 제출을 막아줌
          partnerFormBtn.addEventListener('click',()=>{
-           partnerLicenseNum.value = "";
+        //   partnerLicenseNum.value = "";
            partnerLicenseNum.focus();
          })
         }else{

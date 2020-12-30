@@ -4,6 +4,7 @@ let sample4_postcode=document.getElementById('sample4_postcode');
 let sample4_roadAddress=document.getElementById('sample4_roadAddress');
 let sample4_jibunAddress=document.getElementById('sample4_jibunAddress');
 let partner_license_num = document.querySelector('.partner_license_num');
+
 let file = document.querySelector('.file');
 let partnerFormBtn = document.querySelector('.partnerFormBtn');
 
@@ -34,11 +35,10 @@ function nullCheck() {
 		partner_license_num.focus();
 	} else if(file.value==="") {
 		alert("사업자 등록증을 첨부해주세요")
-		event.preventDefault();
-		image_inputType_file.focus();
+		event.preventDefault();	
 	} 
+	
 }
-
 
 let leports_title = document.querySelector('.leports_title');
 let leports_content = document.querySelector('.leports_content');
