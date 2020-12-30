@@ -15,10 +15,10 @@
         <c:forEach var="support" items="${supportList}" varStatus="status">
             <a href="supportDetail?support_id=${support.support_id}">
                 <ul>
-                    <li>${status.count}</li>
-                    <li>${support.s_type}</li>
-                    <li>${support.s_question}</li>
-                    <li>${support.s_answer}</li>
+                    <li class="support_list_li">${status.count}</li>
+                    <li class="support_list_li">${support.s_type}</li>
+                    <li class="support_list_li">${support.s_question}</li>
+                    <li class="support_list_li">${support.s_answer}</li>
                 </ul>
             </a>
         </c:forEach>
