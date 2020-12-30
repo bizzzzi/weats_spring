@@ -5,7 +5,7 @@ let sample4_roadAddress=document.getElementById('sample4_roadAddress');
 let sample4_jibunAddress=document.getElementById('sample4_jibunAddress');
 let partner_license_num = document.querySelector('.partner_license_num');
 
-let file = document.querySelector('.file');
+let partner_license_docs = document.querySelector('.partner_license_docs');
 let partnerFormBtn = document.querySelector('.partnerFormBtn');
 
 function nullCheck() {
@@ -33,7 +33,7 @@ function nullCheck() {
 		alert("사업자 번호를 입력해주세요.")
 		event.preventDefault();
 		partner_license_num.focus();
-	} else if(file.value==="") {
+	} else if(partner_license_docs.value==="") {
 		alert("사업자 등록증을 첨부해주세요")
 		event.preventDefault();	
 	} 
