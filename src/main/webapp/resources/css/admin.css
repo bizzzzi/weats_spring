@@ -171,11 +171,7 @@ ul.qnaList span.regidate{
 }
 
 /*support리스트 상세*/
-.support_cont{
-	margin-top:15%;
-	border: 1px solid #e9ecef;
-    padding: 20px;
-}
+
 .support_cont span{
     padding: 10px;
     display: flex;
