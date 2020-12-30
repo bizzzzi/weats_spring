@@ -1404,7 +1404,7 @@ video {
 
 /*관리자페이지, 마이페이지, 파트너페이지 좌측 Nav*/
 #SideMenu {
-	min-height: 1000px;
+	min-height: 1300px;
 	height: 100%;
 	display: flex;
 	flex-direction: column;
@@ -1430,4 +1430,9 @@ video {
 }
 #SideMenu a:hover{
 	background: #e9ecef;
+}
+
+/*관리자 페이지 승인 대기*/
+.admin_confirm{
+	color: red;
 }

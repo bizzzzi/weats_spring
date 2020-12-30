@@ -110,6 +110,16 @@ section{
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
+.qList.support li:first-child{
+    width: 100px;
+}
+.qList.support li:nth-child(2){
+    width: 100px;
+}
+.qList.support li{
+    width: 350px;
+}
 .qList ul a{
     display: flex;
     justify-content: space-around;
@@ -128,9 +138,15 @@ section{
 }
 .support_cont h2{
     padding-bottom: 15px;
+    color: #007bff;
 }
 .support_cont li{
-    margin: 5px 0px;
+    margin: 5px;
+}
+
+.support_cont strong{
+    margin-right: 10px;
+    color: #007bff;
 }
 
 .customer_con{
