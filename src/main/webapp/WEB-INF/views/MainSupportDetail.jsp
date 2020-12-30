@@ -20,15 +20,18 @@
     <script src="https://kit.fontawesome.com/400289e08c.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<div id="desktop">
-    <jsp:include page="common/header_desktop.jsp" flush="true"></jsp:include>
-    <jsp:include page="common/loginForm_desktop.jsp" flush="true"></jsp:include>
-    <jsp:include page="common/signUpForm_desktop.jsp" flush="true"></jsp:include>
-	<jsp:include page="weather_api/weather.jsp" flush="true"></jsp:include>		
-</div>
-<div id="container">
-    <jsp:include page="customer/customerNav.jsp" flush="true"></jsp:include>
-    <jsp:include page="customer/QA_SupportDetail.jsp" flush="true"></jsp:include>
+<div id="wrap">
+    <div id="desktop">
+        <jsp:include page="common/header_desktop.jsp" flush="true"></jsp:include>
+        <jsp:include page="common/loginForm_desktop.jsp" flush="true"></jsp:include>
+        <jsp:include page="common/signUpForm_desktop.jsp" flush="true"></jsp:include>
+        <jsp:include page="weather_api/weather.jsp" flush="true"></jsp:include>
+    </div>
+    <div id="container">
+        <jsp:include page="customer/customerNav.jsp" flush="true"></jsp:include>
+        <jsp:include page="customer/QA_SupportDetail.jsp" flush="true"></jsp:include>
+    </div>
+    <jsp:include page="common/footer.jsp" flush="true"></jsp:include>
 </div>
 <script type="text/javascript" src="js/main.js"></script>
 <script type="text/javascript" src="js/modal.js"></script>
