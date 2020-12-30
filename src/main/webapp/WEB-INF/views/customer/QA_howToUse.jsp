@@ -59,4 +59,3 @@
             <a href="${rootPath}/supportList?s_type=자주 묻는 질문" class="btn btn-primary">자주 묻는 질문 확인하기</a>
         </div>
     </section>
-</div>

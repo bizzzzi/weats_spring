@@ -48,9 +48,9 @@ section{
     justify-content: center;
 }
 .howList{
-    width: 100%;
+    width: 60%;
+    margin: 0 auto;
     display: flex;
-    margin-top: 30px;
 }
 .howList img{
     width: 20%;
@@ -71,10 +71,7 @@ section{
     margin-top: 35px;
 }
 .how_footer a{
-    background-color: #0c5460;
-    color: #fff;
-    padding: 10px;
-    margin-top: 10px;
+    margin: 30px 0px;
     display: inline-block;
 }
 
