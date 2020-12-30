@@ -38,6 +38,8 @@
 <!--	<mvc:view-controller path="/MainQuestionList" view-name="MainQuestionList"/>-->
 	<mvc:view-controller path="/adminCheck/supportWriteForm" view-name="MainSupportWrite"/>
 	<!--<mvc:view-controller path="/kakaoPaySuccess" view-name="payment/KakaoPaySuccess"/>-->
+	<mvc:view-controller path="/PersonalInformation" view-name="partner/PersonalInformation"/>
+	<mvc:view-controller path="/PartnerInfomation" view-name="partner/PartnerInfomation"/>
 
 	<mvc:resources location="/resources/" mapping="/**"/>
 	<mvc:resources location="/WEB-INF/views/" mapping="/**"/>
