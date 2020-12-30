@@ -111,14 +111,15 @@ section{
     white-space: nowrap;
 }
 
-.support_list_li {
-	width: 280px;
-    text-align: center;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+.qList.support li:first-child{
+    width: 100px;
 }
-
+.qList.support li:nth-child(2){
+    width: 100px;
+}
+.qList.support li{
+    width: 350px;
+}
 .qList ul a{
     display: flex;
     justify-content: space-around;
