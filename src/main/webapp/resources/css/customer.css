@@ -79,13 +79,16 @@ section{
 /*1:1 문의*/
 .questionForm ul li{
     display: flex;
-    margin: 10px 0px;
+    margin: 10px;
 }
 .questionForm ul li strong{
     width: 20%;
 }
 .questionForm ul li input,select{
     width: 100%;
+}
+.q_content{
+    height: 300px;
 }
 .qa_submit{
     display: flex;
