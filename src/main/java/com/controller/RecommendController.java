@@ -45,8 +45,8 @@ public class RecommendController {
 					ylist.add(yDto); //바뀐 ddd객체를 중복 제거 리스트에 주입
 				}
 			}
-			List<LeportsThumbnailDTO> topRatingList = new ArrayList<>(xlist.subList(0,4)); //레포츠 데이터 쌓이면 12로 바꿔야함
-			List<LeportsThumbnailDTO> topReserveList = new ArrayList<>(ylist.subList(0,4));//레포츠 데이터 쌓이면 12로 바꿔야함
+			List<LeportsThumbnailDTO> topRatingList = new ArrayList<>(xlist.subList(0,10)); //레포츠 데이터 쌓이면 12로 바꿔야함
+			List<LeportsThumbnailDTO> topReserveList = new ArrayList<>(ylist.subList(0,10));//레포츠 데이터 쌓이면 12로 바꿔야함
 			model.addAttribute("ratingList", topRatingList);
 			model.addAttribute("reserveList", topReserveList);
 
