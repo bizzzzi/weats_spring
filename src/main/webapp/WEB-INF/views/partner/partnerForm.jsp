@@ -98,7 +98,8 @@
       	</div>
 
       <div class="partnerBtn form">
-        <p>아래 버튼을 선택하면 <a href="#" target="_blank">개인정보 동의</a> 및 <a href="#" target="_blank">파트너 약관</a>에 동의하는 것입니다.</p><br>
+        <p>아래 버튼을 선택하면 <a href="PersonalInformation" target="_blank" onClick="window.open(this.href, '', 'width=600, height=500'); return false;">개인정보 동의</a> 및 
+        <a href="PartnerInfomation" target="_blank" onClick="window.open(this.href, '', 'width=600, height=500'); return false;">파트너 약관</a>에 동의하는 것입니다.</p><br>
         <input type="submit" class="partnerFormBtn" value="확인 및 제출" onclick="nullCheck()">
       </div>
       
