@@ -17,7 +17,7 @@ function checkBusinessNumber() {
          partnerFormBtn.type = 'button'; // input타입을 button으로 변경하여 폼 제출을 막아줌
          partnerFormBtn.addEventListener('click',()=>{
         //   partnerLicenseNum.value = "";
-           partnerLicenseNum.focus();
+        //   partnerLicenseNum.focus();
          })
         }else{
           messageBox.style.display = 'none';
@@ -29,7 +29,7 @@ function checkBusinessNumber() {
     } else {
         partnerFormBtn.addEventListener('click',()=>{
           partnerFormBtn.type = 'button';
-          messageBox.style.display = 'block';
+          messageBox.style.display = 'none';
           partnerLicenseNum.focus();
         })
     }

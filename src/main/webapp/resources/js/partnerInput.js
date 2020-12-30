@@ -4,7 +4,6 @@ let sample4_postcode=document.getElementById('sample4_postcode');
 let sample4_roadAddress=document.getElementById('sample4_roadAddress');
 let sample4_jibunAddress=document.getElementById('sample4_jibunAddress');
 let partner_license_num = document.querySelector('.partner_license_num');
-
 let partner_license_docs = document.querySelector('.partner_license_docs');
 let partnerFormBtn = document.querySelector('.partnerFormBtn');
 
