@@ -12,10 +12,10 @@
 
 	<!-- JDBC 연동 정보 읽어오기 -->
 	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
-		<property name="driverClassName" value="${driver}" />
-		<property name="url" value="${url}" />
-		<property name="username" value="${username}" />
-		<property name="password" value="${passwd}" />
+		<property name="driverClassName" value="${jdbc.driver}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.passwd}" />
 	</bean>
 
 	<!-- 3. SqlSessionFactoryBean --> <!-- MySqlSessionFactory -->
@@ -27,6 +27,9 @@
 				<value>classpath:com/config/MemberMapper.xml</value>
 				<value>classpath:com/config/PartnerMapper.xml</value>
 				<value>classpath:com/config/TradeMapper.xml</value>
+				<value>classpath:com/config/ReservationMapper.xml</value>
+				<value>classpath:com/config/AdminMapper.xml</value>
+				<value>classpath:com/config/CustomerMapper.xml</value>
 			</list>
 		</property>
 		<property name="typeAliases">
@@ -41,14 +44,23 @@
 				<value>com.dto.TradeDTO</value>
 				<value>com.dto.ReservationDTO</value>
 				<value>com.dto.ReservationControlDTO</value>
+				<value>com.dto.ReservationItemDTO</value>
 				<value>com.dto.TradeCommentsDTO</value>
+				<value>com.dto.KakaoPayDTO</value>
+				<value>com.dto.KakaoPayApprovalDTO</value>
+				<value>com.dto.KakaoPayCancelDTO</value>
+				<value>com.dto.KakaoPayCancelDTO</value>
+				<value>com.dto.MyReserveDTO</value>
+				<value>com.dto.CustomerQnADTO</value>
+				<value>com.dto.CustomerSupportDTO</value>
 			</list>
 		</property>
 	</bean>
 
 	<!-- 4. SqlSessionTemplate --> <!-- SqlSession과 같은 기능을 함 -->
 	<bean id="sessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
-		<constructor-arg name="sqlSessionFactory" ref="sessionFactory"/>
+		<!--<constructor-arg name="sqlSessionFactory" ref="sessionFactory"/>-->
+		<constructor-arg ref="sessionFactory"/>
 	</bean>
 	<!-- 여기까지 Mybatis 설정 -->
 
@@ -57,7 +69,7 @@
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 	<!-- Transaction관련 어노테이션 활성화 및 관리 Manager 주입 -->
-	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="false" />
+	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true" />
 	<!-- DataSourceTransactionManager 설정 tx 설정 끝 -->
 
 	<!-- jdbcTemplate 빈생성 ,DataSource주입 --><!-- PreparedStatement 사용할 때 씀  -->

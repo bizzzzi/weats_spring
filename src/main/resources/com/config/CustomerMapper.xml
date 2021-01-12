@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="CustomerMapper">
+	<insert id="questionWrite" parameterType="CustomerQnADTO">
+		insert into customer_question values
+			<choose>
+				<when test="question_group == null">
+					('Q'||customer_question_seq.nextval, #{user_id}, #{q_title}, #{q_type}, #{q_content}
+					, #{q_reservation_id}, #{q_phone}, sysdate, 0, #{user_email}, #{user_name}, 'Q'||customer_question_seq.currval)
+				</when>
+				<otherwise>
+					('Q'||customer_question_seq.nextval, #{user_id}, null, null, #{q_content}
+					, null, null, sysdate, 0, #{user_email}, #{user_name}, #{question_group})
+				</otherwise>
+			</choose>
+
+	</insert>
+
+	<select id="userQuestionList" parameterType="string" resultType="CustomerQnADTO">
+		select * from customer_question where user_id = #{user_id} order by answer_verify desc, q_regidate
+	</select>
+
+	<!--문의 리스트-->
+	<select id="AllQuestionList" resultType="CustomerQnADTO">
+		select * from customer_question order by answer_verify, q_regidate
+	</select>
+<!--  question detail-->
+	<select id="questionDetail" parameterType="string" resultType="CustomerQnADTO">
+		select * from customer_question where question_group = #{question_group} order by q_regidate
+	</select>
+
+<!--	댓글 버튼 생성-->
+	<select id="deleteBtn" parameterType="string" resultType="int">
+		select count(*) from customer_question where question_group = #{question_group}
+	</select>
+
+<!--	댓글 삭제-->
+	<delete id="questionDelete" parameterType="string">
+		delete from customer_question where question_id = #{question_id}
+	</delete>
+
+<!--	관리자가 원 게시글에 답변(댓글)-->
+	<update id="answerSuccess" parameterType="string">
+		update customer_question set answer_verify = 1 where question_id = #{question_group}
+	</update>
+
+<!--	사용자가 원 게시글에 재 문의(댓글)-->
+	<update id="reQuestion" parameterType="string">
+		update customer_question set answer_verify = 0 where question_id = #{question_group}
+	</update>
+
+	<select id="questionUseremail" parameterType="string" resultType="string">
+		select user_email from customer_question question_id = #{question_group}
+	</select>
+
+<!--	관리자가 FAQ 등록-->
+	<insert id="supportWrite" parameterType="CustomerSupportDTO">
+		insert into customer_support values('S'||support_seq.nextval, #{s_type}, #{s_question}, #{s_answer})
+	</insert>
+
+<!--	관리자 측 FAQ List-->
+	<select id="supportList" resultType="CustomerSupportDTO">
+		select * from customer_support order by s_type
+	</select>
+
+	<!--	사용자 측 FAQ List-->
+	<select id="supportListByType" resultType="CustomerSupportDTO">
+		select * from customer_support where s_type =  #{s_type}
+	</select>
+
+<!--	FAQ 상세 페이지-->
+	<select id="supportDetail" parameterType="string" resultType="CustomerSupportDTO">
+		select * from customer_support where support_id = #{support_id}
+	</select>
+
+<!--	관리자 페이지에서 FAQ 수정-->
+	<update id="supportUpdate" parameterType="CustomerSupportDTO">
+		update customer_support set s_question = #{s_question}, s_answer = #{s_answer}, s_type = #{s_type} where support_id = #{support_id}
+	</update>
+<!--	관리자 페이지에서 FAQ 삭제-->
+	<delete id="supportDelete" parameterType="string">
+		delete from customer_support where support_id = #{support_id}
+	</delete>
+
+<!--	검색어 -->
+	<select id="supportSearch" parameterType="string" resultType="CustomerSupportDTO">
+		select * from customer_support
+		where s_type like '%' || #{search} ||'%' or s_question like '%' || #{search} ||'%' or s_answer like '%' || #{search} ||'%'
+	</select>
+
+
+</mapper>

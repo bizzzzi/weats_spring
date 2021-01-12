@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ReservationMapper">
+
+
+	<!--카카오 페이 결제를 눌럿을 때 insert-->
+	<insert id="reserveAdd" parameterType="ReservationDTO">
+		insert into reservation
+			values('RS'||reservation_seq.nextval, #{user_id}, #{leports_id}, #{rs_name}, #{rs_phone}, #{rs_persons} , #{rs_paymethod}
+			, to_date(#{rs_date}, 'yy-mm-dd'), sysdate, #{rs_price}, #{rs_item_name}, null, 0)
+	</insert>
+
+	<insert id="reserveItemAdd" parameterType="arraylist">
+		insert all 
+		<foreach collection="list" item="item" index="index">
+			into reservation_item values
+			('RS_I'||rsitemseq() , #{item.reservation_id}, #{item.leports_item_id}, #{item.rs_item_title}
+			, #{item.rs_item_person}, #{item.rs_item_price})
+		</foreach>
+		select * from dual
+	</insert>
+
+	<!--tid 추가-->
+	<update id="reserveTidAdd" parameterType="hashmap">
+		update reservation set tid = #{tid} where reservation_id = #{reservation_id}
+	</update>
+
+	<!-- 에약 번호 select-->
+	<select id="reserveId" parameterType="hashmap" resultType="string">
+		select reservation_id from reservation where user_id = #{user_id} and leports_id = #{leports_id}
+		order by rs_payment_date desc
+	</select>
+
+	<!--결제가 제대로 완료되지 않으면  delete 또는 결제 취소-->
+	<delete id="deleteReserve" parameterType="hashmap">
+		delete from reservation where reservation_id = #{reservation_id} and user_id = #{user_id}
+	</delete>
+
+
+	<!--예약 내역 리스트-->
+	<select id="reserveList" parameterType="string" resultType="MyReserveDTO">
+		select l.leports_id, l.leports_title, l.leports_main_img, p.c_phone, p.c_address, p.c_detail_address,
+			r.reservation_id, r.rs_item_name, r.rs_persons, r.rs_date, r.rs_price, r.review_verify
+		from reservation r
+		join leports l
+		on r.leports_id = l.leports_id
+		join partner p
+		on l.partner_id = p.partner_id
+		where r.user_id = #{user_id}
+		order by r.rs_payment_date desc
+	</select>
+
+<!--	예약 내역 상세-->
+	<select id="reserveDetailList" parameterType="string" resultType="ReservationItemDTO">
+		select * from reservation_item where reservation_id = #{reservation_id}
+	</select>
+
+	<!--tid 찾기(예약 취소)-->
+	<select id="tidSearch" parameterType="hashmap" resultType="string">
+		select tid from reservation where reservation_id = #{reservation_id} and user_id = #{user_id}
+	</select>
+
+	<insert id="reviewWrite" parameterType="LeportsReviewDTO">
+		insert into reservation_review values('RS_R'||rs_review_seq.nextval, #{leports_id}, #{reservation_id}, #{user_id}, #{review_comments}, sysdate, #{review_star})
+	</insert>
+	<!--리뷰 작성했는지 안했는지 판단 -->
+	<update id="reviewVerify" parameterType="hashmap">
+		update reservation
+		set
+		<choose>
+			<when test="review_verify == 1">
+				review_verify = 0
+			</when>
+			<otherwise>
+				review_verify = 1
+			</otherwise>
+		</choose>
+
+		where user_id = #{user_id} and reservation_id = #{reservation_id}
+	</update>
+
+	<!--내가 쓴 리뷰 리스트-->
+	<select id="reviewList" parameterType="string" resultType="LeportsReviewDTO">
+		select r.review_id, r.user_id, r.reservation_id, r.review_comments, r.review_regidate, r.review_star,
+		       l.leports_id, l.leports_title, l.leports_main_img, m.user_email, rs.review_verify
+		from reservation_review r
+		join leports l
+		on r.leports_id = l.leports_id
+		join member m
+		on r.user_id = m.user_id
+		join reservation rs
+		on r.reservation_id = rs.reservation_id
+		where r.user_id = #{user_id}
+		order by r.review_regidate desc
+	</select>
+
+	<!--리뷰 삭제-->
+	<delete id="reviewDelete" parameterType="hashmap">
+		delete from reservation_review where review_id = #{review_id} and user_id = #{user_id}
+	</delete>
+</mapper>

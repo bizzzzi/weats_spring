@@ -1,0 +1,169 @@
+.customer_btn{
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    height: 250px;
+    display: flex;
+    align-content: center;
+    margin-bottom: 30px;
+}
+.customer_btn form{
+    width: 100%;
+}
+.customer_btn .search{
+    margin: 10px 0px;
+}
+.customer_btn .search input{
+    height: 45px;
+}
+.customer_btn .search input:first-child{
+    width: 30%;
+}
+.customer_btn .search input:last-child{
+    width: 7%;
+}
+.customer_con{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+
+#customer_cont{
+    display: flex;
+}
+section{
+    width: 100%;
+    margin: 0 auto;
+}
+
+/*이용방법*/
+
+#customerBanner{
+    width: 100%;
+    text-align: center;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.howList{
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
+}
+.howList img{
+    width: 20%;
+    height: 120px;
+    object-fit: contain;
+}
+.howList ul{
+    width: 100%;
+    padding-left: 35px;
+}
+.howList li{
+    display: flex;
+}
+.how_footer{
+    text-align: center;
+    padding-top: 35px;
+    border-top: #0c5460;
+    margin-top: 35px;
+}
+.how_footer a{
+    margin: 30px 0px;
+    display: inline-block;
+}
+
+
+/*1:1 문의*/
+.questionForm ul li{
+    display: flex;
+    margin: 10px;
+}
+.questionForm ul li strong{
+    width: 20%;
+}
+.questionForm ul li input,select{
+    width: 100%;
+}
+.q_content{
+    height: 300px;
+}
+.qa_submit{
+    display: flex;
+    justify-content: center;
+}
+.qa_submit input{
+    margin: 0px 5px;
+}
+
+.qList ul{
+    display: flex;
+    justify-content: space-around;
+    margin: 10px 10px;
+}
+.qList li{
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.qList.support li:first-child{
+    width: 100px;
+}
+.qList.support li:nth-child(2){
+    width: 100px;
+}
+.qList.support li{
+    width: 350px;
+}
+.qList ul a{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+/*support*/
+.supportList{
+    width: 55%;
+    margin: 0 auto;
+}
+.support_cont{
+    margin-top: 10px;
+    border: 1px solid #e9ecef;
+    padding: 20px;
+}
+.support_cont h2{
+    padding-bottom: 15px;
+    color: #007bff;
+}
+.support_cont li{
+    margin: 5px;
+}
+
+.support_cont strong{
+    margin-right: 10px;
+    color: #007bff;
+}
+
+.customer_con{
+    background-image: url("../images/customer_bg.png");
+    background-position: 0%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.searchBox{
+    background-color: #ffffff;
+    border: none;
+    border-radius: .5rem;
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .30), 0 1px 3px 1px rgba(60, 64, 67, .15);
+    box-sizing: border-box;
+    color: #202124;
+    font-size: 1rem;
+    padding: 0 2.5rem 0 4.5rem;
+    vertical-align: middle;
+}
+

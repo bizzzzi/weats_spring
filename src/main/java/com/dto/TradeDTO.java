@@ -1,5 +1,8 @@
 package com.dto;
 
+import org.apache.ibatis.type.Alias;
+
+@Alias("TradeDTO")
 public class TradeDTO {
 	private String trade_id;
 	private String user_id;
@@ -16,8 +19,7 @@ public class TradeDTO {
 	private String trade_user_name;
 	private int trade_price;
 	private String trade_regidate;
-	private int trade_hit;
-	
+
 	public TradeDTO() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -26,7 +28,7 @@ public class TradeDTO {
 	public TradeDTO(String trade_id, String user_id, String trade_main_img, String trade_sub_img1,
 			String trade_sub_img2, String trade_sub_img3, String trade_sub_img4, String trade_title,
 			String trade_contents, String trade_type, String trade_loc, String trade_phone, String trade_user_name,
-			int trade_price, String trade_regidate, int trade_hit) {
+			int trade_price, String trade_regidate) {
 		super();
 		this.trade_id = trade_id;
 		this.user_id = user_id;
@@ -43,7 +45,6 @@ public class TradeDTO {
 		this.trade_user_name = trade_user_name;
 		this.trade_price = trade_price;
 		this.trade_regidate = trade_regidate;
-		this.trade_hit = trade_hit;
 	}
 
 	public String getTrade_id() {
@@ -166,13 +167,6 @@ public class TradeDTO {
 		this.trade_regidate = trade_regidate;
 	}
 
-	public int getTrade_hit() {
-		return trade_hit;
-	}
-
-	public void setTrade_hit(int trade_hit) {
-		this.trade_hit = trade_hit;
-	}
 
 	@Override
 	public String toString() {
@@ -181,7 +175,7 @@ public class TradeDTO {
 				+ trade_sub_img3 + ", trade_sub_img4=" + trade_sub_img4 + ", trade_title=" + trade_title
 				+ ", trade_contents=" + trade_contents + ", trade_type=" + trade_type + ", trade_loc=" + trade_loc
 				+ ", trade_phone=" + trade_phone + ", trade_user_name=" + trade_user_name + ", trade_price="
-				+ trade_price + ", trade_hit=" + trade_hit + "]";
+				+ trade_price  + "]";
 	}
 	
 	

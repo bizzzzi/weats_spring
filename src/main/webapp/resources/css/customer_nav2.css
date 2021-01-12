@@ -1,0 +1,10 @@
+.customer_nav{
+    width: 80%;
+    margin: 0 auto;
+    padding: 30px 0px;
+}
+.customer_nav ul{
+    display: flex;
+    justify-content: space-around;
+}
+

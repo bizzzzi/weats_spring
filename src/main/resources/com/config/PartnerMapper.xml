@@ -64,15 +64,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 레포츠 아이템 등록 -->
  	<insert id="leportsItemInsert" parameterType="LeportsItemDTO">
-		insert into leports_item (leports_id,leports_item_title,leports_summary,
+		insert into leports_item (leports_id,leports_item_id,leports_item_title,leports_summary,
 		leports_price,leports_max_capacity)
-		values(#{leports_id},#{leports_item_title},#{leports_summary},
+		values(#{leports_id},'I'||leports_item_seq.nextval,#{leports_item_title},#{leports_summary},
 		#{leports_price},#{leports_max_capacity})
 	</insert>
 	
-	<!-- 레포츠 이름으로 레포츠아이디 찾기 -->
-	<select id="leportsIdSelect" parameterType="String" resultType="LeportsDTO">
-		select leports_id,leports_title from leports where leports_title=#{leports_title}
+	<!--레포츠아이디 찾기 -->
+	<select id="leportsIdSelect" resultType="String">
+		select 'L'||(max(to_number(substr(leports_id,2)))) from leports
 	</select>
 
 	
@@ -86,18 +86,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select leports_id,leports_main_img,leports_title 
 		from leports
 		where partner_id=#{partner_id}
+		order by leports_id desc
 	</select>
 	
 	<!-- 상품 상세 페이지 레포츠 -->
  	<select id="ProductDetailLeports" parameterType="String" resultType="leportsDTO">
-		select leports_id,partner_id,leports_title,leports_type,leports_loc,leports_content
+		select leports_id,partner_id,leports_title,leports_type,leports_loc,leports_content,
+		leports_sub_img1,leports_sub_img2,leports_sub_img3,leports_sub_img4,leports_main_img
 		from leports
 		where leports_id=#{leports_id}
 	</select> 
 	
 	<!-- 상품 상세 페이지 레포츠 아이템 -->
 	<select id="ProductDetailItem" parameterType="String" resultType="leportsItemDTO">
-		select leports_id,leports_item_title,leports_summary,leports_price,leports_max_capacity
+		select leports_id,leports_item_title,leports_summary,leports_price,leports_max_capacity,leports_item_id
 		from leports_item
 		where leports_id=#{leports_id}
 	</select>
@@ -115,44 +117,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update leports_item set leports_item_title=#{leports_item_title},
 		leports_summary=#{leports_summary},leports_price=#{leports_price},
 		leports_max_capacity=#{leports_max_capacity}
-		where leports_id=#{leports_id}
+		where leports_item_id=#{leports_item_id}
 	</update>
 	
-	<!-- 예약관리 -->
-<!-- 	<select id="Reservationleports" parameterType="leportsDTO" resultType="String">
-		select leports_main_img,leports_title 
-		from leports 
-		where partner_id=#{partner_id}
-	</select> -->
-	
-
-	
-	<resultMap type="LeportsDTO" id="leports">
-		<result column="leports_id" property="leports_id"></result>
-		<result column="leports_title" property="leports_title"></result>
-		<result column="leports_main_img" property="leports_main_img"></result>
-	</resultMap>	
-	
-	<resultMap type="ReservationDTO" id="reservation">
-		<result column="rs_date" property="rs_date"/>
-		<result column="rs_persons" property="rs_persons"/>
-		<result column="rs_name" property="rs_name"/>
-		<result column="rs_phone" property="rs_phone"/>
-		<result column="rs_price" property="rs_price"/>
-	</resultMap>
-	
-	<resultMap type="ReservationControlDTO" id="ReservationControl">
-		<collection property="leports" resultMap="leports"></collection>
-		<collection property="reservation" resultMap="reservation"></collection>
-	</resultMap>
-	
-		<!-- 예약관리 -->
-	<select id="ReservationControl" parameterType="String" resultType="ReservationControlDTO">
-		select l.leports_title, l.leports_main_img,l.leports_id,
-		r.rs_date,r.rs_persons,r.rs_name,r.rs_phone,r.rs_price
-		from leports l 
-		join reservation r
-		on l.leports_id = r.leports_id
-		where user_id=#{user_id}
+	<!-- 예약관리 상세 리스트 -->	
+	<select id="ReservationControl" resultType="ReservationControlDTO">
+		select ri.rs_item_title,ri.rs_item_person,ri.rs_item_price,ri.leports_item_id,
+		r.rs_date,r.rs_name ,r.rs_phone
+		from reservation r join reservation_item ri
+		on r.reservation_id=ri.reservation_id
+		where leports_id=#{leports_id}
+		order by ri.leports_item_id asc
 	</select>
+	
+	
 </mapper>

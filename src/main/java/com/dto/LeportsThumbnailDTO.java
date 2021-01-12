@@ -1,87 +1,35 @@
 package com.dto;
 
-public class LeportsThumbnailDTO {
-	private String leports_id;
-	private String leports_title;
-	private String leports_main_img;
-	private String leports_loc;
-	private String leports_summary;
-	private int leports_price;
-	
-	public LeportsThumbnailDTO() {
-		// TODO Auto-generated constructor stub
-	}
+import org.apache.ibatis.type.Alias;
 
-	public LeportsThumbnailDTO(String leports_id, String leports_title, String leports_main_img, String leports_loc,
-			String leports_summary, int leports_price) {
-		super();
-		this.leports_id = leports_id;
-		this.leports_title = leports_title;
-		this.leports_main_img = leports_main_img;
-		this.leports_loc = leports_loc;
-		this.leports_summary = leports_summary;
-		this.leports_price = leports_price;
-	}
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+import org.jetbrains.annotations.NotNull;
 
-	public String getLeports_id() {
-		return leports_id;
-	}
+@Alias("LeportsThumbnailDTO")
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@ToString
+public class LeportsThumbnailDTO implements Comparable<LeportsThumbnailDTO> {
+    private String leports_id;
+    private String leports_title;
+    private String leports_main_img;
+    private String leports_loc;
+    private String leports_summary;
+    private int leports_price;
+    private int review_cnt;
+    private double review_star;
+    private int reserve_cnt;
+    private String leports_regidate;
 
-	public void setLeports_id(String leports_id) {
-		this.leports_id = leports_id;
-	}
-
-	public String getLeports_title() {
-		return leports_title;
-	}
-
-	public void setLeports_title(String leports_title) {
-		this.leports_title = leports_title;
-	}
-
-	public String getLeports_main_img() {
-		return leports_main_img;
-	}
-
-	public void setLeports_main_img(String leports_main_img) {
-		this.leports_main_img = leports_main_img;
-	}
-
-	public String getLeports_loc() {
-		return leports_loc;
-	}
-
-	public void setLeports_loc(String leports_loc) {
-		this.leports_loc = leports_loc;
-	}
-
-	public String getLeports_summary() {
-		return leports_summary;
-	}
-
-	public void setLeports_summary(String leports_summary) {
-		this.leports_summary = leports_summary;
-	}
-
-	public int getLeports_price() {
-		return leports_price;
-	}
-
-	public void setLeports_price(int leports_price) {
-		this.leports_price = leports_price;
-	}
-
-	@Override
-	public String toString() {
-		return "LeportsThumbnailDTO [leports_id=" + leports_id + ", leports_title=" + leports_title
-				+ ", leports_main_img=" + leports_main_img + ", leports_loc=" + leports_loc + ", leports_summary="
-				+ leports_summary + ", leports_price=" + leports_price + "]";
-	}
-
-	
-	
-	
-
-	
-	
+    // 기본 정렬 : 최신 날짜순
+    @Override
+    public int compareTo(@NotNull LeportsThumbnailDTO o) {
+        return this.leports_regidate.compareTo(o.leports_regidate);
+    }
 }

@@ -1,0 +1,288 @@
+@charset "UTF-8";
+                                              
+@import
+	url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap')
+	;
+
+@import
+	url('https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@600&display=swap')
+	;
+
+#partnerContent {
+	width: 80%;
+	height: 100%;
+}
+#partnerPageWrap {
+	display:flex;
+}
+.title {
+    font-weight: bold;
+    padding: 20px 0;
+    font-size: 18px;
+}
+/* 파트너 메인 */
+#partnerMain{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    margin: 5% 0;
+}
+
+#partnerMain .maintitle{
+    width: 100%;
+    margin-bottom: 5%;
+    color:#636466;
+}
+#partnerMain a{
+    background-color: #51ABF3;
+    width: 20%;
+    color: #fff;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+}
+.partner_title{
+	border-bottom: 5px solid #2F98ED;
+    width: fit-content;
+    margin: 1%;
+    margin-bottom:4%;
+    padding: 10px;
+}
+
+a:hover {
+    text-decoration: none;
+}
+/*파트너 등록폼*/
+.partner_form {
+    width: 100%;
+    height: 100%;
+    padding: 0 15%;
+    margin-bottom: 20px;
+}
+.main_title {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.partnerAllForm {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.formBox {
+    margin-bottom: 30px;
+}
+.formBox input[type="text"], input[type="number"], select{
+	overflow: visible;
+    padding: 0.8em 0.5em;
+    margin-bottom: 5px;
+    width: 50%;
+}
+
+.post {
+    width: 50%;
+    margin: auto;
+}
+.post.my{
+	margin: 0;
+}
+.post input[type="text"] {
+    width: 100%;
+}
+.postTop {
+    display: flex;
+}
+ .formBox .postBtn{
+    margin-right: 10px; 
+    background: #007bff;
+    color: #fff;
+    border: 1px solid #007bff;
+    border-radius: 4px;
+} 
+.formBox .postBtn.form:hover{
+	background-color: #0062cc;
+}
+ .partner_form .partnerBtn{
+	width:100%;
+    justify-content: center;
+    display: flex;
+    margin-top: 40px;
+} 
+.partnerBtn input,.formBox .postBtn{
+    background: #007bff;
+    color: #fff;
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    padding: 10px 60px;
+}
+.partnerBtn.form{
+	display: flex;
+    flex-direction: column;
+	align-items: center;
+}
+.partnerBtn.form input{
+	width: 50%;
+    margin: auto;
+}
+
+.partnerBtn input:hover{
+	background-color: #0062cc;
+}
+.partner_form img{
+    width: 70%;
+    height: 400px;
+	
+}
+.partner_form .comment {
+  font-size: 9pt;
+}
+/* 상품등록 */
+.formBox textarea{
+	width: 100%;
+    resize: none;
+}
+.formBox #result{
+	color: red;
+}
+.itemform{
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .16);
+    margin: 0px 20px 20px;
+    padding: 10px;
+    border-radius: 10px;
+}
+.item_wrap{
+	width: 100%;
+	display: flex;
+}
+.partner_form.item{
+	padding: 0 10%;
+}
+.partner_form .item_wrap input{
+	width: 70%;
+	padding: 0.8em 0.5em;
+}
+.partnerAllForm.item{
+	display: flex;
+    flex-direction: column;
+    padding:0px;
+    width: 100%;
+}
+.formBox.item{
+	width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.addBtn{
+	width: 20%;
+    padding: 10px 40px;
+    margin: auto;
+    background: #007bff;
+    color: #fff;
+    border: 1px solid #007bff;
+    border-radius: 4px;
+}
+.imageFlex{
+	display: flex;
+}
+.imageFlex img{
+	width: 100px;
+	height: 100px;
+}
+/*파트너 마이페이지*/
+
+.formBox .postBtn{
+	display: block;
+    margin-bottom: 20px;
+    padding: 5px 15px;
+}
+.partnerBtn.info{
+    display: flex;
+    margin: 30px 0;
+}
+.partnerBtn.info input{
+    width: 100%;
+    margin: 0 10px;
+}
+/*등록상품 리스트*/
+.leportsProducts{
+	padding: 10px;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    flex-flow: wrap;
+    justify-content: space-around;
+}
+.partner_list{
+    padding: 10px;
+    display: flex;
+    margin: 10px;
+    border-radius: 4px;
+    width: 300px;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .16);
+}
+.partner_main_img{
+    width: 280px;
+    height: 200px;
+    border: 1px solid #D6D6D6;
+}
+.partner_main_img img{
+	width: 100%;
+	height: 200px;
+}
+.partner_list .partner_item_info{
+	width: 100%;
+	text-align: center;
+	margin: 10% 0%;
+}
+.form-control.partnerMy{
+	width: 50%;
+}
+/* 예약관리 */
+.rsList ul{
+    display: flex;
+    justify-content: space-around;
+    margin: 10px 10px;
+}
+.rsList.subject ul{
+	background-color: #E3F7FE;
+	padding: 10px 0px;
+	margin: 10px 10px;
+}
+.rsList li{
+    width: 100%;
+    text-align: center;
+}
+@media screen and (max-width: 768px) { 
+		.formBox input[type="text"], 
+		.formBox.item input[type="text"],
+		.formBox.item input[type="number"],
+		.partner_form .addItemList input{
+			width: 100%;
+		}
+		.partner_form img{
+			width: 100%;
+   			height: 300px;
+		}
+		.item_wrap{
+		    flex-direction: column;
+		}
+		.addBtn{
+		    width: 40%;
+		}
+		.formBox .postBtn,.formBox .postBtn.form{
+			margin-left: 0;
+		}
+		.partnerBtn.info{
+			flex-direction: column;
+		}
+		.partnerBtn.info input{
+			margin: 5px 0;
+		}
+		.post{
+			width: 100%;
+		}
+	 }
